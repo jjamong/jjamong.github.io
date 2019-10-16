@@ -1,0 +1,1 @@
+(function(){const pages=[{"idx":0,"href":"/categories/","title":"Categories","content":""},{"idx":1,"href":"/","title":"Introduction","content":"Coming soon\n"},{"idx":2,"href":"/tags/","title":"Tags","content":""}];window.bookSearch={pages:pages,idx:lunr(function(){this.ref("idx");this.field("title");this.field("content");pages.forEach(this.add,this);}),}})();
