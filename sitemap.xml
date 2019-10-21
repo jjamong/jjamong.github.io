@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>http://example.org/docs/infra/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/categories/</loc>
   </url>
   
