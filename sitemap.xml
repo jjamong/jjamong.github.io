@@ -3,11 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://example.org/docs/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/architecture/single/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/aws/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/docs/hugo/</loc>
   </url>
   
   <url>
     <loc>http://example.org/docs/infra/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/architecture/separation/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/architecture/loadbalancer/</loc>
   </url>
   
   <url>

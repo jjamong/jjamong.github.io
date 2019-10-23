@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Hugo" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="애플리케이션/데이터베이스 서버 분리" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/docs/hugo/" />
+<meta property="og:url" content="http://example.org/docs/blog/architecture/separation/" />
 
-<title>Hugo | 짜몽 기술 LAB</title>
+<title>애플리케이션/데이터베이스 서버 분리 | 짜몽 기술 LAB</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -17,7 +17,7 @@
 
 <script defer src="/search.min.910282300bebe918d6170cfdaa85b080d0552b0ce2cbc73d1bf858a01d8c97d5.js" integrity="sha256-kQKCMAvr6RjWFwz9qoWwgNBVKwziy8c9G/hYoB2Ml9U="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/hugo/index.xml" title="짜몽 기술 LAB" />
+<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/blog/architecture/separation/index.xml" title="짜몽 기술 LAB" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -144,7 +144,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/blog/architecture/separation/" >
+  <a href="/docs/blog/architecture/separation/"  class="active">
       애플리케이션/데이터베이스 서버 분리
   </a>
 
@@ -260,7 +260,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/hugo/"  class="active">
+  <a href="/docs/hugo/" >
       Hugo
   </a>
 
@@ -354,37 +354,36 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Hugo</strong>
+  <strong>애플리케이션/데이터베이스 서버 분리</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="hugo">Hugo</h1>
+<h1 id="애플리케이션-데이터베이스-서버-분리">애플리케이션/데이터베이스 서버 분리</h1>
 
-<p>Static Site Generator</p>
+<p><img src="/docs/blog/architecture/separation/01.png" alt="애플리케이션/데이터베이스 서버 분리" /></p>
 
-<h2 id="정보">정보</h2>
+<p>단일 서버 구성에서 데이터베이스를 별도의 서버로 분리한 구성.</p>
 
-<p>사이트 : <a href="https://gohugo.io/">https://gohugo.io/</a><br>
-설치 사이트 : <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a></p>
+<p>단일서버의 단점인 전체 서비스 장애 확률, 효율적인 자원 사용, 보안취약이
+해결된다.</p>
 
-<h2 id="명령어">명령어</h2>
+<p><strong>장점</strong></p>
 
-<p>hugo 프로젝트 생성 (project 프로젝트명)</p>
+<ul>
+<li>전체 서비스에 장애가 생길 확률이 높음이 개선</li>
+<li>효율적인 자원 사용 개선</li>
+<li>보안 취약 개선</li>
+</ul>
 
-<pre><code class="language-shell">hugo new site project
-</code></pre>
+<p><strong>단점</strong></p>
 
-<p>로컬서버 실행 localhost:1313</p>
-
-<pre><code class="language-shell">hugo server -D
-</code></pre>
-
-<p>빌드하여 public폴더에 생성한다. (theme 테마명))</p>
-
-<pre><code class="language-shell">hugo -t theme
-</code></pre>
+<ul>
+<li>관리서버 증가.</li>
+<li>네트워크 보안 고려.</li>
+<li>스케일 아웃(서버확장)이 어렵다.</li>
+</ul>
 </article>
 
       
@@ -398,11 +397,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#hugo">Hugo</a>
-<ul>
-<li><a href="#정보">정보</a></li>
-<li><a href="#명령어">명령어</a></li>
-</ul></li>
+<li><a href="#애플리케이션-데이터베이스-서버-분리">애플리케이션/데이터베이스 서버 분리</a></li>
 </ul>
 </nav>
   </aside>

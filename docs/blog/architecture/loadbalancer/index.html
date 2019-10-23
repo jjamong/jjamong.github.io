@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Hugo" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="로드 밸런서" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/docs/hugo/" />
+<meta property="og:url" content="http://example.org/docs/blog/architecture/loadbalancer/" />
 
-<title>Hugo | 짜몽 기술 LAB</title>
+<title>로드 밸런서 | 짜몽 기술 LAB</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -17,7 +17,7 @@
 
 <script defer src="/search.min.910282300bebe918d6170cfdaa85b080d0552b0ce2cbc73d1bf858a01d8c97d5.js" integrity="sha256-kQKCMAvr6RjWFwz9qoWwgNBVKwziy8c9G/hYoB2Ml9U="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/hugo/index.xml" title="짜몽 기술 LAB" />
+<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/blog/architecture/loadbalancer/index.xml" title="짜몽 기술 LAB" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -176,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/blog/architecture/loadbalancer/" >
+  <a href="/docs/blog/architecture/loadbalancer/"  class="active">
       로드 밸런서
   </a>
 
@@ -260,7 +260,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/hugo/"  class="active">
+  <a href="/docs/hugo/" >
       Hugo
   </a>
 
@@ -354,37 +354,31 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Hugo</strong>
+  <strong>로드 밸런서</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="hugo">Hugo</h1>
+<h1 id="로드-밸런서">로드 밸런서</h1>
 
-<p>Static Site Generator</p>
+<p><img src="/docs/blog/architecture/loadbalancer/01.png" alt="로드밸런서" />
+클라이언트는 로드 밸런서 서버와 통신하고 그 뒤에 여러 애플리케이션 서버를 두는 구성.</p>
 
-<h2 id="정보">정보</h2>
+<p><strong>장점</strong></p>
 
-<p>사이트 : <a href="https://gohugo.io/">https://gohugo.io/</a><br>
-설치 사이트 : <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a></p>
+<ul>
+<li>스케일 아웃이 가능.</li>
+<li>애플리케이션 서버 중 일부 서버에 장애 발생 시 대응 가능
+<br>=&gt; 정상 서버에만 요청을 가능하도록 할 수 있음.</li>
+</ul>
 
-<h2 id="명령어">명령어</h2>
+<p><strong>단점</strong></p>
 
-<p>hugo 프로젝트 생성 (project 프로젝트명)</p>
-
-<pre><code class="language-shell">hugo new site project
-</code></pre>
-
-<p>로컬서버 실행 localhost:1313</p>
-
-<pre><code class="language-shell">hugo server -D
-</code></pre>
-
-<p>빌드하여 public폴더에 생성한다. (theme 테마명))</p>
-
-<pre><code class="language-shell">hugo -t theme
-</code></pre>
+<ul>
+<li>로드밸런서 서버 장애 시 연결된 모든 애플리케이션 서버 장애.
+<br>=&gt; 로드밸런서 서버를 통해 모든 요청과 응답이 이뤄지므로 애플리케이션 서버가 정상이여도 로드밸런서 서버가 장애가 날 경우 전체 서비스에 영향</li>
+</ul>
 </article>
 
       
@@ -398,11 +392,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#hugo">Hugo</a>
-<ul>
-<li><a href="#정보">정보</a></li>
-<li><a href="#명령어">명령어</a></li>
-</ul></li>
+<li><a href="#로드-밸런서">로드 밸런서</a></li>
 </ul>
 </nav>
   </aside>
