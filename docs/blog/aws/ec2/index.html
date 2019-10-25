@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="아키텍처 이해" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="EC2" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/docs/blog/architecture/" />
+<meta property="og:url" content="http://example.org/docs/blog/aws/ec2/" />
 
-<title>아키텍처 이해 | 짜몽 기술 LAB</title>
+<title>EC2 | 짜몽 기술 LAB</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
@@ -17,7 +17,7 @@
 
 <script defer src="/search.min.d8405041fda58666c7c2110eeb4610eabec6ad93b1b116d88dc7558b5d1b12db.js" integrity="sha256-2EBQQf2lhmbHwhEO60YQ6r7GrZOxsRbYjcdVi10bEts="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/blog/architecture/index.xml" title="짜몽 기술 LAB" />
+<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/blog/aws/ec2/index.xml" title="짜몽 기술 LAB" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -90,7 +90,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/blog/architecture/"  class="active">
+  <a href="/docs/blog/architecture/" >
       아키텍처 이해
   </a>
 
@@ -240,7 +240,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/docs/blog/aws/ec2/" >
+  <a href="/docs/blog/aws/ec2/"  class="active">
       EC2
   </a>
 
@@ -482,35 +482,20 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>아키텍처 이해</strong>
+  <strong>EC2</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="아키텍처의-이해">아키텍처의 이해</h1>
+<h1 id="ec2-elastic-compute-cloud">EC2 (Elastic Compute Cloud)</h1>
 
-<p>서비스에 따른 애플리케이션, DB 서버 구성. 로드밸런서 구조를 설명</p>
+<p><code>위치</code> 서비스 &gt; 컴퓨터 &gt; EC2
+<img src="/docs/blog/aws/ec2/01.png" alt="EC2" /></p>
 
-<h2 id="단일서버-docs-blog-architecture-single"><a href="/docs/blog/architecture/single">단일서버</a></h2>
+<p>EC2는 컴퓨터 스펙(CPU, HD) 등을 설정하고 OS를 설치하여 컴퓨터를 제공받음</p>
 
-<p><img src="/docs/blog/architecture/single/01.png" alt="단일서버" /></p>
-
-<p>가장 기본적인 서버 구성으로 테스트 서버나, 간단한고 작은 서비스를 할 때 많이 사용된다.</p>
-
-<h2 id="애플리케이션-데이터베이스-서버-분리-docs-blog-architecture-separation"><a href="/docs/blog/architecture/separation">애플리케이션/데이터베이스 서버 분리</a></h2>
-
-<p><img src="/docs/blog/architecture/separation/01.png" alt="애플리케이션/데이터베이스 서버 분리" /></p>
-
-<p>단일 서버 구성에서 데이터베이스를 별도의 서버로 분리한 구성.</p>
-
-<p>단일서버의 단점인 전체 서비스 장애 확률, 효율적인 자원 사용, 보안취약이
-해결된다.</p>
-
-<h2 id="로드밸런서-docs-blog-architecture-loadbalancer"><a href="/docs/blog/architecture/loadbalancer">로드밸런서</a></h2>
-
-<p><img src="/docs/blog/architecture/loadbalancer/01.png" alt="로드밸런서" />
-클라이언트는 로드 밸런서 서버와 통신하고 그 뒤에 여러 애플리케이션 서버를 두는 구성.</p>
+<hr />
 </article>
 
       
@@ -524,12 +509,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc levels-6 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#아키텍처의-이해">아키텍처의 이해</a>
-<ul>
-<li><a href="#단일서버-docs-blog-architecture-single"><a href="/docs/blog/architecture/single">단일서버</a></a></li>
-<li><a href="#애플리케이션-데이터베이스-서버-분리-docs-blog-architecture-separation"><a href="/docs/blog/architecture/separation">애플리케이션/데이터베이스 서버 분리</a></a></li>
-<li><a href="#로드밸런서-docs-blog-architecture-loadbalancer"><a href="/docs/blog/architecture/loadbalancer">로드밸런서</a></a></li>
-</ul></li>
+<li><a href="#ec2-elastic-compute-cloud">EC2 (Elastic Compute Cloud)</a></li>
 </ul>
 </nav>
   </aside>

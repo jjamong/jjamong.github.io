@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>http://example.org/docs/blog/aws/ec2/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/docs/blog/architecture/single/</loc>
   </url>
   
@@ -15,7 +19,11 @@
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/</loc>
+    <loc>http://example.org/docs/blog/aws/ec2/instancecreate/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/aws/</loc>
   </url>
   
   <url>
@@ -31,7 +39,15 @@
   </url>
   
   <url>
+    <loc>http://example.org/docs/blog/aws/ec2/webserver/</loc>
+  </url>
+  
+  <url>
     <loc>http://example.org/docs/blog/architecture/loadbalancer/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docs/blog/aws/ec2/securitygroup/</loc>
   </url>
   
   <url>
