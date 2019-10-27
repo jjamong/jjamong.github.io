@@ -3,70 +3,70 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/docs/hugo/</loc>
+    <loc>http://jjamong.github.io/docs/hugo/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/ec2/</loc>
+    <loc>http://jjamong.github.io/docs/aws/ec2/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/ec2/instancecreate/</loc>
+    <loc>http://jjamong.github.io/docs/aws/ec2/instancecreate/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/hugo/content/</loc>
+    <loc>http://jjamong.github.io/docs/hugo/content/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/</loc>
+    <loc>http://jjamong.github.io/docs/aws/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/hugo/content_format/</loc>
+    <loc>http://jjamong.github.io/docs/hugo/content_format/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/ec2/webserver/</loc>
+    <loc>http://jjamong.github.io/docs/aws/ec2/webserver/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/hugo/content/</loc>
+    <loc>http://jjamong.github.io/docs/hugo/content/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/hugo/front_matter/</loc>
+    <loc>http://jjamong.github.io/docs/hugo/front_matter/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/ec2/securitygroup/</loc>
+    <loc>http://jjamong.github.io/docs/aws/ec2/securitygroup/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>http://jjamong.github.io/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/docs/aws/ec2/loadbalancer/</loc>
+    <loc>http://jjamong.github.io/docs/aws/ec2/loadbalancer/</loc>
     <lastmod>2018-06-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://jjamong.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/</loc>
+    <loc>http://jjamong.github.io/docs/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://jjamong.github.io/tags/</loc>
   </url>
   
 </urlset>

@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS on 짜몽 기술 LAB</title>
-    <link>http://example.org/docs/aws/</link>
+    <link>http://jjamong.github.io/docs/aws/</link>
     <description>Recent content in AWS on 짜몽 기술 LAB</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/docs/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jjamong.github.io/docs/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>EC2</title>
-      <link>http://example.org/docs/aws/ec2/</link>
+      <link>http://jjamong.github.io/docs/aws/ec2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/docs/aws/ec2/</guid>
+      <guid>http://jjamong.github.io/docs/aws/ec2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>인스턴스 생성/접속</title>
-      <link>http://example.org/docs/aws/ec2/instancecreate/</link>
+      <link>http://jjamong.github.io/docs/aws/ec2/instancecreate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/docs/aws/ec2/instancecreate/</guid>
+      <guid>http://jjamong.github.io/docs/aws/ec2/instancecreate/</guid>
       <description>위치 : 인스턴스 &amp;gt; 인스턴스
 인스턴스 목록을 확인할 수 있다.
 인스턴스 시작 버튼을 선택하여 인스턴스를 생성한다.
@@ -36,10 +36,10 @@
     
     <item>
       <title>웹서버</title>
-      <link>http://example.org/docs/aws/ec2/webserver/</link>
+      <link>http://jjamong.github.io/docs/aws/ec2/webserver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/docs/aws/ec2/webserver/</guid>
+      <guid>http://jjamong.github.io/docs/aws/ec2/webserver/</guid>
       <description>웹서버 Apache url https://www.apachelounge.com/download/
  window 계열은 위 주소에서 다운 리눅스 계열은 yum 설치  Apache 패키지 목록 명령어 $ yum list | grep httpd  httpd가 이름에 포함된 패키지 목록 확인.
 Apache 2.2 패키지 명은 httpd 이며, 2.4 패키지 명은 httpd24이다.
@@ -48,10 +48,10 @@ Apache 설치 명령어 $ sudo yum install httpd24  Apache 시작/종료/재시�
     
     <item>
       <title>보안그룹</title>
-      <link>http://example.org/docs/aws/ec2/securitygroup/</link>
+      <link>http://jjamong.github.io/docs/aws/ec2/securitygroup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/docs/aws/ec2/securitygroup/</guid>
+      <guid>http://jjamong.github.io/docs/aws/ec2/securitygroup/</guid>
       <description>보안그룹 위치 인스턴스 &amp;gt; 네트워크 &amp;gt; 보안 그룹 변경
 인스턴스 방화벽(인바운드/아웃바운드)을 설정한다. EC2가 시작상태에서도 가능하다.
 보안 그룹 변경 팝업에서 원하는 보안 그룹을 설정한다. HTTP/HTTPS 위치 : 네트워크 및 보안 &amp;gt; 보안 그룹
@@ -60,10 +60,10 @@ HTTP/HTTPS를 설정한다.</description>
     
     <item>
       <title>로드 밸런서</title>
-      <link>http://example.org/docs/aws/ec2/loadbalancer/</link>
+      <link>http://jjamong.github.io/docs/aws/ec2/loadbalancer/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/docs/aws/ec2/loadbalancer/</guid>
+      <guid>http://jjamong.github.io/docs/aws/ec2/loadbalancer/</guid>
       <description>클라이언트는 로드 밸런서 서버와 통신하고 그 뒤에 여러 애플리케이션 서버를 두는 구성.
 장점
  스케일 아웃이 가능. 애플리케이션 서버 중 일부 서버에 장애 발생 시 대응 가능 =&amp;gt; 정상 서버에만 요청을 가능하도록 할 수 있음.  단점
