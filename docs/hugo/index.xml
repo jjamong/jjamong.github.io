@@ -5,10 +5,58 @@
     <link>http://example.org/docs/hugo/</link>
     <description>Recent content in Hugo on 짜몽 기술 LAB</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://example.org/docs/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>프론트 매터</title>
+      <link>http://example.org/docs/hugo/content/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/hugo/content/</guid>
+      <description> slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
+content/posts/old-post.md
+--- title: New Post slug: &amp;quot;new-post&amp;quot; ---  URL의 파일명 부분이 slug로 대체된다.
+example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
+content/posts/old-url.md
+--- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
+https://example.com/blog/new-url/  </description>
+    </item>
+    
+    <item>
+      <title>컨텐트 포맷</title>
+      <link>http://example.org/docs/hugo/content_format/</link>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/hugo/content_format/</guid>
+      <description>컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.</description>
+    </item>
+    
+    <item>
+      <title>컨텐트 포맷</title>
+      <link>http://example.org/docs/hugo/content/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/hugo/content/</guid>
+      <description>컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.</description>
+    </item>
+    
+    <item>
+      <title>프론트 매터</title>
+      <link>http://example.org/docs/hugo/front_matter/</link>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/hugo/front_matter/</guid>
+      <description> slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
+content/posts/old-post.md
+--- title: New Post slug: &amp;quot;new-post&amp;quot; ---  URL의 파일명 부분이 slug로 대체된다.
+example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
+content/posts/old-url.md
+--- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
+https://example.com/blog/new-url/  </description>
+    </item>
     
   </channel>
 </rss>

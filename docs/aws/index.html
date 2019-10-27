@@ -1,391 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="aws" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/docs/aws/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="generator" content="Hugo 0.58.3" />
+  
+  
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>AWS | 짜몽 기술 LAB</title>
+  <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
 
-<title>aws | 짜몽 기술 LAB</title>
-<link rel="icon" href="/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/book.min.1b994bd28c6ce2255f069b6bf6837b4d396307637fc48d61dcb2a6caac26e031.css" integrity="sha256-G5lL0oxs4iVfBptr9oN7TTljB2N/xI1h3LKmyqwm4DE=">
 
 
-<script defer src="/search.min.910282300bebe918d6170cfdaa85b080d0552b0ce2cbc73d1bf858a01d8c97d5.js" integrity="sha256-kQKCMAvr6RjWFwz9qoWwgNBVKwziy8c9G/hYoB2Ml9U="></script>
+<link rel="stylesheet" type="text/css" href="http://example.org/styles.e8df4b280c6222957cc0cdf01964bbff88c9d641c8b558c9450736258ea60da8.css" integrity="sha256-6N9LKAxiIpV8wM3wGWS7/4jJ1kHItVjJRQc2JY6mDag=">
 
-<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/aws/index.xml" title="짜몽 기술 LAB" />
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   
+  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
-<h2 class="book-brand">
-  <a href="http://example.org/"><span>짜몽 기술 LAB</span>
-  </a>
-</h2>
-
-
-<div class="book-search">
-  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" />
-  <div class="book-search-spinner spinner hidden"></div>
-  <ul id="book-search-results"></ul>
-</div>
-
-
-
-
-
-    
-
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
-
-
-  
-  <ul>
-    
-      
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+          <a class="navbar-item logo" href="/">짜몽 기술 LAB</a>
         
-
-  <li  class="book-section-flat" >
-    
-      <span>blog</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/blog/architecture/" >
-      아키텍처 이해
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/blog/architecture/single/" >
-      단일서버
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/blog/architecture/separation/" >
-      애플리케이션/데이터베이스 서버 분리
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/blog/architecture/loadbalancer/" >
-      로드 밸런서
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li  class="book-section-flat" >
-    
-      
-
-  <a href="/docs/aws/"  class="active">
-      aws
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li  class="book-section-flat" >
-    
-      
-
-  <a href="/docs/hugo/" >
-      Hugo
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/docs/infra/" >
-      infra
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-</nav>
-
-
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
-
-    </aside>
-
-    <div class="book-page">
-      <header class="flex align-center justify-between book-header">
-  <label for="menu-control">
-    <img src="/svg/menu.svg" alt="Menu" />
-  </label>
-  <strong>aws</strong>
-</header>
-
-      
-<article class="markdown">
-
-<h1 id="aws-amazon-web-service">AWS(Amazon Web Service)</h1>
-
-<hr />
-</article>
-
-      
-
-      
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs/" 
+              class="is-active" >Docs</a>
+          </span>
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          
+          
+        </div>
+      </div>
     </div>
+  </nav>
 
+</header>
+    
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        
+      </p>
+    </div>
+  </div>
+</section>
+    
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      
+      
+      <li><a href="/docs/hugo/" >HUGO</a></li>
+      
+      
+      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+        
+
+
+
+
+
+  
+  
+
+  
+  
     
   
 
-  <aside class="book-toc level-6 fixed">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#aws-amazon-web-service">AWS(Amazon Web Service)</a></li>
-</ul>
-</nav>
-  </aside>
 
 
 
-  </main>
 
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Aws
+        </p>
+        <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>EC2</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/aws/ec2/instancecreate">인스턴스 생성/접속</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/aws/ec2/webserver">웹서버</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/aws/ec2/securitygroup">보안그룹</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/aws/ec2/loadbalancer">로드 밸런서</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            <nav class="breadcrumb is-small has-succeeds-separator">
+  <ul>
+    
   
+  
+  
+  
+  
+  
+  <li>
+    <a href="http://example.org/">
+      
+      Home
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="http://example.org/docs/">
+      
+      Docs
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  
+  </ul>
+  
+</nav>
+            <h1 class="title">AWS</h1>
+            
+<p>AWS</p>
+
+
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+<script src="/js/common.js"></script>
+
+
+    <div class="btn-top"></div>
+<footer class="footer">
+
+</footer>
+    
+  </section>
 </body>
 
 </html>

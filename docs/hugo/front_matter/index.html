@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="generator" content="Hugo 0.58.3" />
+  
+  
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>프론트 매터 | 짜몽 기술 LAB</title>
+  <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://example.org/styles.e8df4b280c6222957cc0cdf01964bbff88c9d641c8b558c9450736258ea60da8.css" integrity="sha256-6N9LKAxiIpV8wM3wGWS7/4jJ1kHItVjJRQc2JY6mDag=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+          <a class="navbar-item logo" href="/">짜몽 기술 LAB</a>
+        
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs/" 
+              class="is-active" >Docs</a>
+          </span>
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          <span class="navbar-item">
+            
+          </span>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        
+      </p>
+    </div>
+  </div>
+</section>
+    
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      
+      
+      <li><a href="/docs/hugo/"  class="is-active" >HUGO</a></li>
+      
+      
+      <li><a href="/docs/aws/" >AWS</a></li>
+      
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+        
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Hugo
+        </p>
+        <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>소개</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/hugo/">기본정보</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/hugo/content_format">컨텐츠 포맷</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/hugo/front_matter">프론트 메터</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            <nav class="breadcrumb is-small has-succeeds-separator">
+  <ul>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  <li>
+    <a href="http://example.org/">
+      
+      Home
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="http://example.org/docs/">
+      
+      Docs
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="http://example.org/docs/hugo/">
+      
+      Hugo
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  
+  </ul>
+  
+</nav>
+            <h1 class="title">프론트 매터</h1>
+            
+
+
+<h2 id="slug">slug</h2>
+
+<p>아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.</p>
+
+<p>content/posts/old-post.md</p>
+
+<pre><code>---
+title: New Post
+slug: &quot;new-post&quot;
+---
+</code></pre>
+
+<p>URL의 파일명 부분이 slug로 대체된다.</p>
+
+<pre><code>example.com/posts/new-post/
+</code></pre>
+
+<h2 id="url">url</h2>
+
+<p>원하는 URL로 설정 할  수 있다.</p>
+
+<p>content/posts/old-url.md</p>
+
+<pre><code>---
+title: Old URL
+url: /blog/new-url/
+---
+</code></pre>
+
+<p>URL 이 설정한 url로 변경된다.</p>
+
+<pre><code>https://example.com/blog/new-url/
+</code></pre>
+
+
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+    <div class="btn-top"></div>
+<footer class="footer">
+
+</footer>
+    
+  </section>
+</body>
+
+</html>
