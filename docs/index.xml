@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on 짜몽 기술 LAB</title>
-    <link>http://jjamong.github.io/docs/</link>
+    <link>https://jjamong.github.io/docs/</link>
     <description>Recent content in Docs on 짜몽 기술 LAB</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="http://jjamong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jjamong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
