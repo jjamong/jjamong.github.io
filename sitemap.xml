@@ -12,6 +12,26 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/docs/aws/ec2/elb/elbcreate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/aws/ec2/elb/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/groupcreate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/configuration/</loc>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/aws/ec2/architecture/</loc>
   </url>
   
