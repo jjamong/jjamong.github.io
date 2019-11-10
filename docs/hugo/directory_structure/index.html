@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.58.3" />
-  <title>stress 명령어 테스트 | 짜몽 기술 LAB</title>
+  <title>디렉토리 구조 | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
 
 <link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
@@ -90,10 +90,10 @@
     <ul>
       
       
-      <li><a href="/docs/hugo/" >HUGO</a></li>
+      <li><a href="/docs/hugo/"  class="is-active" >HUGO</a></li>
       
       
-      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      <li><a href="/docs/aws/" >AWS</a></li>
       
       
       <li><a href="/docs/react/" >REACT</a></li>
@@ -114,10 +114,10 @@
 
   
   
+    
+  
 
   
-  
-    
   
 
   
@@ -140,84 +140,51 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          Hugo
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>EC2</strong></a>
+            <a href="#"><strong>HUGO</strong></a>
             <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/hugo/">Hugo</a>
+                </li>
+                
+              
+                
+                <li  class="active"  class="subsections">
+                  <a href="/docs/hugo/directory_structure/">디텍토리 구조</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
+                  <a href="/docs/hugo/content_format/">컨텐츠 포맷</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/webserver/">웹서버</a>
+                  <a href="/docs/hugo/front_matter/">프론트 메터</a>
                 </li>
                 
+              
+            </ul>
+            
+          </li>
+          
+          <li >
+            
+            <a href="#"><strong>템플릿(Tempates)</strong></a>
+            <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/securitygroup/">보안그룹</a>
-                </li>
-                
-              
-                
-                <li class="subsections">
-                  <a href="#">Auto Scaling(오토 스케일링)</a>
-                  <ul>
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/autoscaling/configuration/">서버 구성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li  class="active" >
-                        <a href="/docs/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
-                      </li>
-                      
-                    
-                  </ul>
-                </li>
-                
-              
-                
-                <li class="subsections">
-                  <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
-                  <ul>
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/test/">ELB 테스트</a>
-                      </li>
-                      
-                    
-                  </ul>
+                  <a href="/docs/hugo/tempates/introduction/">소개</a>
                 </li>
                 
               
@@ -266,9 +233,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/aws/">
+    <a href="https://jjamong.github.io/docs/hugo/">
       
-      AWS
+      Hugo
       
     </a>
   </li>
@@ -280,39 +247,47 @@
   </ul>
   
 </nav>
-            <h1 class="title">stress 명령어 테스트</h1>
+            <h1 class="title">디렉토리 구조</h1>
             
 
 
-<h2 id="1-stress-명령어-테스트">1. stress 명령어 테스트</h2>
+<p><a href="https://gohugo.io/getting-started/directory-structure/">https://gohugo.io/getting-started/directory-structure/</a></p>
 
-<p><code>위치</code> : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]</p>
+<p>명령창에서 <code>hugo new site</code> 실행하면 다음 구성으로 디렉토리 구조가 생성된다.</p>
 
-<p>인스턴스 탭에 1개의 인스턴스가 존재한다.</p>
-
-<p>현재 인스턴스에 사용량 지표를 기본 5분에 한 번 씩만 모니터링 서버로 전송하고 있다.
-(기본 시간 변경 시 추가비용 발생)</p>
-
-<p><img src="/docs/aws/ec2/autoscaling/test/01.png" alt="01" /></p>
-
-<hr />
-
-<p>실행 되고 있는 EC2 서버에 접속하여 명령어들 차례로 실행한다.</p>
-
-<p>설치 명령어</p>
-
-<pre><code>$ sudo yum install stess -y
+<pre><code>.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
 </code></pre>
 
-<p>600초 동안 1개의 CPU 사용량을 최대로 늘린다.</p>
+<h2 id="디렉토리-구조-설명">디렉토리 구조 설명</h2>
 
-<pre><code>stess --cpu 1 --timeout 600
-</code></pre>
+<h3 id="archetypes">archetypes</h3>
 
-<p>5 ~ 10 분을 기다리면 인스턴스가 1대더 추가됨을 확인 할 수 있으며,
-그 이후로는 다시 정상적으로 1대로 줄어든다.</p>
+<p><a href="https://gohugo.io/content-management/archetypes/">https://gohugo.io/content-management/archetypes/</a></p>
 
-<p><img src="/docs/aws/ec2/autoscaling/test/02.png" alt="02" /></p>
+<h3 id="assets">assets</h3>
+
+<p>Hugo <a href="https://gohugo.io/hugo-pipes/">Pipes</a>에서 처리해야 하는 모든 파일을 저장한다.</p>
+
+<p>참고 : assets 디렉토리는 기본적으로 생성되지 않음.</p>
+
+<h3 id="config">config</h3>
+
+<h3 id="data">data</h3>
+
+<h3 id="content">content</h3>
+
+<h3 id="layouts">layouts</h3>
+
+<h3 id="static">static</h3>
+
+<p>모든 정적 컨텐츠 저장</p>
 
 
           </div>
@@ -320,17 +295,6 @@
 </div>
         </div>
         
-<div class="toc-container column is-one-fifth is-hidden-touch">
-  <div class="toc-main">
-    <p class="subtitle is-6">
-      Contents
-    </p>
-    <div class="scrollbar-outer">
-      <nav class="toc-menu"></nav>
-    </div>
-  </div>
-</div>
-
       </div>
     </div>
     
@@ -345,9 +309,6 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
-
-<script src="/js/tocbot.min.js"></script>
-<script src="/js/toc.js"></script>
 
 
 <script>

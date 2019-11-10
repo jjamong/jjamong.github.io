@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Common on 짜몽 기술 LAB</title>
+    <link>https://jjamong.github.io/docs/common/</link>
+    <description>Recent content in Common on 짜몽 기술 LAB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jjamong.github.io/docs/common/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VS Code</title>
+      <link>https://jjamong.github.io/docs/common/vscode/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/common/vscode/</guid>
+      <description>확장 프로그램 Korean Language Pack for Visual Studio Code VS code 한국어 언어 팩 플러그인.
+ESLint 자바스크립트 문법을 체크한다.
+Relative Path 상대 경로에 있는 파일경로를 편하게 작성할 수 있는 플러그인
+Guides 들려쓰기 가이드 라인을 표기
+Reactjs code snippets 리액트 관련 스니펫 모음.
+React-beautify 코드 정리</description>
+    </item>
+    
+    <item>
+      <title>yarn</title>
+      <link>https://jjamong.github.io/docs/common/yarn/yarn/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/common/yarn/yarn/</guid>
+      <description> Yarn(얀)은 자바스크립트 패키지 매니저다.
+설치 https://yarnpkg.com/en/docs/install#windows-stable
+$ yarn --version // 1.19.1  </description>
+    </item>
+    
+  </channel>
+</rss>
