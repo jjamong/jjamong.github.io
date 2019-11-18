@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>EC2 | 짜몽 기술 LAB</title>
+  <title>JSX | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
-
-<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
-<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
 
 
 
@@ -93,10 +90,10 @@
       <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
-      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      <li><a href="/docs/aws/" >AWS</a></li>
       
       
-      <li><a href="/docs/react/" >REACT</a></li>
+      <li><a href="/docs/react/"  class="is-active" >REACT</a></li>
       
       
       <li><a href="/docs/common/" >COMMON</a></li>
@@ -117,10 +114,10 @@
 
   
   
-    
-  
 
   
+  
+    
   
 
   
@@ -140,59 +137,47 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          React
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>EC2</strong></a>
+            <a href="#"><strong>React</strong></a>
             <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/react/">React 시작</a>
                 </li>
                 
               
                 
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/webserver/">웹서버</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/securitygroup/">보안그룹</a>
+                <li  class="active"  class="subsections">
+                  <a href="/docs/react/jsx/">JSX</a>
                 </li>
                 
               
                 
                 <li class="subsections">
-                  <a href="#">Auto Scaling(오토 스케일링)</a>
+                  <a href="#">Component(컴포넌트)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                        <a href="/docs/react/component/component/">컴포넌트 생성</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
+                        <a href="/docs/react/component/props/">props</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                        <a href="/docs/react/component/state/">state</a>
                       </li>
                       
                     
@@ -202,18 +187,12 @@
               
                 
                 <li class="subsections">
-                  <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                  <a href="#">Setting (설정)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/test/">ELB 테스트</a>
+                        <a href="/docs/react/setting/sass/">SASS</a>
                       </li>
                       
                     
@@ -266,9 +245,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/aws/">
+    <a href="https://jjamong.github.io/docs/react/">
       
-      AWS
+      React
       
     </a>
   </li>
@@ -280,9 +259,66 @@
   </ul>
   
 </nav>
-            <h1 class="title">EC2</h1>
+            <h1 class="title">JSX</h1>
             
-<hr />
+
+
+<h2 id="jsx-문법">JSX 문법</h2>
+
+<p>컴포넌트에 여러 요소가 있다면 부모 요소 하나로 꼭 감싸야 한다.
+또한 br, input 등 단일 태그들도 닫아야 한다.</p>
+
+<pre><code>// 올바른 예
+return (
+&lt;div&gt;
+    &lt;h1&gt;리액트 h1&lt;/h1&gt;
+    &lt;h2&gt;리액트 h2&lt;/h2&gt;
+    &lt;br/&gt;
+&lt;/div&gt;
+);
+
+// 에러 발생
+return (
+&lt;h1&gt;리액트 h1&lt;/h1&gt;
+&lt;h2&gt;리액트 h2&lt;/h2&gt;
+&lt;br&gt;
+);
+</code></pre>
+
+<h2 id="자바스크립트-표현법">자바스크립트 표현법</h2>
+
+<pre><code>const text = &quot;리액트 h2&quot;;
+const check = true;
+const style = {
+width: '100px',
+height: '100px',
+background: 'red'
+};
+
+return (
+&lt;div&gt;
+    &lt;h1&gt;리액트 h1&lt;/h1&gt;
+    &lt;h2&gt;{text}&lt;/h2&gt;
+    {check ? '참' : '거짓'}
+    &lt;div style={style}&gt;&lt;/div&gt;
+    &lt;div className=&quot;test&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+);
+</code></pre>
+
+<h2 id="주석">주석</h2>
+
+<pre><code>return (
+&lt;div&gt;
+    &lt;div
+      // 주석
+      /* 주석 */
+      /&gt;
+&lt;/div&gt;
+
+// &lt;div&gt;&lt;/div&gt;
+);
+</code></pre>
 
 
           </div>
@@ -297,18 +333,6 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 <script src="/js/common.js"></script>
-
-<script src="/js/anchor-4.2.0.min.js"></script>
-<script src="/js/anchors.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
-<script src="/js/jquery.scrollbar.min.js"></script>
-<script src="/js/sticky-sidebar.min.js"></script>
-<script src="/js/contents-nav.js"></script>
-
-
-<script>
-  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
-</script>
 
 
     <div class="btn-top"></div>

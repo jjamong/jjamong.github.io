@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>EC2 | 짜몽 기술 LAB</title>
+  <title>SASS | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
-
-<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
-<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
 
 
 
@@ -93,10 +90,10 @@
       <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
-      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      <li><a href="/docs/aws/" >AWS</a></li>
       
       
-      <li><a href="/docs/react/" >REACT</a></li>
+      <li><a href="/docs/react/"  class="is-active" >REACT</a></li>
       
       
       <li><a href="/docs/common/" >COMMON</a></li>
@@ -117,10 +114,10 @@
 
   
   
-    
-  
 
   
+  
+    
   
 
   
@@ -140,59 +137,47 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          React
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>EC2</strong></a>
+            <a href="#"><strong>React</strong></a>
             <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/react/">React 시작</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/webserver/">웹서버</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/securitygroup/">보안그룹</a>
+                  <a href="/docs/react/jsx/">JSX</a>
                 </li>
                 
               
                 
                 <li class="subsections">
-                  <a href="#">Auto Scaling(오토 스케일링)</a>
+                  <a href="#">Component(컴포넌트)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                        <a href="/docs/react/component/component/">컴포넌트 생성</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
+                        <a href="/docs/react/component/props/">props</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                        <a href="/docs/react/component/state/">state</a>
                       </li>
                       
                     
@@ -202,18 +187,12 @@
               
                 
                 <li class="subsections">
-                  <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                  <a href="#">Setting (설정)</a>
                   <ul>
                     
                       
-                      <li >
-                        <a href="/docs/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/test/">ELB 테스트</a>
+                      <li  class="active" >
+                        <a href="/docs/react/setting/sass/">SASS</a>
                       </li>
                       
                     
@@ -266,9 +245,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/aws/">
+    <a href="https://jjamong.github.io/docs/react/">
       
-      AWS
+      React
       
     </a>
   </li>
@@ -280,9 +259,100 @@
   </ul>
   
 </nav>
-            <h1 class="title">EC2</h1>
+            <h1 class="title">SASS</h1>
             
-<hr />
+
+
+<h2 id="eject-설정">eject 설정</h2>
+
+<pre><code>yarn eject
+</code></pre>
+
+<h2 id="css-module-설정">CSS Module 설정</h2>
+
+<p>CSS Module은, CSS를 모듈화하여 사용하는 방식이다.
+CSS를 웹팩을 통해서 불러오면, 고유화된 클래스네임이 이뤄진 객체가 반환되며,</p>
+
+<pre><code>{
+  box: 'src-App__box--mjrNr'
+}
+</code></pre>
+
+<p>그리고 클래스를 적용하려면 <code>className={style.box}</code> 이와 같이 사용한다.</p>
+
+<p>webpack.config.js 파일에서 아래와 같이 수정한다.
+webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되는 환경설정 파일입니다.</p>
+
+<pre><code>(...)
+    {
+        // Options for PostCSS as we reference these options twice
+        // Adds vendor prefixing based on your specified browser support in
+        // package.json
+        loader: require.resolve('postcss-loader'),
+        options: {
+          // Necessary for external CSS imports to work
+          // https://github.com/facebook/create-react-app/issues/2677
+          ident: 'postcss',
+          plugins: () =&gt; [
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
+              autoprefixer: {
+                flexbox: 'no-2009',
+                browsers: [
+                  '&gt;1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie &lt; 9', // React doesn't support IE8 anyway
+                ]
+              },
+              stage: 3,
+            }),
+            // Adds PostCSS Normalize as the reset css with default options,
+            // so that it honors browserslist config in package.json
+            // which in turn let's users customize the target behavior as per their needs.
+            postcssNormalize(),
+          ],
+          sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+        },
+      },
+(...)
+</code></pre>
+
+<pre><code>(...)
+
+    // common function to get style loaders
+    const getStyleLoaders = (cssOptions, preProcessor) =&gt; {
+    const loaders = [
+        isEnvDevelopment &amp;&amp; require.resolve('style-loader'),
+        isEnvProduction &amp;&amp; {
+        loader: MiniCssExtractPlugin.loader,
+        options: shouldUseRelativeAssetPaths ? { publicPath: '../../' } : {},
+        },
+        {
+        loader: require.resolve('css-loader'),
+        //options: cssOptions,
+        options:{
+            modules: true,
+            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+        },
+    },
+
+(...)
+</code></pre>
+
+<p>위의 설정을 통하면, css가 적용된 것을 확인 할 수 있다.</p>
+
+<h2 id="sass-설정">SASS 설정</h2>
+
+<p>sass-loader 는 webpack 에서 sass 파일들을 읽어오는 역할을 하고, node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.</p>
+
+<pre><code>$ yarn add node-sass sass-loader classnames
+</code></pre>
+
+<h3 id="open-color-적용">open-color 적용</h3>
+
+<pre><code>$ yarn add open-color
+</code></pre>
 
 
           </div>
@@ -297,18 +367,6 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 <script src="/js/common.js"></script>
-
-<script src="/js/anchor-4.2.0.min.js"></script>
-<script src="/js/anchors.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
-<script src="/js/jquery.scrollbar.min.js"></script>
-<script src="/js/sticky-sidebar.min.js"></script>
-<script src="/js/contents-nav.js"></script>
-
-
-<script>
-  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
-</script>
 
 
     <div class="btn-top"></div>

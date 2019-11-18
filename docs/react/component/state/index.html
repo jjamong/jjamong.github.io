@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>EC2 | 짜몽 기술 LAB</title>
+  <title>state | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
 
 <link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
@@ -93,10 +93,10 @@
       <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
-      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      <li><a href="/docs/aws/" >AWS</a></li>
       
       
-      <li><a href="/docs/react/" >REACT</a></li>
+      <li><a href="/docs/react/"  class="is-active" >REACT</a></li>
       
       
       <li><a href="/docs/common/" >COMMON</a></li>
@@ -117,10 +117,10 @@
 
   
   
-    
-  
 
   
+  
+    
   
 
   
@@ -140,59 +140,47 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          React
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>EC2</strong></a>
+            <a href="#"><strong>React</strong></a>
             <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/react/">React 시작</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/webserver/">웹서버</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/securitygroup/">보안그룹</a>
+                  <a href="/docs/react/jsx/">JSX</a>
                 </li>
                 
               
                 
                 <li class="subsections">
-                  <a href="#">Auto Scaling(오토 스케일링)</a>
+                  <a href="#">Component(컴포넌트)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                        <a href="/docs/react/component/component/">컴포넌트 생성</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
+                        <a href="/docs/react/component/props/">props</a>
                       </li>
                       
                     
                       
-                      <li >
-                        <a href="/docs/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                      <li  class="active" >
+                        <a href="/docs/react/component/state/">state</a>
                       </li>
                       
                     
@@ -202,18 +190,12 @@
               
                 
                 <li class="subsections">
-                  <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                  <a href="#">Setting (설정)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/test/">ELB 테스트</a>
+                        <a href="/docs/react/setting/sass/">SASS</a>
                       </li>
                       
                     
@@ -266,9 +248,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/aws/">
+    <a href="https://jjamong.github.io/docs/react/">
       
-      AWS
+      React
       
     </a>
   </li>
@@ -280,9 +262,47 @@
   </ul>
   
 </nav>
-            <h1 class="title">EC2</h1>
+            <h1 class="title">state</h1>
             
-<hr />
+
+
+<p>props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.</p>
+
+<p>컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.</p>
+
+<h2 id="state-설정">state 설정</h2>
+
+<h3 id="jsx-내부에서-값-설정">JSX 내부에서 값 설정</h3>
+
+<p>setState 함수로 state값을 업데이트 한다.</p>
+
+<pre><code>class MyComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            number: 0
+        }
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;div&gt;숫자 : {this.state.number}&lt;/div&gt;
+                &lt;button onClick={()=&gt; {
+                    this.setState({
+                        number: this.state.number + 1
+                    })
+                }}
+                &gt;더하기&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+// 버튼 세번 클릭 시
+// 숫자 : 3
+</code></pre>
 
 
           </div>
@@ -290,6 +310,17 @@
 </div>
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -304,6 +335,9 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>

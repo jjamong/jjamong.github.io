@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>EC2 | 짜몽 기술 LAB</title>
+  <title>props | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
 
 <link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
@@ -93,10 +93,10 @@
       <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
-      <li><a href="/docs/aws/"  class="is-active" >AWS</a></li>
+      <li><a href="/docs/aws/" >AWS</a></li>
       
       
-      <li><a href="/docs/react/" >REACT</a></li>
+      <li><a href="/docs/react/"  class="is-active" >REACT</a></li>
       
       
       <li><a href="/docs/common/" >COMMON</a></li>
@@ -117,10 +117,10 @@
 
   
   
-    
-  
 
   
+  
+    
   
 
   
@@ -140,59 +140,47 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          React
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>EC2</strong></a>
+            <a href="#"><strong>React</strong></a>
             <ul>
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/react/">React 시작</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/webserver/">웹서버</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/aws/ec2/securitygroup/">보안그룹</a>
+                  <a href="/docs/react/jsx/">JSX</a>
                 </li>
                 
               
                 
                 <li class="subsections">
-                  <a href="#">Auto Scaling(오토 스케일링)</a>
+                  <a href="#">Component(컴포넌트)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                        <a href="/docs/react/component/component/">컴포넌트 생성</a>
+                      </li>
+                      
+                    
+                      
+                      <li  class="active" >
+                        <a href="/docs/react/component/props/">props</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                        <a href="/docs/react/component/state/">state</a>
                       </li>
                       
                     
@@ -202,18 +190,12 @@
               
                 
                 <li class="subsections">
-                  <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                  <a href="#">Setting (설정)</a>
                   <ul>
                     
                       
                       <li >
-                        <a href="/docs/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                      </li>
-                      
-                    
-                      
-                      <li >
-                        <a href="/docs/aws/ec2/elb/test/">ELB 테스트</a>
+                        <a href="/docs/react/setting/sass/">SASS</a>
                       </li>
                       
                     
@@ -266,9 +248,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/aws/">
+    <a href="https://jjamong.github.io/docs/react/">
       
-      AWS
+      React
       
     </a>
   </li>
@@ -280,9 +262,69 @@
   </ul>
   
 </nav>
-            <h1 class="title">EC2</h1>
+            <h1 class="title">props</h1>
             
-<hr />
+
+
+<p>props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.</p>
+
+<h2 id="props-값-설정">props 값 설정</h2>
+
+<h3 id="props-값-설정-디폴트-값">props 값 설정 디폴트 값</h3>
+
+<pre><code>class MyComponent extends Component {
+    static defaultProps = {
+        name: 'props1'
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                MyComponent {this.props.name}
+            &lt;/div&gt;
+        );
+    }
+}
+
+// MyComponent props1
+</code></pre>
+
+<h3 id="props-값-설정-값-재정의">props 값 설정 값 재정의</h3>
+
+<pre><code>class MyComponent extends Component {
+    static defaultProps = {
+        name: 'props1'
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                MyComponent {this.props.name}
+            &lt;/div&gt;
+        );
+    }
+}
+
+MyComponent.defaultProps = {
+    name: 'props2'
+}
+
+// MyComponent props2
+</code></pre>
+
+<h3 id="jsx-내부에서-값-설정">JSX 내부에서 값 설정</h3>
+
+<pre><code>function App() {
+
+  return (
+    &lt;div&gt;
+      &lt;MyComponent name=&quot;props3&quot; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+// MyComponent props3
+</code></pre>
 
 
           </div>
