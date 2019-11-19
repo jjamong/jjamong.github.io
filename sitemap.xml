@@ -48,35 +48,47 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/</loc>
+    <loc>https://jjamong.github.io/docs/infra/route53/dns/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/elb/elbcreate/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/elb/test/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/elb/elbcreate/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/test/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/elb/test/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/groupcreate/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/autoscaling/test/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/autoscaling/configuration/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/autoscaling/groupcreate/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/architecture/</loc>
+    <loc>https://jjamong.github.io/docs/infra/route53/domainrigster/</loc>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/instancecreate/</loc>
+    <loc>https://jjamong.github.io/docs/infra/deploy/discontinued/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/infra/ec2/autoscaling/configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/infra/ec2/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/infra/ec2/instancecreate/</loc>
   </url>
   
   <url>
@@ -89,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/</loc>
+    <loc>https://jjamong.github.io/docs/infra/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -99,7 +111,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/webserver/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/webserver/</loc>
   </url>
   
   <url>
@@ -117,7 +129,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/aws/ec2/securitygroup/</loc>
+    <loc>https://jjamong.github.io/docs/infra/ec2/securitygroup/</loc>
   </url>
   
   <url>
