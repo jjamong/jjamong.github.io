@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>프론트 매터 | 짜몽 기술 LAB</title>
+  <title>Angular | 짜몽 기술 LAB</title>
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
-
-<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
-<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
 
 
 
@@ -90,7 +87,7 @@
     <ul>
       
       
-      <li><a href="/docs/hugo/"  class="is-active" >HUGO</a></li>
+      <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
       <li><a href="/docs/infra/" >INFRA</a></li>
@@ -99,7 +96,7 @@
       <li><a href="/docs/react/" >REACT</a></li>
       
       
-      <li><a href="/docs/angular/" >ANGULAR</a></li>
+      <li><a href="/docs/angular/"  class="is-active" >ANGULAR</a></li>
       
       
       <li><a href="/docs/common/" >COMMON</a></li>
@@ -117,16 +114,16 @@
 
   
   
+
+  
+  
+
+  
+  
+
+  
+  
     
-  
-
-  
-  
-
-  
-  
-
-  
   
 
   
@@ -146,51 +143,18 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Hugo
+          Angular
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>HUGO</strong></a>
+            <a href="#"><strong>Angular</strong></a>
             <ul>
               
                 
-                <li  class="subsections">
-                  <a href="/docs/hugo/">Hugo</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/hugo/directory_structure/">디텍토리 구조</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/hugo/content_format/">컨텐츠 포맷</a>
-                </li>
-                
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/hugo/front_matter/">프론트 메터</a>
-                </li>
-                
-              
-            </ul>
-            
-          </li>
-          
-          <li >
-            
-            <a href="#"><strong>템플릿(Tempates)</strong></a>
-            <ul>
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/hugo/tempates/introduction/">소개</a>
+                <li  class="active"  class="subsections">
+                  <a href="/docs/angular/">Angular 시작</a>
                 </li>
                 
               
@@ -208,8 +172,6 @@
             <nav class="breadcrumb is-small has-succeeds-separator">
   <ul>
     
-  
-  
   
   
   
@@ -238,57 +200,30 @@
   
   
   
-  <li>
-    <a href="https://jjamong.github.io/docs/hugo/">
-      
-      Hugo
-      
-    </a>
-  </li>
-  
-  
-  
-  
   
   </ul>
   
 </nav>
-            <h1 class="title">프론트 매터</h1>
+            <h1 class="title">Angular</h1>
             
 
 
-<h2 id="slug">slug</h2>
+<h2 id="앵귤러-시작">앵귤러 시작</h2>
 
-<p>아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.</p>
+<p>앵귤러 설치 (npm)</p>
 
-<p>content/posts/old-post.md</p>
-
-<pre><code>---
-title: New Post
-slug: &quot;new-post&quot;
----
+<pre><code>$ npm i @angular/cli -g
 </code></pre>
 
-<p>URL의 파일명 부분이 slug로 대체된다.</p>
+<p>앵귤러 프로젝트 생성</p>
 
-<pre><code>example.com/posts/new-post/
+<pre><code>$ ng new hello-angular
 </code></pre>
 
-<h2 id="url">url</h2>
+<p>앵귤러 서버 실행 / localhost:3000</p>
 
-<p>원하는 URL로 설정 할  수 있다.</p>
-
-<p>content/posts/old-url.md</p>
-
-<pre><code>---
-title: Old URL
-url: /blog/new-url/
----
-</code></pre>
-
-<p>URL 이 설정한 url로 변경된다.</p>
-
-<pre><code>https://example.com/blog/new-url/
+<pre><code>cd hello-angular
+ng serve
 </code></pre>
 
 
@@ -304,18 +239,6 @@ url: /blog/new-url/
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 <script src="/js/common.js"></script>
-
-<script src="/js/anchor-4.2.0.min.js"></script>
-<script src="/js/anchors.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
-<script src="/js/jquery.scrollbar.min.js"></script>
-<script src="/js/sticky-sidebar.min.js"></script>
-<script src="/js/contents-nav.js"></script>
-
-
-<script>
-  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
-</script>
 
 
     <div class="btn-top"></div>

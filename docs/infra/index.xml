@@ -101,7 +101,7 @@ stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 
     </item>
     
     <item>
-      <title>배포 구성</title>
+      <title>배포 방법</title>
       <link>https://jjamong.github.io/docs/infra/deploy/method/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
