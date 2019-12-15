@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>프론트 매터 | 짜몽 기술 LAB</title>
+  <title>Redux 적용 | 짜몽 기술 LAB</title>
   <meta name="title" content="IT 개발 블로그, Docs 짜몽 기술 LAB 연구소">
   <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 블로그/DOCS">
   <meta name="description" content="짜몽이 개발하고 연구하는 웹, 서버, 프론트엔드, 백엔드 관련 블로그/DOCS">
 
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
-
-<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
-<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
 
 
 
@@ -95,13 +92,13 @@
     <ul>
       
       
-      <li><a href="/docs/hugo/"  class="is-active" >HUGO</a></li>
+      <li><a href="/docs/hugo/" >HUGO</a></li>
       
       
       <li><a href="/docs/infra/" >INFRA</a></li>
       
       
-      <li><a href="/docs/react/" >REACT</a></li>
+      <li><a href="/docs/react/"  class="is-active" >REACT</a></li>
       
       
       <li><a href="/docs/angular/" >ANGULAR</a></li>
@@ -122,13 +119,13 @@
 
   
   
+
+  
+  
+
+  
+  
     
-  
-
-  
-  
-
-  
   
 
   
@@ -151,51 +148,78 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Hugo
+          React
         </p>
         <ul class="sidebar-menu nav scrollbar-outer">
           
           <li >
             
-            <a href="#"><strong>HUGO</strong></a>
+            <a href="#"><strong>React</strong></a>
             <ul>
               
                 
-                <li  class="subsections">
-                  <a href="/docs/hugo/">Hugo</a>
+                <li class="subsections">
+                  <a href="#">React 시작/설정</a>
+                  <ul>
+                    
+                      
+                      <li >
+                        <a href="/docs/react/">React</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/setting/sass/">Sass</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/setting/router/">Rouer</a>
+                      </li>
+                      
+                    
+                      
+                      <li  class="active" >
+                        <a href="/docs/react/setting/redux/">redux</a>
+                      </li>
+                      
+                    
+                  </ul>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/hugo/directory_structure/">디텍토리 구조</a>
+                  <a href="/docs/react/jsx/">JSX</a>
                 </li>
                 
               
                 
-                <li  class="subsections">
-                  <a href="/docs/hugo/content_format/">컨텐츠 포맷</a>
-                </li>
-                
-              
-                
-                <li  class="active"  class="subsections">
-                  <a href="/docs/hugo/front_matter/">프론트 메터</a>
-                </li>
-                
-              
-            </ul>
-            
-          </li>
-          
-          <li >
-            
-            <a href="#"><strong>템플릿(Tempates)</strong></a>
-            <ul>
-              
-                
-                <li  class="subsections">
-                  <a href="/docs/hugo/tempates/introduction/">소개</a>
+                <li class="subsections">
+                  <a href="#">Component(컴포넌트)</a>
+                  <ul>
+                    
+                      
+                      <li >
+                        <a href="/docs/react/component/component/">컴포넌트 생성</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/component/props/">props</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/component/state/">state</a>
+                      </li>
+                      
+                    
+                  </ul>
                 </li>
                 
               
@@ -244,9 +268,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/hugo/">
+    <a href="https://jjamong.github.io/docs/react/">
       
-      Hugo
+      React
       
     </a>
   </li>
@@ -258,42 +282,13 @@
   </ul>
   
 </nav>
-            <h1 class="title">프론트 매터</h1>
+            <h1 class="title">Redux 적용</h1>
             
 
 
-<h2 id="slug">slug</h2>
+<h2 id="redux-설치">Redux 설치</h2>
 
-<p>아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.</p>
-
-<p>content/posts/old-post.md</p>
-
-<pre><code>---
-title: New Post
-slug: &quot;new-post&quot;
----
-</code></pre>
-
-<p>URL의 파일명 부분이 slug로 대체된다.</p>
-
-<pre><code>example.com/posts/new-post/
-</code></pre>
-
-<h2 id="url">url</h2>
-
-<p>원하는 URL로 설정 할  수 있다.</p>
-
-<p>content/posts/old-url.md</p>
-
-<pre><code>---
-title: Old URL
-url: /blog/new-url/
----
-</code></pre>
-
-<p>URL 이 설정한 url로 변경된다.</p>
-
-<pre><code>https://example.com/blog/new-url/
+<pre><code>$ yarn add redux redux-actions react-redux redux-pender immutable
 </code></pre>
 
 
@@ -309,18 +304,6 @@ url: /blog/new-url/
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 <script src="/js/common.js"></script>
-
-<script src="/js/anchor-4.2.0.min.js"></script>
-<script src="/js/anchors.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
-<script src="/js/jquery.scrollbar.min.js"></script>
-<script src="/js/sticky-sidebar.min.js"></script>
-<script src="/js/contents-nav.js"></script>
-
-
-<script>
-  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
-</script>
 
 
     <div class="btn-top"></div>

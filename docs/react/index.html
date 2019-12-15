@@ -6,6 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
   <title>React | 짜몽 기술 LAB</title>
+  <meta name="title" content="IT 개발 블로그, Docs 짜몽 기술 LAB 연구소">
+  <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 블로그/DOCS">
+  <meta name="description" content="짜몽이 개발하고 연구하는 웹, 서버, 프론트엔드, 백엔드 관련 블로그/DOCS">
+
   <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
 
 
@@ -16,6 +20,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
 
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
@@ -153,8 +158,35 @@
             <ul>
               
                 
-                <li  class="active"  class="subsections">
-                  <a href="/docs/react/">React 시작</a>
+                <li class="subsections">
+                  <a href="#">React 시작/설정</a>
+                  <ul>
+                    
+                      
+                      <li  class="active" >
+                        <a href="/docs/react/">React</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/setting/sass/">Sass</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/setting/router/">Rouer</a>
+                      </li>
+                      
+                    
+                      
+                      <li >
+                        <a href="/docs/react/setting/redux/">redux</a>
+                      </li>
+                      
+                    
+                  </ul>
                 </li>
                 
               
@@ -184,21 +216,6 @@
                       
                       <li >
                         <a href="/docs/react/component/state/">state</a>
-                      </li>
-                      
-                    
-                  </ul>
-                </li>
-                
-              
-                
-                <li class="subsections">
-                  <a href="#">Setting (설정)</a>
-                  <ul>
-                    
-                      
-                      <li >
-                        <a href="/docs/react/setting/sass/">SASS</a>
                       </li>
                       
                     
@@ -258,20 +275,74 @@
 
 <h2 id="리액트-시작">리액트 시작</h2>
 
-<p>리액트 설치 (yarn)</p>
+<h3 id="리액트-설치-yarn">리액트 설치 (yarn)</h3>
 
 <pre><code>$ yarn global add create-react-app
 </code></pre>
 
-<p>리액트 프로젝트 생성</p>
+<h3 id="리액트-프로젝트-생성">리액트 프로젝트 생성</h3>
 
 <pre><code>$ create-react-app react-project
 </code></pre>
 
-<p>리액트 서버 실행 / localhost:3000</p>
+<h3 id="리액트-서버-실행-localhost-3000">리액트 서버 실행 / localhost:3000</h3>
 
 <pre><code>cd react-project
-npm start
+yarn start
+</code></pre>
+
+<h2 id="리엑트-설정">리엑트 설정</h2>
+
+<h3 id="eject-설정">eject 설정</h3>
+
+<pre><code>yarn eject
+</code></pre>
+
+<h3 id="불필요-파일-제거">불필요 파일 제거</h3>
+
+<pre><code>App.css
+App.js
+App.test.js
+index.css
+logo.svg
+</code></pre>
+
+<h3 id="nodemon">nodemon</h3>
+
+<p>코드를 변경할 때 마다 서버를 자동으로 재시작 한다.</p>
+
+<pre><code>$ yarn add --dev nodemon
+</code></pre>
+
+<h3 id="node-path">NODE_PATH</h3>
+
+<p>Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.</p>
+
+<pre><code>$ yarn add --dev cross-env
+</code></pre>
+
+<p>방법1</p>
+
+<pre><code>.env
+
+NODE_PATH=src
+</code></pre>
+
+<p>방법2</p>
+
+<pre><code>package.json - script
+
+&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;cross-env NODE_PATH=src react-scripts start&quot;,
+    src/index.js&quot;
+}
+</code></pre>
+
+<h3 id="axios-설정">axios 설정</h3>
+
+<p>프로미스 기반 REST API 웹 요청 라이브러리</p>
+
+<pre><code>$ yarn add axios
 </code></pre>
 
 
