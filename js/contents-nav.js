@@ -3,16 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 $(window).on('load', function () {
-
-  if (window.innerWidth > 769) {
-    // Fix with sticky sidebar only in Desktop
-    var sidebar = new StickySidebar('.sidebar-main', {
-      containerSelector: '.sidebar-container',
-      innerWrapperSelector: '.sidebar-inner',
-      topSpacing: 100,
-      bottomSpacing: 20
-    });
-  }
+  // if (window.innerWidth > 769) {
+  //   // Fix with sticky sidebar only in Desktop
+  //   var sidebar = new StickySidebar('.sidebar-main', {
+  //     containerSelector: '.sidebar-container',
+  //     innerWrapperSelector: '.sidebar-inner',
+  //     topSpacing: 100,
+  //     bottomSpacing: 20
+  //   });
+  // }
 });
 
 $(document).ready(function () {
@@ -31,6 +30,12 @@ $(document).ready(function () {
       }
     });
 
+    // 내용이 부족할 경우 컨텐츠 height 조절
+    //setTimeout(function() {
+      if ($('.sidebar-main').height() > $('.columns').height()) {
+        $('.columns').css('height', $('.sidebar-main').height() + $('.footer').height() + 130)
+      }
+    //})
   }
 
   // add "target=_blank" to external links

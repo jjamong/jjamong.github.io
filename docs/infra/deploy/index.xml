@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deploy on 짜몽 기술 LAB</title>
+    <link>https://jjamong.github.io/docs/infra/deploy/</link>
+    <description>Recent content in deploy on 짜몽 기술 LAB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jjamong.github.io/docs/infra/deploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>배포 방법</title>
+      <link>https://jjamong.github.io/docs/infra/deploy/method/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/infra/deploy/method/</guid>
+      <description>무중단/중단 배포 무중단, 중단 배포는 말 그대로 배포할 때 서비스를 중단할 지 안할지의 차이다.
+무중단 배포는 서비스를 중지하지 않는다는 것은 사용자가 서비스를 이용하는데 아무런 지장 없이 배포를 진행하는 경우
+중단 배포는 &amp;ldquo;서버 정기 점검&amp;rdquo;과 같이 사용자가 서비스를 사용하지 못하게 서비스 전체를 정지한 뒤 배포를 진행하는 경우
+현재 위치 배포 현재 위치 배포(In-Place deployment)는 무중단 배포를 하기 위한 기법의 하나로 여러 서버를 배포할 때 새롭게 생성하거나 줄이지 않고 배포하는 방법.</description>
+    </item>
+    
+  </channel>
+</rss>

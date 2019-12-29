@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="generator" content="Hugo 0.59.1" />
+  <title>Sass 적용 | 짜몽 기술 LAB</title>
+
+  
+  <meta name="title" content="IT 개발 블로그, Docs 짜몽 기술 LAB 연구소">
+  <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 블로그/DOCS">
+  <meta name="description" content="짜몽이 개발하고 연구하는 웹, 서버, 프론트엔드, 백엔드 관련 블로그/DOCS">
+  
+  
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+  
+  <link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.feafb9c27e68268e1e8db5c21890db6450ef4fcd985dfa14e68d1d40607f03be.css" integrity="sha256-/q&#43;5wn5oJo4ejbXCGJDbZFDvT82YXfoU5o0dQGB/A74=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-149836281-1');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <a class="navbar-item logo" href="/" ></a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <span class="navbar-item">
+            <a href="javascript:alert('comming soon')">PORTFOLIO</a>
+          </span>
+          <span class="navbar-item">
+            <a href="javascript:alert('comming soon')">BLOG</a>
+          </span>
+          <span class="navbar-item">
+            <a href="/docs/" class="is-active">DOCS</a>
+          </span>
+          <span class="navbar-item">
+            <a href="javascript:alert('comming soon')">STUDY</a>
+          </span>
+          <span class="navbar-item"></span>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="Angular"><a href="https://jjamong.github.io/docs/front/angular/">Angular</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="VSCode"><a href="https://jjamong.github.io/docs/etc/vscode/">VSCode</a></li>
+            
+            <li class="Yarn"><a href="https://jjamong.github.io/docs/etc/yarn/">Yarn</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          React
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>React</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">React 시작/설정</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/">React</a>
+                        </li>
+                        
+                      
+                        
+                        <li  class="active" >
+                          <a href="/docs/front/react/setting/sass/">Sass</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/setting/router/">Rouer</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/setting/redux/">redux</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/jsx/">JSX</a>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">Component(컴포넌트)</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/props/">props</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/state/">state</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            <nav class="breadcrumb is-small has-succeeds-separator">
+  <ul>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li>
+    <a href="https://jjamong.github.io/">
+      
+      Home
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="https://jjamong.github.io/docs/">
+      
+      Docs
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="https://jjamong.github.io/docs/front/">
+      
+      Front
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a href="https://jjamong.github.io/docs/front/react/">
+      
+      React
+      
+    </a>
+  </li>
+  
+  
+  
+  
+  
+  </ul>
+  
+</nav>
+            <h1 class="title">Sass 적용</h1>
+            
+
+
+<h2 id="css-module-설정">CSS Module 설정</h2>
+
+<p>CSS Module은, CSS를 모듈화하여 사용하는 방식이다.
+CSS를 웹팩을 통해서 불러오면, 고유화된 클래스네임이 이뤄진 객체가 반환되며,</p>
+
+<pre><code>{
+  box: 'src-App__box--mjrNr'
+}
+</code></pre>
+
+<p>그리고 클래스를 적용하려면 <code>className={style.box}</code> 이와 같이 사용한다.</p>
+
+<p>webpack.config.js 파일에서 아래와 같이 수정한다.
+webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되는 환경설정 파일입니다.</p>
+
+<pre><code>(...)
+    {
+        // Options for PostCSS as we reference these options twice
+        // Adds vendor prefixing based on your specified browser support in
+        // package.json
+        loader: require.resolve('postcss-loader'),
+        options: {
+          // Necessary for external CSS imports to work
+          // https://github.com/facebook/create-react-app/issues/2677
+          ident: 'postcss',
+          plugins: () =&gt; [
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
+              autoprefixer: {
+                flexbox: 'no-2009',
+                browsers: [
+                  '&gt;1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie &lt; 9', // React doesn't support IE8 anyway
+                ]
+              },
+              stage: 3,
+            }),
+            // Adds PostCSS Normalize as the reset css with default options,
+            // so that it honors browserslist config in package.json
+            // which in turn let's users customize the target behavior as per their needs.
+            postcssNormalize(),
+          ],
+          sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+        },
+      },
+(...)
+</code></pre>
+
+<pre><code>(...)
+
+    // common function to get style loaders
+    const getStyleLoaders = (cssOptions, preProcessor) =&gt; {
+    const loaders = [
+        isEnvDevelopment &amp;&amp; require.resolve('style-loader'),
+        isEnvProduction &amp;&amp; {
+        loader: MiniCssExtractPlugin.loader,
+        options: shouldUseRelativeAssetPaths ? { publicPath: '../../' } : {},
+        },
+        {
+        loader: require.resolve('css-loader'),
+        //options: cssOptions,
+        options:{
+            modules: true,
+            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+        },
+    },
+
+(...)
+</code></pre>
+
+<p>위의 설정을 통하면, css가 적용된 것을 확인 할 수 있다.</p>
+
+<h2 id="classnames-설정">classnames 설정</h2>
+
+<p>클래스를 여러개 적용 할 수 있다.</p>
+
+<pre><code>$ yarn add classnames
+</code></pre>
+
+<h2 id="sass-설정">SASS 설정</h2>
+
+<p>sass-loader 는 webpack 에서 sass 파일들을 읽어오는 역할을 하고, node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.</p>
+
+<pre><code>$ yarn add node-sass sass-loader
+</code></pre>
+
+<h3 id="open-color-설정">open-color 설정</h3>
+
+<p>변수 세트 라이브러리를 사용하며,
+색상을 간편하게 불러올 수 있음.</p>
+
+<pre><code>$ yarn add open-color
+</code></pre>
+
+<pre><code>@import '~open-color/open-color';
+</code></pre>
+
+<h3 id="include-media-설정">include-media 설정</h3>
+
+<p>믹스인 라이브러리 반응형 디자인 지원</p>
+
+<pre><code>$ yarn add include-media
+</code></pre>
+
+<h2 id="globalstyles-설정">globalStyles 설정</h2>
+
+<p>sass 경로를 간소화 할 수 있다.</p>
+
+<pre><code>config.paths.js - 아래쪽
+
+(...)
+module.exports = {
+  (...)
+  globalStyles: resolveApp('src/styles')
+}
+(...)
+</code></pre>
+
+
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+<script src="/js/common.js"></script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on 짜몽 기술 LAB</title>
+    <link>https://jjamong.github.io/docs/front/react/</link>
+    <description>Recent content in React on 짜몽 기술 LAB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jjamong.github.io/docs/front/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redux 적용</title>
+      <link>https://jjamong.github.io/docs/front/react/setting/redux/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/setting/redux/</guid>
+      <description> Redux 설치 $ yarn add redux redux-actions react-redux redux-pender immutable  </description>
+    </item>
+    
+    <item>
+      <title>Router 적용</title>
+      <link>https://jjamong.github.io/docs/front/react/setting/router/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/setting/router/</guid>
+      <description> Router 설치 $ yarn add react-router-dom  </description>
+    </item>
+    
+    <item>
+      <title>Sass 적용</title>
+      <link>https://jjamong.github.io/docs/front/react/setting/sass/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/setting/sass/</guid>
+      <description>CSS Module 설정 CSS Module은, CSS를 모듈화하여 사용하는 방식이다. CSS를 웹팩을 통해서 불러오면, 고유화된 클래스네임이 이뤄진 객체가 반환되며,
+{ box: &#39;src-App__box--mjrNr&#39; }  그리고 클래스를 적용하려면 className={style.box} 이와 같이 사용한다.
+webpack.config.js 파일에서 아래와 같이 수정한다. webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되는 환경설정 파일입니다.
+(...) { // Options for PostCSS as we reference these options twice // Adds vendor prefixing based on your specified browser support in // package.json loader: require.</description>
+    </item>
+    
+    <item>
+      <title>state</title>
+      <link>https://jjamong.github.io/docs/front/react/component/state/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/component/state/</guid>
+      <description> props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.
+컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.
+state 설정 JSX 내부에서 값 설정 setState 함수로 state값을 업데이트 한다.
+class MyComponent extends Component { constructor(props) { super(props); this.state = { number: 0 } } render() { return ( &amp;lt;div&amp;gt; &amp;lt;div&amp;gt;숫자 : {this.state.number}&amp;lt;/div&amp;gt; &amp;lt;button onClick={()=&amp;gt; { this.setState({ number: this.state.number + 1 }) }} &amp;gt;더하기&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } } // 버튼 세번 클릭 시 // 숫자 : 3  </description>
+    </item>
+    
+    <item>
+      <title>Component(컴포넌트)</title>
+      <link>https://jjamong.github.io/docs/front/react/component/component/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/component/component/</guid>
+      <description> 모듈 내보내기(export) // MyComponent.js export default MyComponent;  모듈 불러오기(import) import MyComponent from &#39;./MyComponent&#39;; // function App() { return ( &amp;lt;div&amp;gt; &amp;lt;div&amp;gt;App&amp;lt;/div&amp;gt; &amp;lt;MyComponent /&amp;gt; &amp;lt;/div&amp;gt; ); } // App // MyComponent  </description>
+    </item>
+    
+    <item>
+      <title>JSX</title>
+      <link>https://jjamong.github.io/docs/front/react/jsx/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/jsx/</guid>
+      <description>JSX 문법 컴포넌트에 여러 요소가 있다면 부모 요소 하나로 꼭 감싸야 한다. 또한 br, input 등 단일 태그들도 닫아야 한다.
+// 올바른 예 return ( &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;리액트 h1&amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt;리액트 h2&amp;lt;/h2&amp;gt; &amp;lt;br/&amp;gt; &amp;lt;/div&amp;gt; ); // 에러 발생 return ( &amp;lt;h1&amp;gt;리액트 h1&amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt;리액트 h2&amp;lt;/h2&amp;gt; &amp;lt;br&amp;gt; );  자바스크립트 표현법 const text = &amp;quot;리액트 h2&amp;quot;; const check = true; const style = { width: &#39;100px&#39;, height: &#39;100px&#39;, background: &#39;red&#39; }; return ( &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;리액트 h1&amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt;{text}&amp;lt;/h2&amp;gt; {check ?</description>
+    </item>
+    
+    <item>
+      <title>props</title>
+      <link>https://jjamong.github.io/docs/front/react/component/props/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/component/props/</guid>
+      <description>props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
+props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } MyComponent.</description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://jjamong.github.io/docs/front/react/react/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/react/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

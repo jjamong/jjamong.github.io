@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yarn on 짜몽 기술 LAB</title>
+    <link>https://jjamong.github.io/docs/etc/yarn/</link>
+    <description>Recent content in Yarn on 짜몽 기술 LAB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jjamong.github.io/docs/etc/yarn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>yarn</title>
+      <link>https://jjamong.github.io/docs/etc/yarn/yarn/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/etc/yarn/yarn/</guid>
+      <description> Yarn(얀)은 자바스크립트 패키지 매니저다.
+설치 https://yarnpkg.com/en/docs/install#windows-stable
+$ yarn --version // 1.19.1  </description>
+    </item>
+    
+  </channel>
+</rss>

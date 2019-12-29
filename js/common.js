@@ -3,17 +3,50 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 function controlClassOnCondition(element, className, condition) {
-  if (condition)
+  if (condition) {
     $(element).addClass(className);
-  else
+    //$('.has-navbar-fixed-top').css('padding-top', '3.75rem');
+  } else {
     $(element).removeClass(className);
+    //$('.has-navbar-fixed-top').css('padding-top', '6.75rem');
+  }
 }
 
 $(document).ready(function () {
+
+  // tabs
+  $('.top-menu .tabs .tabs-a').each(function() {
+    if (location.href.split("/")[4]) {
+      if (location.href.split("/")[4].indexOf($(this).text().toLowerCase()) > -1) {
+        $(this).addClass('is-active')
+      }
+    }
+  });
+
+  $('.top-menu .sub-menu li').each(function() {
+    if (location.href.split("/")[5]) {
+      if (location.href.split("/")[5].indexOf($(this).text().toLowerCase()) > -1) {
+        $(this).addClass('is-active')
+      }
+    }
+  });
+
+  $('.top-menu .tabs .tabs-a').on('click', function() {
+    $('.top-menu .tabs .tabs-a').removeClass('hover');
+    if (!$(this).next('.sub-menu').hasClass('active')) {
+      $('.top-menu .tabs .sub-menu').removeClass('active');
+      $(this).next('.sub-menu').addClass('active');
+      $(this).addClass('hover');
+    } else {
+      $(this).next('.sub-menu').removeClass('active');
+    }
+  });
+
   // navbar flip
   navbar = $('.navbar');
 
   function updateView() {
+    //controlClassOnCondition(navbar, 'is-flipped', window.pageYOffset > 0);
     controlClassOnCondition(navbar, 'is-flipped', window.pageYOffset > 0);
   }
 
@@ -49,10 +82,12 @@ $(document).ready(function () {
     if (document.body.clientHeight < document.body.scrollHeight - windowScrollTop) {
       var isFixedTopHeight = $('.is-fixed-top').height();
       var isSmallHeight = $('.is-small').height();
-      if (windowScrollTop > isSmallHeight + isFixedTopHeight) {
+      if (windowScrollTop> isSmallHeight + isFixedTopHeight) {
         if (windowScrollTop < iScrollPos) {
           iScrollPosFlag = 1;
           $('.top-menu').addClass('fixed').attr('style', 'visibility:visible');
+          $('.sidebar-container .sidebar-main').removeClass('is-affixed')
+          $('.toc-main').removeClass('is-affixed')
         } else if (windowScrollTop === iScrollPos) {
           if (iScrollPosFlag === 0) {
             $('.top-menu').attr('style', 'visibility:hidden');
@@ -61,11 +96,16 @@ $(document).ready(function () {
           }
         } else {
           iScrollPosFlag = 0;
-          $('.top-menu').attr('style', 'visibility:hidden');
+          //$('.top-menu').attr('style', 'visibility:hidden');
+          $('.top-menu').attr('style', 'display: none;');
+          $('.sidebar-container .sidebar-main').addClass('is-affixed')
+          $('.toc-main').addClass('is-affixed')
         }
       } else {
         if (windowScrollTop < isSmallHeight + isFixedTopHeight - $('.top-menu').height()) {
           $('.top-menu').removeClass('fixed').attr('style', 'visibility:visible')
+          $('.sidebar-container .sidebar-main').removeClass('is-affixed')
+          $('.toc-main').removeClass('is-affixed')
         }
       }
       iScrollPos = windowScrollTop;

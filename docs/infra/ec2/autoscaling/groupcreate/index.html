@@ -162,25 +162,25 @@
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/ec2/architecture/">서버 아키텍처</a>
+                  <a href="/docs/infra/aws/ec2/architecture/">서버 아키텍처</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/ec2/instancecreate/">인스턴스 생성/접속</a>
+                  <a href="/docs/infra/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/ec2/webserver/">웹서버</a>
+                  <a href="/docs/infra/aws/ec2/webserver/">웹서버</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/ec2/securitygroup/">보안그룹</a>
+                  <a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a>
                 </li>
                 
               
@@ -191,19 +191,19 @@
                     
                       
                       <li >
-                        <a href="/docs/infra/ec2/autoscaling/configuration/">서버 구성</a>
+                        <a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a>
                       </li>
                       
                     
                       
                       <li  class="active" >
-                        <a href="/docs/infra/ec2/autoscaling/groupcreate/">그룹 생성</a>
+                        <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/infra/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                        <a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
                       </li>
                       
                     
@@ -218,13 +218,13 @@
                     
                       
                       <li >
-                        <a href="/docs/infra/ec2/elb/elbcreate/">ELB 생성</a>
+                        <a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a>
                       </li>
                       
                     
                       
                       <li >
-                        <a href="/docs/infra/ec2/elb/test/">ELB 테스트</a>
+                        <a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a>
                       </li>
                       
                     
@@ -243,13 +243,13 @@
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/route53/dns/">DNS, 도메인</a>
+                  <a href="/docs/infra/aws/route53/dns/">DNS, 도메인</a>
                 </li>
                 
               
                 
                 <li  class="subsections">
-                  <a href="/docs/infra/route53/domainrigster/">도메인 등록</a>
+                  <a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a>
                 </li>
                 
               
@@ -337,19 +337,19 @@
 
 <p>인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/01.png" alt="01" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/01.png" alt="01" /></p>
 
 <hr />
 
 <p>이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/02.png" alt="02" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/02.png" alt="02" /></p>
 
 <hr />
 
 <p>이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/03.png" alt="03" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/03.png" alt="03" /></p>
 
 <hr />
 
@@ -357,7 +357,7 @@
 
 <p>그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/04.png" alt="04" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/04.png" alt="04" /></p>
 
 <hr />
 
@@ -372,19 +372,19 @@
 <li>시작 템플릿 보안 그룹 : 생성한 보안 그룹을 선택한다.</li>
 </ul>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/05.png" alt="05" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/05.png" alt="05" /></p>
 
 <hr />
 
 <p>필수값을 다 입력하였으면, 시작 템플릿 생성을 선택한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/06.png" alt="06" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/06.png" alt="06" /></p>
 
 <hr />
 
 <p>시작 템플릿 성공. 보유 중인 시작 템플릿 목록으로 이동한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/07.png" alt="07" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/07.png" alt="07" /></p>
 
 <hr />
 
@@ -395,7 +395,7 @@
 <p>시작 템플릿을 설정하면 아래 시작 템플릿 목록이 보이며
 목록에 노출된 템플릿을 선택하고 다음단계를 선택한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/08.png" alt="08" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/08.png" alt="08" /></p>
 
 <h3 id="3-1-auto-scaling-그룹-세부-정보-구성">3.1. Auto Scaling 그룹 세부 정보 구성</h3>
 
@@ -405,7 +405,7 @@
 <p>서브넷은 인스턴스들을 어떤 네트워크 망에 띄울 것인지를 정하는 것인데,
 그림과 같이 2a, 2c를 기본값으로 모두 지정한다. 이는 생성하는 인스턴스들 중 절반은 서울 리전 a 가용 영역에, 다른 절반은 서울 리전 c 가용 영역에 생성한다는 의미다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/09.png" alt="09" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/09.png" alt="09" /></p>
 
 <h3 id="3-2-조정-정책-구성">3.2. 조정 정책 구성</h3>
 
@@ -413,31 +413,31 @@
 
 <p>최소 1대에서 최대 2대의 인스턴스를 실행하게 해서 평균 CPU 사용률이 80%를 기준으로 설정한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/10.png" alt="10" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/10.png" alt="10" /></p>
 
 <h3 id="3-3-알림-구성">3.3. 알림 구성</h3>
 
 <p>Auto Scaling 그룹 내 인스턴스 변화가 있을 경우 알림 설정한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/11.png" alt="11" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/11.png" alt="11" /></p>
 
 <h3 id="3-4-태그-구성">3.4. 태그 구성</h3>
 
 <p>Auto Scaling 그룹 내 인스턴스 태그를 설정한다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/12.png" alt="12" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/12.png" alt="12" /></p>
 
 <h3 id="3-5-검토">3.5. 검토</h3>
 
 <p>Auto Scaling 그룹 설정값들을 검토하는 화면이다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/13.png" alt="13" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/13.png" alt="13" /></p>
 
 <h3 id="3-6-완료">3.6. 완료</h3>
 
 <p>생성이 완료되면 그림과 같이 리스트 목록에 출력된다.</p>
 
-<p><img src="/docs/infra/ec2/autoscaling/groupcreate/14.png" alt="14" /></p>
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/14.png" alt="14" /></p>
 
 
           </div>

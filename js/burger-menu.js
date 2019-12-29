@@ -11,5 +11,10 @@
   burger.addEventListener('click', function () {
     burger.classList.toggle('is-active');
     menu.classList.toggle('is-active');
+    if ($('.sidebar-main').hasClass('is-active')) {
+      $('.sidebar-main').removeClass('is-active');
+    } else {
+      $('.sidebar-main').addClass('is-active');
+    }
   });
 })();

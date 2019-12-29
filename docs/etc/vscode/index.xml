@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VSCode on 짜몽 기술 LAB</title>
+    <link>https://jjamong.github.io/docs/etc/vscode/</link>
+    <description>Recent content in VSCode on 짜몽 기술 LAB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jjamong.github.io/docs/etc/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VS Code</title>
+      <link>https://jjamong.github.io/docs/etc/vscode/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/etc/vscode/</guid>
+      <description>확장 프로그램 언어 관련 Korean Language Pack for Visual Studio Code VS code 한국어 언어 팩 플러그인.
+SASS 관련 Sass VSCode용 Indented Sass 구문 강조 표시, 자동 완성 및 형식
+Live Sass Compiler SASS/SCSS 파일을 실시간으로 컴파일하여 브라우저에 재로드.
+React 관련 Redux DevTools (크롬) ESLint 자바스크립트 문법을 체크한다.
+Relative Path 상대 경로에 있는 파일경로를 편하게 작성할 수 있는 플러그인
+Guides 들려쓰기 가이드 라인을 표기
+Reactjs code snippets 리액트 관련 스니펫 모음.</description>
+    </item>
+    
+  </channel>
+</rss>
