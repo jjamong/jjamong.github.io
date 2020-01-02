@@ -31,14 +31,14 @@ $(document).ready(function () {
     }
   });
 
-  $('.top-menu .tabs .tabs-a').on('click', function() {
+  $('.top-menu .tabs .tabs-li').on('click', function() {
     $('.top-menu .tabs .tabs-a').removeClass('hover');
-    if (!$(this).next('.sub-menu').hasClass('active')) {
+    if (!$(this).find('.tabs-a').next('.sub-menu').hasClass('active')) {
       $('.top-menu .tabs .sub-menu').removeClass('active');
-      $(this).next('.sub-menu').addClass('active');
-      $(this).addClass('hover');
+      $(this).find('.tabs-a').next('.sub-menu').addClass('active');
+      $(this).find('.tabs-a').addClass('hover');
     } else {
-      $(this).next('.sub-menu').removeClass('active');
+      $(this).find('.tabs-a').next('.sub-menu').removeClass('active');
     }
   });
 

@@ -81,14 +81,5 @@ class MyComponent extends Component { constructor(props) { super(props); this.st
 props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } MyComponent.</description>
     </item>
     
-    <item>
-      <title>React</title>
-      <link>https://jjamong.github.io/docs/front/react/react/</link>
-      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjamong.github.io/docs/front/react/react/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
