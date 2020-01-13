@@ -25,19 +25,10 @@
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://jjamong.github.io/docs/front/react/setting/router/</guid>
-      <description> Router 설치 $ yarn add react-router-dom  </description>
-    </item>
-    
-    <item>
-      <title>Sass 적용</title>
-      <link>https://jjamong.github.io/docs/front/react/setting/sass/</link>
-      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jjamong.github.io/docs/front/react/setting/sass/</guid>
-      <description>CSS Module 설정 CSS Module은, CSS를 모듈화하여 사용하는 방식이다. CSS를 웹팩을 통해서 불러오면, 고유화된 클래스네임이 이뤄진 객체가 반환되며,
-{ box: &#39;src-App__box--mjrNr&#39; }  그리고 클래스를 적용하려면 className={style.box} 이와 같이 사용한다.
-webpack.config.js 파일에서 아래와 같이 수정한다. webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되는 환경설정 파일입니다.
-(...) { // Options for PostCSS as we reference these options twice // Adds vendor prefixing based on your specified browser support in // package.json loader: require.</description>
+      <description> React Router는 SPA의 라우팅 문제를 보안하는 비공식이긴 하나 거의 표준처럼 사용하고 있는 라이브러리로서, React Router를 사용하여 location이나 history와 같은 브라우저 API와 연동이 가능하다.
+설치 명령어 $ yarn add react-router-dom  내장 함수 BrowserRouter &amp;ndash; 라우팅 컴포넌트를 사용하기 위해 기본적으로 감싸 주어야 한다.
+&amp;ndash; 오직 하나의 자식만 가질 수 있다.
+import {BrowserRouter} from &#39;react-router-dom&#39;;  </description>
     </item>
     
     <item>
@@ -79,6 +70,20 @@ class MyComponent extends Component { constructor(props) { super(props); this.st
       <guid>https://jjamong.github.io/docs/front/react/component/props/</guid>
       <description>props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
 props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: &#39;props1&#39; } render() { return ( &amp;lt;div&amp;gt; MyComponent {this.props.name} &amp;lt;/div&amp;gt; ); } } MyComponent.</description>
+    </item>
+    
+    <item>
+      <title>SASS loader 설정</title>
+      <link>https://jjamong.github.io/docs/front/react/setting/sass/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjamong.github.io/docs/front/react/setting/sass/</guid>
+      <description>react에 SASS를 설정하는 방법을 설명한다. loader 설치 부터, webpack 설정 및 기타 플러그인 설치 등 react에서 사용되는 sass활용법 정보다.
+SASS 설정 sass-loader node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.
+$ yarn add node-sass  classnames 설정 클래스를 여러개 적용 할 수 있다.
+$ yarn add classnames  globalStyles 설정 sass 경로를 간소화 할 수 있다.
+includePaths 경로는 sass Root경로를 설정한다.
+webpack.config.js - 아래쪽 { test: sassRegex, exclude: sassModuleRegex, use: getStyleLoaders({ importLoaders: 2, sourceMap: isEnvProduction &amp;amp;&amp;amp; shouldUseSourceMap }).</description>
     </item>
     
   </channel>

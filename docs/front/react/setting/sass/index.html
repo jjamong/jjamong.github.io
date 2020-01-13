@@ -4,13 +4,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>Sass 적용 | 짜몽 개발 연구소</title>
+  <title>SASS loader 설정 | 짜몽 개발 연구소</title>
 
   
   <link rel="canonical" href="http://jjamong.github.io">
   <meta name="title" content="짜몽 개발 연구소">
   <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-  <meta name="description" content="">
+  <meta name="description" content="react에 SASS를 설정하는 방법을 설명한다. loader 설치 부터, webpack 설정 및 기타 플러그인 설치 등 react에서 사용되는 sass활용법 정보다.">
 
   
   
@@ -40,7 +40,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.16abf5b1cc2291fb5f04130c3d1378955ee18f37f849f3ca52a9d275f0c30419.css" integrity="sha256-Fqv1scwikftfBBMMPRN4lV7hjzf4SfPKUqnSdfDDBBk=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.e1f7b73e60e3cd763d27d7163f91550407e393c520ec645f6723b771a0e41af1.css" integrity="sha256-4fe3PmDjzXY9J9cWP5FVBAfjk8Ug7GRfZyO3caDkGvE=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -213,7 +213,7 @@
                       
                         
                         <li >
-                          <a href="/docs/front/react/setting/router/">Rouer</a>
+                          <a href="/docs/front/react/setting/router/">Router</a>
                         </li>
                         
                       
@@ -333,83 +333,22 @@
   </ul>
   
 </nav>
-            <h1 class="title">Sass 적용</h1>
+            <h1 class="title">SASS loader 설정</h1>
             
 
 
-<h2 id="css-module-설정">CSS Module 설정</h2>
+<p>react에 SASS를 설정하는 방법을 설명한다.
+loader 설치 부터, webpack 설정 및 기타 플러그인 설치 등
+react에서 사용되는 sass활용법 정보다.</p>
 
-<p>CSS Module은, CSS를 모듈화하여 사용하는 방식이다.
-CSS를 웹팩을 통해서 불러오면, 고유화된 클래스네임이 이뤄진 객체가 반환되며,</p>
+<h2 id="sass-설정">SASS 설정</h2>
 
-<pre><code>{
-  box: 'src-App__box--mjrNr'
-}
+<h2 id="sass-loader">sass-loader</h2>
+
+<p>node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.</p>
+
+<pre><code>$ yarn add node-sass
 </code></pre>
-
-<p>그리고 클래스를 적용하려면 <code>className={style.box}</code> 이와 같이 사용한다.</p>
-
-<p>webpack.config.js 파일에서 아래와 같이 수정한다.
-webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되는 환경설정 파일입니다.</p>
-
-<pre><code>(...)
-    {
-        // Options for PostCSS as we reference these options twice
-        // Adds vendor prefixing based on your specified browser support in
-        // package.json
-        loader: require.resolve('postcss-loader'),
-        options: {
-          // Necessary for external CSS imports to work
-          // https://github.com/facebook/create-react-app/issues/2677
-          ident: 'postcss',
-          plugins: () =&gt; [
-            require('postcss-flexbugs-fixes'),
-            require('postcss-preset-env')({
-              autoprefixer: {
-                flexbox: 'no-2009',
-                browsers: [
-                  '&gt;1%',
-                  'last 4 versions',
-                  'Firefox ESR',
-                  'not ie &lt; 9', // React doesn't support IE8 anyway
-                ]
-              },
-              stage: 3,
-            }),
-            // Adds PostCSS Normalize as the reset css with default options,
-            // so that it honors browserslist config in package.json
-            // which in turn let's users customize the target behavior as per their needs.
-            postcssNormalize(),
-          ],
-          sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
-        },
-      },
-(...)
-</code></pre>
-
-<pre><code>(...)
-
-    // common function to get style loaders
-    const getStyleLoaders = (cssOptions, preProcessor) =&gt; {
-    const loaders = [
-        isEnvDevelopment &amp;&amp; require.resolve('style-loader'),
-        isEnvProduction &amp;&amp; {
-        loader: MiniCssExtractPlugin.loader,
-        options: shouldUseRelativeAssetPaths ? { publicPath: '../../' } : {},
-        },
-        {
-        loader: require.resolve('css-loader'),
-        //options: cssOptions,
-        options:{
-            modules: true,
-            localIdentName: '[path][name]__[local]--[hash:base64:5]'
-        },
-    },
-
-(...)
-</code></pre>
-
-<p>위의 설정을 통하면, css가 적용된 것을 확인 할 수 있다.</p>
 
 <h2 id="classnames-설정">classnames 설정</h2>
 
@@ -418,12 +357,40 @@ webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되
 <pre><code>$ yarn add classnames
 </code></pre>
 
-<h2 id="sass-설정">SASS 설정</h2>
+<h2 id="globalstyles-설정">globalStyles 설정</h2>
 
-<p>sass-loader 는 webpack 에서 sass 파일들을 읽어오는 역할을 하고, node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.</p>
+<p>sass 경로를 간소화 할 수 있다.</p>
 
-<pre><code>$ yarn add node-sass sass-loader
+<p><code>includePaths</code> 경로는 sass Root경로를 설정한다.</p>
+
+<pre><code>webpack.config.js - 아래쪽
+
+{
+  test: sassRegex,
+  exclude: sassModuleRegex,
+  use: getStyleLoaders({
+    importLoaders: 2,
+    sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap
+  }).concat({
+    loader: require.resolve('sass-loader'),
+    options: {
+      sassOptions: {
+        includePaths: [paths.appSrc + '/styles'],
+        sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap
+      }
+    }
+  }),
+  sideEffects: true
+},
+
 </code></pre>
+
+<p>설정 후 아래와 같이 사용 가능하다.</p>
+
+<pre><code>@import &quot;utils.scss&quot;;
+</code></pre>
+
+<h2 id="플러그인">플러그인</h2>
 
 <h3 id="open-color-설정">open-color 설정</h3>
 
@@ -443,19 +410,9 @@ webpack.config.js 는 나중에 리액트를 빌드하는 과정에서 사용되
 <pre><code>$ yarn add include-media
 </code></pre>
 
-<h2 id="globalstyles-설정">globalStyles 설정</h2>
+<h2 id="참고">참고</h2>
 
-<p>sass 경로를 간소화 할 수 있다.</p>
-
-<pre><code>config.paths.js - 아래쪽
-
-(...)
-module.exports = {
-  (...)
-  globalStyles: resolveApp('src/styles')
-}
-(...)
-</code></pre>
+<p><a href="http://www.webactually.co.kr/archives/13106">Sass 폴더 구조</a></p>
 
 
           </div>

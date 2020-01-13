@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="generator" content="Hugo 0.59.1" />
-  <title>React | 짜몽 개발 연구소</title>
+  <title>프로젝트 설정 | 짜몽 개발 연구소</title>
 
   
   <link rel="canonical" href="http://jjamong.github.io">
@@ -101,57 +101,16 @@
 
 </header>
     
-    
 
-
-
-<div class="container top-menu">
-  <div class="docs-top-menu tabs">
-    <ul>
-      <li class="tabs-li">
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
         
-        <a class="tabs-a">Front</a>
-        <div class="sub-menu">
-          <ul>
-            
-            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
-            
-            <li class="Angular"><a href="https://jjamong.github.io/docs/front/angular/">Angular</a></li>
-            
-          </ul>
-        </div>
-      </li>
-      <li class="tabs-li">
-        
-        <a class="tabs-a">Infra</a>
-        <div class="sub-menu">
-          <ul>
-            
-            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
-            
-            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
-            
-          </ul>
-        </div>
-      </li>
-      <li class="tabs-li">
-        
-        <a class="tabs-a">ETC</a>
-        <div class="sub-menu">
-          <ul>
-            
-            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
-            
-            <li class="VSCode"><a href="https://jjamong.github.io/docs/etc/vscode/">VSCode</a></li>
-            
-            <li class="Yarn"><a href="https://jjamong.github.io/docs/etc/yarn/">Yarn</a></li>
-            
-          </ul>
-        </div>
-      </li>
-    </ul>
+      </p>
+    </div>
   </div>
-</div>
+</section>
     <div class="container is-fluid">
       <div class="columns verticals">
         
@@ -161,14 +120,6 @@
 
 
 
-
-  
-  
-    
-  
-
-  
-  
 
 
 
@@ -184,75 +135,24 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          React
+          D2
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>React</strong></a>
+              <a href="#"><strong>D2 프로젝트</strong></a>
               <ul>
                 
                   
                   <li class="subsections">
-                    <a href="#">React 시작/설정</a>
-                    <ul>
-                      
-                        
-                        <li  class="active" >
-                          <a href="/docs/front/react/">React</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/setting/sass/">Sass</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/setting/router/">Router</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/setting/redux/">redux</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/jsx/">JSX</a>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Component(컴포넌트)</a>
+                    <a href="#">01. 설정</a>
                     <ul>
                       
                         
                         <li >
-                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/props/">props</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/state/">state</a>
+                          <a href="/study/d2/01/project">프로젝트 설정</a>
                         </li>
                         
                       
@@ -281,8 +181,6 @@
   
   
   
-  
-  
   <li>
     <a href="https://jjamong.github.io/">
       
@@ -295,20 +193,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/">
+    <a href="https://jjamong.github.io/study/">
       
-      Docs
       
-    </a>
-  </li>
-  
-  
-  
-  
-  <li>
-    <a href="https://jjamong.github.io/docs/front/">
-      
-      Front
       
     </a>
   </li>
@@ -320,81 +207,64 @@
   </ul>
   
 </nav>
-            <h1 class="title">React</h1>
+            <h1 class="title">프로젝트 설정</h1>
             
 
 
-<h2 id="리액트-시작">리액트 시작</h2>
+<h2 id="d2-프로젝트-생성">d2 프로젝트 생성</h2>
 
-<h3 id="리액트-설치-yarn">리액트 설치 (yarn)</h3>
+<p>d2 프로젝트 생성 후 localhost:3000에 리액트 프로젝트 확인</p>
 
-<pre><code>$ yarn global add create-react-app
+<p><a href="/docs/front/react/">참고</a></p>
+
+<pre><code>$ create-react-app d2
+
+$ cd d2
+$ yarn start
 </code></pre>
 
-<h3 id="리액트-프로젝트-생성">리액트 프로젝트 생성</h3>
+<hr />
 
-<pre><code>$ create-react-app react-project
+<p>yarn 초기화</p>
+
+<p><a href="/docs/etc/yarn/">참고</a></p>
+
+<pre><code>$ yarn eject
 </code></pre>
 
-<h3 id="리액트-서버-실행-localhost-3000">리액트 서버 실행 / localhost:3000</h3>
+<hr />
 
-<pre><code>cd react-project
-yarn start
-</code></pre>
+<p>NODE_PATH 설정</p>
 
-<h2 id="리엑트-설정">리엑트 설정</h2>
-
-<h3 id="불필요-파일-제거">불필요 파일 제거</h3>
-
-<pre><code>App.css
-App.js
-App.test.js
-index.css
-logo.svg
-</code></pre>
-
-<h3 id="nodemon">nodemon</h3>
-
-<p>코드를 변경할 때 마다 서버를 자동으로 재시작 한다.</p>
-
-<pre><code>$ yarn add --dev nodemon
-</code></pre>
-
-<h3 id="node-path">NODE_PATH</h3>
-
-<p>Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.</p>
+<p><a href="/docs/front/react/">참고</a></p>
 
 <pre><code>$ yarn add --dev cross-env
 </code></pre>
 
-<p>방법1</p>
-
-<pre><code>.env
+<pre><code>.env 파일 아래 내용 추가
 
 NODE_PATH=src
 </code></pre>
 
-<p>방법2</p>
+<hr />
 
-<pre><code>package.json - script
+<p>router 추가</p>
 
-&quot;scripts&quot;: {
-    &quot;start&quot;: &quot;cross-env NODE_PATH=src react-scripts start&quot;,
-    src/index.js&quot;
-}
+<p><a href="/docs/front/react/setting/router/">참고</a></p>
+
+<pre><code>$ yarn add react-router-dom
 </code></pre>
 
-<p>이후 아래와 같이 import 및 경로 불러올 시에 src이하 경로로 인식</p>
+<hr />
 
-<pre><code>import App from 'components/App';
+<p>sass 설정</p>
+
+<p><a href="/docs/front/react/setting/sass/">참고</a></p>
+
+<pre><code>$ yarn add node-sass classnames
 </code></pre>
 
-<h3 id="axios-설정">axios 설정</h3>
-
-<p>프로미스 기반 REST API 웹 요청 라이브러리</p>
-
-<pre><code>$ yarn add axios
-</code></pre>
+<p>설정 후 globalStyles 설정</p>
 
 
           </div>
@@ -429,7 +299,6 @@ NODE_PATH=src
 <footer class="footer">
   
 </footer>
-    
   </section>
 </body>
 
