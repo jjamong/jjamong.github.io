@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jjamong.github.io/study/d2/01/project/</loc>
-    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jjamong.github.io/docs/front/react/setting/redux/</loc>
     <lastmod>2019-12-07T00:00:00+00:00</lastmod>
   </url>
@@ -116,6 +111,11 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/study/d2/01/project/</loc>
+    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/etc/hugo/directory_structure/</loc>
     <lastmod>2019-11-07T00:00:00+00:00</lastmod>
   </url>
@@ -144,14 +144,18 @@
   
   <url>
     <loc>https://jjamong.github.io/</loc>
-    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/study/</loc>
-    <lastmod>2020-01-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://jjamong.github.io/study/d2/01/overview/</loc>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/study/d2/</loc>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -200,6 +204,10 @@
   
   <url>
     <loc>https://jjamong.github.io/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/study/</loc>
   </url>
   
   <url>
