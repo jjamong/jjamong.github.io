@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>인스턴스 생성/접속 | 짜몽 개발 연구소</title>
+<title>axios | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
@@ -180,60 +180,30 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Aws
+          React
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>AWS EC2</strong></a>
+              <a href="#"><strong>React</strong></a>
               <ul>
                 
                   
-                  <li  class="subsections">
-                    <a href="/docs/infra/aws/ec2/architecture/">서버 아키텍처</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="active"  class="subsections">
-                    <a href="/docs/infra/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/infra/aws/ec2/webserver/">웹서버</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a>
-                  </li>
-                  
-                
-                  
                   <li class="subsections">
-                    <a href="#">Auto Scaling(오토 스케일링)</a>
+                    <a href="#">React</a>
                     <ul>
                       
                         
                         <li >
-                          <a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                          <a href="/docs/front/react/">React</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                          <a href="/docs/front/react/setting/sass/">Sass</a>
                         </li>
                         
                       
@@ -243,18 +213,12 @@
                 
                   
                   <li class="subsections">
-                    <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                    <a href="#">플러그인</a>
                     <ul>
                       
                         
-                        <li >
-                          <a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a>
+                        <li  class="active" >
+                          <a href="/docs/front/react/plugin/axios/">axios</a>
                         </li>
                         
                       
@@ -262,35 +226,38 @@
                   </li>
                   
                 
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>AWS Route 53</strong></a>
-              <ul>
-                
                   
                   <li  class="subsections">
-                    <a href="/docs/infra/aws/route53/dns/">DNS, 도메인</a>
+                    <a href="/docs/front/react/jsx/">JSX</a>
                   </li>
                   
                 
                   
-                  <li  class="subsections">
-                    <a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a>
+                  <li class="subsections">
+                    <a href="#">Component(컴포넌트)</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/props/">props</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/state/">state</a>
+                        </li>
+                        
+                      
+                    </ul>
                   </li>
                   
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>배포 구성</strong></a>
-              <ul>
                 
               </ul>
               
@@ -340,9 +307,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/infra/">
+    <a href="https://jjamong.github.io/docs/front/">
       
-      Infra
+      Front
       
     </a>
   </li>
@@ -351,9 +318,9 @@
   
   
   <li>
-    <a href="https://jjamong.github.io/docs/infra/aws/">
+    <a href="https://jjamong.github.io/docs/front/react/">
       
-      AWS
+      React
       
     </a>
   </li>
@@ -365,116 +332,59 @@
   </ul>
   
 </nav>
-            <h1 class="title">인스턴스 생성/접속</h1>
+            <h1 class="title">axios</h1>
             
 
 
-<p><code>위치</code> : 인스턴스 &gt; 인스턴스</p>
+<h2 id="axios-설치">axios 설치</h2>
 
-<p>인스턴스 목록을 확인할 수 있다.<br>인스턴스 시작 버튼을 선택하여 인스턴스를 생성한다.</p>
+<p>프로미스 기반 REST API 웹 요청 라이브러리</p>
 
-<p><img src="/docs/infra/aws/ec2/instancecreate/02.png" alt="EC2" /></p>
+<pre><code>$ yarn add axios
+</code></pre>
 
-<hr />
+<h2 id="axios-예제">axios 예제</h2>
 
-<h2 id="1-단계-1-ami-선택">1. 단계 1: AMI 선택</h2>
+<p><code>/api/banner</code> api 요청/응답 받아 컴포넌트에 렌더링 하는 예제.</p>
 
-<p>AMI(Amazon Machine Image)는 원하는 EC2 환경(OS, 애플리케이션 등)을 구성한 이미지로
-EC2에 미리 셋팅한 AMI를 설정하는 구조다.</p>
+<pre><code>import React, { Component } from &quot;react&quot;;
+import axios from &quot;axios&quot;;
 
-<p><img src="/docs/infra/aws/ec2/instancecreate/03.png" alt="03" /></p>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { datas: [] };
+  }
 
-<h2 id="2-단계-2-인스턴스-유형-선택">2. 단계 2: 인스턴스 유형 선택</h2>
+  async componentDidMount() {
+    let { data: datas } = await axios.get('/api/banner')
+    this.setState({ datas });
+  }
 
-<p>EC2 서버의 CPU, 메모리, 디스크 등 스펙을 설정한다.</p>
+  render() {
+    const { datas } = this.state;
 
-<p><img src="/docs/infra/aws/ec2/instancecreate/04.png" alt="04" /></p>
+    if (datas.length &gt; 0) {
+      return datas.map(data =&gt; {
+        console.log(data)
+        return (
+          &lt;div key={data.imageUrl}&gt;&lt;/div&gt;
+        );
+      });
+    } else {
+      return &lt;div&gt;&lt;/div&gt;;
+    }
+  }
+}
 
-<h2 id="3-단계-3-인스턴스-세부-정보-구성">3. 단계 3: 인스턴스 세부 정보 구성</h2>
-
-<p>인스턴스 상세 정보 구성.
-(기본 값으로 두고 다음 진행)</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/05.png" alt="05" /></p>
-
-<h2 id="4-단계-4-스토리지-추가">4. 단계 4: 스토리지 추가</h2>
-
-<p>인스턴스 스토리지 추가.
-(기본 값으로 두고 다음 진행)</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/06.png" alt="06" /></p>
-
-<h2 id="5-단계-5-태그-추가">5. 단계 5: 태그 추가</h2>
-
-<p>인스턴스를 분류할 때 유용하게 사용 가능
-(기본 값으로 두고 다음 진행)</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/07.png" alt="07" /></p>
-
-<h2 id="6-단계-6-보안-그룹-구성">6. 단계 6: 보안 그룹 구성</h2>
-
-<p>보안을 위해 IP, Port를 이용해 정의해 두는 접속 규칙</p>
-
-<p>인스턴스 접근 제어를 위한 보안 그룹 구성.
-생성하거나, 기존에 만들어 둔 보안 그룹이 있다면 사용 가능</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/08.png" alt="08" /></p>
-
-<h2 id="7-단계-7-인스턴스-시작-검토">7. 단계 7: 인스턴스 시작 검토</h2>
-
-<p>인스턴스 생성 전에 설정한 정보들을 확인한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/09.png" alt="09" /></p>
-
-<h2 id="8-기존-키페어-선택-또는-새-키-페어-생성">8. 기존 키페어 선택 또는 새 키 페어 생성</h2>
-
-<p>서버에 접속하기 위한 공개 키 암호화 기법으로 서버에는 공개키(public key) 사용자는 개인 키(private key)를 가지고 접속함.</p>
-
-<p>키페어를 생성하거나, 기존에 만들어 둔 키를 설정한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/10.png" alt="10" /></p>
-
-<h2 id="9-생성된-인스턴스-확인">9. 생성된 인스턴스 확인</h2>
-
-<p>인스턴스 생성 전에 설정한 정보들을 확인한다.
-퍼블릭 DNS와 IP가 호스트이며, 따로 설정하지 않았을 경우엔 유동IP로 설정되므로 서버 재부팅시 IP가 변경됨.</p>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/11.png" alt="11" /></p>
-
-<h1 id="인스턴스-접속">인스턴스 접속</h1>
-
-<h2 id="ssh-접속-설정">SSH 접속 설정</h2>
-
-<ul>
-<li><code>프로토콜</code> SSH</li>
-<li><code>호스트</code> 퍼블릭 DNS, IP</li>
-<li><code>방법</code> Publick Key (공개 키 암호화 기법)</li>
-<li><code>사용자 이름</code> ec2-usercentOS계열은 ec2-user, ubuntu계열은 ubuntu 입니다.)</li>
-<li><code>사용자 키</code> 인스턴스 생성시에 설정했던 pem키를 설정
-<img src="/docs/infra/aws/ec2/instancecreate/12.png" alt="12" />
-<img src="/docs/infra/aws/ec2/instancecreate/13.png" alt="13" /></li>
-</ul>
-
-<h2 id="ec2-서버-접속-화면">EC2 서버 접속 화면</h2>
-
-<p><img src="/docs/infra/aws/ec2/instancecreate/14.png" alt="14" /></p>
+export default App;
+</code></pre>
 
 
           </div>
           
         </div>
         
-<div class="toc-container column is-one-fifth is-hidden-touch">
-  <div class="toc-main">
-    <p class="subtitle is-6">
-      Contents
-    </p>
-    <div class="scrollbar-outer">
-      <nav class="toc-menu"></nav>
-    </div>
-  </div>
-</div>
-
       </div>
     </div>
     
@@ -489,9 +399,6 @@ EC2에 미리 셋팅한 AMI를 설정하는 구조다.</p>
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
-
-<script src="/js/tocbot.min.js"></script>
-<script src="/js/toc.js"></script>
 
 
 <script>
