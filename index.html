@@ -38,7 +38,11 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.a039444e4a8db35253290e1d38605f7eeda8d8a5683c4499f96981671952b199.css" integrity="sha256-oDlETkqNs1JTKQ4dOGBffu2o2KVoPESZ&#43;WmBZxlSsZk=">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.68a76caf3e033a724746ba8adfe6d129b6674ac075d3636b6aed4a8cea0956c2.css" integrity="sha256-aKdsrz4DOnJHRrqK3&#43;bRKbZnSsB102Nrau1KjOoJVsI=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -65,8 +69,8 @@
     <div class="container is-fluid">
       <div class="navbar-brand">
         <div class="logo-area">
-          <a class="navbar-item logo" href="/" ></a>
-          <h1 class="logo-text">짜몽 개발 연구소</h1>
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
         </div>
         <span class="navbar-burger burger" data-target="navbarMenu">
           <span></span>
@@ -76,13 +80,13 @@
       </div>
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
+          
           <span class="navbar-item">
-            <a href="javascript:alert('comming soon')">PORTFOLIO</a>
+            <a href="/" class="is-active">PORTFOLIO</a>
           </span>
           
           <span class="navbar-item">
-            
-            <a href="/docs/front/react/" >DOCS</a>
+            <a href="/docs" >DOCS</a>
           </span>
           
           <span class="navbar-item"></span>
@@ -97,121 +101,330 @@
 </header>
     
     <div class="container main">
-      <div class="content-main content">
-        <ul class="content-list"><li>
-            <span class="list-date">2020-02-11</span>
-            <div class="list-title"><a href="/docs/front/react/plugin/axios/">axios</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/plugin/axios/">
-                axios 설치 프로미스 기반 REST API 웹 요청 라이브러리
-$ yarn add axios  axios 예제 /api/banner api 요청/응답 받아 컴포넌트에 렌더링 하는 예제.
-import React, { Component } from &quot;react&quot;; import axios from &quot;axios&quot;; class App extends Component { constructor(props) { super(props); this.state = { datas: [] }; } async componentDidMount() { let { data: datas } = await axios.get('/api/banner') this.setState({ datas }); } render() { const { datas } = this.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-12-07</span>
-            <div class="list-title"><a href="/docs/front/react/setting/redux/">Redux 적용</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/setting/redux/">
-                 Redux 설치 $ yarn add redux redux-actions react-redux redux-pender immutable  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-12-07</span>
-            <div class="list-title"><a href="/docs/front/react/setting/router/">Router 적용</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/setting/router/">
-                 React Router는 SPA의 라우팅 문제를 보안하는 비공식이긴 하나 거의 표준처럼 사용하고 있는 라이브러리로서, React Router를 사용하여 location이나 history와 같은 브라우저 API와 연동이 가능하다.
-설치 명령어 $ yarn add react-router-dom  내장 함수 BrowserRouter &ndash; 라우팅 컴포넌트를 사용하기 위해 기본적으로 감싸 주어야 한다.
-&ndash; 오직 하나의 자식만 가질 수 있다.
-import {BrowserRouter} from 'react-router-dom';  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-11</span>
-            <div class="list-title"><a href="/docs/front/react/component/state/">state</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/state/">
-                 props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.
-컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.
-state 설정 JSX 내부에서 값 설정 setState 함수로 state값을 업데이트 한다.
-class MyComponent extends Component { constructor(props) { super(props); this.state = { number: 0 } } render() { return ( &lt;div&gt; &lt;div&gt;숫자 : {this.state.number}&lt;/div&gt; &lt;button onClick={()=&gt; { this.setState({ number: this.state.number + 1 }) }} &gt;더하기&lt;/button&gt; &lt;/div&gt; ); } } // 버튼 세번 클릭 시 // 숫자 : 3  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/component/">Component(컴포넌트)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/component/">
-                 모듈 내보내기(export) // MyComponent.js export default MyComponent;  모듈 불러오기(import) import MyComponent from './MyComponent'; // function App() { return ( &lt;div&gt; &lt;div&gt;App&lt;/div&gt; &lt;MyComponent /&gt; &lt;/div&gt; ); } // App // MyComponent  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/jsx/">JSX</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/jsx/">
-                JSX 문법 컴포넌트에 여러 요소가 있다면 부모 요소 하나로 꼭 감싸야 한다. 또한 br, input 등 단일 태그들도 닫아야 한다.
-// 올바른 예 return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br/&gt; &lt;/div&gt; ); // 에러 발생 return ( &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br&gt; );  자바스크립트 표현법 const text = &quot;리액트 h2&quot;; const check = true; const style = { width: '100px', height: '100px', background: 'red' }; return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;{text}&lt;/h2&gt; {check ?
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/props/">props</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/props/">
-                props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
-props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } MyComponent.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/etc/vscode/">VS Code</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/vscode/">
-                확장 프로그램 언어 관련 Korean Language Pack for Visual Studio Code VS code 한국어 언어 팩 플러그인.
-SASS 관련 Sass VSCode용 Indented Sass 구문 강조 표시, 자동 완성 및 형식
-Live Sass Compiler SASS/SCSS 파일을 실시간으로 컴파일하여 브라우저에 재로드.
-React 관련 Redux DevTools (크롬) ESLint 자바스크립트 문법을 체크한다.
-Relative Path 상대 경로에 있는 파일경로를 편하게 작성할 수 있는 플러그인
-Guides 들려쓰기 가이드 라인을 표기
-Reactjs code snippets 리액트 관련 스니펫 모음.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/etc/yarn/yarn/">yarn</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/yarn/yarn/">
-                 Yarn(얀)은 자바스크립트 패키지 매니저다.
-설치 https://yarnpkg.com/en/docs/install#windows-stable
-$ yarn --version // 1.19.1  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-07</span>
-            <div class="list-title"><a href="/docs/etc/hugo/tempates/introduction/">Hugo Templating 소개</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/tempates/introduction/">
-                https://gohugo.io/templates/introduction/
-Hugo는 템플릿의 기준으로 Go의 html/template 및 text/template 라이브러리를 사용한다.
-기본 구문 Go 템플릿은 변수와 기능이 추가된 HTML파일이다. Go Template 변수와 기능은 {{}}내에서도 이용할 수 있다.
-미리 정의된 변수 액세스 미리 정의된 변수는 현재 범위에 이미 존재하는 변수 (아래의 변수 섹션의 .Title 예제처럼) 또는 사용자 지정 변수일 수 있음 (같은 섹션의 $address 예시처럼.)
-{{ .Title }} {{ $address }}  함수에 대한 매개변수는 공백으로 구분된다. 일반적인 구문은 다음과 같다.
-                …
-                </a>
-              </p>
-          </li></ul>
-        
+      <div class="portfolio">
+        <div class="profile_area">
+          <div class="profile">
+            <div class="profile_img">
+              <div class="img"><img src="/images/portfolio/profile.jpg" /></div>
+            </div>
+            <div class="profile_txt">
+              <div class="tit">Profile</div>
+              <div class="txt_area">
+                <dl>
+                  <dt>NAME</dt>
+                  <dd>김형규</dd>
+                </dl>
+                <dl>
+                  <dt>AGE</dt>
+                  <dd>1992.03.29</dd>
+                </dl>
+                <dl>
+                  <dt>CONTACT</dt>
+                  <dd>gudrb3000@gmail.com</dd>
+                  <dd>https://jjamong.github.io/</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content_area">
+          <div class="activity">
+            <div class="career">
+              <div class="tit">Career</div>
+              <ul class="list">
+                <li>
+                  <div class="year">2018.03 - 현재</div>
+                  <div class="desc">LG 콘텐츠 스토어 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2017.05 - 07</div>
+                  <div class="desc">숲픈날 프로모션 앱 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2017.05</div>
+                  <div class="desc">휴비스 워터 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2017.04</div>
+                  <div class="desc">숨37도 프로모션 모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2017.03</div>
+                  <div class="desc">스마트교복 2017 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2017.02 - 07</div>
+                  <div class="desc">휴비스 공개구매 웹 유지보수</div>
+                </li>
+                <li>
+                  <div class="year">2017.02 - 07</div>
+                  <div class="desc">휴비스 웹/모바일 유지보수</div>
+                </li>
+                <li>
+                  <div class="year">2016.11 – 2017.01</div>
+                  <div class="desc">휴비스 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2016.11</div>
+                  <div class="desc">화이트 스타일 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2016.11</div>
+                  <div class="desc">디펜드 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2016.10 – 2017.02</div>
+                  <div class="desc">고려해운 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2016.09</div>
+                  <div class="desc">허니오즈 프로모션 웹/모바일 퍼블리싱</div>
+                </li>
+                <li>
+                  <div class="year">2016.09</div>
+                  <div class="desc">오레오오즈 프로모션 웹/모바일 퍼블리싱</div>
+                </li>
+                <li>
+                  <div class="year">2016.09</div>
+                  <div class="desc">라이트업 프로모션 웹/모바일 퍼블리싱</div>
+                </li>
+                <li>
+                  <div class="year">2016.09</div>
+                  <div class="desc">한화 불꽃축제 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2016.07 – 09</div>
+                  <div class="desc">나뚜찌 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2016.07</div>
+                  <div class="desc">스쿨팅 App 유지보수</div>
+                </li>
+                <li>
+                  <div class="year">2016.06 – 07</div>
+                  <div class="desc">로얄파빌리온 웹 구축</div>
+                </li>
+                <li>
+                  <div class="year">2016.05 – 09</div>
+                  <div class="desc">우리들교회 반응형 웹 퍼블리싱</div>
+                </li>
+                <li>
+                  <div class="year">2016.04 – 2017.05</div>
+                  <div class="desc">더블하트 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2016.04 – 2017.05</div>
+                  <div class="desc">스마트교복 가족사랑 캠페인 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2016.03 – 2017.07</div>
+                  <div class="desc">브라운교육 T4U 국책사업 반응형 웹 구축</div>
+                </li>
+                <li>
+                  <div class="year">2016.02 – 06</div>
+                  <div class="desc">컬쳐 스토어 앱/웹/모바일 유지보수</div>
+                </li>
+                <li>
+                  <div class="year">2016.02 – 04</div>
+                  <div class="desc">스마트교복 2016 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.11 – 12</div>
+                  <div class="desc">삼성페이 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.09 – 10</div>
+                  <div class="desc">골든블루 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.08 – 2016.02</div>
+                  <div class="desc">컬쳐 스토어 앱/웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2015.07 – 09</div>
+                  <div class="desc">SK텔레콤 연결의 신곡발표 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.06 – 12</div>
+                  <div class="desc">스마트광고 플랫폼 국책사업(2차) 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2015.04 – 06</div>
+                  <div class="desc">폭스바겐 테이스티로드 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.04</div>
+                  <div class="desc">노비아갈라 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2015.04</div>
+                  <div class="desc">레드불 킥잇 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.03 – 04</div>
+                  <div class="desc">레드불 쓰리스타일 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.03</div>
+                  <div class="desc">컨버스 메이드 바이유 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.02 – 03</div>
+                  <div class="desc">반도건설 웹/모바일 사이트 구축</div>
+                </li>
+                <li>
+                  <div class="year">2015.02 – 03</div>
+                  <div class="desc">하이갤럭시! 하이 배.프! 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2015.01 – 02</div>
+                  <div class="desc">아쿠아ICL 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.12 – 2015.02</div>
+                  <div class="desc">스마트광고 플랫폼 국책사업(1차) 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.12 – 2015.04</div>
+                  <div class="desc">티켓베이 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.11 – 2017.12</div>
+                  <div class="desc">브라운교육 지사 쇼핑몰 웹 유지보수</div>
+                </li>
+                <li>
+                  <div class="year">2014.07 – 08</div>
+                  <div class="desc">브라운교육 지사 쇼핑몰 웹 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.07 – 08</div>
+                  <div class="desc">삼성 S-아몰레드 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2014.07</div>
+                  <div class="desc">THE K FESTIVAL 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2014.06 – 07</div>
+                  <div class="desc">동구바이오 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.06 – 2015.01</div>
+                  <div class="desc">H-LINE 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.06</div>
+                  <div class="desc">머니라이프 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.05</div>
+                  <div class="desc">삼성 굿스위칭 프로모션 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2014.04 - 05</div>
+                  <div class="desc">포토리아 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2014.04</div>
+                  <div class="desc">인간중독 프로모션 웹/모바일 구축/운영</div>
+                </li>
+                <li>
+                  <div class="year">2014.01 – 03</div>
+                  <div class="desc">브라운교육 반응형 웹 구축</div>
+                </li>
+                <li>
+                  <div class="year">2013.09 – 10</div>
+                  <div class="desc">생명의 다리 웹/모바일 구축</div>
+                </li>
+                <li>
+                  <div class="year">2013.02 – 07</div>
+                  <div class="desc">금호타이어 웹/모바일 구축</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="ability">
+            <div class="education">
+              <div class="tit">Education</div>
+              <ul class="list">
+                <li>
+                  <div class="year">2014.03 - 2019.08</div>
+                  <div class="desc">서울디지털 대학교 졸업</div>
+                </li>
+                <li>
+                  <div class="year">2008.03 - 2011.02</div>
+                  <div class="desc">서울공업 고등학교 졸업</div>
+                </li>
+              </ul>
+            </div>
+            <div class="skill">
+              <div class="tit">Skills</div>
+              <ul class="list">
+                <li>
+                  <div class="lang">JAVA / PHP / ASP / C# / .NET / Python</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">HTML5 / CSS3 / JS / Jquery</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">AWS / Server / ansible</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">Window / Linux / Ubuntu</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">Oracle / Mysql / Mssql</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">React / angularJs</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 66%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">nodeJs</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 33%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">Android</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 33%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">Unity</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 33%"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="lang">MS Office / Photoshop</div>
+                  <div class="gauge">
+                    <div class="peosent" style="width: 33%"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     
