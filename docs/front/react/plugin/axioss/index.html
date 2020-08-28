@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Component(컴포넌트) | 짜몽 개발 연구소</title>
+<title>axioss | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
@@ -254,7 +254,7 @@
                     <ul>
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
                         </li>
                         
@@ -288,32 +288,52 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Component(컴포넌트)</h1>
+            <h1 class="title">axioss</h1>
             
 
 
-<h2 id="모듈-내보내기-export">모듈 내보내기(export)</h2>
+<h2 id="axios-설치">axios 설치</h2>
 
-<pre><code>// MyComponent.js
-export default MyComponent;
+<p>프로미스 기반 REST API 웹 요청 라이브러리</p>
+
+<pre><code>$ yarn add axios
 </code></pre>
 
-<h2 id="모듈-불러오기-import">모듈 불러오기(import)</h2>
+<h2 id="axios-예제">axios 예제</h2>
 
-<pre><code>import MyComponent from './MyComponent'; //
+<p><code>/api/banner</code> api 요청/응답 받아 컴포넌트에 렌더링 하는 예제.</p>
 
-function App() {
+<pre><code>import React, { Component } from &quot;react&quot;;
+import axios from &quot;axios&quot;;
 
-  return (
-    &lt;div&gt;
-      &lt;div&gt;App&lt;/div&gt;
-      &lt;MyComponent /&gt;
-    &lt;/div&gt;
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { datas: [] };
+  }
+
+  async componentDidMount() {
+    let { data: datas } = await axios.get('/api/banner')
+    this.setState({ datas });
+  }
+
+  render() {
+    const { datas } = this.state;
+
+    if (datas.length &gt; 0) {
+      return datas.map(data =&gt; {
+        console.log(data)
+        return (
+          &lt;div key={data.imageUrl}&gt;&lt;/div&gt;
+        );
+      });
+    } else {
+      return &lt;div&gt;&lt;/div&gt;;
+    }
+  }
 }
 
-// App
-// MyComponent
+export default App;
 </code></pre>
 
 

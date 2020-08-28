@@ -17,7 +17,8 @@ $(document).ready(function () {
   // tabs
   $('.top-menu .tabs .tabs-a').each(function() {
     if (location.href.split("/")[4]) {
-      if (location.href.split("/")[4].indexOf($(this).text().toLowerCase()) > -1) {
+      //if (location.href.split("/")[4].indexOf($(this).text().toLowerCase()) > -1) {
+        if (location.href.split("/")[4] == ($(this).text().toLowerCase().replace(" ", ""))) {
         $(this).addClass('is-active')
       }
     }
@@ -25,7 +26,9 @@ $(document).ready(function () {
 
   $('.top-menu .sub-menu li').each(function() {
     if (location.href.split("/")[5]) {
-      if (location.href.split("/")[5].indexOf($(this).text().toLowerCase()) > -1) {
+      //console.log(location.href.split("/")[5], $(this).text().toLowerCase())
+      //if (location.href.split("/")[5].indexOf($(this).text().toLowerCase()) > -1) {
+      if (location.href.split("/")[5] == ($(this).text().toLowerCase().replace(" ", ""))) {
         $(this).addClass('is-active')
       }
     }

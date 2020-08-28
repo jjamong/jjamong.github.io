@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.330559d5ad4ecd6fe439ed5f0ba8cbf78985137042ccb5ac6927ca9a7b63cd63.css" integrity="sha256-MwVZ1a1OzW/kOe1fC6jL94mFE3BCzLWsaSfKmntjzWM=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.8a99a51fa15f088dec343a1d8120e498ef20ae485e7aa9e4f5c3c8d05da44b8d.css" integrity="sha256-ipmlH6FfCI3sNDodgSDkmO8grkheeqnk9cPI0F2kS40=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -116,6 +116,8 @@
             
             <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
             
+            <li class="React Native"><a href="https://jjamong.github.io/docs/front/reactnative/">React Native</a></li>
+            
             <li class="Angular"><a href="https://jjamong.github.io/docs/front/angular/">Angular</a></li>
             
           </ul>
@@ -155,6 +157,19 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2019-11-07</span>
+            <div class="list-title"><a href="/docs/etc/hugo/tempates/introduction/">Hugo Templating 소개</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/tempates/introduction/">
+                https://gohugo.io/templates/introduction/
+Hugo는 템플릿의 기준으로 Go의 html/template 및 text/template 라이브러리를 사용한다.
+기본 구문 Go 템플릿은 변수와 기능이 추가된 HTML파일이다. Go Template 변수와 기능은 {{}}내에서도 이용할 수 있다.
+미리 정의된 변수 액세스 미리 정의된 변수는 현재 범위에 이미 존재하는 변수 (아래의 변수 섹션의 .Title 예제처럼) 또는 사용자 지정 변수일 수 있음 (같은 섹션의 $address 예시처럼.)
+{{ .Title }} {{ $address }}  함수에 대한 매개변수는 공백으로 구분된다. 일반적인 구문은 다음과 같다.
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">0001-01-01</span>
             <div class="list-title"><a href="/docs/infra/aws/route53/dns/">DNS, 도메인</a></div>
               <p class="list-desc">
@@ -264,18 +279,6 @@ stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 
                 기본 구성 AWS Auto Scaling(오토 스케일링) 그룹은 AWS에서 제공하는 자동 다중 서버 서비스다. 같은 사양, 환경, 코드를 가진 똑같은 EC2 인스턴스 묶음이며, AMI를 이용하기 때문에 같은 서버를 구성할 수 있다.
 서비스에 사용자가 몰리는 경우에 따라 서버의 수를 자동으로 늘리고 줄이기 때문에 24시간 켜놓는 것보다 비용절감이 된다.
 오토 스케일링 응용 CPU 사용량 정책 예를 들어, 평균 CPU 사용량 정책에 따라 평소 EC2 3대로 요청을 처리하다가, 사용량이 많아져 10분동안 평균 CPU 사용량이 90% 이상을 넘어서면, Auto Scaling그룹에서 똑같은 EC2를 증설한다.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/architecture/">서버 아키텍처</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/architecture/">
-                단일서버 가장 기본적인 서버 구성으로 테스트 서버나, 간단한고 작은 서비스를 할 때 많이 사용된다.
-클라이언트는 웹, 애플리케이션은 웹서버, 데이터베이스는 Mysql과 같은 RDB 등으로 생각할 수 있다.
-장점  환경 구축이 쉬움  단점  전체 서비스에 장애가 생길 확률이 높음 =&gt; 애플리케이션, 데이터베이스가 같은 자원(CPU, 메모리 등)을 공유하므로 둘 중 하나라도 자원을 모두 사용하거나, 서버 장애가 발생하면 전체 서비스가 완전히 죽는다.
- 서버 자원을 효율적으로 사용하기 어렵다. =&gt; 애플리케이션, 데이터베이스가 각 속성에 따라 더 중요한 최적화를 필요한 설정이 다를 수 있음
                 …
                 </a>
               </p>
