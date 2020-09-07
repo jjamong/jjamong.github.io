@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>라이프 사이클 | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="리액트 라이프 사이클 함수 가이드">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.12db01577caa9e4f3db6b1ec52cab0ed20eb86a29e8d799466a32381fd617fc2.css" integrity="sha256-EtsBV3yqnk89trHsUsqw7SDrhqKejXmUZqMjgf1hf8I=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          <span class="navbar-item"></span>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="React Native"><a href="https://jjamong.github.io/docs/front/reactnative/">React Native</a></li>
+            
+            <li class="Angular"><a href="https://jjamong.github.io/docs/front/angular/">Angular</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="VSCode"><a href="https://jjamong.github.io/docs/etc/vscode/">VSCode</a></li>
+            
+            <li class="Yarn"><a href="https://jjamong.github.io/docs/etc/yarn/">Yarn</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          React
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>React</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">리액트</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/react/start">리액트 시작</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/react/lifecycle">라이프 사이클</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/setting/sass/">Sass</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">플러그인</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/plugin/axios/">axios</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/plugin/slick/">slick</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/jsx/">JSX</a>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">Component(컴포넌트)</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/props/">props</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/state/">state</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">라이프 사이클</h1>
+            
+
+
+<h2 id="라이프-사이클-함수">라이프 사이클 함수</h2>
+
+<h3 id="constructor-함수">constructor 함수</h3>
+
+<p>생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.</p>
+
+<p>생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.</p>
+
+<p>생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.</p>
+
+<pre><code>constructor(props: Props) {
+    super(props);
+
+    this.state = {
+        count: props.initValue,
+        error: false,
+    }
+}
+</code></pre>
+
+<h3 id="render-함수">render 함수</h3>
+
+<p>render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.</p>
+
+<p>render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.setState로 State의 값이 변경되어 화면을 갱신할 필요가 있을 때마다 호출된다.</p>
+
+<pre><code>render() {
+    const {title} = this.props;
+    const {count, error} = this.state;
+    return (
+        &lt;Container&gt;
+            {...}
+        &lt;/Container&gt;
+    )
+}
+</code></pre>
+
+<h3 id="getderivedstatefromprops-함수">getDeriveDstateFromProps 함수</h3>
+
+<p>getDeriveDstateFromProps 함수는 부모로 부터 받은 Props와 State를 동기화 할 때 사용된다.</p>
+
+<p>이 함수는 컴포넌트가 생성될 때 한 번 호출되며, 생성자 함수와 다르게 Props와 State를 동기화해야 하므로 Props가 변경될 때마다 호출된다.</p>
+
+<pre><code>static getDeriveDstateFromProps(nextProps, prevState) {
+    if (nextProps.id !== prevState.id) {
+        return { value: nextProps.value };
+    }
+    return null;
+}
+</code></pre>
+
+<h3 id="componentdidmount-함수">componentDidMount 함수</h3>
+
+<p>클래스 컴포넌트가 처음 화면에 표시된 이후, 이 함수가 호출된다.(render 함수 처음 호출 후)</p>
+
+<p>이 함수는 컴포넌트가 화면에 처음 표시된 후 한 번만 호출되므로, ajax를 통해 데이터를 습득하는 등 작업에 적합하다.</p>
+
+<p>componentDidMount 함수는 부모로부터 받는 Props 값이 변경되어도, this.setState로 State 값이 변경되어도, 다시 호출되지 않는다.</p>
+
+<pre><code>componentDidMount(prevProps: Props, PrevState: State, snapshot: ISnapshot) {
+    ...
+}
+</code></pre>
+
+<h3 id="shouldcomponentupdate-함수">shouldComponentUpdate 함수</h3>
+
+<p>Props, State 값이 변경되었지만, 다시 화면을 그리고 싶지 않은 경우 이 함수를 사용하여 렌더링 제어를 할 수 있다.</p>
+
+<pre><code>shouldComponentUpdate(nextProps: Props, nextState: State) {
+    return nextProps.id !=== this.props.id;
+}
+
+</code></pre>
+
+<h3 id="getsnapshotbeforeupdate-함수">getSnapshotBeforeUpdate 함수</h3>
+
+<p>Props, State 값이 변경되어 화면을 다시 그리기 위해 render 함수가 호출된 후, 실제 화면이 갱신되기 바로 직전에</p>
+
+<h3 id="componentdidupdate-함수">componentDidUpdate 함수</h3>
+
+<p>componentDidUpdate 함수는 컴포넌트가 처음 화면에 표시될 때 실행되지 않지만 Props 또는 State가 변경되어 화면이 갱신될 때 마다 호출된다.(componentDidMount 함수와 반대)</p>
+
+<h3 id="componentwillunmout-함수">componentWillUnmout 함수</h3>
+
+<p>componentWillUnmout 함수는 해당 컴포넌트가 화면에서 완전히 사라진 후 호출되는 함수다.</p>
+
+<p>보통 setTimeout, setInterval 함수 해제시 사용된다.</p>
+
+<h3 id="componentdidcatch-함수">componentDidCatch 함수</h3>
+
+<p>컴포넌트의 렌더링 도중 에러가 발생하면 앱이 비정상 종료(Crash)된다.
+비즈니스 로직의 try-catch 처럼 동일하게 컴포넌트 렌더링 시 예외처리를 해주는 라이프 싸이클 함수다.</p>
+
+<pre><code>componentDidCatch(error: Error, info.ErrorInfo) {
+    this.setState({
+        error: true,
+    })
+}
+</code></pre>
+
+<h2 id="호출-순서">호출 순서</h2>
+
+<p>&ndash; 컴포넌트가 생성될 때</p>
+
+<p>constructor -&gt; getDeriveDstateFromProps -&gt; render -&gt; componentDidMount</p>
+
+<p>&ndash; 컴포넌트의 Props가 변경될 때</p>
+
+<p>getDeriveDstateFromProps -&gt; shouldComponentUpdate -&gt; render -&gt; getSnapshotBeforeUpdate -&gt; componentDidUpdate</p>
+
+<p>&ndash; 컴포넌트의 State가 변경될 때</p>
+
+<p>shouldComponentUpdate -&gt; render -&gt; getSnapshotBeforeUpdate -&gt; componentDidUpdate</p>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>

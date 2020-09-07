@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.f1a886316aac9b5699decbc2917b5355dc1ce775efb3ff84ada003f6cc2cec60.css" integrity="sha256-8aiGMWqsm1aZ3svCkXtTVdwc53Xvs/&#43;EraAD9sws7GA=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.12db01577caa9e4f3db6b1ec52cab0ed20eb86a29e8d799466a32381fd617fc2.css" integrity="sha256-EtsBV3yqnk89trHsUsqw7SDrhqKejXmUZqMjgf1hf8I=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -202,12 +202,18 @@
                 
                   
                   <li class="subsections">
-                    <a href="#">React</a>
+                    <a href="#">리액트</a>
                     <ul>
                       
                         
-                        <li  class="active" >
-                          <a href="/docs/front/react/">React</a>
+                        <li >
+                          <a href="/docs/front/react/react/start">리액트 시작</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/react/lifecycle">라이프 사이클</a>
                         </li>
                         
                       
@@ -290,91 +296,9 @@
             
             <h1 class="title">React</h1>
             
-
-
-<h2 id="리액트-시작">리액트 시작</h2>
-
-<h3 id="리액트-설치-yarn">리액트 설치 (yarn)</h3>
-
-<pre><code>$ yarn global add create-react-app
-</code></pre>
-
-<h3 id="리액트-프로젝트-생성">리액트 프로젝트 생성</h3>
-
-<pre><code>$ create-react-app react-project
-</code></pre>
-
-<h3 id="리액트-서버-실행-localhost-3000">리액트 서버 실행 / localhost:3000</h3>
-
-<pre><code>cd react-project
-yarn start
-</code></pre>
-
-<h2 id="리엑트-설정">리엑트 설정</h2>
-
-<h3 id="불필요-파일-제거">불필요 파일 제거</h3>
-
-<pre><code>App.css
-App.js
-App.test.js
-index.css
-logo.svg
-</code></pre>
-
-<h3 id="nodemon">nodemon</h3>
-
-<p>코드를 변경할 때 마다 서버를 자동으로 재시작 한다.</p>
-
-<pre><code>$ yarn add --dev nodemon
-</code></pre>
-
-<h3 id="node-path">NODE_PATH</h3>
-
-<p>Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.</p>
-
-<pre><code>$ yarn add --dev cross-env
-</code></pre>
-
-<p>방법1</p>
-
-<pre><code>.env
-
-NODE_PATH=src
-</code></pre>
-
-<p>방법2</p>
-
-<pre><code>package.json - script
-
-&quot;scripts&quot;: {
-    &quot;start&quot;: &quot;cross-env NODE_PATH=src react-scripts start&quot;,
-    src/index.js&quot;
-}
-</code></pre>
-
-<p>이후 아래와 같이 import 및 경로 불러올 시에 src이하 경로로 인식</p>
-
-<pre><code>import App from 'components/App';
-</code></pre>
-
-<h2 id="플러그인">플러그인</h2>
-
-<h3 id="axios-설정">axios 설정</h3>
-
-<p>프로미스 기반 REST API 웹 요청 라이브러리</p>
-
-<pre><code>$ yarn add axios
-</code></pre>
-
-<h3 id="slick-설정">slick 설정</h3>
-
-<p>슬라이드 라이브러리 <a href="http://kenwheeler.github.io/slick/">공식</a></p>
-
-<pre><code>$ yarn add react-slick
-</code></pre>
-
-<pre><code>import slick from 'react-slick'
-</code></pre>
+<script>
+    location.href = "react/start"
+</script>
 
 
           </div>

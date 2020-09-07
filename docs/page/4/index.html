@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.f1a886316aac9b5699decbc2917b5355dc1ce775efb3ff84ada003f6cc2cec60.css" integrity="sha256-8aiGMWqsm1aZ3svCkXtTVdwc53Xvs/&#43;EraAD9sws7GA=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.12db01577caa9e4f3db6b1ec52cab0ed20eb86a29e8d799466a32381fd617fc2.css" integrity="sha256-EtsBV3yqnk89trHsUsqw7SDrhqKejXmUZqMjgf1hf8I=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -157,6 +157,102 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/react/lifecycle/">
+                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
+생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
+생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
+constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
+render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-11-07</span>
+            <div class="list-title"><a href="/docs/etc/hugo/directory_structure/">디렉토리 구조</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/directory_structure/">
+                https://gohugo.io/getting-started/directory-structure/
+명령창에서 hugo new site 실행하면 다음 구성으로 디렉토리 구조가 생성된다.
+. ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes  디렉토리 구조 설명 archetypes https://gohugo.io/content-management/archetypes/
+assets Hugo Pipes에서 처리해야 하는 모든 파일을 저장한다.
+참고 : assets 디렉토리는 기본적으로 생성되지 않음.
+config data content layouts static 모든 정적 컨텐츠 저장
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-10-27</span>
+            <div class="list-title"><a href="/docs/etc/hugo/content_format/">컨텐트 포맷</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/content_format/">
+                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/webserver/">웹서버</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/webserver/">
+                웹서버 Apache url https://www.apachelounge.com/download/
+ window 계열은 위 주소에서 다운 리눅스 계열은 yum 설치  Apache 패키지 목록 명령어 $ yum list | grep httpd  httpd가 이름에 포함된 패키지 목록 확인.
+Apache 2.2 패키지 명은 httpd 이며, 2.4 패키지 명은 httpd24이다.
+Apache 설치 명령어 $ sudo yum install httpd24  Apache 시작/종료/재시작 // Apache 시작 $ sudo service httpd start // Apache 종료 $ sudo service httpd stop // Apache 재시작 $ sudo service httpd restart  Apache 접속 서버를 실행했는데도 아래와 같이 접속되지 않는다면, EC2 HTTP 보안그룹을 확인해 보자.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/etc/hugo/content/">컨텐트 포맷</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/content/">
+                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-10-27</span>
+            <div class="list-title"><a href="/docs/etc/hugo/front_matter/">프론트 매터</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/front_matter/">
+                 slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
+content/posts/old-post.md
+--- title: New Post slug: &quot;new-post&quot; ---  URL의 파일명 부분이 slug로 대체된다.
+example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
+content/posts/old-url.md
+--- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
+https://example.com/blog/new-url/  
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/securitygroup/">
+                보안그룹 위치 인스턴스 &gt; 네트워크 &gt; 보안 그룹 변경
+인스턴스 방화벽(인바운드/아웃바운드)을 설정한다. EC2가 시작상태에서도 가능하다.
+보안 그룹 변경 팝업에서 원하는 보안 그룹을 설정한다. HTTP/HTTPS 위치 : 네트워크 및 보안 &gt; 보안 그룹
+HTTP/HTTPS를 설정한다.
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-01</span>
+            <div class="list-title"><a href="/docs/front/reactnative/etc/sample/">공부 샘플</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/etc/sample/">
+                숫자 조정 앱 버튼 클릭 시 숫자를 더하고 뺴는 기능을 구현
+Counter.zip
+할 일 관리 앱 할 일을 추가하거나, 삭제하는 등 관리하는 기능을 구현
+TodoList.zip
+                
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2019-11-11</span>
             <div class="list-title"><a href="/docs/front/react/setting/sass/">SASS loader 설정</a></div>
               <p class="list-desc">

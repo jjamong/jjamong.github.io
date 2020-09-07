@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.f1a886316aac9b5699decbc2917b5355dc1ce775efb3ff84ada003f6cc2cec60.css" integrity="sha256-8aiGMWqsm1aZ3svCkXtTVdwc53Xvs/&#43;EraAD9sws7GA=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.12db01577caa9e4f3db6b1ec52cab0ed20eb86a29e8d799466a32381fd617fc2.css" integrity="sha256-EtsBV3yqnk89trHsUsqw7SDrhqKejXmUZqMjgf1hf8I=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -158,6 +158,87 @@
       <div class="content-main content">
         <ul class="content-list"><li>
             <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/elb/elbcreate/">
+                위치 : EC2 서비스의 [로드 밸런싱] &gt; [로드 밸런서]에서 로드 밸런서 생성을 선택한다.
+일반적은 HTTP, HTTPS과련한 Application Load Balancer를 생성한다.
+1. 로드 밸런서 구성 로드 밸런서의 이름, 리스너, 가용 영역을 지정한다.
+2. 보안 설정 구성 HTTPS를 추가하지 않으면 경고창이 출력된다. 무시할 수 있다.
+3. 보안 설정 구성 ec2에 웹서버를 설치해 두었으므로 웹 접속으로 elb를 확인할 것이다. 따라서 그와 관련된 보안 그룹을 설정한다.
+4. 라우팅 구성 로드 밸런서가 클라이언트로부터 받은 요청을 전달할 대상 그룹을 설정하는 화면이다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/elb/test/">
+                테스트 방법은 ELB에 속한 Auto Scaling 그룹을 2개 인스턴스가 동작하도록 설정후에, 한대의 웹서버를 stop하고, elb URL 로 접속/새로고침 시마다 ec2 웹사이트 상태를 확인한다.
+1. Auto Sacling 그룹 EC2 2대 설정 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
+편집을 통해 목표용량, 최소, 최대를 2대로 설정한다.
+2. 대상 그룹 설정 변경 위치 : 서비스의 [로드 밸런싱] &gt; [대상 그룹]
+대상 그룹의 상태 검사 편집을 통해 아래와 같이 설정한다. 경로와 상태코드를 통해 연결된 ec2 상태를 확인하므로 반드시 설정에 맞아야 한다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/autoscaling/test/">
+                1. stress 명령어 테스트 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
+인스턴스 탭에 1개의 인스턴스가 존재한다.
+현재 인스턴스에 사용량 지표를 기본 5분에 한 번 씩만 모니터링 서버로 전송하고 있다. (기본 시간 변경 시 추가비용 발생)
+실행 되고 있는 EC2 서버에 접속하여 명령어들 차례로 실행한다.
+설치 명령어
+$ sudo yum install stess -y  600초 동안 1개의 CPU 사용량을 최대로 늘린다.
+stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 추가됨을 확인 할 수 있으며, 그 이후로는 다시 정상적으로 1대로 줄어든다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">
+                1. AMI 생성 위치 : 서비스의 [인스턴스] &gt; [인스턴스]
+인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.
+이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.
+이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.
+위치 : 서비스의 [이미지] &gt; [AMI]
+그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.
+2. 시작 템플릿 생성 위치 : 서비스의 [인스턴스] &gt; [시작 템플릿]
+ 시작 템플릿 이름 : ec2-launch-template AMI ID : Search for AMI를 선택하여 생성한 AMI를 선택한다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/route53/domainrigster/">
+                위치 : 도메인 &gt; 등록된 도메인
+도메인 등록을 선택한다.
+1: 도메인 검색 원하는 도메인을 검색하고 장바구니에 담아 구매한다.
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/deploy/method/">배포 방법</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/deploy/method/">
+                무중단/중단 배포 무중단, 중단 배포는 말 그대로 배포할 때 서비스를 중단할 지 안할지의 차이다.
+무중단 배포는 서비스를 중지하지 않는다는 것은 사용자가 서비스를 이용하는데 아무런 지장 없이 배포를 진행하는 경우
+중단 배포는 &ldquo;서버 정기 점검&rdquo;과 같이 사용자가 서비스를 사용하지 못하게 서비스 전체를 정지한 뒤 배포를 진행하는 경우
+현재 위치 배포 현재 위치 배포(In-Place deployment)는 무중단 배포를 하기 위한 기법의 하나로 여러 서버를 배포할 때 새롭게 생성하거나 줄이지 않고 배포하는 방법.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
             <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a></div>
               <p class="list-desc">
                 <a href="/docs/infra/aws/ec2/autoscaling/configuration/">
@@ -206,77 +287,6 @@ example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
 content/posts/old-url.md
 --- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
 https://example.com/blog/new-url/  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-07</span>
-            <div class="list-title"><a href="/docs/etc/hugo/directory_structure/">디렉토리 구조</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/directory_structure/">
-                https://gohugo.io/getting-started/directory-structure/
-명령창에서 hugo new site 실행하면 다음 구성으로 디렉토리 구조가 생성된다.
-. ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes  디렉토리 구조 설명 archetypes https://gohugo.io/content-management/archetypes/
-assets Hugo Pipes에서 처리해야 하는 모든 파일을 저장한다.
-참고 : assets 디렉토리는 기본적으로 생성되지 않음.
-config data content layouts static 모든 정적 컨텐츠 저장
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-10-27</span>
-            <div class="list-title"><a href="/docs/etc/hugo/content_format/">컨텐트 포맷</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/content_format/">
-                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/webserver/">웹서버</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/webserver/">
-                웹서버 Apache url https://www.apachelounge.com/download/
- window 계열은 위 주소에서 다운 리눅스 계열은 yum 설치  Apache 패키지 목록 명령어 $ yum list | grep httpd  httpd가 이름에 포함된 패키지 목록 확인.
-Apache 2.2 패키지 명은 httpd 이며, 2.4 패키지 명은 httpd24이다.
-Apache 설치 명령어 $ sudo yum install httpd24  Apache 시작/종료/재시작 // Apache 시작 $ sudo service httpd start // Apache 종료 $ sudo service httpd stop // Apache 재시작 $ sudo service httpd restart  Apache 접속 서버를 실행했는데도 아래와 같이 접속되지 않는다면, EC2 HTTP 보안그룹을 확인해 보자.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/etc/hugo/content/">컨텐트 포맷</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/content/">
-                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-10-27</span>
-            <div class="list-title"><a href="/docs/etc/hugo/front_matter/">프론트 매터</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/front_matter/">
-                 slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
-content/posts/old-post.md
---- title: New Post slug: &quot;new-post&quot; ---  URL의 파일명 부분이 slug로 대체된다.
-example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
-content/posts/old-url.md
---- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
-https://example.com/blog/new-url/  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/securitygroup/">
-                보안그룹 위치 인스턴스 &gt; 네트워크 &gt; 보안 그룹 변경
-인스턴스 방화벽(인바운드/아웃바운드)을 설정한다. EC2가 시작상태에서도 가능하다.
-보안 그룹 변경 팝업에서 원하는 보안 그룹을 설정한다. HTTP/HTTPS 위치 : 네트워크 및 보안 &gt; 보안 그룹
-HTTP/HTTPS를 설정한다.
                 
                 </a>
               </p>
