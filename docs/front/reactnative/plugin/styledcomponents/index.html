@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>공부 샘플 | 짜몽 개발 연구소</title>
+<title>styled-components | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 네이티브(React Native) 공부 샘플">
+<meta name="description" content="리액트 네이티브(React Native)에 styled-components 플러그인에 대한 가이드">
 
 
 
@@ -221,7 +221,7 @@
                     <ul>
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/reactnative/plugin/styledcomponents/">styled-components</a>
                         </li>
                         
@@ -288,25 +288,32 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">공부 샘플</h1>
+            <h1 class="title">styled-components</h1>
             
 
 
-<h2 id="숫자-조정-앱">숫자 조정 앱</h2>
+<h2 id="설치-및-설정">설치 및 설정</h2>
 
-<p>버튼 클릭 시 숫자를 더하고 뺴는 기능을 구현</p>
+<h3 id="설치">설치</h3>
 
-<p><a href="/docs/front/reactnative/etc/Counter.zip">Counter.zip</a></p>
+<p>yarn</p>
 
-<p><img src="/docs/front/reactnative/etc/01.png" alt="counter" /></p>
+<pre><code>yarn add styled-components --dev
+</code></pre>
 
-<h2 id="할-일-관리-앱">할 일 관리 앱</h2>
+<p>npm</p>
 
-<p>할 일을 추가하거나, 삭제하는 등 관리하는 기능을 구현</p>
+<pre><code>$ npm install -save styled-components
+</code></pre>
 
-<p><a href="/docs/front/reactnative/etc/TodoList.zip">TodoList.zip</a></p>
+<h2 id="사용-방법">사용 방법</h2>
 
-<p><img src="/docs/front/reactnative/etc/02.png" alt="TodoList" /></p>
+<pre><code>import Styled from 'styled-components/native';
+
+const Container = Styled.View`
+    flex: 1;
+`
+</code></pre>
 
 
           </div>

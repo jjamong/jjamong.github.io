@@ -158,75 +158,6 @@
       <div class="content-main content">
         <ul class="content-list"><li>
             <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/elb/elbcreate/">
-                위치 : EC2 서비스의 [로드 밸런싱] &gt; [로드 밸런서]에서 로드 밸런서 생성을 선택한다.
-일반적은 HTTP, HTTPS과련한 Application Load Balancer를 생성한다.
-1. 로드 밸런서 구성 로드 밸런서의 이름, 리스너, 가용 영역을 지정한다.
-2. 보안 설정 구성 HTTPS를 추가하지 않으면 경고창이 출력된다. 무시할 수 있다.
-3. 보안 설정 구성 ec2에 웹서버를 설치해 두었으므로 웹 접속으로 elb를 확인할 것이다. 따라서 그와 관련된 보안 그룹을 설정한다.
-4. 라우팅 구성 로드 밸런서가 클라이언트로부터 받은 요청을 전달할 대상 그룹을 설정하는 화면이다.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/elb/test/">
-                테스트 방법은 ELB에 속한 Auto Scaling 그룹을 2개 인스턴스가 동작하도록 설정후에, 한대의 웹서버를 stop하고, elb URL 로 접속/새로고침 시마다 ec2 웹사이트 상태를 확인한다.
-1. Auto Sacling 그룹 EC2 2대 설정 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
-편집을 통해 목표용량, 최소, 최대를 2대로 설정한다.
-2. 대상 그룹 설정 변경 위치 : 서비스의 [로드 밸런싱] &gt; [대상 그룹]
-대상 그룹의 상태 검사 편집을 통해 아래와 같이 설정한다. 경로와 상태코드를 통해 연결된 ec2 상태를 확인하므로 반드시 설정에 맞아야 한다.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/autoscaling/test/">
-                1. stress 명령어 테스트 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
-인스턴스 탭에 1개의 인스턴스가 존재한다.
-현재 인스턴스에 사용량 지표를 기본 5분에 한 번 씩만 모니터링 서버로 전송하고 있다. (기본 시간 변경 시 추가비용 발생)
-실행 되고 있는 EC2 서버에 접속하여 명령어들 차례로 실행한다.
-설치 명령어
-$ sudo yum install stess -y  600초 동안 1개의 CPU 사용량을 최대로 늘린다.
-stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 추가됨을 확인 할 수 있으며, 그 이후로는 다시 정상적으로 1대로 줄어든다.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">
-                1. AMI 생성 위치 : 서비스의 [인스턴스] &gt; [인스턴스]
-인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.
-이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.
-이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.
-위치 : 서비스의 [이미지] &gt; [AMI]
-그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.
-2. 시작 템플릿 생성 위치 : 서비스의 [인스턴스] &gt; [시작 템플릿]
- 시작 템플릿 이름 : ec2-launch-template AMI ID : Search for AMI를 선택하여 생성한 AMI를 선택한다.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/route53/domainrigster/">
-                위치 : 도메인 &gt; 등록된 도메인
-도메인 등록을 선택한다.
-1: 도메인 검색 원하는 도메인을 검색하고 장바구니에 담아 구매한다.
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
             <div class="list-title"><a href="/docs/infra/deploy/method/">배포 방법</a></div>
               <p class="list-desc">
                 <a href="/docs/infra/deploy/method/">
@@ -287,6 +218,63 @@ example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
 content/posts/old-url.md
 --- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
 https://example.com/blog/new-url/  
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/react/lifecycle/">
+                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
+생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
+생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
+constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
+render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-11-07</span>
+            <div class="list-title"><a href="/docs/etc/hugo/directory_structure/">디렉토리 구조</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/directory_structure/">
+                https://gohugo.io/getting-started/directory-structure/
+명령창에서 hugo new site 실행하면 다음 구성으로 디렉토리 구조가 생성된다.
+. ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes  디렉토리 구조 설명 archetypes https://gohugo.io/content-management/archetypes/
+assets Hugo Pipes에서 처리해야 하는 모든 파일을 저장한다.
+참고 : assets 디렉토리는 기본적으로 생성되지 않음.
+config data content layouts static 모든 정적 컨텐츠 저장
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-10-27</span>
+            <div class="list-title"><a href="/docs/etc/hugo/content_format/">컨텐트 포맷</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/content_format/">
+                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/webserver/">웹서버</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/webserver/">
+                웹서버 Apache url https://www.apachelounge.com/download/
+ window 계열은 위 주소에서 다운 리눅스 계열은 yum 설치  Apache 패키지 목록 명령어 $ yum list | grep httpd  httpd가 이름에 포함된 패키지 목록 확인.
+Apache 2.2 패키지 명은 httpd 이며, 2.4 패키지 명은 httpd24이다.
+Apache 설치 명령어 $ sudo yum install httpd24  Apache 시작/종료/재시작 // Apache 시작 $ sudo service httpd start // Apache 종료 $ sudo service httpd stop // Apache 재시작 $ sudo service httpd restart  Apache 접속 서버를 실행했는데도 아래와 같이 접속되지 않는다면, EC2 HTTP 보안그룹을 확인해 보자.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/etc/hugo/content/">컨텐트 포맷</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/content/">
+                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
                 
                 </a>
               </p>

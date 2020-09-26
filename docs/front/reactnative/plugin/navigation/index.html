@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>공부 샘플 | 짜몽 개발 연구소</title>
+<title>react-navigation(내비게이션) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 네이티브(React Native) 공부 샘플">
+<meta name="description" content="리액트 네이티브(React Native)의 react-navigation(내비게이션) 플러그인에 대한 가이드">
 
 
 
@@ -245,7 +245,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/reactnative/plugin/navigation/">navigation</a>
                         </li>
                         
@@ -288,25 +288,72 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">공부 샘플</h1>
+            <h1 class="title">react-navigation(내비게이션)</h1>
             
 
 
-<h2 id="숫자-조정-앱">숫자 조정 앱</h2>
+<h2 id="설치-및-설정">설치 및 설정</h2>
 
-<p>버튼 클릭 시 숫자를 더하고 뺴는 기능을 구현</p>
+<p>[참고] <a href="https://github.com/bamlab/react-native-make">https://github.com/bamlab/react-native-make</a></p>
 
-<p><a href="/docs/front/reactnative/etc/Counter.zip">Counter.zip</a></p>
+<h3 id="설치">설치</h3>
 
-<p><img src="/docs/front/reactnative/etc/01.png" alt="counter" /></p>
+<pre><code>// yarn
+$ yarn add @react-navigation/native
+$ yarn add @react-navigation/stack
 
-<h2 id="할-일-관리-앱">할 일 관리 앱</h2>
+// npm
+$ npm install @react-navigation/native
+$ npm install @react-navigation/stack
+</code></pre>
 
-<p>할 일을 추가하거나, 삭제하는 등 관리하는 기능을 구현</p>
+<h3 id="set-icon-아이콘-설정">set-icon(아이콘 설정)</h3>
 
-<p><a href="/docs/front/reactnative/etc/TodoList.zip">TodoList.zip</a></p>
+<p>set-icon 설치</p>
 
-<p><img src="/docs/front/reactnative/etc/02.png" alt="TodoList" /></p>
+<pre><code>$ react-native set-icon --path path-to-image
+</code></pre>
+
+<p>아이콘 적용
+path-to-image 앱 아이콘 이미지 경로</p>
+
+<pre><code>// ios
+react-native set-icon --platform ios --path path-to-image
+
+// android
+react-native set-icon --platform android --path path-to-image
+</code></pre>
+
+<h3 id="set-splash-스플래쉬-설정">set-splash(스플래쉬 설정)</h3>
+
+<p>set-splash 설치</p>
+
+<pre><code>// yarn
+$ yarn add react-native-splash-screen
+
+// npm
+$ npm i react-native-splash-screen --save
+</code></pre>
+
+<p>path-to-image 스플래쉬 이미지 경로</p>
+
+<pre><code>react-native set-splash --path &lt;path-to-image&gt; --resize &lt;[contain]|cover|center&gt; --background &quot;&lt;background-color&gt;&quot;
+
+// ex
+react-native set-splash --path ./src/res/images/splash.png --resize center --background &quot;#FFFFFF&quot;
+</code></pre>
+
+<h6 id="스플래쉬-이미지가-지속되는-문제">스플래쉬 이미지가 지속되는 문제</h6>
+
+<p>스플래시 이미지 적용 후 실행할 경우(android) 원래 App 화면이 출력되지 않는 문제가 한가지 있다.
+hide 코드를 적용해야 스플래쉬 이미지가 없어진다.</p>
+
+<pre><code>import SplashScreen from 'react-native-splash-screen';
+
+setTimeout( () =&gt; SplashScreen.hide(), 1000);
+</code></pre>
+
+<p><code>SplashScreen.hide()</code> 이 코드를 원하는 곳에 적용해 준다. 단, 이 코드만 적용하면 너무 빨리 사라지는 문제가 있으니 적당한 시간을 적용해준다.</p>
 
 
           </div>

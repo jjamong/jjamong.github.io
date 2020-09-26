@@ -157,58 +157,6 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
-            <span class="list-date">2019-11-11</span>
-            <div class="list-title"><a href="/docs/front/react/component/state/">state</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/state/">
-                 props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.
-컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.
-state 설정 JSX 내부에서 값 설정 setState 함수로 state값을 업데이트 한다.
-class MyComponent extends Component { constructor(props) { super(props); this.state = { number: 0 } } render() { return ( &lt;div&gt; &lt;div&gt;숫자 : {this.state.number}&lt;/div&gt; &lt;button onClick={()=&gt; { this.setState({ number: this.state.number + 1 }) }} &gt;더하기&lt;/button&gt; &lt;/div&gt; ); } } // 버튼 세번 클릭 시 // 숫자 : 3  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/component/">Component(컴포넌트)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/component/">
-                 모듈 내보내기(export) // MyComponent.js export default MyComponent;  모듈 불러오기(import) import MyComponent from './MyComponent'; // function App() { return ( &lt;div&gt; &lt;div&gt;App&lt;/div&gt; &lt;MyComponent /&gt; &lt;/div&gt; ); } // App // MyComponent  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/jsx/">JSX</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/jsx/">
-                JSX 문법 컴포넌트에 여러 요소가 있다면 부모 요소 하나로 꼭 감싸야 한다. 또한 br, input 등 단일 태그들도 닫아야 한다.
-// 올바른 예 return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br/&gt; &lt;/div&gt; ); // 에러 발생 return ( &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br&gt; );  자바스크립트 표현법 const text = &quot;리액트 h2&quot;; const check = true; const style = { width: '100px', height: '100px', background: 'red' }; return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;{text}&lt;/h2&gt; {check ?
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/props/">props</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/props/">
-                props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
-props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } MyComponent.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/react/start/">React 시작</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/react/start/">
-                리액트 시작 리액트 설치 (yarn) $ yarn global add create-react-app  리액트 프로젝트 생성 $ create-react-app react-project  리액트 서버 실행 / localhost:3000 cd react-project yarn start  리엑트 설정 불필요 파일 제거 App.css App.js App.test.js index.css logo.svg  nodemon 코드를 변경할 때 마다 서버를 자동으로 재시작 한다.
-$ yarn add --dev nodemon  NODE_PATH Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.
-$ yarn add --dev cross-env  방법1
-                …
-                </a>
-              </p>
-          </li><li>
             <span class="list-date">2019-11-10</span>
             <div class="list-title"><a href="/docs/etc/vscode/">VS Code</a></div>
               <p class="list-desc">
@@ -265,6 +213,75 @@ Hugo는 템플릿의 기준으로 Go의 html/template 및 text/template 라이�
               <p class="list-desc">
                 <a href="/docs/infra/aws/ec2/">
                 
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/elb/elbcreate/">
+                위치 : EC2 서비스의 [로드 밸런싱] &gt; [로드 밸런서]에서 로드 밸런서 생성을 선택한다.
+일반적은 HTTP, HTTPS과련한 Application Load Balancer를 생성한다.
+1. 로드 밸런서 구성 로드 밸런서의 이름, 리스너, 가용 영역을 지정한다.
+2. 보안 설정 구성 HTTPS를 추가하지 않으면 경고창이 출력된다. 무시할 수 있다.
+3. 보안 설정 구성 ec2에 웹서버를 설치해 두었으므로 웹 접속으로 elb를 확인할 것이다. 따라서 그와 관련된 보안 그룹을 설정한다.
+4. 라우팅 구성 로드 밸런서가 클라이언트로부터 받은 요청을 전달할 대상 그룹을 설정하는 화면이다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/elb/test/">
+                테스트 방법은 ELB에 속한 Auto Scaling 그룹을 2개 인스턴스가 동작하도록 설정후에, 한대의 웹서버를 stop하고, elb URL 로 접속/새로고침 시마다 ec2 웹사이트 상태를 확인한다.
+1. Auto Sacling 그룹 EC2 2대 설정 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
+편집을 통해 목표용량, 최소, 최대를 2대로 설정한다.
+2. 대상 그룹 설정 변경 위치 : 서비스의 [로드 밸런싱] &gt; [대상 그룹]
+대상 그룹의 상태 검사 편집을 통해 아래와 같이 설정한다. 경로와 상태코드를 통해 연결된 ec2 상태를 확인하므로 반드시 설정에 맞아야 한다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/autoscaling/test/">
+                1. stress 명령어 테스트 위치 : 서비스의 [AUTO SCALING] &gt; [Auto Scaling 그룹]
+인스턴스 탭에 1개의 인스턴스가 존재한다.
+현재 인스턴스에 사용량 지표를 기본 5분에 한 번 씩만 모니터링 서버로 전송하고 있다. (기본 시간 변경 시 추가비용 발생)
+실행 되고 있는 EC2 서버에 접속하여 명령어들 차례로 실행한다.
+설치 명령어
+$ sudo yum install stess -y  600초 동안 1개의 CPU 사용량을 최대로 늘린다.
+stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 추가됨을 확인 할 수 있으며, 그 이후로는 다시 정상적으로 1대로 줄어든다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">
+                1. AMI 생성 위치 : 서비스의 [인스턴스] &gt; [인스턴스]
+인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.
+이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.
+이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.
+위치 : 서비스의 [이미지] &gt; [AMI]
+그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.
+2. 시작 템플릿 생성 위치 : 서비스의 [인스턴스] &gt; [시작 템플릿]
+ 시작 템플릿 이름 : ec2-launch-template AMI ID : Search for AMI를 선택하여 생성한 AMI를 선택한다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/route53/domainrigster/">
+                위치 : 도메인 &gt; 등록된 도메인
+도메인 등록을 선택한다.
+1: 도메인 검색 원하는 도메인을 검색하고 장바구니에 담아 구매한다.
                 
                 </a>
               </p>

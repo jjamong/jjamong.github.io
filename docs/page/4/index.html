@@ -157,63 +157,6 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
-            <span class="list-date">2020-09-02</span>
-            <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/react/lifecycle/">
-                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
-생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
-생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
-constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
-render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-07</span>
-            <div class="list-title"><a href="/docs/etc/hugo/directory_structure/">디렉토리 구조</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/directory_structure/">
-                https://gohugo.io/getting-started/directory-structure/
-명령창에서 hugo new site 실행하면 다음 구성으로 디렉토리 구조가 생성된다.
-. ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes  디렉토리 구조 설명 archetypes https://gohugo.io/content-management/archetypes/
-assets Hugo Pipes에서 처리해야 하는 모든 파일을 저장한다.
-참고 : assets 디렉토리는 기본적으로 생성되지 않음.
-config data content layouts static 모든 정적 컨텐츠 저장
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-10-27</span>
-            <div class="list-title"><a href="/docs/etc/hugo/content_format/">컨텐트 포맷</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/content_format/">
-                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/webserver/">웹서버</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/webserver/">
-                웹서버 Apache url https://www.apachelounge.com/download/
- window 계열은 위 주소에서 다운 리눅스 계열은 yum 설치  Apache 패키지 목록 명령어 $ yum list | grep httpd  httpd가 이름에 포함된 패키지 목록 확인.
-Apache 2.2 패키지 명은 httpd 이며, 2.4 패키지 명은 httpd24이다.
-Apache 설치 명령어 $ sudo yum install httpd24  Apache 시작/종료/재시작 // Apache 시작 $ sudo service httpd start // Apache 종료 $ sudo service httpd stop // Apache 재시작 $ sudo service httpd restart  Apache 접속 서버를 실행했는데도 아래와 같이 접속되지 않는다면, EC2 HTTP 보안그룹을 확인해 보자.
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/etc/hugo/content/">컨텐트 포맷</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/hugo/content/">
-                컨텐트 포맷 HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.
-                
-                </a>
-              </p>
-          </li><li>
             <span class="list-date">2019-10-27</span>
             <div class="list-title"><a href="/docs/etc/hugo/front_matter/">프론트 매터</a></div>
               <p class="list-desc">
@@ -241,6 +184,78 @@ HTTP/HTTPS를 설정한다.
                 </a>
               </p>
           </li><li>
+            <span class="list-date">2020-09-08</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/navigation/">react-navigation(내비게이션)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/navigation/">
+                설치 및 설정 [참고] https://github.com/bamlab/react-native-make
+설치 // yarn $ yarn add @react-navigation/native $ yarn add @react-navigation/stack // npm $ npm install @react-navigation/native $ npm install @react-navigation/stack  set-icon(아이콘 설정) set-icon 설치
+$ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱 아이콘 이미지 경로
+// ios react-native set-icon --platform ios --path path-to-image // android react-native set-icon --platform android --path path-to-image  set-splash(스플래쉬 설정) set-splash 설치
+// yarn $ yarn add react-native-splash-screen // npm $ npm i react-native-splash-screen --save  path-to-image 스플래쉬 이미지 경로
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-03</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/styledcomponents/">styled-components</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/styledcomponents/">
+                 설치 및 설정 설치 yarn
+yarn add styled-components --dev  npm
+$ npm install -save styled-components  사용 방법 import Styled from 'styled-components/native'; const Container = Styled.View` flex: 1; `  
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/asyncstorage/">AsyncStorage</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/asyncstorage/">
+                 AsyncStorage는 앱 내에서 간단하게 데이터를 저장할 수 있는 저장소다. 웹에서 사용하는 window.localStorage와 매우 유사하다.
+설치 및 설정 설치 // yarn $ yarn add @react-native-community/async-storage // npm $ npm install @react-native-community/async-storage  사용 // set AsyncStorage.setItem('todoList', JSON.stringify(list)); // get const list = await AsyncStorage.getItem('todoList');  
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/moduleresolver/">babel-plugin-module-resolver</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/moduleresolver/">
+                 절대 경로로 컴포넌트를 추가하기 위한 플러그인
+설치 및 설정 설치 yarn
+$ yarn add --dev babel-plugin-module-resolver  설정 babel.config.js 파일 수정
+module.exports = { presets: ['module:metro-react-native-babel-preset'], plugins: [ [ 'module-resolver', { root: ['.'], extensions: ['.ios.ts', '.android.ts', '.ts', '.ios.tsx', '.android.tsx', '.tsx', '.jsx', '.js', '.json'], alias: { '~': './src', }, }, ], ], };  사용 방법 ~/ src 경로로 인식
+import Button from '~/Components/Button';  
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/geolocation/">geolocation</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/geolocation/">
+                 geolocation은 위치정보를 가져올 수 있다.
+설치 및 설정 설치 npm
+$ npm install -save react-native-geolocation-service  사용 
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/reactnative/plugin/make/">react-native-make(앱 아이콘/스플래쉬)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/reactnative/plugin/make/">
+                react-native-make로 앱의 아이콘/스플래쉬 화면을 설정 할 수 있다.
+설치 및 설정 [참고] https://github.com/bamlab/react-native-make
+설치 // yarn $ yarn add -D @bam.tech/react-native-make // npm $ npm i -D @bam.tech/react-native-make  set-icon(아이콘 설정) set-icon 설치
+$ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱 아이콘 이미지 경로
+// ios react-native set-icon --platform ios --path path-to-image // android react-native set-icon --platform android --path path-to-image  set-splash(스플래쉬 설정) set-splash 설치
+// yarn $ yarn add react-native-splash-screen // npm $ npm i react-native-splash-screen --save  path-to-image 스플래쉬 이미지 경로
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-09-01</span>
             <div class="list-title"><a href="/docs/front/reactnative/etc/sample/">공부 샘플</a></div>
               <p class="list-desc">
@@ -264,15 +279,6 @@ $ yarn add classnames  globalStyles 설정 sass 경로를 간소화 할 수 있�
 includePaths 경로는 sass Root경로를 설정한다.
 webpack.config.js - 아래쪽 { test: sassRegex, exclude: sassModuleRegex, use: getStyleLoaders({ importLoaders: 2, sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap }).
                 …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/front/react/plugin/slick/">slick</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/plugin/slick/">
-                axios 설치 프로미스 기반 REST API 웹 요청 라이브러리
-                
                 </a>
               </p>
           </li></ul>
