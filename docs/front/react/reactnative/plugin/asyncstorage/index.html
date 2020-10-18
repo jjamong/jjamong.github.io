@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>geolocation | 짜몽 개발 연구소</title>
+<title>AsyncStorage | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 네이티브(React Native)에 geolocation 플러그인에 대한 가이드">
+<meta name="description" content="리액트 네이티브(React Native)에 AsyncStorage 플러그인에 대한 가이드">
 
 
 
@@ -117,10 +117,6 @@
             
             <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
             
-            <li class="React Native"><a href="https://jjamong.github.io/docs/front/reactnative/">React Native</a></li>
-            
-            <li class="Angular"><a href="https://jjamong.github.io/docs/front/angular/">Angular</a></li>
-            
           </ul>
         </div>
       </li>
@@ -145,8 +141,6 @@
             
             <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
             
-            <li class="VSCode"><a href="https://jjamong.github.io/docs/etc/vscode/">VSCode</a></li>
-            
             <li class="Yarn"><a href="https://jjamong.github.io/docs/etc/yarn/">Yarn</a></li>
             
           </ul>
@@ -167,13 +161,7 @@
 
   
   
-
-  
-  
     
-  
-
-  
   
 
 
@@ -190,24 +178,42 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          React native
+          React
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>React Native</strong></a>
+              <a href="#"><strong>React</strong></a>
               <ul>
                 
                   
                   <li class="subsections">
-                    <a href="#">리액트 네이티브</a>
+                    <a href="#">리액트</a>
                     <ul>
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/reactnative/start/">리액트 네이티브 시작</a>
+                          <a href="/docs/front/react/react/start/">리액트 시작</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/react/context/">Context</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/setting/sass/">Sass</a>
                         </li>
                         
                       
@@ -222,37 +228,115 @@
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/plugin/styledcomponents/">styled-components</a>
+                          <a href="/docs/front/react/plugin/axios/">axios</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/plugin/moduleresolver/">babel-plugin-module-resolver</a>
+                          <a href="/docs/front/react/plugin/slick/">slick</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/jsx/">JSX</a>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">Component(컴포넌트)</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/plugin/asyncstorage/">async-storage</a>
+                          <a href="/docs/front/react/component/props/">props</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/plugin/make/">react-native-make</a>
+                          <a href="/docs/front/react/component/state/">state</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#"><strong>React Native</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">리액트 네이티브</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/reactnative/start/">리액트 네이티브 시작</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">플러그인</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/plugin/styledcomponents/">styled-components</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/plugin/navigation/">navigation</a>
+                          <a href="/docs/front/react/reactnative/plugin/moduleresolver/">babel-plugin-module-resolver</a>
                         </li>
                         
                       
                         
                         <li  class="active" >
-                          <a href="/docs/front/reactnative/plugin/geolocation/">geolocation</a>
+                          <a href="/docs/front/react/reactnative/plugin/asyncstorage/">async-storage</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/plugin/make/">react-native-make</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/plugin/navigation/">navigation</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/plugin/geolocation/">geolocation</a>
                         </li>
                         
                       
@@ -267,7 +351,7 @@
                       
                         
                         <li >
-                          <a href="/docs/front/reactnative/etc/sample">공부 샘플</a>
+                          <a href="/docs/front/react/reactnative/etc/sample/">공부 샘플</a>
                         </li>
                         
                       
@@ -288,22 +372,32 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">geolocation</h1>
+            <h1 class="title">AsyncStorage</h1>
             
 
 
-<p>geolocation은 위치정보를 가져올 수 있다.</p>
+<p>AsyncStorage는 앱 내에서 간단하게 데이터를 저장할 수 있는 저장소다.
+웹에서 사용하는 window.localStorage와 매우 유사하다.</p>
 
 <h2 id="설치-및-설정">설치 및 설정</h2>
 
 <h3 id="설치">설치</h3>
 
-<p>npm</p>
+<pre><code>// yarn
+$ yarn add @react-native-community/async-storage
 
-<pre><code>$ npm install -save react-native-geolocation-service
+// npm
+$ npm install @react-native-community/async-storage
 </code></pre>
 
 <h2 id="사용">사용</h2>
+
+<pre><code>// set
+AsyncStorage.setItem('todoList', JSON.stringify(list));
+
+// get
+const list = await AsyncStorage.getItem('todoList');
+</code></pre>
 
 
           </div>
