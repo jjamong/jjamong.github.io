@@ -151,6 +151,17 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-10-22</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/webview/">webView</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/reactnative/webview/">
+                시작하기 설치 $ yarn add react-native-webview  예제 app.js
+import { WebView } from 'react-native-webview' import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { return ( &lt;WebView source={{ uri: &quot;http://www.naver.com&quot;}} /&gt; ); }; export default App;  webView 통신 1. APP -&gt; WEB 값 전달 (APP) app.js
+import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { setTimeout(function () { const data = &quot;hello&quot;; this.
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-08-28</span>
             <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/start/">React Native 시작</a></div>
               <p class="list-desc">
@@ -244,17 +255,6 @@ class MyComponent extends Component { constructor(props) { super(props); this.st
                 props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
 props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } MyComponent.
                 …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/etc/yarn/yarn/">yarn</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/yarn/yarn/">
-                 Yarn(얀)은 자바스크립트 패키지 매니저다.
-설치 https://yarnpkg.com/en/docs/install#windows-stable
-$ yarn --version // 1.19.1  
-                
                 </a>
               </p>
           </li></ul>

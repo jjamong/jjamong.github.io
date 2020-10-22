@@ -151,6 +151,19 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-10-18</span>
+            <div class="list-title"><a href="/docs/front/react/react/context/">Context</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/react/context/">
+                context api React 16.3 부터는 Context API를 이용해서 트리의 모든 레벨에 값을 공유하는 방법을 제공한다.
+일반적으로 부모와 자식간 props, state를 변화시키는 방법을 기반하여 이전엔 redux와 같은 것들을 통해서 부모 자식간 컴포넌트 전달이 아닌 전체 컴포넌트에 값 전달 하는 방법을 사용했다.
+Context API는 createContext, Provider, Consumer 3가지 기능으로 redux 기능을 대신할 수 있다.
+API createContext 사용 예제
+import React from &quot;react&quot;; const ReactContext = React.createContext(null); export default ReactContext;  Context.Provider 사용 예제
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-09-08</span>
             <div class="list-title"><a href="/docs/front/react/reactnative/plugin/navigation/">react-navigation(내비게이션)</a></div>
               <p class="list-desc">
@@ -255,17 +268,6 @@ $ yarn add node-sass  classnames 설정 클래스를 여러개 적용 할 수 �
 $ yarn add classnames  globalStyles 설정 sass 경로를 간소화 할 수 있다.
 includePaths 경로는 sass Root경로를 설정한다.
 webpack.config.js - 아래쪽 { test: sassRegex, exclude: sassModuleRegex, use: getStyleLoaders({ importLoaders: 2, sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap }).
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/react/start/">React 시작</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/react/start/">
-                리액트 시작 리액트 설치 (yarn) $ yarn global add create-react-app  리액트 프로젝트 생성 $ create-react-app react-project  리액트 서버 실행 / localhost:3000 cd react-project yarn start  리엑트 설정 불필요 파일 제거 App.css App.js App.test.js index.css logo.svg  nodemon 코드를 변경할 때 마다 서버를 자동으로 재시작 한다.
-$ yarn add --dev nodemon  NODE_PATH Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.
-$ yarn add --dev cross-env  방법1
                 …
                 </a>
               </p>
