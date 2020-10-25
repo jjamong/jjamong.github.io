@@ -301,6 +301,12 @@
                         </li>
                         
                       
+                        
+                        <li >
+                          <a href="/docs/front/react/reactnative/reactnative/notification/local/">notification(알림)</a>
+                        </li>
+                        
+                      
                     </ul>
                   </li>
                   
@@ -481,6 +487,42 @@ export default App;
 
 <p>웹에서 postMessage를 통해 앱으로 data를 전달하며,
 앱에선 onMessage 통해 데이터를 전달 받는다.</p>
+
+<h2 id="뒤로가기-버튼-앱종료-방지-android">뒤로가기 버튼 앱종료 방지(android)</h2>
+
+<h3 id="예제-1">예제</h3>
+
+<p>안드로이드의 경우 wevView에서 뒤로가기 버튼 클릭 시 앱이 종료되는 현상이 발생한다.
+따라서 아래의 코드로 뒤로가기를 방지할 수 있다.</p>
+
+<pre><code>const webview = useRef&lt;WebView&gt;(null);
+  
+  const onAndroidBackPress = (): boolean =&gt; {
+    if (webview.current) {
+      webview.current.goBack();
+      return true; // prevent default behavior (exit app)
+    }
+    return false;
+  };
+
+  useEffect((): (() =&gt; void) =&gt; {
+    BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+    return (): void =&gt; {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+    };
+  }, []); // Never re-run this effect
+
+  return (
+    &lt;&gt;
+      &lt;WebView
+        source={{
+          uri: 'http://10.0.2.2/login'
+        }}
+        ref={webview}
+      /&gt;
+    &lt;/&gt;
+  );
+</code></pre>
 
 
           </div>

@@ -152,6 +152,16 @@
       <div class="content-main content">
         <ul class="content-list"><li>
             <span class="list-date">2019-11-10</span>
+            <div class="list-title"><a href="/docs/front/react/component/props/">props</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/component/props/">
+                props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
+props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } MyComponent.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2019-11-10</span>
             <div class="list-title"><a href="/docs/etc/yarn/yarn/">yarn</a></div>
               <p class="list-desc">
                 <a href="/docs/etc/yarn/yarn/">
@@ -262,18 +272,6 @@ stess --cpu 1 --timeout 600  5 ~ 10 분을 기다리면 인스턴스가 1대더 
 도메인 등록을 선택한다.
 1: 도메인 검색 원하는 도메인을 검색하고 장바구니에 담아 구매한다.
                 
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/deploy/method/">배포 방법</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/deploy/method/">
-                무중단/중단 배포 무중단, 중단 배포는 말 그대로 배포할 때 서비스를 중단할 지 안할지의 차이다.
-무중단 배포는 서비스를 중지하지 않는다는 것은 사용자가 서비스를 이용하는데 아무런 지장 없이 배포를 진행하는 경우
-중단 배포는 &ldquo;서버 정기 점검&rdquo;과 같이 사용자가 서비스를 사용하지 못하게 서비스 전체를 정지한 뒤 배포를 진행하는 경우
-현재 위치 배포 현재 위치 배포(In-Place deployment)는 무중단 배포를 하기 위한 기법의 하나로 여러 서버를 배포할 때 새롭게 생성하거나 줄이지 않고 배포하는 방법.
-                …
                 </a>
               </p>
           </li></ul>

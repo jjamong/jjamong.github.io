@@ -151,6 +151,16 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-10-25</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/notification/local/">로컬 알림(푸쉬)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/reactnative/notification/local/">
+                시작하기 (Android) 설치 $ yarn add react-native-push-notification  설정 android/app/src/main/AndroidManifest.xml
+1. com.localpush 값을 자신의 패키지명 값으로 변경. 2. 아래 주석 부분 코드 추가 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.localpush&quot;&gt; &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt; &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt; &lt;permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; android:protectionLevel=&quot;signature&quot; /&gt; &lt;uses-permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;  3. meta-data 부분부터 코드 추가 &lt;application android:name=&quot;.MainApplication&quot; android:label=&quot;@string/app_name&quot; android:icon=&quot;@mipmap/ic_launcher&quot; android:roundIcon=&quot;@mipmap/ic_launcher_round&quot; android:allowBackup=&quot;false&quot; android:theme=&quot;@style/AppTheme&quot;&gt; &lt;activity android:name=&quot;.
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-10-22</span>
             <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/webview/">webView</a></div>
               <p class="list-desc">
@@ -244,16 +254,6 @@ class MyComponent extends Component { constructor(props) { super(props); this.st
                 <a href="/docs/front/react/jsx/">
                 JSX 문법 컴포넌트에 여러 요소가 있다면 부모 요소 하나로 꼭 감싸야 한다. 또한 br, input 등 단일 태그들도 닫아야 한다.
 // 올바른 예 return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br/&gt; &lt;/div&gt; ); // 에러 발생 return ( &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;리액트 h2&lt;/h2&gt; &lt;br&gt; );  자바스크립트 표현법 const text = &quot;리액트 h2&quot;; const check = true; const style = { width: '100px', height: '100px', background: 'red' }; return ( &lt;div&gt; &lt;h1&gt;리액트 h1&lt;/h1&gt; &lt;h2&gt;{text}&lt;/h2&gt; {check ?
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/props/">props</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/props/">
-                props는 properties를 줄인 것으로, 컴포넌트 속성을 설정한다.
-props 값 설정 props 값 설정 디폴트 값 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } // MyComponent props1  props 값 설정 값 재정의 class MyComponent extends Component { static defaultProps = { name: 'props1' } render() { return ( &lt;div&gt; MyComponent {this.props.name} &lt;/div&gt; ); } } MyComponent.
                 …
                 </a>
               </p>

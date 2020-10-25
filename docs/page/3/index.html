@@ -152,6 +152,18 @@
       <div class="content-main content">
         <ul class="content-list"><li>
             <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/deploy/method/">배포 방법</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/deploy/method/">
+                무중단/중단 배포 무중단, 중단 배포는 말 그대로 배포할 때 서비스를 중단할 지 안할지의 차이다.
+무중단 배포는 서비스를 중지하지 않는다는 것은 사용자가 서비스를 이용하는데 아무런 지장 없이 배포를 진행하는 경우
+중단 배포는 &ldquo;서버 정기 점검&rdquo;과 같이 사용자가 서비스를 사용하지 못하게 서비스 전체를 정지한 뒤 배포를 진행하는 경우
+현재 위치 배포 현재 위치 배포(In-Place deployment)는 무중단 배포를 하기 위한 기법의 하나로 여러 서버를 배포할 때 새롭게 생성하거나 줄이지 않고 배포하는 방법.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
             <div class="list-title"><a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a></div>
               <p class="list-desc">
                 <a href="/docs/infra/aws/ec2/autoscaling/configuration/">
@@ -259,18 +271,6 @@ example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
 content/posts/old-url.md
 --- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
 https://example.com/blog/new-url/  
-                
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">0001-01-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/securitygroup/">
-                보안그룹 위치 인스턴스 &gt; 네트워크 &gt; 보안 그룹 변경
-인스턴스 방화벽(인바운드/아웃바운드)을 설정한다. EC2가 시작상태에서도 가능하다.
-보안 그룹 변경 팝업에서 원하는 보안 그룹을 설정한다. HTTP/HTTPS 위치 : 네트워크 및 보안 &gt; 보안 그룹
-HTTP/HTTPS를 설정한다.
                 
                 </a>
               </p>
