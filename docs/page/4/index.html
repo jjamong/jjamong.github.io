@@ -151,6 +151,21 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2019-10-27</span>
+            <div class="list-title"><a href="/docs/etc/hugo/front_matter/">프론트 매터</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/front_matter/">
+                 slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
+content/posts/old-post.md
+--- title: New Post slug: &quot;new-post&quot; ---  URL의 파일명 부분이 slug로 대체된다.
+example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
+content/posts/old-url.md
+--- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
+https://example.com/blog/new-url/  
+                
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">0001-01-01</span>
             <div class="list-title"><a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a></div>
               <p class="list-desc">
@@ -255,18 +270,6 @@ $ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱
 constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
 render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
                 …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2020-09-01</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/etc/sample/">공부 샘플</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/reactnative/etc/sample/">
-                숫자 조정 앱 버튼 클릭 시 숫자를 더하고 뺴는 기능을 구현
-Counter.zip
-할 일 관리 앱 할 일을 추가하거나, 삭제하는 등 관리하는 기능을 구현
-TodoList.zip
-                
                 </a>
               </p>
           </li></ul>

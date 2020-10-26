@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>react-native-make(앱 아이콘/스플래쉬) | 짜몽 개발 연구소</title>
+<title>로컬 알림(푸쉬) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 네이티브(React Native)의 react-native-make(앱 아이콘/스플래쉬) 플러그인에 대한 가이드">
+<meta name="description" content="리액트 네이티브(React Native) 로컬 알림(푸쉬) 가이드">
 
 
 
@@ -302,7 +302,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/reactnative/reactnative/notification/">notification(알림)</a>
                         </li>
                         
@@ -341,7 +341,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/reactnative/plugin/make/">react-native-make</a>
                         </li>
                         
@@ -390,72 +390,137 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">react-native-make(앱 아이콘/스플래쉬)</h1>
+            <h1 class="title">로컬 알림(푸쉬)</h1>
             
 
 
-<p>react-native-make로 앱의 아이콘/스플래쉬 화면을 설정 할 수 있다.</p>
-
-<h2 id="설치-및-설정">설치 및 설정</h2>
-
-<p>[참고] <a href="https://github.com/bamlab/react-native-make">https://github.com/bamlab/react-native-make</a></p>
+<h2 id="시작하기-android">시작하기 (Android)</h2>
 
 <h3 id="설치">설치</h3>
 
-<pre><code>// yarn
-$ yarn add -D @bam.tech/react-native-make
-
-// npm
-$ npm i -D @bam.tech/react-native-make
+<pre><code>$ yarn add react-native-push-notification
 </code></pre>
 
-<h3 id="set-icon-아이콘-설정">set-icon(아이콘 설정)</h3>
+<h3 id="설정">설정</h3>
 
-<p>set-icon 설치</p>
+<p>android/app/src/main/AndroidManifest.xml</p>
 
-<pre><code>$ react-native set-icon --path path-to-image
+<h6 id="1-com-localpush-값을-자신의-패키지명-값으로-변경">1. com.localpush 값을 자신의 패키지명 값으로 변경.</h6>
+
+<h6 id="2-아래-주석-부분-코드-추가">2. 아래 주석 부분 코드 추가</h6>
+
+<pre><code>&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+  package=&quot;com.localpush&quot;&gt;
+
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+
+    &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+    &lt;permission
+        android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot;
+        android:protectionLevel=&quot;signature&quot; /&gt;
+    &lt;uses-permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; /&gt;
+    &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+
 </code></pre>
 
-<p>아이콘 적용
-path-to-image 앱 아이콘 이미지 경로</p>
+<h6 id="3-meta-data-부분부터-코드-추가">3. meta-data 부분부터 코드 추가</h6>
 
-<pre><code>// ios
-react-native set-icon --platform ios --path path-to-image
+<pre><code>&lt;application
+      android:name=&quot;.MainApplication&quot;
+      android:label=&quot;@string/app_name&quot;
+      android:icon=&quot;@mipmap/ic_launcher&quot;
+      android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
+      android:allowBackup=&quot;false&quot;
+      android:theme=&quot;@style/AppTheme&quot;&gt;
+      &lt;activity
+        android:name=&quot;.MainActivity&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:configChanges=&quot;keyboard|keyboardHidden|orientation|screenSize|uiMode&quot;
+        android:launchMode=&quot;singleTask&quot;
+        android:windowSoftInputMode=&quot;adjustResize&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+        &lt;/intent-filter&gt;
+      &lt;/activity&gt;
+      &lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
 
-// android
-react-native set-icon --platform android --path path-to-image
+      &lt;meta-data android:name=&quot;com.dieam.reactnativepushnotification.notification_channel_name&quot;
+                android:value=&quot;YOUR NOTIFICATION CHANNEL NAME&quot;/&gt;
+      &lt;meta-data  android:name=&quot;com.dieam.reactnativepushnotification.notification_channel_description&quot;
+                  android:value=&quot;YOUR NOTIFICATION CHANNEL DESCRIPTION&quot;/&gt;
+      &lt;!-- Change the resource name to your App's accent color - or any other color you want --&gt;
+      &lt;meta-data  android:name=&quot;com.dieam.reactnativepushnotification.notification_color&quot;
+                  android:resource=&quot;@android:color/white&quot;/&gt;
+
+      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+      &lt;receiver
+          android:name=&quot;com.google.android.gms.gcm.GcmReceiver&quot;
+          android:exported=&quot;true&quot;
+          android:permission=&quot;com.google.android.c2dm.permission.SEND&quot; &gt;
+          &lt;intent-filter&gt;
+              &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
+              &lt;category android:name=&quot;com.localpush&quot; /&gt;
+          &lt;/intent-filter&gt;
+      &lt;/receiver&gt;
+      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+
+      &lt;receiver android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher&quot; /&gt;
+      &lt;receiver android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver&quot;&gt;
+          &lt;intent-filter&gt;
+              &lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot; /&gt;
+          &lt;/intent-filter&gt;
+      &lt;/receiver&gt;
+      &lt;service android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationRegistrationService&quot;/&gt;
+
+      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+      &lt;service
+          android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerServiceGcm&quot;
+          android:exported=&quot;false&quot; &gt;
+          &lt;intent-filter&gt;
+              &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
+          &lt;/intent-filter&gt;
+      &lt;/service&gt;
+      &lt;!-- &lt;/ Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
+
+  &lt;/application&gt;
 </code></pre>
 
-<h3 id="set-splash-스플래쉬-설정">set-splash(스플래쉬 설정)</h3>
+<h3 id="예제">예제</h3>
 
-<p>set-splash 설치</p>
+<p>작성 및 실행 한 후 알림텍스트를 클릭 하면 알림이 출력된다.</p>
 
-<pre><code>// yarn
-$ yarn add react-native-splash-screen
+<p>app.js</p>
 
-// npm
-$ npm i react-native-splash-screen --save
+<pre><code>import React, {Component} from 'react';
+import PushNotification from 'react-native-push-notification'
+import {Text, TouchableOpacity} from 'react-native';
+
+class App extends Component{
+    notify(){
+      PushNotification.localNotificationSchedule({
+        message: &quot;notified&quot;,
+        date: new Date(Date.now() + 60 * 1000), // in 60 secs
+      });
+    }
+    
+    render(){
+        return(
+          &lt;TouchableOpacity
+            style = {{hegith:100+&quot;%&quot;, width:100+&quot;%&quot;, flex:1, justifyContent:&quot;center&quot;, alignItems:&quot;center&quot;}}
+            onPress={() =&gt;{this.notify()}}
+          &gt;
+            &lt;Text&gt;
+              알림(클릭)
+            &lt;/Text&gt;
+          &lt;/TouchableOpacity&gt;
+        );
+    }
+}
+
+export default App;
 </code></pre>
-
-<p>path-to-image 스플래쉬 이미지 경로</p>
-
-<pre><code>react-native set-splash --path &lt;path-to-image&gt; --resize &lt;[contain]|cover|center&gt; --background &quot;&lt;background-color&gt;&quot;
-
-// ex
-react-native set-splash --path ./src/res/images/splash.png --resize center --background &quot;#FFFFFF&quot;
-</code></pre>
-
-<h6 id="스플래쉬-이미지가-지속되는-문제">스플래쉬 이미지가 지속되는 문제</h6>
-
-<p>스플래시 이미지 적용 후 실행할 경우(android) 원래 App 화면이 출력되지 않는 문제가 한가지 있다.
-hide 코드를 적용해야 스플래쉬 이미지가 없어진다.</p>
-
-<pre><code>import SplashScreen from 'react-native-splash-screen';
-
-setTimeout( () =&gt; SplashScreen.hide(), 1000);
-</code></pre>
-
-<p><code>SplashScreen.hide()</code> 이 코드를 원하는 곳에 적용해 준다. 단, 이 코드만 적용하면 너무 빨리 사라지는 문제가 있으니 적당한 시간을 적용해준다.</p>
 
 
           </div>
