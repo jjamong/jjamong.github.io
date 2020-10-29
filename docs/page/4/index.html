@@ -178,6 +178,45 @@ HTTP/HTTPS를 설정한다.
                 </a>
               </p>
           </li><li>
+            <span class="list-date">2020-10-29</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/advert/">광고(advert)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/advert/">
+                firebase 프로젝트 생성 및 App 설정을 선행해야 한다.
+파이어베이스(firebase)
+광고 생성 
+1. 광고 앱 설정 프로젝트 생성 후 아래 AdMob 선택한다.
+
+AdMob 가입 후 계정에 카드연결 등 완료하면 아래와 같은 화면이 나온다. AdMob에서 앱 연결을 선택한다. 
+앱 추가 버튼을 선택한다. 
+앱 상태 확인 후 선택. 
+패키지 앱 명을 입력한다. 
+광고 앱이 생성되었다. 이제 광고를 생성하기 위해 버튼을 선택한다. 2. 광고 생성 
+배너광고를 선택한다.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-10-29</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/firebase/">파이어베이스(firebase)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/firebase/">
+                 프로젝트 설정 url https://console.firebase.google.com
+
+프로젝트 생성 URL 접속 후 프로젝트 추가 버튼을 선택한다. 프로젝트 명, 애널리틱스 설정 등을 하고 프로젝트를 생성한다.
+
+TEST 프로젝트 생성 완료 Android APP 추가 안드로이드 버튼 선택
+
+앱 패키지 명을 입력
+android/app/src/main/AndroidManifest.xml 파일의 첫번째 라인의 패키지 명 확인
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.adtest&quot;&gt;  
+google-services.json 파일 프로젝트에 추가. (가이드 참고) 
+android/build.gradle, android/app/build.gradle 파일들에게 각각 코드 적용. (가이드 참고) 
+Android APP 추가 완료 
+                
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-10-18</span>
             <div class="list-title"><a href="/docs/front/react/react/context/">Context</a></div>
               <p class="list-desc">
@@ -243,33 +282,6 @@ import Button from '~/Components/Button';
 설치 및 설정 설치 npm
 $ npm install -save react-native-geolocation-service  사용 
                 
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2020-09-02</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/plugin/make/">react-native-make(앱 아이콘/스플래쉬)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/reactnative/plugin/make/">
-                react-native-make로 앱의 아이콘/스플래쉬 화면을 설정 할 수 있다.
-설치 및 설정 [참고] https://github.com/bamlab/react-native-make
-설치 // yarn $ yarn add -D @bam.tech/react-native-make // npm $ npm i -D @bam.tech/react-native-make  set-icon(아이콘 설정) set-icon 설치
-$ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱 아이콘 이미지 경로
-// ios react-native set-icon --platform ios --path path-to-image // android react-native set-icon --platform android --path path-to-image  set-splash(스플래쉬 설정) set-splash 설치
-// yarn $ yarn add react-native-splash-screen // npm $ npm i react-native-splash-screen --save  path-to-image 스플래쉬 이미지 경로
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2020-09-02</span>
-            <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/react/lifecycle/">
-                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
-생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
-생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
-constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
-render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
-                …
                 </a>
               </p>
           </li></ul>

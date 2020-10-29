@@ -151,6 +151,34 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/react/lifecycle/">
+                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
+생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
+생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
+constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
+render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
+                …
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-09-02</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/make/">아이콘/스플래쉬(icon/splash)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/make/">
+                react-native-make로 앱의 아이콘/스플래쉬 화면을 설정 할 수 있다.
+설치 및 설정 [참고] https://github.com/bamlab/react-native-make
+설치 $ yarn add @bam.tech/react-native-make  set-icon(아이콘 설정) set-icon 설치
+$ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱 아이콘 이미지 경로
+// ios react-native set-icon --platform ios --path path-to-image // android react-native set-icon --platform android --path path-to-image  set-splash(스플래쉬 설정) set-splash 설치
+$ yarn add react-native-splash-screen  path-to-image 스플래쉬 이미지 경로
+react-native set-splash --path &lt;path-to-image&gt; --resize &lt;[contain]|cover|center&gt; --background &quot;&lt;background-color&gt;&quot; // ex react-native set-splash --path .
+                …
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-09-01</span>
             <div class="list-title"><a href="/docs/front/react/reactnative/etc/sample/">공부 샘플</a></div>
               <p class="list-desc">

@@ -152,9 +152,9 @@
       <div class="content-main content">
         <ul class="content-list"><li>
             <span class="list-date">2020-10-26</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/firebasemessag/">Firebase Messag</a></div>
+            <div class="list-title"><a href="/docs/front/react/reactnative/firebasemessag/">Firebase Messag</a></div>
               <p class="list-desc">
-                <a href="/docs/front/react/reactnative/reactnative/firebasemessag/">
+                <a href="/docs/front/react/reactnative/firebasemessag/">
                 시작하기 (Android) Firebase 설정 
 1. 프로젝트 생성 https://console.firebase.google.com/ 로 접속하여 프로젝트를 생성한다.
 
@@ -167,9 +167,9 @@ import { AppRegistry } from 'react-native'; import messaging from '@react-native
               </p>
           </li><li>
             <span class="list-date">2020-10-25</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/notification/">로컬 알림(푸쉬)</a></div>
+            <div class="list-title"><a href="/docs/front/react/reactnative/notification/">알림(notification)</a></div>
               <p class="list-desc">
-                <a href="/docs/front/react/reactnative/reactnative/notification/">
+                <a href="/docs/front/react/reactnative/notification/">
                 시작하기 (Android) 설치 $ yarn add react-native-push-notification  설정 android/app/src/main/AndroidManifest.xml
 1. com.localpush 값을 자신의 패키지명 값으로 변경. 2. 아래 주석 부분 코드 추가 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.localpush&quot;&gt; &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt; &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt; &lt;permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; android:protectionLevel=&quot;signature&quot; /&gt; &lt;uses-permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;  3. meta-data 부분부터 코드 추가 &lt;application android:name=&quot;.MainApplication&quot; android:label=&quot;@string/app_name&quot; android:icon=&quot;@mipmap/ic_launcher&quot; android:roundIcon=&quot;@mipmap/ic_launcher_round&quot; android:allowBackup=&quot;false&quot; android:theme=&quot;@style/AppTheme&quot;&gt; &lt;activity android:name=&quot;.
                 …
@@ -177,9 +177,9 @@ import { AppRegistry } from 'react-native'; import messaging from '@react-native
               </p>
           </li><li>
             <span class="list-date">2020-10-22</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/webview/">webView</a></div>
+            <div class="list-title"><a href="/docs/front/react/reactnative/webview/">웹뷰(webView)</a></div>
               <p class="list-desc">
-                <a href="/docs/front/react/reactnative/reactnative/webview/">
+                <a href="/docs/front/react/reactnative/webview/">
                 시작하기 설치 $ yarn add react-native-webview  예제 app.js
 import { WebView } from 'react-native-webview' import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { return ( &lt;WebView source={{ uri: &quot;http://www.naver.com&quot;}} /&gt; ); }; export default App;  webView 통신 1. APP -&gt; WEB 값 전달 (APP) app.js
 import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { setTimeout(function () { const data = &quot;hello&quot;; this.
@@ -188,13 +188,13 @@ import React from 'react'; import { WebView } from 'react-native-webview' const 
               </p>
           </li><li>
             <span class="list-date">2020-08-28</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/reactnative/start/">React Native 시작</a></div>
+            <div class="list-title"><a href="/docs/front/react/reactnative/start/">React Native 시작</a></div>
               <p class="list-desc">
-                <a href="/docs/front/react/reactnative/reactnative/start/">
-                개발 환경 설정 IOS -
-윈도우 윈도우에서 리액트 네이티브를 개발하기 위해선 노드(Node), 파이썬(Python), 안드로이드 스튜디오 등을 설치해야 한다.
+                <a href="/docs/front/react/reactnative/start/">
+                개발 환경 설정 Window(윈도우) 윈도우에서 리액트 네이티브를 개발하기 위해선 노드(Node), 파이썬(Python), 안드로이드 스튜디오 등을 설치해야 한다.
 리액트 네이티브는 ios, 안드로이드(android) 각각 개발 툴을 이용하여 배포하므로 윈도우 환경에선 ios 모바일 앱은 배포가 불가능 하다. (ios의 경우 맥(mac) OS의 Xcode 툴이 반드시 필요하다.)
-안드로이드 1. 안드로이드 스튜디오 설치 2. 안드로이드 SDK 설치  - 2.1 Tools &gt; SDK Manager. - 2.2 SDK Platforms 탭에서 원하는 플랫폼 선택 후 설치 - 2.
+안드로이드 1. 안드로이드 스튜디오 설치 
+2. 안드로이드 SDK 설치  - 2.1 Tools &gt; SDK Manager. - 2.2 SDK Platforms 탭에서 원하는 플랫폼 선택 후 설치 - 2.
                 …
                 </a>
               </p>
