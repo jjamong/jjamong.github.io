@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>라이프 사이클 | 짜몽 개발 연구소</title>
+<title>절대 경로 설정 | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트(React) 라이프 사이클 함수 가이드">
+<meta name="description" content="리액트 네이티브(React Native)에 절대 경로 설정에 대한 가이드">
 
 
 
@@ -200,7 +200,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
                         </li>
                         
@@ -326,7 +326,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/reactnative/moduleresolver/">절대 경로 설정</a>
                         </li>
                         
@@ -393,123 +393,48 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">라이프 사이클</h1>
+            <h1 class="title">절대 경로 설정</h1>
             
 
 
-<h2 id="라이프-사이클-함수">라이프 사이클 함수</h2>
+<p>절대 경로로 컴포넌트를 추가하기 위한 플러그인</p>
 
-<h3 id="constructor-함수">constructor 함수</h3>
+<h2 id="설치-및-설정">설치 및 설정</h2>
 
-<p>생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.</p>
+<h3 id="설치">설치</h3>
 
-<p>생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.</p>
+<p>yarn</p>
 
-<p>생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.</p>
-
-<pre><code>constructor(props: Props) {
-    super(props);
-
-    this.state = {
-        count: props.initValue,
-        error: false,
-    }
-}
+<pre><code>$ yarn add --dev babel-plugin-module-resolver
 </code></pre>
 
-<h3 id="render-함수">render 함수</h3>
+<h3 id="설정">설정</h3>
 
-<p>render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.</p>
+<p>babel.config.js 파일 수정</p>
 
-<p>render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.setState로 State의 값이 변경되어 화면을 갱신할 필요가 있을 때마다 호출된다.</p>
-
-<pre><code>render() {
-    const {title} = this.props;
-    const {count, error} = this.state;
-    return (
-        &lt;Container&gt;
-            {...}
-        &lt;/Container&gt;
-    )
-}
+<pre><code>module.exports = {
+	presets: ['module:metro-react-native-babel-preset'],
+	plugins: [
+		[
+			'module-resolver',
+			{
+				root: ['.'],
+				extensions: ['.ios.ts', '.android.ts', '.ts', '.ios.tsx', '.android.tsx', '.tsx', '.jsx', '.js', '.json'],
+				alias: {
+					'~': './src',
+				},
+			},
+		],
+	],
+};
 </code></pre>
 
-<h3 id="getderivedstatefromprops-함수">getDeriveDstateFromProps 함수</h3>
+<h2 id="사용-방법">사용 방법</h2>
 
-<p>getDeriveDstateFromProps 함수는 부모로 부터 받은 Props와 State를 동기화 할 때 사용된다.</p>
+<p><code>~/</code> src 경로로 인식</p>
 
-<p>이 함수는 컴포넌트가 생성될 때 한 번 호출되며, 생성자 함수와 다르게 Props와 State를 동기화해야 하므로 Props가 변경될 때마다 호출된다.</p>
-
-<pre><code>static getDeriveDstateFromProps(nextProps, prevState) {
-    if (nextProps.id !== prevState.id) {
-        return { value: nextProps.value };
-    }
-    return null;
-}
+<pre><code>import Button from '~/Components/Button';
 </code></pre>
-
-<h3 id="componentdidmount-함수">componentDidMount 함수</h3>
-
-<p>클래스 컴포넌트가 처음 화면에 표시된 이후, 이 함수가 호출된다.(render 함수 처음 호출 후)</p>
-
-<p>이 함수는 컴포넌트가 화면에 처음 표시된 후 한 번만 호출되므로, ajax를 통해 데이터를 습득하는 등 작업에 적합하다.</p>
-
-<p>componentDidMount 함수는 부모로부터 받는 Props 값이 변경되어도, this.setState로 State 값이 변경되어도, 다시 호출되지 않는다.</p>
-
-<pre><code>componentDidMount(prevProps: Props, PrevState: State, snapshot: ISnapshot) {
-    ...
-}
-</code></pre>
-
-<h3 id="shouldcomponentupdate-함수">shouldComponentUpdate 함수</h3>
-
-<p>Props, State 값이 변경되었지만, 다시 화면을 그리고 싶지 않은 경우 이 함수를 사용하여 렌더링 제어를 할 수 있다.</p>
-
-<pre><code>shouldComponentUpdate(nextProps: Props, nextState: State) {
-    return nextProps.id !=== this.props.id;
-}
-
-</code></pre>
-
-<h3 id="getsnapshotbeforeupdate-함수">getSnapshotBeforeUpdate 함수</h3>
-
-<p>Props, State 값이 변경되어 화면을 다시 그리기 위해 render 함수가 호출된 후, 실제 화면이 갱신되기 바로 직전에</p>
-
-<h3 id="componentdidupdate-함수">componentDidUpdate 함수</h3>
-
-<p>componentDidUpdate 함수는 컴포넌트가 처음 화면에 표시될 때 실행되지 않지만 Props 또는 State가 변경되어 화면이 갱신될 때 마다 호출된다.(componentDidMount 함수와 반대)</p>
-
-<h3 id="componentwillunmout-함수">componentWillUnmout 함수</h3>
-
-<p>componentWillUnmout 함수는 해당 컴포넌트가 화면에서 완전히 사라진 후 호출되는 함수다.</p>
-
-<p>보통 setTimeout, setInterval 함수 해제시 사용된다.</p>
-
-<h3 id="componentdidcatch-함수">componentDidCatch 함수</h3>
-
-<p>컴포넌트의 렌더링 도중 에러가 발생하면 앱이 비정상 종료(Crash)된다.
-비즈니스 로직의 try-catch 처럼 동일하게 컴포넌트 렌더링 시 예외처리를 해주는 라이프 싸이클 함수다.</p>
-
-<pre><code>componentDidCatch(error: Error, info.ErrorInfo) {
-    this.setState({
-        error: true,
-    })
-}
-</code></pre>
-
-<h2 id="호출-순서">호출 순서</h2>
-
-<p>&ndash; 컴포넌트가 생성될 때</p>
-
-<p>constructor -&gt; getDeriveDstateFromProps -&gt; render -&gt; componentDidMount</p>
-
-<p>&ndash; 컴포넌트의 Props가 변경될 때</p>
-
-<p>getDeriveDstateFromProps -&gt; shouldComponentUpdate -&gt; render -&gt; getSnapshotBeforeUpdate -&gt; componentDidUpdate</p>
-
-<p>&ndash; 컴포넌트의 State가 변경될 때</p>
-
-<p>shouldComponentUpdate -&gt; render -&gt; getSnapshotBeforeUpdate -&gt; componentDidUpdate</p>
 
 
           </div>
