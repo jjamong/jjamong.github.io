@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>state | 짜몽 개발 연구소</title>
+<title>날짜 선택기(date picker) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="리액트 네이티브(React Native)의 날짜 선택기(date picker) 가이드">
 
 
 
@@ -266,7 +266,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/component/state/">state</a>
                         </li>
                         
@@ -338,7 +338,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/reactnative/datepicker/">날짜 선택기(date picker)</a>
                         </li>
                         
@@ -399,47 +399,83 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">state</h1>
+            <h1 class="title">날짜 선택기(date picker)</h1>
             
 
 
-<p>props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.</p>
+<h2 id="시작하기">시작하기</h2>
 
-<p>컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.</p>
+<h3 id="설치">설치</h3>
 
-<h2 id="state-설정">state 설정</h2>
-
-<h3 id="jsx-내부에서-값-설정">JSX 내부에서 값 설정</h3>
-
-<p>setState 함수로 state값을 업데이트 한다.</p>
-
-<pre><code>class MyComponent extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            number: 0
-        }
-    }
-
-    render() {
-        return (
-            &lt;div&gt;
-                &lt;div&gt;숫자 : {this.state.number}&lt;/div&gt;
-                &lt;button onClick={()=&gt; {
-                    this.setState({
-                        number: this.state.number + 1
-                    })
-                }}
-                &gt;더하기&lt;/button&gt;
-            &lt;/div&gt;
-        );
-    }
-}
-
-// 버튼 세번 클릭 시
-// 숫자 : 3
+<pre><code>$ yarn add @react-native-community/datetimepicker
 </code></pre>
+
+<h3 id="예제">예제</h3>
+
+<p>app.js</p>
+
+<pre><code>import React, {useState} from 'react';
+import {View, Button, Platform} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
+const App: () =&gt; React$Node = () =&gt; {
+
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) =&gt; {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+    console.log(currentDate)
+  };
+
+  const showMode = (currentMode) =&gt; {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () =&gt; {
+    showMode('date');
+  };
+
+  const showTimepicker = () =&gt; {
+    showMode('time');
+  };
+
+  return (
+    &lt;View&gt;
+        &lt;View&gt;
+          &lt;Button onPress={showDatepicker} title=&quot;Show date picker!&quot; /&gt;
+        &lt;/View&gt;
+        &lt;View&gt;
+          &lt;Button onPress={showTimepicker} title=&quot;Show time picker!&quot; /&gt;
+        &lt;/View&gt;
+        {show &amp;&amp; (
+          &lt;DateTimePicker
+            testID=&quot;dateTimePicker&quot;
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display=&quot;spinner&quot;
+            onChange={onChange}
+          /&gt;
+        )}
+    &lt;/View&gt;
+  );
+};
+
+export default App;
+</code></pre>
+
+<h3 id="결과">결과</h3>
+
+<p>android
+<img src="/docs/front/react/reactnative/datepicker/01.png" alt="결과_01" /></p>
+
+<p>ios
+<img src="/docs/front/react/reactnative/datepicker/02.png" alt="결과_02" /></p>
 
 
           </div>
