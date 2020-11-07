@@ -151,17 +151,32 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/infra/aws/ec2/webserver/">웹서버</a></div>
+              <p class="list-desc">
+                <a href="/docs/infra/aws/ec2/webserver/">
+                
+                
+                
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">0001-01-01</span>
+            <div class="list-title"><a href="/docs/etc/hugo/content/">컨텐트 포맷</a></div>
+              <p class="list-desc">
+                <a href="/docs/etc/hugo/content/">
+                
+                
+                
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2019-10-27</span>
             <div class="list-title"><a href="/docs/etc/hugo/front_matter/">프론트 매터</a></div>
               <p class="list-desc">
                 <a href="/docs/etc/hugo/front_matter/">
-                 slug 아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.
-content/posts/old-post.md
---- title: New Post slug: &quot;new-post&quot; ---  URL의 파일명 부분이 slug로 대체된다.
-example.com/posts/new-post/  url 원하는 URL로 설정 할 수 있다.
-content/posts/old-url.md
---- title: Old URL url: /blog/new-url/ ---  URL 이 설정한 url로 변경된다.
-https://example.com/blog/new-url/  
+                
+                
                 
                 </a>
               </p>
@@ -170,40 +185,9 @@ https://example.com/blog/new-url/
             <div class="list-title"><a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a></div>
               <p class="list-desc">
                 <a href="/docs/infra/aws/ec2/securitygroup/">
-                보안그룹 위치 인스턴스 &gt; 네트워크 &gt; 보안 그룹 변경
-인스턴스 방화벽(인바운드/아웃바운드)을 설정한다. EC2가 시작상태에서도 가능하다.
-보안 그룹 변경 팝업에서 원하는 보안 그룹을 설정한다. HTTP/HTTPS 위치 : 네트워크 및 보안 &gt; 보안 그룹
-HTTP/HTTPS를 설정한다.
                 
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2020-11-03</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/datepicker/">날짜 선택기(date picker)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/reactnative/datepicker/">
-                시작하기 설치 $ yarn add @react-native-community/datetimepicker  예제 app.js
-import React, {useState} from 'react'; import {View, Button, Platform} from 'react-native'; import DateTimePicker from '@react-native-community/datetimepicker'; const App: () =&gt; React$Node = () =&gt; { const [date, setDate] = useState(new Date()); const [mode, setMode] = useState('date'); const [show, setShow] = useState(false); const onChange = (event, selectedDate) =&gt; { const currentDate = selectedDate || date; setShow(Platform.OS === 'ios'); setDate(currentDate); console.log(currentDate) }; const showMode = (currentMode) =&gt; { setShow(true); setMode(currentMode); }; const showDatepicker = () =&gt; { showMode('date'); }; const showTimepicker = () =&gt; { showMode('time'); }; return ( &lt;View&gt; &lt;View&gt; &lt;Button onPress={showDatepicker} title=&quot;Show date picker!
-                …
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2020-10-29</span>
-            <div class="list-title"><a href="/docs/front/react/reactnative/advert/">광고(advert)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/reactnative/advert/">
-                firebase 프로젝트 생성 및 App 설정을 선행해야 한다.
-파이어베이스(firebase)
-광고 생성 
-1. 광고 앱 설정 프로젝트 생성 후 아래 AdMob 선택한다.
-
-AdMob 가입 후 계정에 카드연결 등 완료하면 아래와 같은 화면이 나온다. AdMob에서 앱 연결을 선택한다. 
-앱 추가 버튼을 선택한다. 
-앱 상태 확인 후 선택. 
-패키지 앱 명을 입력한다. 
-광고 앱이 생성되었다. 이제 광고를 생성하기 위해 버튼을 선택한다. 2. 광고 생성 
-배너광고를 선택한다.
-                …
+                
+                
                 </a>
               </p>
           </li><li>
@@ -211,19 +195,9 @@ AdMob 가입 후 계정에 카드연결 등 완료하면 아래와 같은 화면
             <div class="list-title"><a href="/docs/front/react/reactnative/firebase/">파이어베이스(firebase)</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/firebase/">
-                 프로젝트 설정 url https://console.firebase.google.com
-
-프로젝트 생성 URL 접속 후 프로젝트 추가 버튼을 선택한다. 프로젝트 명, 애널리틱스 설정 등을 하고 프로젝트를 생성한다.
-
-TEST 프로젝트 생성 완료 Android APP 추가 안드로이드 버튼 선택
-
-앱 패키지 명을 입력
-android/app/src/main/AndroidManifest.xml 파일의 첫번째 라인의 패키지 명 확인
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.adtest&quot;&gt;  
-google-services.json 파일 프로젝트에 추가. (가이드 참고) 
-android/build.gradle, android/app/build.gradle 파일들에게 각각 코드 적용. (가이드 참고) 
-Android APP 추가 완료 
                 
+                
+                리액트 네이티브(React Native)의 firebase (파이어베이스) 가이드
                 </a>
               </p>
           </li><li>
@@ -231,12 +205,9 @@ Android APP 추가 완료
             <div class="list-title"><a href="/docs/front/react/react/context/">Context</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/react/context/">
-                context api React 16.3 부터는 Context API를 이용해서 트리의 모든 레벨에 값을 공유하는 방법을 제공한다.
-일반적으로 부모와 자식간 props, state를 변화시키는 방법을 기반하여 이전엔 redux와 같은 것들을 통해서 부모 자식간 컴포넌트 전달이 아닌 전체 컴포넌트에 값 전달 하는 방법을 사용했다.
-Context API는 createContext, Provider, Consumer 3가지 기능으로 redux 기능을 대신할 수 있다.
-API createContext 사용 예제
-import React from &quot;react&quot;; const ReactContext = React.createContext(null); export default ReactContext;  Context.Provider 사용 예제
-                …
+                
+                
+                리액트(React) Context API 가이드
                 </a>
               </p>
           </li><li>
@@ -244,9 +215,9 @@ import React from &quot;react&quot;; const ReactContext = React.createContext(nu
             <div class="list-title"><a href="/docs/front/react/reactnative/plugin/navigation/">react-navigation(내비게이션)</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/plugin/navigation/">
-                 설치 및 설정 [참고] https://github.com/bamlab/react-native-make
-설치 // yarn $ yarn add @react-navigation/native $ yarn add @react-navigation/stack // npm $ npm install @react-navigation/native $ npm install @react-navigation/stack  $ yarn add react-native-safe-area-context $ yarn add @react-native-community/masked-view $ yarn add react-native-gesture-handler $ yarn add react-native-screens $ yarn add @react-navigation/drawer $ yarn add react-native-reanimated $ yarn add @react-navigation/bottom-tabs  
                 
+                
+                리액트 네이티브(React Native)의 react-navigation(내비게이션) 플러그인에 대한 가이드
                 </a>
               </p>
           </li><li>
@@ -254,10 +225,9 @@ import React from &quot;react&quot;; const ReactContext = React.createContext(nu
             <div class="list-title"><a href="/docs/front/react/reactnative/styledcomponents/">스타일</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/styledcomponents/">
-                 설치 및 설정 설치 yarn
-$ yarn add styled-components --dev  npm
-$ npm install -save styled-components  사용 방법 import Styled from 'styled-components/native'; const Container = Styled.View` flex: 1; `  
                 
+                
+                리액트 네이티브(React Native)에 스타일 플러그인에 대한 가이드
                 </a>
               </p>
           </li><li>
@@ -265,9 +235,9 @@ $ npm install -save styled-components  사용 방법 import Styled from 'styled-
             <div class="list-title"><a href="/docs/front/react/reactnative/plugin/asyncstorage/">AsyncStorage</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/plugin/asyncstorage/">
-                 AsyncStorage는 앱 내에서 간단하게 데이터를 저장할 수 있는 저장소다. 웹에서 사용하는 window.localStorage와 매우 유사하다.
-설치 및 설정 설치 // yarn $ yarn add @react-native-community/async-storage // npm $ npm install @react-native-community/async-storage  사용 // set AsyncStorage.setItem('todoList', JSON.stringify(list)); // get const list = await AsyncStorage.getItem('todoList');  
                 
+                
+                리액트 네이티브(React Native)에 AsyncStorage 플러그인에 대한 가이드
                 </a>
               </p>
           </li><li>
@@ -275,10 +245,9 @@ $ npm install -save styled-components  사용 방법 import Styled from 'styled-
             <div class="list-title"><a href="/docs/front/react/reactnative/plugin/geolocation/">geolocation</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/plugin/geolocation/">
-                 geolocation은 위치정보를 가져올 수 있다.
-설치 및 설정 설치 npm
-$ npm install -save react-native-geolocation-service  사용 
                 
+                
+                리액트 네이티브(React Native)에 geolocation 플러그인에 대한 가이드
                 </a>
               </p>
           </li></ul>

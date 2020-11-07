@@ -151,18 +151,33 @@
     <div class="container main">
       <div class="content-main content">
         <ul class="content-list"><li>
+            <span class="list-date">2020-11-03</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/datepicker/">날짜 선택기(date picker)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/datepicker/">
+                
+                
+                리액트 네이티브(React Native)의 날짜 선택기(date picker) 가이드
+                </a>
+              </p>
+          </li><li>
+            <span class="list-date">2020-10-29</span>
+            <div class="list-title"><a href="/docs/front/react/reactnative/advert/">광고(advert)</a></div>
+              <p class="list-desc">
+                <a href="/docs/front/react/reactnative/advert/">
+                
+                
+                리액트 네이티브(React Native)의 광고(advert) 가이드
+                </a>
+              </p>
+          </li><li>
             <span class="list-date">2020-10-26</span>
             <div class="list-title"><a href="/docs/front/react/reactnative/firebasemessag/">Firebase Messag</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/firebasemessag/">
-                시작하기 (Android) Firebase 설정 
-1. 프로젝트 생성 https://console.firebase.google.com/ 로 접속하여 프로젝트를 생성한다.
-
-2. Android 앱 등록 및 검토 Ansdroid 앱 등록 시 순차적으로 가이드를 따라하고 설치확인을 완료한다.
-설치 프로젝트에서 firebase를 사용하기 위해선 @react-native-firebase/app 가 설치되어 있어야 한다.
-$ yarn add @react-native-firebase/app $ yarn add @react-native-firebase/messaging  예제 index.js
-import { AppRegistry } from 'react-native'; import messaging from '@react-native-firebase/messaging'; import App from './App'; import {name as appName} from '.
-                …
+                
+                
+                리액트 네이티브(React Native) Firebase Messag 가이드
                 </a>
               </p>
           </li><li>
@@ -170,9 +185,9 @@ import { AppRegistry } from 'react-native'; import messaging from '@react-native
             <div class="list-title"><a href="/docs/front/react/reactnative/notification/">알림(notification)</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/notification/">
-                시작하기 (Android) 설치 $ yarn add react-native-push-notification  설정 android/app/src/main/AndroidManifest.xml
-1. com.localpush 값을 자신의 패키지명 값으로 변경. 2. 아래 주석 부분 코드 추가 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.localpush&quot;&gt; &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt; &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt; &lt;permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; android:protectionLevel=&quot;signature&quot; /&gt; &lt;uses-permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; /&gt; &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;  3. meta-data 부분부터 코드 추가 &lt;application android:name=&quot;.MainApplication&quot; android:label=&quot;@string/app_name&quot; android:icon=&quot;@mipmap/ic_launcher&quot; android:roundIcon=&quot;@mipmap/ic_launcher_round&quot; android:allowBackup=&quot;false&quot; android:theme=&quot;@style/AppTheme&quot;&gt; &lt;activity android:name=&quot;.
-                …
+                
+                
+                리액트 네이티브(React Native) 로컬 알림(푸쉬) 가이드
                 </a>
               </p>
           </li><li>
@@ -180,10 +195,9 @@ import { AppRegistry } from 'react-native'; import messaging from '@react-native
             <div class="list-title"><a href="/docs/front/react/reactnative/webview/">웹뷰(webView)</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/webview/">
-                시작하기 설치 $ yarn add react-native-webview  예제 app.js
-import { WebView } from 'react-native-webview' import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { return ( &lt;WebView source={{ uri: &quot;http://www.naver.com&quot;}} /&gt; ); }; export default App;  webView 통신 1. APP -&gt; WEB 값 전달 (APP) app.js
-import React from 'react'; import { WebView } from 'react-native-webview' const App = () =&gt; { setTimeout(function () { const data = &quot;hello&quot;; this.
-                …
+                
+                
+                리액트 네이티브(React Native) webView 가이드
                 </a>
               </p>
           </li><li>
@@ -191,11 +205,9 @@ import React from 'react'; import { WebView } from 'react-native-webview' const 
             <div class="list-title"><a href="/docs/front/react/reactnative/start/">React Native 시작</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/start/">
-                개발 환경 설정 Window(윈도우) 윈도우에서 리액트 네이티브를 개발하기 위해선 노드(Node), 파이썬(Python), 안드로이드 스튜디오 등을 설치해야 한다.
-리액트 네이티브는 ios, 안드로이드(android) 각각 개발 툴을 이용하여 배포하므로 윈도우 환경에선 ios 모바일 앱은 배포가 불가능 하다. (ios의 경우 맥(mac) OS의 Xcode 툴이 반드시 필요하다.)
-안드로이드 1. 안드로이드 스튜디오 설치 
-2. 안드로이드 SDK 설치  - 2.1 Tools &gt; SDK Manager. - 2.2 SDK Platforms 탭에서 원하는 플랫폼 선택 후 설치 - 2.
-                …
+                
+                
+                리액트 네이티브(React Native)에 대해 설치 부터 실행하는 가이드
                 </a>
               </p>
           </li><li>
@@ -203,10 +215,9 @@ import React from 'react'; import { WebView } from 'react-native-webview' const 
             <div class="list-title"><a href="/docs/front/react/plugin/axios/">axios</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/plugin/axios/">
-                axios 설치 프로미스 기반 REST API 웹 요청 라이브러리
-$ yarn add axios  axios 예제 /api/banner api 요청/응답 받아 컴포넌트에 렌더링 하는 예제.
-import React, { Component } from &quot;react&quot;; import axios from &quot;axios&quot;; class App extends Component { constructor(props) { super(props); this.state = { datas: [] }; } async componentDidMount() { let { data: datas } = await axios.get('/api/banner') this.setState({ datas }); } render() { const { datas } = this.
-                …
+                
+                
+                
                 </a>
               </p>
           </li><li>
@@ -214,10 +225,9 @@ import React, { Component } from &quot;react&quot;; import axios from &quot;axio
             <div class="list-title"><a href="/docs/front/react/plugin/axioss/">axioss</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/plugin/axioss/">
-                axios 설치 프로미스 기반 REST API 웹 요청 라이브러리
-$ yarn add axios  axios 예제 /api/banner api 요청/응답 받아 컴포넌트에 렌더링 하는 예제.
-import React, { Component } from &quot;react&quot;; import axios from &quot;axios&quot;; class App extends Component { constructor(props) { super(props); this.state = { datas: [] }; } async componentDidMount() { let { data: datas } = await axios.get('/api/banner') this.setState({ datas }); } render() { const { datas } = this.
-                …
+                
+                
+                
                 </a>
               </p>
           </li><li>
@@ -225,7 +235,8 @@ import React, { Component } from &quot;react&quot;; import axios from &quot;axio
             <div class="list-title"><a href="/docs/front/react/setting/redux/">Redux 적용</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/setting/redux/">
-                 Redux 설치 $ yarn add redux redux-actions react-redux redux-pender immutable  
+                
+                
                 
                 </a>
               </p>
@@ -234,31 +245,8 @@ import React, { Component } from &quot;react&quot;; import axios from &quot;axio
             <div class="list-title"><a href="/docs/front/react/setting/router/">Router 적용</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/setting/router/">
-                 React Router는 SPA의 라우팅 문제를 보안하는 비공식이긴 하나 거의 표준처럼 사용하고 있는 라이브러리로서, React Router를 사용하여 location이나 history와 같은 브라우저 API와 연동이 가능하다.
-설치 명령어 $ yarn add react-router-dom  내장 함수 BrowserRouter &ndash; 라우팅 컴포넌트를 사용하기 위해 기본적으로 감싸 주어야 한다.
-&ndash; 오직 하나의 자식만 가질 수 있다.
-import {BrowserRouter} from 'react-router-dom';  
                 
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-11</span>
-            <div class="list-title"><a href="/docs/front/react/component/state/">state</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/state/">
-                 props는 보통 부모 컴포넌트가 설정하며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있다.
-컴포넌트 내부에서 업데이트 할 수 있는 값을 사용하려면 state를 써야한다.
-state 설정 JSX 내부에서 값 설정 setState 함수로 state값을 업데이트 한다.
-class MyComponent extends Component { constructor(props) { super(props); this.state = { number: 0 } } render() { return ( &lt;div&gt; &lt;div&gt;숫자 : {this.state.number}&lt;/div&gt; &lt;button onClick={()=&gt; { this.setState({ number: this.state.number + 1 }) }} &gt;더하기&lt;/button&gt; &lt;/div&gt; ); } } // 버튼 세번 클릭 시 // 숫자 : 3  
                 
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2019-11-10</span>
-            <div class="list-title"><a href="/docs/front/react/component/component/">Component(컴포넌트)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/component/component/">
-                 모듈 내보내기(export) // MyComponent.js export default MyComponent;  모듈 불러오기(import) import MyComponent from './MyComponent'; // function App() { return ( &lt;div&gt; &lt;div&gt;App&lt;/div&gt; &lt;MyComponent /&gt; &lt;/div&gt; ); } // App // MyComponent  
                 
                 </a>
               </p>

@@ -155,12 +155,9 @@
             <div class="list-title"><a href="/docs/front/react/react/lifecycle/">라이프 사이클</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/react/lifecycle/">
-                라이프 사이클 함수 constructor 함수 생성자 함수로서 클래스 컴포넌트에서 State를 사용하지 않아, 초기값 설정이 필요하지 않다면 생략 가능하다.
-생성자 함수를 사용할 때는 반드시 super(props) 함수를 호출하여 부모 클래스의 생성자를 호출한다.
-생성자 함수는 해당 컴포넌트가 생성될 때 한 번만 호출 된다.
-constructor(props: Props) { super(props); this.state = { count: props.initValue, error: false, } }  render 함수 render 함수는 클래스 컴포넌트가 렌더링 되는 부분을 정의한다.
-render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
-                …
+                
+                
+                리액트(React) 라이프 사이클 함수 가이드
                 </a>
               </p>
           </li><li>
@@ -168,14 +165,9 @@ render 함수는 부모로 부터 받는 Props 값이 변경되거나, this.
             <div class="list-title"><a href="/docs/front/react/reactnative/make/">아이콘/스플래쉬(icon/splash)</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/make/">
-                react-native-make로 앱의 아이콘/스플래쉬 화면을 설정 할 수 있다.
-설치 및 설정 [참고] https://github.com/bamlab/react-native-make
-설치 $ yarn add @bam.tech/react-native-make  set-icon(아이콘 설정) set-icon 설치
-$ react-native set-icon --path path-to-image  아이콘 적용 path-to-image 앱 아이콘 이미지 경로
-// ios react-native set-icon --platform ios --path path-to-image // android react-native set-icon --platform android --path path-to-image  set-splash(스플래쉬 설정) set-splash 설치
-$ yarn add react-native-splash-screen  path-to-image 스플래쉬 이미지 경로
-react-native set-splash --path &lt;path-to-image&gt; --resize &lt;[contain]|cover|center&gt; --background &quot;&lt;background-color&gt;&quot; // ex react-native set-splash --path .
-                …
+                
+                
+                리액트 네이티브(React Native)의 react-native-make(앱 아이콘/스플래쉬) 플러그인에 대한 가이드
                 </a>
               </p>
           </li><li>
@@ -183,12 +175,9 @@ react-native set-splash --path &lt;path-to-image&gt; --resize &lt;[contain]|cove
             <div class="list-title"><a href="/docs/front/react/reactnative/moduleresolver/">절대 경로 설정</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/moduleresolver/">
-                 절대 경로로 컴포넌트를 추가하기 위한 플러그인
-설치 및 설정 설치 yarn
-$ yarn add --dev babel-plugin-module-resolver  설정 babel.config.js 파일 수정
-module.exports = { presets: ['module:metro-react-native-babel-preset'], plugins: [ [ 'module-resolver', { root: ['.'], extensions: ['.ios.ts', '.android.ts', '.ts', '.ios.tsx', '.android.tsx', '.tsx', '.jsx', '.js', '.json'], alias: { '~': './src', }, }, ], ], };  사용 방법 ~/ src 경로로 인식
-import Button from '~/Components/Button';  
                 
+                
+                리액트 네이티브(React Native)에 절대 경로 설정에 대한 가이드
                 </a>
               </p>
           </li><li>
@@ -196,11 +185,9 @@ import Button from '~/Components/Button';
             <div class="list-title"><a href="/docs/front/react/reactnative/etc/sample/">공부 샘플</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/reactnative/etc/sample/">
-                숫자 조정 앱 버튼 클릭 시 숫자를 더하고 뺴는 기능을 구현
-Counter.zip
-할 일 관리 앱 할 일을 추가하거나, 삭제하는 등 관리하는 기능을 구현
-TodoList.zip
                 
+                
+                리액트 네이티브(React Native) 공부 샘플
                 </a>
               </p>
           </li><li>
@@ -208,13 +195,9 @@ TodoList.zip
             <div class="list-title"><a href="/docs/front/react/setting/sass/">SASS loader 설정</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/setting/sass/">
+                
+                
                 react에 SASS를 설정하는 방법을 설명한다. loader 설치 부터, webpack 설정 및 기타 플러그인 설치 등 react에서 사용되는 sass활용법 정보다.
-SASS 설정 sass-loader node-sass 는 sass 로 작성된 코드들을 CSS로 변환한다.
-$ yarn add node-sass  classnames 설정 클래스를 여러개 적용 할 수 있다.
-$ yarn add classnames  globalStyles 설정 sass 경로를 간소화 할 수 있다.
-includePaths 경로는 sass Root경로를 설정한다.
-webpack.config.js - 아래쪽 { test: sassRegex, exclude: sassModuleRegex, use: getStyleLoaders({ importLoaders: 2, sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap }).
-                …
                 </a>
               </p>
           </li><li>
@@ -222,10 +205,9 @@ webpack.config.js - 아래쪽 { test: sassRegex, exclude: sassModuleRegex, use: 
             <div class="list-title"><a href="/docs/front/react/react/start/">React 시작</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/react/start/">
-                리액트 시작 리액트 설치 (yarn) $ yarn global add create-react-app  리액트 프로젝트 생성 $ create-react-app react-project  리액트 서버 실행 / localhost:3000 cd react-project yarn start  리엑트 설정 불필요 파일 제거 App.css App.js App.test.js index.css logo.svg  nodemon 코드를 변경할 때 마다 서버를 자동으로 재시작 한다.
-$ yarn add --dev nodemon  NODE_PATH Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.
-$ yarn add --dev cross-env  방법1
-                …
+                
+                
+                리액트(React)에 대해 설치 부터 실행하는 가이드
                 </a>
               </p>
           </li><li>
@@ -233,7 +215,8 @@ $ yarn add --dev cross-env  방법1
             <div class="list-title"><a href="/docs/front/react/plugin/slick/">slick</a></div>
               <p class="list-desc">
                 <a href="/docs/front/react/plugin/slick/">
-                axios 설치 프로미스 기반 REST API 웹 요청 라이브러리
+                
+                
                 
                 </a>
               </p>
