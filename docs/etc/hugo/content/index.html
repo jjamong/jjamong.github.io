@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>컨텐트 포맷 | 짜몽 개발 연구소</title>
+<title>프론트 매터 | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.12db01577caa9e4f3db6b1ec52cab0ed20eb86a29e8d799466a32381fd617fc2.css" integrity="sha256-EtsBV3yqnk89trHsUsqw7SDrhqKejXmUZqMjgf1hf8I=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.1507717606df60ca742061212c4f6297861d26eaef1066d0537f72741675e6b4.css" integrity="sha256-FQdxdgbfYMp0IGEhLE9il4YdJurvEGbQU39ydBZ15rQ=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -243,13 +243,43 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">컨텐트 포맷</h1>
+            <h1 class="title">프론트 매터</h1>
             
 
 
-<h1 id="컨텐트-포맷">컨텐트 포맷</h1>
+<h2 id="slug">slug</h2>
 
-<p>HTML과 Markdown은 모두 지원되는 콘텐츠 형식이다.</p>
+<p>아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.</p>
+
+<p>content/posts/old-post.md</p>
+
+<pre><code>---
+title: New Post
+slug: &quot;new-post&quot;
+---
+</code></pre>
+
+<p>URL의 파일명 부분이 slug로 대체된다.</p>
+
+<pre><code>example.com/posts/new-post/
+</code></pre>
+
+<h2 id="url">url</h2>
+
+<p>원하는 URL로 설정 할  수 있다.</p>
+
+<p>content/posts/old-url.md</p>
+
+<pre><code>---
+title: Old URL
+url: /blog/new-url/
+---
+</code></pre>
+
+<p>URL 이 설정한 url로 변경된다.</p>
+
+<pre><code>https://example.com/blog/new-url/
+</code></pre>
 
 
           </div>
@@ -267,28 +297,6 @@
 <script src="/js/anchor-4.2.0.min.js"></script>
 <script src="/js/anchors.js"></script>
 <script src="/js/jquery.navgoco.min.js"></script>
-<script src="/js/jquery.scrollbar.min.js"></script>
-<script src="/js/sticky-sidebar.min.js"></script>
-<script src="/js/contents-nav.js"></script>
-
-
-<script>
-  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
-</script>
-
-
-<script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-    <div class="btn-top"></div>
-<footer class="footer">
-  
-</footer>
-    
-  </section>
-</body>
-
-</html>script src="/js/jquery.navgoco.min.js"></script>
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
