@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>알림(notification) | 짜몽 개발 연구소</title>
+<title>Next.js | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 네이티브(React Native) 로컬 알림(푸쉬) 가이드">
+<meta name="description" content="리액트 Next.js 가이드">
 
 
 
@@ -234,7 +234,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/plugin/nextjs/">nextjs</a>
                         </li>
                         
@@ -315,7 +315,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/reactnative/notification/">알림(notification)</a>
                         </li>
                         
@@ -406,136 +406,17 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">알림(notification)</h1>
+            <h1 class="title">Next.js</h1>
             
 
 
-<h2 id="시작하기-android">시작하기 (Android)</h2>
+<h2 id="시작하기">시작하기</h2>
+
+<p><a href="https://velog.io/@jakeseo_me/Next.js-%EB%B9%A8%EB%A6%AC-%EB%B0%B0%EC%9A%B0%EA%B8%B0-y0jz9oebn0">https://velog.io/@jakeseo_me/Next.js-%EB%B9%A8%EB%A6%AC-%EB%B0%B0%EC%9A%B0%EA%B8%B0-y0jz9oebn0</a></p>
 
 <h3 id="설치">설치</h3>
 
-<pre><code>$ yarn add react-native-push-notification
-</code></pre>
-
-<h3 id="설정">설정</h3>
-
-<p>android/app/src/main/AndroidManifest.xml</p>
-
-<h6 id="1-com-localpush-값을-자신의-패키지명-값으로-변경">1. com.localpush 값을 자신의 패키지명 값으로 변경.</h6>
-
-<h6 id="2-아래-주석-부분-코드-추가">2. 아래 주석 부분 코드 추가</h6>
-
-<pre><code>&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-  package=&quot;com.localpush&quot;&gt;
-
-    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-
-    &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-    &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
-    &lt;permission
-        android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot;
-        android:protectionLevel=&quot;signature&quot; /&gt;
-    &lt;uses-permission android:name=&quot;com.localpush.permission.C2D_MESSAGE&quot; /&gt;
-    &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-
-</code></pre>
-
-<h6 id="3-meta-data-부분부터-코드-추가">3. meta-data 부분부터 코드 추가</h6>
-
-<pre><code>&lt;application
-      android:name=&quot;.MainApplication&quot;
-      android:label=&quot;@string/app_name&quot;
-      android:icon=&quot;@mipmap/ic_launcher&quot;
-      android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
-      android:allowBackup=&quot;false&quot;
-      android:theme=&quot;@style/AppTheme&quot;&gt;
-      &lt;activity
-        android:name=&quot;.MainActivity&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:configChanges=&quot;keyboard|keyboardHidden|orientation|screenSize|uiMode&quot;
-        android:launchMode=&quot;singleTask&quot;
-        android:windowSoftInputMode=&quot;adjustResize&quot;&gt;
-        &lt;intent-filter&gt;
-            &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-        &lt;/intent-filter&gt;
-      &lt;/activity&gt;
-      &lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
-
-      &lt;meta-data android:name=&quot;com.dieam.reactnativepushnotification.notification_channel_name&quot;
-                android:value=&quot;YOUR NOTIFICATION CHANNEL NAME&quot;/&gt;
-      &lt;meta-data  android:name=&quot;com.dieam.reactnativepushnotification.notification_channel_description&quot;
-                  android:value=&quot;YOUR NOTIFICATION CHANNEL DESCRIPTION&quot;/&gt;
-      &lt;!-- Change the resource name to your App's accent color - or any other color you want --&gt;
-      &lt;meta-data  android:name=&quot;com.dieam.reactnativepushnotification.notification_color&quot;
-                  android:resource=&quot;@android:color/white&quot;/&gt;
-
-      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-      &lt;receiver
-          android:name=&quot;com.google.android.gms.gcm.GcmReceiver&quot;
-          android:exported=&quot;true&quot;
-          android:permission=&quot;com.google.android.c2dm.permission.SEND&quot; &gt;
-          &lt;intent-filter&gt;
-              &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
-              &lt;category android:name=&quot;com.localpush&quot; /&gt;
-          &lt;/intent-filter&gt;
-      &lt;/receiver&gt;
-      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-
-      &lt;receiver android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher&quot; /&gt;
-      &lt;receiver android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver&quot;&gt;
-          &lt;intent-filter&gt;
-              &lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot; /&gt;
-          &lt;/intent-filter&gt;
-      &lt;/receiver&gt;
-      &lt;service android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationRegistrationService&quot;/&gt;
-
-      &lt;!-- &lt; Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-      &lt;service
-          android:name=&quot;com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerServiceGcm&quot;
-          android:exported=&quot;false&quot; &gt;
-          &lt;intent-filter&gt;
-              &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
-          &lt;/intent-filter&gt;
-      &lt;/service&gt;
-      &lt;!-- &lt;/ Only if you're using GCM or localNotificationSchedule() &gt; --&gt;
-
-  &lt;/application&gt;
-</code></pre>
-
-<h3 id="예제">예제</h3>
-
-<p>작성 및 실행 한 후 알림텍스트를 클릭 하면 알림이 출력된다.</p>
-
-<p>app.js</p>
-
-<pre><code>import React, {Component} from 'react';
-import PushNotification from 'react-native-push-notification'
-import {Text, TouchableOpacity} from 'react-native';
-
-class App extends Component{
-    notify(){
-      PushNotification.localNotificationSchedule({
-        message: &quot;notified&quot;,
-        date: new Date(Date.now() + 60 * 1000), // in 60 secs
-      });
-    }
-    
-    render(){
-        return(
-          &lt;TouchableOpacity
-            style = {{hegith:100+&quot;%&quot;, width:100+&quot;%&quot;, flex:1, justifyContent:&quot;center&quot;, alignItems:&quot;center&quot;}}
-            onPress={() =&gt;{this.notify()}}
-          &gt;
-            &lt;Text&gt;
-              알림(클릭)
-            &lt;/Text&gt;
-          &lt;/TouchableOpacity&gt;
-        );
-    }
-}
-
-export default App;
+<pre><code>$ yarn add next
 </code></pre>
 
 
