@@ -186,66 +186,24 @@
             
             <li >
               
-              <a href="#"><strong>React</strong></a>
+              <a href="#"><strong>React(리액트)</strong></a>
               <ul>
                 
                   
-                  <li class="subsections">
-                    <a href="#">리액트</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/react/start/">리액트 시작</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/react/context/">Context</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/setting/sass/">Sass</a>
-                        </li>
-                        
-                      
-                    </ul>
+                  <li  class="subsections">
+                    <a href="/docs/front/react/react/start/">리액트 시작</a>
                   </li>
                   
                 
                   
-                  <li class="subsections">
-                    <a href="#">플러그인</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/plugin/axios/">axios</a>
-                        </li>
-                        
-                      
-                        
-                        <li  class="active" >
-                          <a href="/docs/front/react/plugin/nextjs/">nextjs</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/plugin/slick/">slick</a>
-                        </li>
-                        
-                      
-                    </ul>
+                  <li  class="subsections">
+                    <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/setting/sass/">Sass</a>
                   </li>
                   
                 
@@ -279,6 +237,48 @@
                         
                       
                     </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/react/context/">Context</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#"><strong>plugin(리액트 플러그인)</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">Next.js</a>
+                    <ul>
+                      
+                        
+                        <li  class="active" >
+                          <a href="/docs/front/react/plugin/nextjs/">Next.js</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/plugin/axios/">axios</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/front/react/plugin/slick/">slick</a>
                   </li>
                   
                 
@@ -427,12 +427,53 @@
 
 <h2 id="시작하기">시작하기</h2>
 
-<p><a href="https://velog.io/@jakeseo_me/Next.js-%EB%B9%A8%EB%A6%AC-%EB%B0%B0%EC%9A%B0%EA%B8%B0-y0jz9oebn0">https://velog.io/@jakeseo_me/Next.js-%EB%B9%A8%EB%A6%AC-%EB%B0%B0%EC%9A%B0%EA%B8%B0-y0jz9oebn0</a></p>
+<p><code>https://nextjs.org/</code></p>
 
-<h3 id="설치">설치</h3>
+<p>Next.js는 라우트에 해당된 파일들을 소문자로 pages 폴더에 추가해야 하는 정형화된 구조를 따르게 됩니다.</p>
 
-<pre><code>$ yarn add next
+<h3 id="프로젝트-설정-및-next-설치">프로젝트 설정 및 next 설치</h3>
+
+<p>프로젝트를 위한 폴더를 추가하고, react와 next를 설치합니다.</p>
+
+<pre><code>$ yarn init -y
+$ yarn add react react-dom next
 </code></pre>
+
+<p>package.json 파일에 아래 내용을 추가합니다.</p>
+
+<pre><code>// package.json
+
+...
+&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;next&quot;
+},
+...
+
+</code></pre>
+
+<p>루트 경로에 pages 폴더를 추가하고 폴더 경로에 index.js파일을 추가합니다.</p>
+
+<pre><code>// index.js
+
+const Index = () =&gt; (
+    &lt;div&gt;
+        Next.js
+    &lt;/div&gt;
+);
+
+export default Index;
+</code></pre>
+
+<h3 id="실행">실행</h3>
+
+<p>아래 명령어를 통해 실행합니다.</p>
+
+<pre><code>$ yarn run dev
+</code></pre>
+
+<p><img src="/docs/front/react/plugin/nextjs/01.png" alt="Next.js시작하기" /></p>
+
+<h2 id="페이지-라우팅">페이지 라우팅</h2>
 
 
           </div>
