@@ -266,6 +266,12 @@
                         </li>
                         
                       
+                        
+                        <li >
+                          <a href="/docs/front/react/plugin/nextjs/routing/">routing(라우팅)</a>
+                        </li>
+                        
+                      
                     </ul>
                   </li>
                   
@@ -474,6 +480,107 @@ export default Index;
 <p><img src="/docs/front/react/plugin/nextjs/01.png" alt="Next.js시작하기" /></p>
 
 <h2 id="페이지-라우팅">페이지 라우팅</h2>
+
+<h3 id="시작하기-1">시작하기</h3>
+
+<p>components 폴더를 추가하고 Header.js, Layout.js를 추가합니다.</p>
+
+<pre><code>// components/Header.js
+
+import Link from 'next/link';
+
+const style = {
+    marginLeft: '1rem'
+}
+const Header = () =&gt; {
+    return (
+        &lt;div&gt;
+            &lt;Link href=&quot;/&quot;&gt;index&lt;/Link&gt;
+            &lt;Link href=&quot;/test1&quot;&gt;&lt;a style={style}&gt;test1&lt;/a&gt;&lt;/Link&gt;
+            &lt;Link href=&quot;/test2&quot;&gt;&lt;a style={style}&gt;test2&lt;/a&gt;&lt;/Link&gt;
+        &lt;/div&gt;
+    );
+};
+
+export default Header;
+</code></pre>
+
+<pre><code>// components/Layout.js
+
+import Header from './Header';
+
+const Layout = ({children}) =&gt; (
+    &lt;div&gt;
+        &lt;Header/&gt;
+        {children}
+    &lt;/div&gt;
+);
+
+export default Layout;
+</code></pre>
+
+<p>pages 폴더에 index.js 파일을 수정하고, test1.js, test2.js를 추가합니다.</p>
+
+<pre><code>// pages/index.js
+
+import Layout from '../components/Layout';
+
+const Index = () =&gt; (
+    &lt;Layout&gt;
+        &lt;div&gt;
+            Next.js
+        &lt;/div&gt;
+    &lt;/Layout&gt;
+);
+
+export default Index;
+</code></pre>
+
+<pre><code>// pages/test1.js
+
+import Layout from '../components/Layout';
+
+const Test1 = () =&gt; (
+    &lt;Layout&gt;
+        Test1
+    &lt;/Layout&gt;
+);
+
+export default Test1;
+</code></pre>
+
+<pre><code>// pages/test2.js
+
+import Layout from '../components/Layout';
+
+const Test2 = () =&gt; (
+    &lt;Layout&gt;
+        Test2
+    &lt;/Layout&gt;
+);
+
+export default Test2;
+</code></pre>
+
+<p>실행하게 되면 아래와 같이 작동합니다.</p>
+
+<p>url : <code>/</code></p>
+
+<p><img src="/docs/front/react/plugin/nextjs/02.png" alt="라우터02" /></p>
+
+<p><br></p>
+
+<p>url : <code>/test1</code></p>
+
+<p><img src="/docs/front/react/plugin/nextjs/03.png" alt="라우터03" /></p>
+
+<p><br></p>
+
+<p>url : <code>/test2</code></p>
+
+<p><img src="/docs/front/react/plugin/nextjs/04.png" alt="라우터04" /></p>
+
+<h3 id="pathname-파라미터">Pathname 파라미터</h3>
 
 
           </div>
