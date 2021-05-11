@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>웹뷰(webView) | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="리액트 네이티브(React Native) webView 가이드">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.8c7231d5df8dbeb87d86a90693cd91d3d1a2ed1c24e1803f1c18ccfbb7660461.css" integrity="sha256-jHIx1d&#43;Nvrh9hqkGk82R09Gi7Rwk4YA/HBjM&#43;7dmBGE=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<script data-ad-client="ca-pub-3588286886332636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          <span class="navbar-item"></span>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="ReactNative"><a href="https://jjamong.github.io/docs/front/reactnative/">ReactNative</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="Yarn"><a href="https://jjamong.github.io/docs/etc/yarn/">Yarn</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+        
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Reactnative
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>React Native</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">리액트 네이티브</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/start/">리액트 네이티브 시작</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/make/">아이콘/스플래쉬(icon/splash)</a>
+                        </li>
+                        
+                      
+                        
+                        <li  class="active" >
+                          <a href="/docs/front/reactnative/webview/">웹뷰(webView)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/notification/">알림(notification)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/firebase/">파이어베이스(firebase)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/advert/">광고(advert)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/moduleresolver/">절대 경로 설정</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/styledcomponents/">스타일 설정</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/datepicker/">날짜 선택기(date picker)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/firebasemessag/">firebase Messag</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/plugin/asyncstorage/">async-storage</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/plugin/navigation/">navigation</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/plugin/geolocation/">geolocation</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">기타</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/front/reactnative/etc/sample/">공부 샘플</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">웹뷰(webView)</h1>
+
+            <div class="content-ads">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3588286886332636"
+                  data-ad-slot="4509829062"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            
+            
+
+
+<h2 id="시작하기">시작하기</h2>
+
+<h3 id="설치">설치</h3>
+
+<pre><code>$ yarn add react-native-webview
+</code></pre>
+
+<h3 id="예제">예제</h3>
+
+<p>app.js</p>
+
+<pre><code>import { WebView } from 'react-native-webview'
+
+import React from 'react';
+import { WebView } from 'react-native-webview'
+
+const App = () =&gt; {
+    return (
+        &lt;WebView
+            source={{ uri: &quot;http://www.naver.com&quot;}}
+        /&gt;
+    );
+};
+
+export default App;
+</code></pre>
+
+<h2 id="webview-통신">webView 통신</h2>
+
+<h3 id="1-app-web-값-전달">1. APP -&gt; WEB 값 전달</h3>
+
+<p>webview 사용시 android, ios의 브라우저에 따라 message이벤트를 가지고 있는 객체가 다르다.</p>
+
+<table>
+<thead>
+<tr>
+<th>디바이스</th>
+<th>객체</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>android</td>
+<td>document</td>
+</tr>
+
+<tr>
+<td>ios</td>
+<td>window</td>
+</tr>
+</tbody>
+</table>
+
+<p>디바이스 userAgent를 체크(android, ios)하여 분기하여
+실행 하도록 코드를 작성하자.</p>
+
+<p><br></p>
+
+<p>(APP) app.js</p>
+
+<pre><code>import React from 'react';
+import { WebView } from 'react-native-webview'
+
+const App = () =&gt; {
+
+    setTimeout(function () {
+        const data = &quot;hello&quot;;
+        this.webview.postMessage(data);
+    }, 2000)
+
+    return (
+        &lt;WebView
+            source={{ uri: &quot;http://10.0.2.2/test&quot;}}
+            ref={(ref) =&gt; (this.webview = ref)}
+        /&gt;
+    );
+};
+
+export default App;
+</code></pre>
+
+<p>(WEB) test.html</p>
+
+<pre><code>&lt;script&gt;
+  // android
+  document.addEventListener(&quot;message&quot;, function(data) {
+    alert(data.data)
+  })
+
+  // ios
+  window.addEventListener(&quot;message&quot;, function(data) {
+    alert(data.data)
+  })
+&lt;/script&gt;
+</code></pre>
+
+<p>앱에선 postMessage를 통해 웹으로 data를 전달하며,
+웹에선 addEventListener message 통해 데이터를 전달 받는다.</p>
+
+<h3 id="2-web-app-값-전달">2. WEB -&gt; APP 값 전달</h3>
+
+<p>(APP) app.js</p>
+
+<pre><code>import React from 'react';
+import { WebView } from 'react-native-webview'
+
+const App = () =&gt; {
+
+    return (
+        &lt;WebView
+            source={{ uri: &quot;http://10.0.2.2/test&quot;}}
+            onMessage={event =&gt; {
+                console.log(event.nativeEvent.data);
+            }}
+        /&gt;
+    );
+};
+
+export default App;
+</code></pre>
+
+<p>(WEB) test.html</p>
+
+<pre><code>&lt;script&gt;
+	setTimeout(function () {
+		window.ReactNativeWebView.postMessage(&quot;hello!&quot;)
+	}, 2000)
+&lt;/script&gt;
+</code></pre>
+
+<p>웹에서 postMessage를 통해 앱으로 data를 전달하며,
+앱에선 onMessage 통해 데이터를 전달 받는다.</p>
+
+<p><br></p>
+
+<h2 id="로드-표시기-스피너">로드 표시기(스피너)</h2>
+
+<p>webview를 android, ios에서 모두 사용 시에
+디폴트로 android는 스피너가 없지만, ios는 스피너가 존재한다.</p>
+
+<p>따라서, 아래와 같이 적용할 경우 android, ios 모두 동일한 스피너가 적용된다.</p>
+
+<hr />
+
+<h3 id="예제-1">예제</h3>
+
+<p>Loading 컴포넌트</p>
+
+<pre><code>import React from 'react';
+import Styled from 'styled-components/native';
+
+const Container = Styled.View`
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+  marginLeft: -40px;
+  marginTop: -40px;
+`;
+const Image = Styled.Image`
+    width: 80px;
+    height: 80px;
+`;
+
+const Loading = () =&gt; {
+  return (
+    &lt;Container&gt;
+        &lt;Image source={require('~/Assets/Images/spinner.gif')}/&gt;
+    &lt;/Container&gt;
+  );
+};
+
+export default Loading;
+</code></pre>
+
+<p>webview</p>
+
+<pre><code>&lt;WebView
+    ...
+    startInLoadingState={true}
+    renderLoading={() =&gt; &lt;Loading /&gt;}
+/&gt;
+</code></pre>
+
+<h6 id="startinloadingstate">startInLoadingState</h6>
+
+<p><code>renderLoading</code>를 사용하기 위해선 true로 값을 설정해야 한다.</p>
+
+<h6 id="renderloading">renderLoading</h6>
+
+<p>로딩 표시기를 불러온다.</p>
+
+<h3 id="결과">결과</h3>
+
+<p><img src="/docs/front/reactnative/webview/01.png" alt="스피너 결과" /></p>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>
