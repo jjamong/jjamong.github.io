@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/docs/etc/mybatis/</loc>
+    <lastmod>2021-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/front/react/nextjs/head/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url>
@@ -191,6 +196,11 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/docs/etc/etc/</loc>
+    <lastmod>2021-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/etc/hugo/directory_structure/</loc>
     <lastmod>2019-11-07T00:00:00+00:00</lastmod>
   </url>
@@ -281,6 +291,16 @@
   <url>
     <loc>https://jjamong.github.io/docs/front/reactnative/etc/sample/</loc>
     <lastmod>2020-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/etc/etc/mybatis/</loc>
+    <lastmod>2020-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/etc/etc/vscode/</loc>
+    <lastmod>2020-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

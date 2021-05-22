@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Next.js | 짜몽 개발 연구소</title>
+<title>asd | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 Next.js 가이드">
+<meta name="description" content="리액트 AOS 가이드">
 
 
 
@@ -168,14 +168,6 @@
 
   
   
-    
-  
-
-  
-  
-
-  
-  
 
   
   
@@ -276,7 +268,7 @@
                     <ul>
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/nextjs/">Next.js 시작하기</a>
                         </li>
                         
@@ -358,7 +350,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Next.js</h1>
+            <h1 class="title">asd</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -377,53 +369,73 @@
             
 
 
+<p>스크롤 할 때 보여지는 영역에 애니메이션 효과를 줄 수 있는 라이브러리 입니다.</p>
+
+<p>url : <code>https://michalsnik.github.io/aos/</code></p>
+
 <h2 id="시작하기">시작하기</h2>
 
-<p><code>https://nextjs.org/</code></p>
+<h3 id="설치">설치</h3>
 
-<p>Next.js는 라우트에 해당된 파일들을 소문자로 pages 폴더에 추가해야 하는 정형화된 구조를 따르게 됩니다.</p>
+<p>yarn으로 aos를 설치합니다.</p>
 
-<h3 id="프로젝트-설정-및-next-설치">프로젝트 설정 및 next 설치</h3>
-
-<p>프로젝트를 위한 폴더를 추가하고, react와 next를 설치합니다.</p>
-
-<pre><code>$ yarn init -y
-$ yarn add react react-dom next
+<pre><code>$ yarn add aos
 </code></pre>
 
-<p>package.json 파일에 아래 내용을 추가합니다.</p>
+<p>그리고 <a href="https://michalsnik.github.io/aos/">https://michalsnik.github.io/aos/</a> 공식사이트에서 aos를 다운로드 받습니다.(aos-master.zip)</p>
 
-<pre><code>// package.json
+<p>여기서, <code>/aos-master/dist/aos.css</code>만 필요합니다.</p>
 
-...
-&quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;next&quot;
-},
-...
+<h3 id="예제">예제</h3>
 
-</code></pre>
+<pre><code>// index.js
 
-<p>루트 경로에 pages 폴더를 추가하고 폴더 경로에 index.js파일을 추가합니다.</p>
+import React, { useEffect } from 'react';
+import AOS from &quot;aos&quot;;
+import &quot;aos/dist/aos.css&quot;;
 
-<pre><code>// pages/index.js
+const Index = () =&gt; {
 
-const Index = () =&gt; (
-    &lt;div&gt;
-        Next.js
-    &lt;/div&gt;
-);
+    let boxStyle = {
+        width: '40%',
+        height: '200px',
+        fontSize: '30px',
+        lineHeight: '200px',
+        background: 'black',
+        color: 'white',
+        textAlign: 'center'
+    }
+
+    useEffect(() =&gt; {
+        AOS.init({
+            duration : 1000
+        });
+    });
+
+    return(
+        &lt;&gt;
+          &lt;div&gt;
+            &lt;div&gt;
+                &lt;p data-aos=&quot;fade-up&quot;&gt;AOS 테스트1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
+            &lt;div style={boxStyle}&gt;
+                &lt;p data-aos=&quot;fade-up&quot;&gt;AOS 테스트2&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
+            &lt;div style={boxStyle} data-aos=&quot;fade-up&quot;&gt;
+                &lt;p&gt;AOS 테스트3&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/&gt;
+    )
+};
 
 export default Index;
 </code></pre>
 
-<h3 id="실행">실행</h3>
-
-<p>아래 명령어를 통해 실행합니다.</p>
-
-<pre><code>$ yarn run dev
-</code></pre>
-
-<p><img src="/docs/front/react/nextjs/01.png" alt="Next.js시작하기" /></p>
+<hr />
 
 
           </div>

@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Next.js | 짜몽 개발 연구소</title>
+<title>mybatis | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 Next.js 가이드">
+<meta name="description" content="mybatis">
 
 
 
@@ -168,16 +168,10 @@
 
   
   
+
+  
+  
     
-  
-
-  
-  
-
-  
-  
-
-  
   
 
 
@@ -194,154 +188,19 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          React
+          Etc
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>React(리액트)</strong></a>
+              <a href="#"><strong>ETC</strong></a>
               <ul>
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/react/start/">리액트 시작</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/setting/sass/">Sass</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/jsx/">JSX</a>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Component(컴포넌트)</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/props/">props</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/state/">state</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/react/context/">Context</a>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>Next.js</strong></a>
-              <ul>
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Basic Features</a>
-                    <ul>
-                      
-                        
-                        <li  class="active" >
-                          <a href="/docs/front/react/nextjs/">Next.js 시작하기</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/routing/">routing(라우팅)</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">API Reference</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/configjs/">next.config.js</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/head/">next/head</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/image/">next/image</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>plugin(리액트 플러그인)</strong></a>
-              <ul>
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/axios/">axios</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/slick/">slick</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/aos/">aos</a>
+                    <a href="/docs/etc/etc/vscode/">vscode</a>
                   </li>
                   
                 
@@ -358,7 +217,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Next.js</h1>
+            <h1 class="title">mybatis</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -375,55 +234,6 @@
             </div>
             
             
-
-
-<h2 id="시작하기">시작하기</h2>
-
-<p><code>https://nextjs.org/</code></p>
-
-<p>Next.js는 라우트에 해당된 파일들을 소문자로 pages 폴더에 추가해야 하는 정형화된 구조를 따르게 됩니다.</p>
-
-<h3 id="프로젝트-설정-및-next-설치">프로젝트 설정 및 next 설치</h3>
-
-<p>프로젝트를 위한 폴더를 추가하고, react와 next를 설치합니다.</p>
-
-<pre><code>$ yarn init -y
-$ yarn add react react-dom next
-</code></pre>
-
-<p>package.json 파일에 아래 내용을 추가합니다.</p>
-
-<pre><code>// package.json
-
-...
-&quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;next&quot;
-},
-...
-
-</code></pre>
-
-<p>루트 경로에 pages 폴더를 추가하고 폴더 경로에 index.js파일을 추가합니다.</p>
-
-<pre><code>// pages/index.js
-
-const Index = () =&gt; (
-    &lt;div&gt;
-        Next.js
-    &lt;/div&gt;
-);
-
-export default Index;
-</code></pre>
-
-<h3 id="실행">실행</h3>
-
-<p>아래 명령어를 통해 실행합니다.</p>
-
-<pre><code>$ yarn run dev
-</code></pre>
-
-<p><img src="/docs/front/react/nextjs/01.png" alt="Next.js시작하기" /></p>
 
 
           </div>
