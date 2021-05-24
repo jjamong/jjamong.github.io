@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Next.js | 짜몽 개발 연구소</title>
+<title>Sass &amp; CSS | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 Next.js 가이드">
+<meta name="description" content="리액트 Next.js &gt; sass &amp; css 가이드">
 
 
 
@@ -276,7 +276,7 @@
                     <ul>
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/nextjs/">Next.js 시작하기</a>
                         </li>
                         
@@ -324,7 +324,7 @@
                     <ul>
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/nextjs/sasscss/">sass &amp; css</a>
                         </li>
                         
@@ -373,7 +373,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Next.js</h1>
+            <h1 class="title">Sass &amp; CSS</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -394,33 +394,63 @@
 
 <h2 id="시작하기">시작하기</h2>
 
-<p><code>https://nextjs.org/</code></p>
+<p>sass, css를 사용하기 위해서는 몇가지를 설치할 필요가 있습니다.</p>
 
-<p>Next.js는 라우트에 해당된 파일들을 소문자로 pages 폴더에 추가해야 하는 정형화된 구조를 따르게 됩니다.</p>
-
-<h3 id="프로젝트-설정-및-next-설치">프로젝트 설정 및 next 설치</h3>
-
-<p>프로젝트를 위한 폴더를 추가하고, react와 next를 설치합니다.</p>
-
-<pre><code>$ yarn init -y
-$ yarn add react react-dom next
-</code></pre>
-
-<p>package.json 파일에 아래 내용을 추가합니다.</p>
+<p><code>next v9.2</code> 이하의 버전일 경우 아래의 방식으로 sass, css를 사용 할 수 있습니다.</p>
 
 <pre><code>// package.json
 
-...
-&quot;scripts&quot;: {
+{
+  &quot;name&quot;: &quot;sasscss&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;scripts&quot;: {
     &quot;dev&quot;: &quot;next&quot;
-},
-...
+  },
+  &quot;dependencies&quot;: {
+    &quot;@zeit/next-sass&quot;: &quot;1.0.1&quot;,
+    &quot;@zeit/next-css&quot;: &quot;1.0.1&quot;,
+    &quot;next&quot;: &quot;^9.0.0&quot;,
+    &quot;node-sass&quot;: &quot;^4.0.0&quot;,
+    &quot;react&quot;: &quot;17.0.2&quot;,
+    &quot;react-dom&quot;: &quot;17.0.2&quot;
+  }
+}
 
 </code></pre>
 
-<p>루트 경로에 pages 폴더를 추가하고 폴더 경로에 index.js파일을 추가합니다.</p>
+<p><code>@zeit/next-sass</code>, <code>@zeit/next-css</code>, <code>node-sass</code>을 설치합니다.</p>
+
+<pre><code>$ yarn install
+</code></pre>
+
+<pre><code>// next.config.js
+
+const withSass = require('@zeit/next-sass');
+const withCSS = require('@zeit/next-css');
+
+module.exports = withCSS(withSass());
+</code></pre>
+
+<pre><code>// style.css
+
+body {color: red;}
+</code></pre>
+
+<pre><code>// style.scss
+
+$color: #666;
+
+body {
+    background-color: $color;
+}
+</code></pre>
 
 <pre><code>// pages/index.js
+
+import '../style.scss';
+import '../style.css';
 
 const Index = () =&gt; (
     &lt;div&gt;
@@ -431,14 +461,9 @@ const Index = () =&gt; (
 export default Index;
 </code></pre>
 
-<h3 id="실행">실행</h3>
+<p>위와 같이 파일을 작성하고 실행하면 아래와 같이 sass와 css가 모두 적용 된 것을 확인 할 수 있습니다.</p>
 
-<p>아래 명령어를 통해 실행합니다.</p>
-
-<pre><code>$ yarn run dev
-</code></pre>
-
-<p><img src="/docs/front/react/nextjs/01.png" alt="Next.js시작하기" /></p>
+<p><img src="/docs/front/react/nextjs/sasscss/01.png" alt="01" /></p>
 
 
           </div>

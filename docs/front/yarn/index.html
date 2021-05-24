@@ -251,6 +251,36 @@
 
 <h2 id="시작">시작</h2>
 
+<h3 id="init">init</h3>
+
+<pre><code>$ yarn init
+
+yarn init v1.19.1
+question name (sasscss):
+question version (1.0.0):
+question description:
+question entry point (index.js):
+question repository url:
+question author:
+question license (MIT):
+question private:
+success Saved package.json
+Done in 10.55s.
+</code></pre>
+
+<p>명령어를 입력하면 <code>package.json</code>이 생성됩니다.</p>
+
+<pre><code>// package.json
+{
+  &quot;name&quot;: &quot;sasscss&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;license&quot;: &quot;MIT&quot;
+}
+</code></pre>
+
+<h3 id="eject">eject</h3>
+
 <p>프로젝트 환경설정 파일들을 프로젝트 루트로 설정한다.
 eject 명령어가 성공하면 config 폴더가 생성된다.</p>
 
