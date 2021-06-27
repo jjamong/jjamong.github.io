@@ -47,10 +47,16 @@ $(document).ready(function () {
 
   // navbar flip
   navbar = $('.navbar');
+  sidebarContainer = $('.sidebar-container');
+  sidebarInner = $('.sidebar-inner');
+  tocMain = $('.toc-main');
 
   function updateView() {
     //controlClassOnCondition(navbar, 'is-flipped', window.pageYOffset > 0);
     controlClassOnCondition(navbar, 'is-flipped', window.pageYOffset > 0);
+    controlClassOnCondition(sidebarContainer, 'is-flipped', window.pageYOffset > 50);
+    controlClassOnCondition(sidebarInner, 'is-flipped', window.pageYOffset > 50);
+    controlClassOnCondition(tocMain, 'is-flipped', window.pageYOffset > 50);
   }
 
   updateView();
@@ -63,6 +69,7 @@ $(document).ready(function () {
     window.removeEventListener('scroll', updateView);
   };
 
+  /*
   // btn-top
   $('.btn-top').on('click', function () {
     $("html, body").animate({
@@ -113,9 +120,8 @@ $(document).ready(function () {
       }
       iScrollPos = windowScrollTop;
     }
-
   });
-
+  */
 
   //Cookie
   function getCookie(cname) {

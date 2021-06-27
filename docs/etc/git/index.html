@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Router 적용 | 짜몽 개발 연구소</title>
+<title>GIT | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
@@ -183,13 +183,10 @@
 
   
   
+
+  
+  
     
-  
-
-  
-  
-
-  
   
 
   
@@ -209,169 +206,19 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          React
+          Git
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>React(리액트)</strong></a>
+              <a href="#"><strong>GIT</strong></a>
               <ul>
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/react/start/">리액트 시작</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/setting/sass/">Sass</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/jsx/">JSX</a>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Component(컴포넌트)</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/props/">props</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/component/state/">state</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/react/context/">Context</a>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>Next.js</strong></a>
-              <ul>
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Basic Features</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/">Next.js 시작하기</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/routing/">routing(라우팅)</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">API Reference</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/configjs/">next.config.js</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/head/">next/head</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/image/">next/image</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Plugin</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/sasscss/">sass &amp; css</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>plugin(리액트 플러그인)</strong></a>
-              <ul>
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/axios/">axios</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/slick/">slick</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/plugin/aos/">aos</a>
+                    <a href="/docs/etc/git/cherrypick">Cherry Pick (체리 픽)</a>
                   </li>
                   
                 
@@ -388,7 +235,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Router 적용</h1>
+            <h1 class="title">GIT</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -405,27 +252,9 @@
             </div>
             
             
-
-
-<p>React Router는 SPA의 라우팅 문제를 보안하는 비공식이긴 하나 거의 표준처럼 사용하고 있는 라이브러리로서,  React Router를 사용하여 <code>location</code>이나 <code>history</code>와 같은 브라우저 API와 연동이 가능하다.</p>
-
-<hr />
-
-<h2 id="설치-명령어">설치 명령어</h2>
-
-<pre><code>$ yarn add react-router-dom
-</code></pre>
-
-<h2 id="내장-함수">내장 함수</h2>
-
-<h3 id="browserrouter">BrowserRouter</h3>
-
-<p>&ndash; 라우팅 컴포넌트를 사용하기 위해 기본적으로 감싸 주어야 한다.</p>
-
-<p>&ndash; 오직 하나의 자식만 가질 수 있다.</p>
-
-<pre><code>import {BrowserRouter} from 'react-router-dom';
-</code></pre>
+<script>
+    location.href = "cherrypick"
+</script>
 
 
           </div>

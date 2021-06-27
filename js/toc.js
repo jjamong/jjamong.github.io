@@ -19,13 +19,13 @@ $(function () {
     // not too rapid (for performance reasons).
     throttleTimeout: 10,
     // Element to add the positionFixedClass to.
-    positionFixedSelector: '.toc-main',
+    // positionFixedSelector: '.toc-main',
     // Fixed position class to add to make sidebar fixed after scrolling
     // down past the fixedSidebarOffset.
-    positionFixedClass: 'is-position-fixed',
+    //positionFixedClass: 'is-position-fixed',
     // fixedSidebarOffset can be any number but by default is set
     // to auto which sets the fixedSidebarOffset to the sidebar
     // element's offsetTop from the top of the document on init.
-    fixedSidebarOffset: 'auto',
+    //fixedSidebarOffset: 'auto',
   });
 });
