@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jjamong.github.io/docs/etc/git/devsetting/</loc>
+    <lastmod>2021-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/etc/git/cherrypick/</loc>
     <lastmod>2021-06-16T00:00:00+00:00</lastmod>
   </url>
@@ -279,7 +284,7 @@
   
   <url>
     <loc>https://jjamong.github.io/</loc>
-    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
