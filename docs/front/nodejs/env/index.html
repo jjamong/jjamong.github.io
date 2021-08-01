@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>NodeJS 환경설정 | 짜몽 개발 연구소</title>
+<title>설정(.env) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="NodeJS 환경설정 가이드">
+<meta name="description" content="NodeJS 환경설정(.env) 가이드">
 
 
 
@@ -221,7 +221,7 @@
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/front/nodejs/env/">nodejs 환경설정</a>
+                    <a href="/docs/front/nodejs/env/">설정(.env)</a>
                   </li>
                   
                 
@@ -238,7 +238,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">NodeJS 환경설정</h1>
+            <h1 class="title">설정(.env)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -257,47 +257,83 @@
             
 
 
-<h2 id="process-env">process.env</h2>
+<h2 id="시작하기">시작하기</h2>
 
-<p>Nodejs는 환경변수에 따라 개발, 운영 환경을 구분해서 관리가 가능합니다.</p>
+<h3 id="dotenv-패키지-설치">dotenv 패키지 설치</h3>
 
-<pre><code>$ process
+<p>루트 경로에 package.json 을 추가합니다.</p>
 
-process {
-  version: 'v12.13.0',
-  versions: {
-    node: '12.13.0',
-    v8: '7.7.299.13-node.12',
-    uv: '1.32.0',
-    zlib: '1.2.11',
-    b',
-    TMP: 'C:\\Users\\gudrb\\AppData\\Local\\Temp',
-    USERDOMAIN: 'DESKTOP-S7UF6GB',
-    USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S7UF6GB',
-    USERNAME: 'gudrb',
-    USERPROFILE: 'C:\\Users\\gudrb',
-    windir: 'C:\\WINDOWS'
-  },
-  title: 'Node.js',
-  argv: [ 'D:\\program\\nodejs\\node.exe' ],
-  ...
+<pre><code>$ yarn init -y
+
+// package.json
+{
+  &quot;name&quot;: &quot;nodejs&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;dependencies&quot;: {
+    &quot;dotenv&quot;: &quot;^8.2.0&quot;
+  }
 }
 </code></pre>
 
-<p>루트 경로에 .env.development 파일을 추가하고 아래와 같이 작성합니다.</p>
+<p>dotenv 설치</p>
 
-<pre><code>// .env.development
-
-API=http://test.com
+<pre><code>$ yarn install
 </code></pre>
 
-<p>작성 후, process.env의 속성 값으로</p>
+<h3 id="노드-server-js-설정-env-파일-추가">노드(server.js), 설정(.env) 파일 추가</h3>
 
-<pre><code>console.log(process.env.NODE_ENV)
-console.log(process.env.API)
+<p>루트경로 노드로 실행할 파일(server.js) 과 설정파일(.env)을 추가합니다.</p>
+
+<pre><code>// /server.js
+
+const dotenv = require('dotenv')
+
+// 환결설정 설정하기
+dotenv.config()
+
+console.log(process.env.PORT)
+</code></pre>
+
+<pre><code>// .env
+
+PORT=9999
+</code></pre>
+
+<p>server.js를 노드로 실행합니다.</p>
+
+<pre><code>$ node server.js
+
+// 9999
+</code></pre>
+
+<h3 id="파라미터">파라미터</h3>
+
+<p>node 실행 시 파라미터를 추가할 수 있습니다.</p>
+
+<p>server.js 파일을 수정합니다.</p>
+
+<pre><code>// /server.js
+
+const dotenv = require('dotenv')
+
+// 환결설정 설정하기
+dotenv.config()
+
+console.log(process.env.NODE_ENV)
+console.log(process.env.PORT)
+</code></pre>
+
+<p>server.js를 파마리터와 함께 노드로 실행합니다.</p>
+
+<pre><code>// windows
+$ set NODE_ENV=development &amp;&amp; node server.js
+// linux
+$ NODE_ENV=development node server.js
 
 // development
-// http://test.com
+// 9999
 </code></pre>
 
 
