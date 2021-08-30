@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>AOS(Animate On Scroll Library) | 짜몽 개발 연구소</title>
+<title>커스텀 App (_app.js) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="리액트 AOS 가이드">
+<meta name="description" content="리액트 &gt; Next.js &gt; 커스텀 App (_app.js) 가이드">
 
 
 
@@ -303,7 +303,7 @@
                         
                       
                         
-                        <li >
+                        <li  class="active" >
                           <a href="/docs/front/react/nextjs/_app/">커스텀 App (_app.js)</a>
                         </li>
                         
@@ -382,7 +382,7 @@
                   
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/front/react/plugin/aos/">aos</a>
                   </li>
                   
@@ -400,7 +400,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">AOS(Animate On Scroll Library)</h1>
+            <h1 class="title">커스텀 App (_app.js)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -419,73 +419,39 @@
             
 
 
-<p>스크롤 할 때 보여지는 영역에 애니메이션 효과를 줄 수 있는 라이브러리 입니다.</p>
-
-<p>url : <code>https://michalsnik.github.io/aos/</code></p>
+<p>Next.js의 _app.js 페이지는 모든 페이지의 최상위 컴포넌트입니다
+_app.js 페이지에 적용할 공통 레이아웃의 역할을 합니다.</p>
 
 <h2 id="시작하기">시작하기</h2>
 
-<h3 id="설치">설치</h3>
+<p>/pages/ 경로에 _app.js를 추가합니다.</p>
 
-<p>yarn으로 aos를 설치합니다.</p>
+<pre><code>// /pages/_app.js
 
-<pre><code>$ yarn add aos
+// import App from 'next/app'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    &lt;&gt;
+      &lt;Component {...pageProps} /&gt;
+    &lt;/&gt;
+  )
+}
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async (appContext) =&gt; {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+//
+//   return { ...appProps }
+// }
+
+export default MyApp
 </code></pre>
-
-<p>그리고 <a href="https://michalsnik.github.io/aos/">https://michalsnik.github.io/aos/</a> 공식사이트에서 aos를 다운로드 받습니다.(aos-master.zip)</p>
-
-<p>여기서, <code>/aos-master/dist/aos.css</code>만 필요합니다.</p>
-
-<h3 id="예제">예제</h3>
-
-<pre><code>// index.js
-
-import React, { useEffect } from 'react';
-import AOS from &quot;aos&quot;;
-import &quot;aos/dist/aos.css&quot;;
-
-const Index = () =&gt; {
-
-    let boxStyle = {
-        width: '40%',
-        height: '200px',
-        fontSize: '30px',
-        lineHeight: '200px',
-        background: 'black',
-        color: 'white',
-        textAlign: 'center'
-    }
-
-    useEffect(() =&gt; {
-        AOS.init({
-            duration : 1000
-        });
-    });
-
-    return(
-        &lt;&gt;
-          &lt;div&gt;
-            &lt;div&gt;
-                &lt;p data-aos=&quot;fade-up&quot;&gt;AOS 테스트1&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
-            &lt;div style={boxStyle}&gt;
-                &lt;p data-aos=&quot;fade-up&quot;&gt;AOS 테스트2&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
-            &lt;div style={boxStyle} data-aos=&quot;fade-up&quot;&gt;
-                &lt;p&gt;AOS 테스트3&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div style={{height: '500px'}}&gt;&lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/&gt;
-    )
-};
-
-export default Index;
-</code></pre>
-
-<hr />
 
 
           </div>
