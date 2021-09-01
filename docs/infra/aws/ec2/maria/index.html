@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>그룹 생성 | 짜몽 개발 연구소</title>
+<title>Maria | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="Maria">
 
 
 
@@ -252,7 +252,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
                         </li>
                         
@@ -331,7 +331,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/infra/aws/ec2/maria/">Maria</a>
                   </li>
                   
@@ -349,7 +349,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">그룹 생성</h1>
+            <h1 class="title">Maria</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -368,113 +368,43 @@
             
 
 
-<h2 id="1-ami-생성">1. AMI 생성</h2>
+<h2 id="시작하기">시작하기</h2>
 
-<p><code>위치</code> : 서비스의 [인스턴스] &gt; [인스턴스]</p>
+<h3 id="설치">설치</h3>
 
-<p>인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.</p>
+<pre><code>$ sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2
+</code></pre>
 
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/01.png" alt="01" /></p>
+<h3 id="시작-종료-재시작">시작/종료/재시작</h3>
 
-<hr />
+<pre><code>// mariadb 시작
+$ sudo systemctl start mariadb
+</code></pre>
 
-<p>이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.</p>
+<h3 id="root-계정-설정">root 계정 설정</h3>
 
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/02.png" alt="02" /></p>
+<pre><code>mysqladmin -u root -p password '1234'
+Enter password: 그냥 엔터
 
-<hr />
+mysql -u root -p
+Enter password:1234
+</code></pre>
 
-<p>이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.</p>
+<h3 id="plantdiary-계정-db-추가">plantdiary 계정&amp;DB 추가</h3>
 
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/03.png" alt="03" /></p>
+<pre><code>create user 'plantdiary'@'%' identified by '1234';
+create user 'plantdiary'@'localhost' identified by '1234';
 
-<hr />
+create database plantdiary default character set utf8;
 
-<p><code>위치</code> : 서비스의 [이미지] &gt; [AMI]</p>
+GRANT ALL privileges ON plantdiary.* TO plantdiary@'%' IDENTIFIED BY '1234';
+GRANT ALL privileges ON plantdiary.* TO plantdiary@locahost IDENTIFIED BY '1234';
 
-<p>그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.</p>
+SHOW GRANTS FOR plantdiary@'%';
+SHOW GRANTS FOR plantdiary@localhost;
 
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/04.png" alt="04" /></p>
-
-<hr />
-
-<h2 id="2-시작-템플릿-생성">2. 시작 템플릿 생성</h2>
-
-<p><code>위치</code> : 서비스의 [인스턴스] &gt; [시작 템플릿]</p>
-
-<ul>
-<li>시작 템플릿 이름 : ec2-launch-template</li>
-<li>AMI ID : Search for AMI를 선택하여 생성한 AMI를 선택한다.</li>
-<li>키 페어 이름 : 생성한 키 페어를 선택한다.</li>
-<li>시작 템플릿 보안 그룹 : 생성한 보안 그룹을 선택한다.</li>
-</ul>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/05.png" alt="05" /></p>
-
-<hr />
-
-<p>필수값을 다 입력하였으면, 시작 템플릿 생성을 선택한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/06.png" alt="06" /></p>
-
-<hr />
-
-<p>시작 템플릿 성공. 보유 중인 시작 템플릿 목록으로 이동한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/07.png" alt="07" /></p>
-
-<hr />
-
-<h2 id="3-autu-scaling-그룹-생성">3. Autu Scaling 그룹 생성</h2>
-
-<p><code>위치</code> : 서비스의 [AUTO SCALING] &gt; [Autu Scaling 그룹]</p>
-
-<p>시작 템플릿을 설정하면 아래 시작 템플릿 목록이 보이며
-목록에 노출된 템플릿을 선택하고 다음단계를 선택한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/08.png" alt="08" /></p>
-
-<h3 id="3-1-auto-scaling-그룹-세부-정보-구성">3.1. Auto Scaling 그룹 세부 정보 구성</h3>
-
-<p>Auto Scaling 그룹의 설정을 지정하는 화면이다.
-그룹 명, 관리할 인스턴스 최초 수를 지정 할 수 있다.</p>
-
-<p>서브넷은 인스턴스들을 어떤 네트워크 망에 띄울 것인지를 정하는 것인데,
-그림과 같이 2a, 2c를 기본값으로 모두 지정한다. 이는 생성하는 인스턴스들 중 절반은 서울 리전 a 가용 영역에, 다른 절반은 서울 리전 c 가용 영역에 생성한다는 의미다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/09.png" alt="09" /></p>
-
-<h3 id="3-2-조정-정책-구성">3.2. 조정 정책 구성</h3>
-
-<p>Auto Scaling 그룹 내 인스턴스 수를 자동으로 조절하기 위한 조정 정책을 설정하는 화면이다.</p>
-
-<p>최소 1대에서 최대 2대의 인스턴스를 실행하게 해서 평균 CPU 사용률이 80%를 기준으로 설정한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/10.png" alt="10" /></p>
-
-<h3 id="3-3-알림-구성">3.3. 알림 구성</h3>
-
-<p>Auto Scaling 그룹 내 인스턴스 변화가 있을 경우 알림 설정한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/11.png" alt="11" /></p>
-
-<h3 id="3-4-태그-구성">3.4. 태그 구성</h3>
-
-<p>Auto Scaling 그룹 내 인스턴스 태그를 설정한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/12.png" alt="12" /></p>
-
-<h3 id="3-5-검토">3.5. 검토</h3>
-
-<p>Auto Scaling 그룹 설정값들을 검토하는 화면이다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/13.png" alt="13" /></p>
-
-<h3 id="3-6-완료">3.6. 완료</h3>
-
-<p>생성이 완료되면 그림과 같이 리스트 목록에 출력된다.</p>
-
-<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/14.png" alt="14" /></p>
+flush privileges;
+</code></pre>
 
 
           </div>
