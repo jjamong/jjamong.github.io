@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>ELB 생성 | 짜몽 개발 연구소</title>
+<title>호스팅 영역 | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="AWS 호스팅 영역 가이드">
 
 
 
@@ -273,7 +273,7 @@
                     <ul>
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a>
                         </li>
                         
@@ -310,7 +310,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/infra/aws/route53/hosting/">호스팅 영역</a>
                   </li>
                   
@@ -355,7 +355,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">ELB 생성</h1>
+            <h1 class="title">호스팅 영역</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -374,79 +374,51 @@
             
 
 
-<p><code>위치</code> : EC2 서비스의 [로드 밸런싱] &gt; [로드 밸런서]에서
-로드 밸런서 생성을 선택한다.</p>
+<p>외부 도메인을 AWS 인스턴스에 연결할 수 있도록 하는 호스팅 설정입니다.</p>
 
-<p>일반적은 HTTP, HTTPS과련한 Application Load Balancer를 생성한다.</p>
+<p><br></p>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/01.png" alt="01" /></p>
+<p><a href="/docs/infra/aws/ec2/instancecreate/">인스턴스</a>가 실행중이어야 사용이 가능 합니다.</p>
 
-<h2 id="1-로드-밸런서-구성">1. 로드 밸런서 구성</h2>
+<p><code>위치</code> : Route53 &gt; 호스팅 영역</p>
 
-<p>로드 밸런서의 이름, 리스너, 가용 영역을 지정한다.</p>
+<h2 id="1-호스팅-영역-생성">1. 호스팅 영역 생성</h2>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/02.png" alt="02" /></p>
+<p>호스팅 영역 목록을 확인 할 수 있으며, 호스팅 영역 생성 버튼을 선택합니다.</p>
 
-<h2 id="2-보안-설정-구성">2. 보안 설정 구성</h2>
+<p><img src="/docs/infra/aws/route53/hosting/01.png" alt="01" /></p>
 
-<p>HTTPS를 추가하지 않으면 경고창이 출력된다.
-무시할 수 있다.</p>
+<h3 id="정보-입력">정보 입력</h3>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/03.png" alt="03" /></p>
+<p>호스팅할(구매한) 도메인을 입력하고 생성 버튼을 선택합니다.</p>
 
-<h2 id="3-보안-설정-구성">3. 보안 설정 구성</h2>
+<p><img src="/docs/infra/aws/route53/hosting/02.png" alt="02" /></p>
 
-<p>ec2에 웹서버를 설치해 두었으므로 웹 접속으로 elb를 확인할 것이다.
-따라서 그와 관련된 보안 그룹을 설정한다.</p>
+<h3 id="호스팅-영역-확인">호스팅 영역 확인</h3>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/04.png" alt="04" /></p>
+<p>생성한 호스팅 영역을 확인 할 수 있습니다.
+레코드를 생성 버튼을 선택 합니다.</p>
 
-<h2 id="4-라우팅-구성">4. 라우팅 구성</h2>
+<p><img src="/docs/infra/aws/route53/hosting/03.png" alt="03" /></p>
 
-<p>로드 밸런서가 클라이언트로부터 받은 요청을 전달할 대상 그룹을 설정하는 화면이다.</p>
+<h2 id="2-레코드-추가">2. 레코드 추가</h2>
 
-<p>현재 생성햐둔 대상 그룹이 없으면 생성한다.
-상태검사 경로로 설정한 URL로 주기적으로 요청하고 상태코드 200을 받는지 확인한다.</p>
+<p>호스팅할 URl이 호출될 경우 접속할 서버를 설정해 줍니다.
+값에 사용중인 인스턴스 IP를 설정합니다.</p>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/05.png" alt="05" /></p>
+<p><img src="/docs/infra/aws/route53/hosting/04.png" alt="04" /></p>
 
-<h2 id="5-대상-등록">5. 대상 등록</h2>
+<h3 id="레코드-확인">레코드 확인</h3>
 
-<p>Auto Scaling에서 생성된 인스턴스가 한대 보인다.</p>
+<p>유형 <code>NS</code>에 설정된 라우트 대상을 호스팅할 도메인의 DNS에 연결해야 합니다.</p>
 
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/06.png" alt="06" /></p>
+<pre><code>ns-602.awsdns-11.net.
+ns-509.awsdns-63.com.
+ns-1938.awsdns-50.co.uk.
+ns-1380.awsdns-44.org.
+</code></pre>
 
-<h2 id="6-검토">6. 검토</h2>
-
-<p>위에 설정한 값들을 확인하고 생성 버튼을 선택한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/07.png" alt="07" /></p>
-
-<h2 id="7-대상-그룹-설정">7. 대상 그룹 설정</h2>
-
-<p><code>위치</code> : EC2 서비스의 [AUTO SACLING] &gt; [Auto Scaling 그룹]</p>
-
-<p>목록에 오토 스케일링 그룹의 세부정보(위에서 생성한 대상 그룹)를 수정한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/08.png" alt="08" /></p>
-
-<h2 id="8-대상-그룹-설정">8. 대상 그룹 설정</h2>
-
-<p><code>위치</code> : EC2 서비스의 [로드 밸런싱] &gt; [대상 그룹]</p>
-
-<p>대상 탭에 편집 버튼을 선택하여 아래와 같이 오토 스케일링 인스턴스를
-추가한다.</p>
-
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/09.png" alt="09" /></p>
-
-<h2 id="8-로드-밸런서-설정-확인">8. 로드 밸런서 설정 확인</h2>
-
-<p><code>위치</code> : EC2 서비스의 [로드 밸런싱] &gt; [로드 밸런서]</p>
-
-<p>설명 탭에 있는 DNS 이름을 통해 web으로 접속한다.
-아래와 같이 출력되면 elb가 올바르게 동작하는 것이다.</p>
-
-<p><img src="/docs/infra/aws/ec2/elb/elbcreate/10.png" alt="10" /></p>
+<p><img src="/docs/infra/aws/route53/hosting/05.png" alt="05" /></p>
 
 
           </div>
