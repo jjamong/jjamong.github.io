@@ -113,32 +113,32 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/datepicker/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/datepicker/</loc>
     <lastmod>2020-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/advert/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/advert/</loc>
     <lastmod>2020-10-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/firebasemessag/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/firebasemessag/</loc>
     <lastmod>2020-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/notification/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/notification/</loc>
     <lastmod>2020-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/webview/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/webview/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/start/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/start/</loc>
     <lastmod>2020-08-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -193,7 +193,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/</loc>
     <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -309,6 +309,11 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/docs/app/</loc>
+    <lastmod>2021-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/</loc>
     <lastmod>2021-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -325,7 +330,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/firebase/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/firebase/</loc>
     <lastmod>2020-10-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -335,22 +340,22 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/plugin/navigation/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/plugin/navigation/</loc>
     <lastmod>2020-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/styledcomponents/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/styledcomponents/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/plugin/asyncstorage/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/plugin/asyncstorage/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/plugin/geolocation/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/plugin/geolocation/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -360,17 +365,17 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/make/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/make/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/moduleresolver/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/moduleresolver/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/front/reactnative/etc/sample/</loc>
+    <loc>https://jjamong.github.io/docs/app/reactnative/etc/sample/</loc>
     <lastmod>2020-09-01T00:00:00+00:00</lastmod>
   </url>
   
