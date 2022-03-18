@@ -110,6 +110,7 @@
 <div class="container top-menu">
   <div class="docs-top-menu tabs">
     <ul>
+      
       <li class="tabs-li">
         
         <a class="tabs-a">Front</a>
@@ -125,28 +126,35 @@
           </ul>
         </div>
       </li>
+      
+      
       <li class="tabs-li">
         
         <a class="tabs-a">Back</a>
         <div class="sub-menu">
           <ul>
             
+            <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+            
             <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
             
           </ul>
         </div>
       </li>
+
+      
       <li class="tabs-li">
         
         <a class="tabs-a">DB</a>
         <div class="sub-menu">
           <ul>
             
-            <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
+            <li class="Maria"><a href="https://jjamong.github.io/docs/db/maria/">Maria</a></li>
             
           </ul>
         </div>
       </li>
+
       <li class="tabs-li">
         
         <a class="tabs-a">APP</a>
@@ -154,10 +162,6 @@
           <ul>
             
             <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
-            
-            <li class="Android"><a href="https://jjamong.github.io/docs/app/android/">Android</a></li>
-            
-            <li class="IOS"><a href="https://jjamong.github.io/docs/app/ios/">IOS</a></li>
             
           </ul>
         </div>
@@ -197,7 +201,12 @@
 </div>
     <div class="container is-fluid">
       <div class="columns verticals">
+
         
+
+        
+        
+          
 
 
 
@@ -228,108 +237,60 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          React
+          Aws
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>React(리액트)</strong></a>
+              <a href="#"><strong>AWS EC2</strong></a>
               <ul>
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/react/start/">리액트 시작</a>
+                    <a href="/docs/infra/aws/ec2/architecture/">서버 아키텍처</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/react/lifecycle/">라이프 사이클</a>
+                    <a href="/docs/infra/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/setting/sass/">Sass</a>
+                    <a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/jsx/">JSX</a>
+                    <a href="/docs/infra/aws/ec2/resilientip/">탄력적 IP</a>
                   </li>
                   
                 
                   
                   <li class="subsections">
-                    <a href="#">Component(컴포넌트)</a>
+                    <a href="#">Auto Scaling(오토 스케일링)</a>
                     <ul>
                       
                         
                         <li >
-                          <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
+                          <a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/react/component/props/">props</a>
+                          <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/react/component/state/">state</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/front/react/react/context/">Context</a>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>Next.js</strong></a>
-              <ul>
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Basic Features</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/">Next.js 시작하기</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/routing/">routing(라우팅)</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/_app/">커스텀 App (_app.js)</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/_document/">커스텀 Document (_document.js)</a>
+                          <a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
                         </li>
                         
                       
@@ -339,39 +300,18 @@
                 
                   
                   <li class="subsections">
-                    <a href="#">API Reference</a>
+                    <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
                     <ul>
                       
                         
                         <li >
-                          <a href="/docs/front/react/nextjs/configjs/">next.config.js</a>
+                          <a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a>
                         </li>
                         
                       
                         
                         <li >
-                          <a href="/docs/front/react/nextjs/head/">next/head</a>
-                        </li>
-                        
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/image/">next/image</a>
-                        </li>
-                        
-                      
-                    </ul>
-                  </li>
-                  
-                
-                  
-                  <li class="subsections">
-                    <a href="#">Plugin</a>
-                    <ul>
-                      
-                        
-                        <li >
-                          <a href="/docs/front/react/nextjs/sasscss/">sass &amp; css</a>
+                          <a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a>
                         </li>
                         
                       
@@ -385,24 +325,51 @@
             
             <li >
               
-              <a href="#"><strong>plugin(리액트 플러그인)</strong></a>
+              <a href="#"><strong>AWS Route 53</strong></a>
               <ul>
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/plugin/axios/">axios</a>
+                    <a href="/docs/infra/aws/route53/dns/">DNS, 도메인</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/plugin/slick/">slick</a>
+                    <a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/front/react/plugin/aos/">aos</a>
+                    <a href="/docs/infra/aws/route53/hosting/">호스팅 영역</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#"><strong>서버&amp;DB</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/infra/aws/ec2/apache/">아파치 apache</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/infra/aws/ec2/php/">PHP</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/infra/aws/ec2/maria/">Maria</a>
                   </li>
                   
                 
@@ -416,6 +383,10 @@
     </div>
   </div>
 </div>
+        
+        
+        
+
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
