@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring | 짜몽 개발 연구소</title>
+<title>Spring Cache(스프링 캐시) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="Spring Cache(스프링 캐시)">
 
 
 
@@ -261,7 +261,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/boot/cache/">cache(캐시)</a>
                   </li>
                   
@@ -319,7 +319,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring</h1>
+            <h1 class="title">Spring Cache(스프링 캐시)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -336,15 +336,108 @@
             </div>
             
             
-<script>
-    location.href = "boot/start"
-</script>
+
+
+<h2 id="시작하기">시작하기</h2>
+
+<p><code>스프링 부트 환경</code>에서 설정합니다.</p>
+
+<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
+
+<pre><code>// build.gradle
+
+implementation 'org.springframework.boot:spring-boot-starter-cache'
+</code></pre>
+
+<h3 id="enablecacheing-어노테이션-설정">@EnableCacheing 어노테이션 설정</h3>
+
+<p><code>@EnableCacheing</code>  동작에 필요한 기본적인 설정들을 등록합니다.</p>
+
+<pre><code>// /src/main/java/com/jjamong/cache/CacheApplication.java
+
+package com.jjamong.cache;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+
+@EnableCaching
+@SpringBootApplication
+public class CacheApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CacheApplication.class, args);
+	}
+
+}
+
+</code></pre>
+
+<h3 id="db-설정-및-셋팅">DB 설정 및 셋팅</h3>
+
+<p><a href="http://localhost:1313/docs/back/spring/boot/mybatis/">mybatis 설정</a> 에서 mybatis에 select까지 해서 api로 출력하는 것까지 참고한 후에,</p>
+
+<p>컨트롤, 서비스에 각 로그를 아래와 같이 나오도록 추가합니다.</p>
+
+<pre><code>&gt;&gt;&gt; IndexController
+&gt;&gt;&gt; IndexService
+2022-04-26 14:55:19.505  INFO 9468 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2022-04-26 14:55:19.506  WARN 9468 --- [nio-8080-exec-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-04-26 14:55:19.513  INFO 9468 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+&gt;&gt;&gt; IndexService res[{Database=information_schema}, {Database=mysql}, {Database=performance_schema}, {Database=phpmyadmin}, {Database=test}]
+&gt;&gt;&gt; IndexController list[{Database=information_schema}, {Database=mysql}, {Database=performance_schema}, {Database=phpmyadmin}, {Database=test}]
+</code></pre>
+
+<h3 id="cacheable-어노테이션-추가">@Cacheable 어노테이션 추가</h3>
+
+<p>아래와 같이 어노테이션 추가 후 api를 실행하면 로그가 올라오지 않는 것을 확인 할 수 있습니다.</p>
+
+<pre><code>@Cacheable(&quot;/&quot;)
+@GetMapping(&quot;/&quot;)
+public ResponseEntity index() {
+	System.out.println(&quot;&gt;&gt;&gt; IndexController&quot;);
+
+	List&lt;HashMap&lt;String, Object&gt;&gt; list = indexService.gets();
+	
+	System.out.println(&quot;&gt;&gt;&gt; IndexController list&quot; + list);
+
+	return new ResponseEntity(list, HttpStatus.OK);
+}
+</code></pre>
+
+<hr />
+
+<h3 id="cacheable">@Cacheable</h3>
+
+<p>@Cacheable은 스프링에서 제공하는 캐시관련 어노테이션으로 aop방식으로 동작합니다.
+Key값의 지정에는 SpEL이 사용됩니다.</p>
+
+<pre><code>@Cacheable(key = &quot;index&quot; , value = &quot;jjamong_cache&quot;)
+public ResponseEntity index() {return new ResponseEntity(HttpStatus.OK);}
+
+@Cacheable(key = &quot;T(com.jjamong.cacheutil).createKey(#root.targetClass, #root.methodName, #root.args)&quot; , value = &quot;jjamong_cache&quot;)
+public ResponseEntity index() {return new ResponseEntity(HttpStatus.OK);}
+</code></pre>
 
 
           </div>
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -359,6 +452,9 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>
