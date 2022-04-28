@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring Boot 시작하기 | 짜몽 개발 연구소</title>
+<title>Pattern(패턴) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Spring Boot 시작하기">
+<meta name="description" content="스프링 프레임워크의 대표적인 디자인 패턴들을 설명합니다.">
 
 
 
@@ -249,7 +249,7 @@
               <ul>
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/spring/pattern/">pattern(패턴)</a>
                   </li>
                   
@@ -264,7 +264,7 @@
               <ul>
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/back/spring/boot/start/">Spring Boot 시작하기</a>
                   </li>
                   
@@ -325,7 +325,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring Boot 시작하기</h1>
+            <h1 class="title">Pattern(패턴)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -344,125 +344,36 @@
             
 
 
-<h2 id="시작하기">시작하기</h2>
+<!-- 참고 : https://yomyom0824.tistory.com/85 -->
 
-<h3 id="vscode-환경-vscode-플러그인-설치">VScode 환경 &amp; VScode 플러그인 설치</h3>
+<h2 id="template-method-pattern-템플릿-메소드-패턴">Template Method Pattern (템플릿 메소드 패턴)</h2>
 
-<ul>
-<li>-<a href="/docs/etc/etc/vscode/#java">Java Extension Pack</a></li>
-<li>-<a href="/docs/etc/etc/vscode/#spring-boot">Spring Boot</a></li>
-<li>-<a href="/docs/infra/os/window/#java">JAVA 환경 변수 설정</a></li>
-</ul>
+<p>슈퍼(부모)클래스의 기능을 확장할 때 사용되는 가장 대표적인 방법으로,</p>
 
-<h3 id="1-프로젝트-만들기">1. 프로젝트 만들기</h3>
+<p>슈퍼클래스에 기본적인 로직을 구성하고 그 기능의 일부를 추상 메소드나 오버라이딩 가능한 메소드 등에  세부적인 로직을 구성합니다.</p>
 
-<p>보기(View) &gt; 명령 팔레트(Command Pallette)를 선택합니다. (<code>Ctrl + Shift + P</code>)</p>
+<pre><code>public abstract class Parent {
+    
+    abstract public void detailLogic();
+    
+    private void baseLogic1() { ... 설정 및 전 처리(기본 로직) ... }
+    private void baseLogic2() { ... 값 초기화 및 후 처리(기본 로직) ... }
 
-<p><code>Spring Initializr</code>를 검색하고 스프링 프로젝트를 선택합니다.</p>
-
-<p><img src="/docs/back/spring/boot/start/gradle_select.png" alt="gradle_select" /></p>
-
-<p>이어서 아래와 같이합니다.</p>
-
-<pre><code>Specify Spring Boot version. : 스프링 버전 선택
-Specify project language. : 언어 선택 (java)
-Input Group Id for your project. : 프로젝트 그룹 (com.example)
-Input Artifact Id for your project. : 프로젝트 이름(springboottest)
-Specify packaging type. : Jar
-Specify Java Version. : 자바 버전 (8)
-Search for dependencies. : (검색 후 선택)
- - Spring Boot DevTools
- - Spring Web
-</code></pre>
-
-<p>dependencies 까지 선택 후 프로젝트 폴더를 선택해서 프로젝트를 생성합니다.</p>
-
-<h3 id="2-실행">2. 실행</h3>
-
-<p><code>F5</code> 및 <code>실행 &gt; 디버깅 시작</code></p>
-
-<p><img src="/docs/back/spring/boot/start/start.png" alt="gradle_select" /></p>
-
-<h3 id="responseentity-api">ResponseEntity (API)</h3>
-
-<p>파일을 추가하고 실행하면 아래와 같이 출력됩니다.</p>
-
-<pre><code>package com.jjamong.web;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-public class IndexController {
-
-    @RequestMapping(&quot;/&quot;) 
-    public ResponseEntity index() {
-
-        List&lt;HashMap&lt;String, Object&gt;&gt; list = new ArrayList&lt;HashMap&lt;String, Object&gt;&gt;();
-
-        return new ResponseEntity(list, HttpStatus.OK);
+    public void algorithm() {
+        baseLogic1();
+        detailLogic();
+        baseLogic2();
     }
 }
-</code></pre>
-
-<p><img src="/docs/back/spring/boot/start/responseEntity.png" alt="responseEntity" /></p>
-
-<h3 id="jsp">JSP</h3>
-
-<p>application.yml 파일을 추가 하고 jsp 설정을 추가합니다.</p>
-
-<pre><code>// /src/main/resources/application.yml
-
-spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
-</code></pre>
-
-<p>build.gradle 파일에 서버를 설정합니다.</p>
-
-<pre><code>// build.gradle
-
-dependencies {
-    ...
-    // tomcat-embed-jasper 추가
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-}
-
-</code></pre>
-
-<p>controller와 jsp를 추가합니다.</p>
-
-<pre><code>// /src/main/com/example/springboottest/IndexController.java
-
-package com.example.springboottest;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-public class IndexController {
-
-    @RequestMapping(&quot;/&quot;) 
-    public String index() {
-        return &quot;test&quot;;
+ 
+class Child extends Parent {
+    @override
+    public void detailLogic() {
+        값 셋팅, DB 처리 등(상세 로직)
     }
 }
+
 </code></pre>
-
-<pre><code>// /src/webapp/WEB-INF/jsp/test.jsp
-
-spring boot test
-</code></pre>
-
-<p><img src="/docs/back/spring/boot/start/jsp.png" alt="jsp" /></p>
 
 
           </div>
