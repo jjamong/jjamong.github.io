@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>MARIA | 짜몽 개발 연구소</title>
+<title>Jenkins(젠킨스) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="MARIA 가이드">
+<meta name="description" content="Jenkins(젠킨스)">
 
 
 
@@ -214,7 +214,13 @@
 
   
   
+
+  
+  
     
+  
+
+  
   
 
 
@@ -231,25 +237,25 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Maria
+          Deploy
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>Maria</strong></a>
+              <a href="#"><strong>deploy</strong></a>
               <ul>
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/db/maria/start/">Maria</a>
+                    <a href="/docs/infra/deploy/jenkins/">젠킨스</a>
                   </li>
                   
                 
                   
                   <li  class="subsections">
-                    <a href="/docs/db/maria/query/">쿼리</a>
+                    <a href="/docs/infra/deploy/method/">배포 방법</a>
                   </li>
                   
                 
@@ -263,14 +269,14 @@
     </div>
   </div>
 </div>
-
+        
         
         
 
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">MARIA</h1>
+            <h1 class="title">Jenkins(젠킨스)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -289,48 +295,21 @@
             
 
 
-<h2 id="프로세스">프로세스</h2>
+<h2 id="개념">개념</h2>
 
-<p>DB의 프로세스를 관리하는 기능이다.</p>
+<h3 id="ci-continuous-integration">CI(Continuous Integration)</h3>
 
-<p>DB의 쿼리가 실행되지 않고 timeout이 발생하는 경우에 DB 프로세스를 통해
-현재 db쿼리가 실행되고 있는 상태를 확인 할 수 있다.</p>
+<p>먼저, 젠킨스를 이해하려면 CI를 이해해야 합니다.</p>
 
-<h3 id="프로세스-확인">프로세스 확인</h3>
+<p><code>CI(Continuous Integration)</code>는  지속적인 통합이라는 의미이며,</p>
 
-<pre><code>show processlist;
-select * from information_schema.processlist;
-</code></pre>
+<p>애플리케이션 소스의 변경 사항을 정기적/지속적으로 빌드, 테스트, 배포, 병합하여 공유 공간에 통합하는 것을 말합니다.</p>
 
-<h3 id="프로세스-킬">프로세스 킬</h3>
+<h3 id="jenkis">Jenkis</h3>
 
-<pre><code>kill 'id번호';
-</code></pre>
+<p>jenkins는  Commit - Build - Test - Stage - Deploy 등 CI의 일련의 프로세스를 자동화 해줄 수 있습니다.</p>
 
-<h2 id="임시-테이블">임시 테이블</h2>
-
-<pre><code>WITH TBL AS
-(
-	SELECT '철수' AS NAME, 20 AS AGE
-	UNION ALL
-	SELECT NAME, AGE
-	  FROM TB1
-)
-
-SELECT NAME, AGE FROM TBL;
-</code></pre>
-
-<h2 id="업데이트">업데이트</h2>
-
-<h3 id="다중-테이블">다중 테이블</h3>
-
-<p>a,b 두개의 테이블에 같은 컬럼(seq)이 있고, a의 컬럼에 b컬럼을 동일하게 데이터를 업데이트 하고
-싶을 때 사용된다.</p>
-
-<pre><code>UPDATE 테이블1 AS a, 테이블2 AS b
-SET a.column = b.column,
-WHERE a.seq = b.seq
-</code></pre>
+<!-- Pipeline파이프 라인 정의  정의 -->
 
 
           </div>

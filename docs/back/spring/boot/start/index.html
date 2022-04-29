@@ -161,10 +161,6 @@
             
             <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
             
-            <li class="Android"><a href="https://jjamong.github.io/docs/app/android/">Android</a></li>
-            
-            <li class="IOS"><a href="https://jjamong.github.io/docs/app/ios/">IOS</a></li>
-            
           </ul>
         </div>
       </li>
@@ -266,6 +262,12 @@
                   
                   <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/boot/start/">Spring Boot 시작하기</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/back/spring/boot/lombok/">lombok(롬복)</a>
                   </li>
                   
                 
@@ -389,9 +391,7 @@ Search for dependencies. : (검색 후 선택)
 
 <pre><code>package com.jjamong.web;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -404,9 +404,9 @@ public class IndexController {
     @RequestMapping(&quot;/&quot;) 
     public ResponseEntity index() {
 
-        List&lt;HashMap&lt;String, Object&gt;&gt; list = new ArrayList&lt;HashMap&lt;String, Object&gt;&gt;();
-
-        return new ResponseEntity(list, HttpStatus.OK);
+        HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
+        
+        return new ResponseEntity(data, HttpStatus.OK);
     }
 }
 </code></pre>
