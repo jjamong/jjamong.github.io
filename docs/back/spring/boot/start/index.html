@@ -267,6 +267,18 @@
                 
                   
                   <li  class="subsections">
+                    <a href="/docs/back/spring/boot/jsp/">JSP(Java Server Page)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/back/spring/boot/security/">Security(시큐리티)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
                     <a href="/docs/back/spring/boot/lombok/">lombok(롬복)</a>
                   </li>
                   
@@ -301,12 +313,6 @@
                         
                       
                     </ul>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/back/spring/boot/security/">security(시큐리티)</a>
                   </li>
                   
                 
@@ -418,57 +424,6 @@ public class IndexController {
 </code></pre>
 
 <p><img src="/docs/back/spring/boot/start/responseEntity.png" alt="responseEntity" /></p>
-
-<h3 id="jsp">JSP</h3>
-
-<p>application.yml 파일을 추가 하고 jsp 설정을 추가합니다.</p>
-
-<pre><code>// /src/main/resources/application.yml
-
-spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
-</code></pre>
-
-<p>build.gradle 파일에 서버를 설정합니다.</p>
-
-<pre><code>// build.gradle
-
-dependencies {
-    ...
-    // tomcat-embed-jasper 추가
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-}
-
-</code></pre>
-
-<p>controller와 jsp를 추가합니다.</p>
-
-<pre><code>// /src/main/com/example/springboottest/IndexController.java
-
-package com.example.springboottest;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-public class IndexController {
-
-    @RequestMapping(&quot;/&quot;) 
-    public String index() {
-        return &quot;test&quot;;
-    }
-}
-</code></pre>
-
-<pre><code>// /src/webapp/WEB-INF/jsp/test.jsp
-
-spring boot test
-</code></pre>
-
-<p><img src="/docs/back/spring/boot/start/jsp.png" alt="jsp" /></p>
 
 
           </div>

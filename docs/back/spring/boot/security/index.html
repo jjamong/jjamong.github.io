@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring Security(스프링 시큐리티) | 짜몽 개발 연구소</title>
+<title>Security(시큐리티) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Spring Security 스프링 시큐리티 가이드">
+<meta name="description" content="Security(시큐리티)">
 
 
 
@@ -267,6 +267,18 @@
                 
                   
                   <li  class="subsections">
+                    <a href="/docs/back/spring/boot/jsp/">JSP(Java Server Page)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="active"  class="subsections">
+                    <a href="/docs/back/spring/boot/security/">Security(시큐리티)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
                     <a href="/docs/back/spring/boot/lombok/">lombok(롬복)</a>
                   </li>
                   
@@ -305,12 +317,6 @@
                   
                 
                   
-                  <li  class="active"  class="subsections">
-                    <a href="/docs/back/spring/boot/security/">security(시큐리티)</a>
-                  </li>
-                  
-                
-                  
                   <li  class="subsections">
                     <a href="/docs/back/spring/boot/swagger/">swagger(스웨거)</a>
                   </li>
@@ -333,7 +339,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring Security(스프링 시큐리티)</h1>
+            <h1 class="title">Security(시큐리티)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -353,6 +359,29 @@
 
 
 <h2 id="시작하기">시작하기</h2>
+
+<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
+
+<pre><code>implementation 'org.springframework.boot:spring-boot-starter-security'
+</code></pre>
+
+<h3 id="security-config-설정">Security Config 설정</h3>
+
+<pre><code>// src/main/java/com/jjamong/secrity/config/WebSecurityConfig.java
+
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers(&quot;/**&quot;).permitAll();
+    }
+}
+</code></pre>
+
+<h2 id="시작하기-1">시작하기</h2>
 
 <pre><code>@RestController
 @RequestMapping(&quot;/v1/test&quot;)
@@ -374,8 +403,8 @@ public class TestController {
 
 <p>API 호출 시 결과</p>
 
-<p><img src="/docs/back/spring/security/security/success200.png" alt="success200" />
-/docs/back/spring/security/security/</p>
+<p><img src="/docs/back/spring/boot/security/success200.png" alt="success200" />
+/docs/back/spring/boot/security/</p>
 
 <h3 id="greadle-추가">greadle 추가</h3>
 
@@ -388,7 +417,7 @@ public class TestController {
 
 <p>security를 설치하고 톰캣 실행 후에 api를 재 호출하면 아래와 같이 오류가 발생합니다.</p>
 
-<p><img src="/docs/back/spring/security/security/fail403.png" alt="fail403" /></p>
+<p><img src="/docs/back/spring/boot/security/fail403.png" alt="fail403" /></p>
 
 <h3 id="security-추가">security 추가</h3>
 
@@ -408,7 +437,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 <p>시큐리티 코드를 추가하고,  API를 재 호출하면 아래와 같이 다시 정상적으로 출력됩니다.</p>
 
-<p><img src="/docs/back/spring/security/security/success200.png" alt="success200" /></p>
+<p><img src="/docs/back/spring/boot/security/success200.png" alt="success200" /></p>
 
 <h2 id="httpsecurity">HttpSecurity</h2>
 
@@ -430,7 +459,7 @@ public void configure(HttpSecurity webSecurity) throws Exception {
 }
 </code></pre>
 
-<p><img src="/docs/back/spring/security/security/fail403.png" alt="fail403" /></p>
+<p><img src="/docs/back/spring/boot/security/fail403.png" alt="fail403" /></p>
 
 <h3 id="denyall-1">denyAll()</h3>
 
@@ -447,7 +476,7 @@ public void configure(HttpSecurity webSecurity) throws Exception {
 }
 </code></pre>
 
-<p><img src="/docs/back/spring/security/security/fail403.png" alt="fail403" /></p>
+<p><img src="/docs/back/spring/boot/security/fail403.png" alt="fail403" /></p>
 
 <h3 id="ignore">ignore()</h3>
 
@@ -471,7 +500,7 @@ public void configure(WebSecurity webSecurity) throws Exception {
 }
 </code></pre>
 
-<p><img src="/docs/back/spring/security/security/success200.png" alt="success200" /></p>
+<p><img src="/docs/back/spring/boot/security/success200.png" alt="success200" /></p>
 
 <h3 id="anyrequest">anyRequest</h3>
 

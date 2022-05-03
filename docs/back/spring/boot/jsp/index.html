@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Cron(크론) | 짜몽 개발 연구소</title>
+<title>JSP(Java Server Pages) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Cron 가이드">
+<meta name="description" content="JSP(Java Server Pages)">
 
 
 
@@ -266,7 +266,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/boot/jsp/">JSP(Java Server Page)</a>
                   </li>
                   
@@ -307,7 +307,7 @@
                         
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/back/spring/boot/batch/cron/">cron</a>
                         </li>
                         
@@ -339,7 +339,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Cron(크론)</h1>
+            <h1 class="title">JSP(Java Server Pages)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -358,61 +358,79 @@
             
 
 
-<h2 id="크론-표현식">크론 표현식</h2>
+<h2 id="시작하기">시작하기</h2>
 
-<p><code>*   *   *   *   *   *   *</code></p>
+<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
 
-<p>초 분 시 일 월 요일 년도(생략가능) 이렇게 크론 표현식에서는 6~7 자리 가 사용됩니다.</p>
+<p><code>org.apache.tomcat.embed:tomcat-embed-jasper</code> : JSP 관련</p>
+
+<p><code>javax.servlet:jstl</code> : JSTL 관련</p>
+
+<pre><code>// build.gradle
+
+implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+implementation 'javax.servlet:jstl'
+</code></pre>
+
+<h3 id="application-설정">application 설정</h3>
+
+<pre><code>// /src/main/resources/application.yml
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+</code></pre>
+
+<pre><code>// /src/main/resources/application.yml
+
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp
+</code></pre>
+
+<h3 id="controller">controller</h3>
+
+<pre><code>// /src/main/java/com/jjamong/jsp/controller/IndexController.java
+
+package com.jjamong.jsp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class IndexController {
+
+    @RequestMapping(&quot;/&quot;) 
+    public String index() {
+        return &quot;index&quot;;
+    }
+}
+</code></pre>
+
+<h3 id="jsp">jsp</h3>
+
+<pre><code>// src/main/webapp/WEB-INF/jsp/index.jsp
+
+spring boot test
+</code></pre>
 
 <p><br></p>
 
-<table>
-<thead>
-<tr>
-<th>크론</th>
-<th>기간</th>
-<th>예</th>
-</tr>
-</thead>
+<p><img src="/docs/back/spring/boot/jsp/jsp.png" alt="jsp" /></p>
 
-<tbody>
-<tr>
-<td><code>0 0/5 * * * *</code></td>
-<td>5분 마다</td>
-<td>00:05, 00:10, 00:15 &hellip;</td>
-</tr>
+<h3 id="jstl">JSTL</h3>
 
-<tr>
-<td><code>0 0/5 * * * *</code></td>
-<td>1시간 마다</td>
-<td>01:00, 02:00, 03:00 &hellip;</td>
-</tr>
+<pre><code>// src/main/webapp/WEB-INF/jsp/index.jsp
 
-<tr>
-<td><code>0 0 6 * * *</code></td>
-<td>매일 오후 6시 마다</td>
-<td>01/06:00, 02/06:00 &hellip;</td>
-</tr>
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
 
-<tr>
-<td><code>0 0/5 6,9 * * *</code></td>
-<td>매일 오후 6시,9시 마다 5분 간격</td>
-<td>06:00, 06:05 &hellip; 06:55<br>09:00, 09:05 &hellip; 09:55</td>
-</tr>
+&lt;c:out value=&quot;${'jstl test'}&quot;/&gt;
+</code></pre>
 
-<tr>
-<td><code>0 0/5 6-9 * * *</code></td>
-<td>매일 오후 6시에서 10시 사이 마다 5분 간격</td>
-<td>06:00, 06:05 &hellip; 09:55</td>
-</tr>
+<p><br></p>
 
-<tr>
-<td><code>0 0 0 1 * *</code></td>
-<td>매달 1일</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p><img src="/docs/back/spring/boot/jsp/jstl.png" alt="jstl" /></p>
 
 
           </div>
