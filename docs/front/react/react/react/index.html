@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Component(컴포넌트) | 짜몽 개발 연구소</title>
+<title>React(리액트) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="React는 SPA(Single Page Application) 개발 방식을 전제로 하고 있습니다. 프레임워크가 아닌 라이브러리로서 통상적으로 사용되는 라우팅, API통신 등의 기능들이 기본적으로 제공되지 않기 때문에 추가적으로 라이브러리를 사용해야 합니다. 최근엔 Next.js와 같은 라이브러를 통해 프레임워크 같이 사용할 수 있습니다. React의 동작방식은 render시 Virtual DOM에서 Dirty Checkking을 통해서 업데이트 해야하는 DOM 요소를 찾아내고 해당 부분만 업데이트 합니다. 이러한 기능으로 빠른 퍼포먼스가 특징입니다. React는 페이스북, 인스타그램 등과 같이 보여지는 데이터의 잦은 변경이 이루어지는 웹에 사용했을 때 효율이 극대화 됩니다. 단, 데이터가 자주 변경되지 않는 비교적 정적인 웹 페이지에 이를 적용할 경우 오히려 성능면에서 손해를 볼 수 있습니다.">
 
 
 
@@ -245,7 +245,7 @@
               <ul>
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/front/react/react/react/">React(리액트)</a>
                   </li>
                   
@@ -274,7 +274,7 @@
                     <ul>
                       
                         
-                        <li  class="active" >
+                        <li >
                           <a href="/docs/front/react/component/component/">컴포넌트 생성</a>
                         </li>
                         
@@ -429,7 +429,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Component(컴포넌트)</h1>
+            <h1 class="title">React(리액트)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -448,28 +448,115 @@
             
 
 
-<h2 id="모듈-내보내기-export">모듈 내보내기(export)</h2>
+<h2 id="이해하기">이해하기</h2>
 
-<pre><code>// MyComponent.js
-export default MyComponent;
+<p>React는 SPA(Single Page Application) 개발 방식을 전제로 하고 있습니다.</p>
+
+<p>프레임워크가 아닌 라이브러리로서 통상적으로 사용되는 라우팅, API통신 등의 기능들이 기본적으로 제공되지 않기 때문에
+<br>
+추가적으로 라이브러리를 사용해야 합니다.</p>
+
+<p>최근엔 Next.js와 같은 라이브러를 통해 프레임워크 같이 사용할 수 있습니다.</p>
+
+<p><br></p>
+
+<p>React의 동작방식은 render시 Virtual DOM에서 Dirty Checkking을 통해서 업데이트 해야하는 DOM 요소를 찾아내고
+<br>
+해당 부분만 업데이트 합니다. 이러한 기능으로 빠른 퍼포먼스가 특징입니다.</p>
+
+<p><br></p>
+
+<p>React는 페이스북, 인스타그램 등과 같이
+<br>
+보여지는 데이터의 잦은 변경이 이루어지는 웹에 사용했을 때 효율이 극대화 됩니다.</p>
+
+<p>단, 데이터가 자주 변경되지 않는 비교적 정적인 웹 페이지에 이를 적용할 경우
+<br>
+오히려 성능면에서 손해를 볼 수 있습니다.</p>
+
+<h3 id="virtual-dom-가상-dom">Virtual DOM(가상 DOM)</h3>
+
+<p>React에서 컴포넌트가 반환하는 엘리먼트들을 내부적으로 트리 형태로 관리하고 표현합니다.</p>
+
+<p>내부적으로 변경이 필요한 부분만 찾도록 구현되어 있어 DOM 노드를 최소화 하고 있는데
+<br>
+이런 구조를 Virtual DOM 이라고 합니다.</p>
+
+<h3 id="dirty-checkking-더티-체킹">Dirty Checkking(더티 체킹)</h3>
+
+<p>React는 컴포넌트의 Props나 State의 변경이 있을 때
+<br>
+컴포넌트의 이전 엘리먼트들과 새로운 엘리먼트들을 비교하여 변경점에 대해서만 업데이트 합니다.</p>
+
+<p>이를 좀 더 구조적으로 설명하자면
+<br>
+메모리 데이터 구조 캐시를 만들고 결과 차이를 계산한 다음 브라우저에 표시되는 DOM을 효과적으로 업데이트 합니다.</p>
+
+<p>이런 상태변화를 검사하는 것을 Dirty Checking이라고 합니다.</p>
+
+<h2 id="시작하기">시작하기</h2>
+
+<h3 id="리액트-설치-yarn">리액트 설치 (yarn)</h3>
+
+<pre><code>$ yarn global add create-react-app
 </code></pre>
 
-<h2 id="모듈-불러오기-import">모듈 불러오기(import)</h2>
+<h3 id="리액트-프로젝트-생성">리액트 프로젝트 생성</h3>
 
-<pre><code>import MyComponent from './MyComponent'; //
+<pre><code>$ create-react-app react-project
+</code></pre>
 
-function App() {
+<h3 id="리액트-서버-실행-localhost-3000">리액트 서버 실행 / localhost:3000</h3>
 
-  return (
-    &lt;div&gt;
-      &lt;div&gt;App&lt;/div&gt;
-      &lt;MyComponent /&gt;
-    &lt;/div&gt;
-  );
+<pre><code>cd react-project
+yarn start
+</code></pre>
+
+<h2 id="리엑트-설정">리엑트 설정</h2>
+
+<h3 id="불필요-파일-제거">불필요 파일 제거</h3>
+
+<pre><code>App.css
+App.js
+App.test.js
+index.css
+logo.svg
+</code></pre>
+
+<h3 id="nodemon">nodemon</h3>
+
+<p>코드를 변경할 때 마다 서버를 자동으로 재시작 한다.</p>
+
+<pre><code>$ yarn add --dev nodemon
+</code></pre>
+
+<h3 id="node-path">NODE_PATH</h3>
+
+<p>Window 환경은 cross-env 설치 후 명령어 앞에 붙여줌.</p>
+
+<pre><code>$ yarn add --dev cross-env
+</code></pre>
+
+<p>방법1</p>
+
+<pre><code>.env
+
+NODE_PATH=src
+</code></pre>
+
+<p>방법2</p>
+
+<pre><code>package.json - script
+
+&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;cross-env NODE_PATH=src react-scripts start&quot;,
+    src/index.js&quot;
 }
+</code></pre>
 
-// App
-// MyComponent
+<p>이후 아래와 같이 import 및 경로 불러올 시에 src이하 경로로 인식</p>
+
+<pre><code>import App from 'components/App';
 </code></pre>
 
 
@@ -477,6 +564,20 @@ function App() {
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -491,6 +592,9 @@ function App() {
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>
