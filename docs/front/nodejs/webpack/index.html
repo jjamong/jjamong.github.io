@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Yarn(얀) | 짜몽 개발 연구소</title>
+<title>webpack(웹팩) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="yarn은 페이스북에서 만든 npm과 같은 기능을 수행할 수 있는 자바스크립트 패키지 매니저입니다. yarn은 npm의 단점으로 꼽히는 속도, 안정성, 보안성 등을 개선하고자 개발되었습니다. yarn의 동작 방식으로는 다운받은 패키지 데이터를 캐시(cache)에 저장하여, 중복된 데이터는 다운로드하지않고, 캐시에 저장된 파일을 활용합니다. 또한 여러개의 패키지를 설치할 때 병렬로 처리하기 때문에 이론적으로 npm에 비해 패키지 설치속도가 빠릅니다. (npm은 순차적) npm은 패키지가 설치될 때 자동으로 코드와 의존성을 실행할 수 있도록 허용했습니다. 이 특징은 편리한 기능이지만 보장된 정책 없이 등록한 패키지가 존재할 수 있다는 점에서 안정성이 떨어집니다. 반면 yarn은 yarn.lock이나 package.json으로 부터 설치만 하며, yarn.lock은 모든 디바이스에 같은 패키지를 설치하는 것을 보장하기 때문에 버전의 차이로 인해 생기는 버그를 방지해줄 수 있습니다.">
+<meta name="description" content="webpack은 애플리케이션을 구성하는 자원들을 하나의 파일로 병합 및 압축하는 모듈 번들러 입니다. 한 예로, 여러 js 파일들을 불러와야 하는 브라우저는 네트워크 적으로 부담을 가질 수 밖에 없으나 webpack을 통해 js를 하나로 묶어서 불러올 경우 네트워크 부담을 줄여 성능을 증가 시킬 수 있습니다. 프론트 프레임워크 개발환경에서는 대체로 Node.js를 사용해 구현하므로, 개발환경에 webpack을 설치하여 개발 환경을 구축하는 개발방법이 주로 사용됩니다.">
 
 
 
@@ -259,7 +259,7 @@
                   
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/front/nodejs/yarn/">yarn</a>
                   </li>
                   
@@ -271,7 +271,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/front/nodejs/webpack/">webpack(웹팩)</a>
                   </li>
                   
@@ -293,7 +293,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Yarn(얀)</h1>
+            <h1 class="title">webpack(웹팩)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -312,137 +312,22 @@
             
 
 
-<p>yarn은 페이스북에서 만든 npm과 같은 기능을 수행할 수 있는 자바스크립트 패키지 매니저입니다.</p>
+<h2 id="이해하기">이해하기</h2>
 
-<p>yarn은 npm의 단점으로 꼽히는 속도, 안정성, 보안성 등을 개선하고자 개발되었습니다.</p>
+<p>webpack은 애플리케이션을 구성하는 자원들을 하나의 파일로 병합 및 압축하는 모듈 번들러 입니다.</p>
 
-<p><br></p>
-
-<p>yarn의 동작 방식으로는 다운받은 패키지 데이터를 캐시(cache)에 저장하여,
-중복된 데이터는 다운로드하지않고, 캐시에 저장된 파일을 활용합니다.</p>
-
-<p>또한 여러개의 패키지를 설치할 때 병렬로 처리하기 때문에 이론적으로 npm에 비해 패키지 설치속도가 빠릅니다. (npm은 순차적)</p>
+<p>한 예로, 여러 js 파일들을 불러와야 하는 브라우저는 네트워크 적으로 부담을 가질 수 밖에 없으나
+<br>webpack을 통해 js를 하나로 묶어서 불러올 경우 네트워크 부담을 줄여 성능을 증가 시킬 수 있습니다.</p>
 
 <p><br></p>
 
-<p>npm은 패키지가 설치될 때 자동으로 코드와 의존성을 실행할 수 있도록 허용했습니다.</p>
+<p>프론트 프레임워크 개발환경에서는 대체로 Node.js를 사용해 구현하므로,
+<br>개발환경에 webpack을 설치하여 개발 환경을 구축하는 개발방법이 주로 사용됩니다.</p>
 
-<p>이 특징은 편리한 기능이지만 보장된 정책 없이 등록한 패키지가 존재할 수 있다는 점에서 안정성이 떨어집니다.</p>
+<h3 id="번들링">번들링</h3>
 
-<p><br></p>
-
-<p>반면 yarn은 yarn.lock이나 package.json으로 부터 설치만 하며, yarn.lock은 모든 디바이스에 같은 패키지를 설치하는 것을 보장하기 때문에 버전의 차이로 인해 생기는 버그를 방지해줄 수 있습니다.</p>
-
-<p><br></p>
-
-<p><code>url</code> : <a href="https://yarnpkg.com">https://yarnpkg.com</a></p>
-
-<h2 id="설치">설치</h2>
-
-<p>npm 설치</p>
-
-<pre><code>$ npm install -g yarn
-</code></pre>
-
-<pre><code>$ yarn --version
-</code></pre>
-
-<h2 id="시작">시작</h2>
-
-<h3 id="init">init</h3>
-
-<pre><code>$ yarn init
-
-yarn init v1.19.1
-question name (sasscss):
-question version (1.0.0):
-question description:
-question entry point (index.js):
-question repository url:
-question author:
-question license (MIT):
-question private:
-success Saved package.json
-Done in 10.55s.
-</code></pre>
-
-<p>명령어를 입력하면 <code>package.json</code>이 생성됩니다.</p>
-
-<pre><code>// package.json
-{
-  &quot;name&quot;: &quot;sasscss&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;license&quot;: &quot;MIT&quot;
-}
-</code></pre>
-
-<h3 id="eject">eject</h3>
-
-<p>프로젝트 환경설정 파일들을 프로젝트 루트로 설정한다.
-eject 명령어가 성공하면 config 폴더가 생성된다.</p>
-
-<pre><code>$ yarn eject
-</code></pre>
-
-<pre><code>$ react-scripts eject
-NOTE: Create React App 2+ supports TypeScript, Sass, CSS Modules and more without ejecting: https://reactjs.org/blog/2018/10/01/create-react-app-v2.html        
-
-? Are you sure you want to eject? This action is permanent. (y/N) (설정파일을 추출할 것인가?)
-// y (입력)
-
-(...)
-
-Staged ejected files for commit.
-
-Please consider sharing why you ejected in this survey:
-  http://goo.gl/forms/Bi6CZjk1EqsdelXk1
-
-Done in 7191.46s.
-</code></pre>
-
-<hr />
-
-<p>프로젝트를 git repogitory 로 관리하고 있다면 안될 수 있다.(untracked 파일이나 커밋하지 않은 수정 내역이 있는 경우)
-yarn ejcet시에 아래와 같이 커밋을 해달라고 에러가 발생 할 수 있다.</p>
-
-<pre><code>? Are you sure you want to eject? This action is permanent. Yes
-This git repository has untracked files or uncommitted changes:
-
-src/App.css
-D src/App.js
-D src/App.test.js
-D src/index.css
-M src/index.js
-D src/logo.svg
-
-error Command failed with exit code 1.
-</code></pre>
-
-<p>add를 해주고 커밋을 해주면 정상적으로 eject가 동작한다.</p>
-
-<pre><code>$ git add .
-$ git commit -m &quot;commit text&quot;
-</code></pre>
-
-<h2 id="사용법">사용법</h2>
-
-<h3 id="global">global</h3>
-
-<p>글로벌 패키지 추가</p>
-
-<pre><code>$ yarn global add [package]
-</code></pre>
-
-<p>글로벌fh 설치된 패키지 리스트</p>
-
-<pre><code>$ yarn global list
-</code></pre>
-
-<h3 id="패키지-추가">패키지 추가</h3>
-
-<pre><code>$ yarn add [package]
-</code></pre>
+<p>번틀링은 여러개의 파일 중에 종속성이 존재하는 파일을 하나의 파일로 묶어
+<br>패키징을 시키는 과정을 의미합니다.</p>
 
 
           </div>
