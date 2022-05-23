@@ -390,6 +390,19 @@ console.log('테스트 입니다. ' + test);
 
 <h3 id="default-parameters-기본-매개-변수">Default parameters(기본 매개 변수)</h3>
 
+<p>함수에 전달된 파라미터의 값이 undefined일 때, 초기화 설정된 값을 말합니다.</p>
+
+<pre><code>function test(test='테스트') { 
+	return test;
+}
+
+console.log(test('테스트 입니다.'))
+// 테스트 입니다.
+
+console.log(test())
+// 테스트
+</code></pre>
+
 <h3 id="array-and-object-destructing-배열-및-객체-비구조화">Array and object destructing(배열 및 객체 비구조화)</h3>
 
 <h3 id="import-and-export-가져오기-및-내보내기">Import and export(가져오기 및 내보내기)</h3>
