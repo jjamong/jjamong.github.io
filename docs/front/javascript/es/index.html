@@ -403,15 +403,90 @@ console.log(test())
 // 테스트
 </code></pre>
 
-<h3 id="array-and-object-destructing-배열-및-객체-비구조화">Array and object destructing(배열 및 객체 비구조화)</h3>
+<h3 id="destructuring-assignment-비구조화-할당">Destructuring Assignment(비구조화 할당)</h3>
+
+<p>배열이나 객체의 속성을 해체하여 그 값을 각 변수에 선언할 수 있게 하는 표현식(expression)입니다.</p>
+
+<pre><code>// es6
+
+let array = ['test1', 'test2'];
+let [test1, test2, test3='test3] = array;
+
+console.log(test1) // test1
+console.log(test2) // test2
+console.log(test3) // test3
+
+</code></pre>
 
 <h3 id="import-and-export-가져오기-및-내보내기">Import and export(가져오기 및 내보내기)</h3>
 
+<pre><code>// 배열 
+export let array = ['test1', 'test2', 'test3'];
+
+// 상수
+export const TEST = 'test';
+
+// 함수
+export function functionTest(test) {
+  console.log(test);
+} 
+
+// 클래스
+export class classTest {
+  constructor(test) {
+    this.test = test;
+  }
+}
+</code></pre>
+
+<pre><code>import {functionTest} from './functionTest.js';
+
+functionTest('test'); // test
+</code></pre>
+
 <h3 id="promises-프로미스">Promises(프로미스)</h3>
 
-<h3 id="rest-parameter-and-spread-operator-나머지-매개-변수-및-확산-연산자">Rest parameter and Spread operator(나머지 매개 변수 및 확산 연산자)</h3>
+<pre><code>// Promise 객체의 생성
+const promise = new Promise((resolve, reject) =&gt; {
+  // 비동기 작업을 수행한다.
+
+  if (/* 비동기 작업 수행 성공 */) {
+    resolve('result');
+  }
+  else { /* 비동기 작업 수행 실패 */
+    reject('failure reason');
+  }
+});
+</code></pre>
+
+<h3 id="spread-operator-확산-연산자">Spread Operator(확산 연산자)</h3>
+
+<pre><code>var arr1 = [1, 2, 3]; 
+var arr2 = [...arr1, 4, 5, 6]; 
+console.log(arr2); // [ 1, 2, 3, 4, 5, 6 ]
+
+var str1 = 'test test'; 
+var str2 = [...str1]; 
+console.log(str2); // [ &quot;t&quot;, &quot;e&quot;, &quot;s&quot;, &quot;t&quot;, &quot; &quot;, &quot;t&quot;, &quot;e&quot;, &quot;s&quot;, &quot;t&quot; ]
+</code></pre>
+
+<h3 id="rest-parameter-나머지-매개-변수">Rest parameter(나머지 매개 변수)</h3>
+
+<pre><code>function test(test1, test2, ...testArray) {
+    console.log(testArray)
+}
+test(1,2,3,4,5) // [3, 4, 5]
+</code></pre>
 
 <h3 id="classes-클래스">Classes(클래스)</h3>
+
+<p>`<code>
+class classTest {
+  constructor(test) {
+    this.test = test;
+  }
+}
+</code></p>
 
 
           </div>
