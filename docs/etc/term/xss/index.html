@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>XSS(Cross Site Scripting) | 짜몽 개발 연구소</title>
+<title>XSS(Cross Site Scripting / 사이트 간 스크립팅) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
@@ -283,7 +283,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">XSS(Cross Site Scripting)</h1>
+            <h1 class="title">XSS(Cross Site Scripting / 사이트 간 스크립팅)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -302,24 +302,53 @@
             
 
 
-<p><a href="https://noirstar.tistory.com/266">https://noirstar.tistory.com/266</a></p>
-
 <h2 id="이해하기">이해하기</h2>
 
 <blockquote>
 <p>웹에서 발생하는 취약점으로 권한이 없는 사용자가 웹 사이트에 스크립트를 삽입하는 공격 기법입니다.</p>
 </blockquote>
 
+<p><br></p>
+
+<p>XSS는 SQL injection과 함께 웹 상에서 가장 기본적인 보안 취약점 공격 방법 입니다.</p>
+
+<p>이 취약점은 웹 애플리케이션이 사용자로부터 입력 받은 값을 보안화 하지 않을 경우 나타나며<br>
+공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 됩니다.</p>
+
+<p>기본적인 공격 방법인 만큼 방법이 단순하고 쉽게 이해할 수 있습니다.<br></p>
+
+<p>보안 취약점 점검에 필수 적인 보안화 항목이고 많은 웹사이트들이 기본적으로 보안화 하고 있습니다.</p>
+
+<p><br></p>
+
+<h5 id="cross-site">Cross-Site</h5>
+
+<p>삽입된 스크립트를 통해 다른 웹사이트와 정보를 교환하는 식으로 작동하기 때문에<br>
+Cross-Site 라는 이름이 붙게 되었다고 합니다.</p>
+
+<p><br></p>
+
+<h5 id="owasp-top10">OWASP Top10</h5>
+
+<p>XSS 공격은 OWASP Top10에 등록되어 있습니다.</p>
+
+<p><br></p>
+
+<h5 id="xss-css">XSS? CSS?</h5>
+
+<p>XSS(Cross Site Scripting)은 CSS라고 하는 것이 맞지만 이미 CSS(Cascading Style Sheets)가 오랫동안 사용되고 있어 XSS라고 한다고 합니다.</p>
+
+<p><br></p>
+
 <h3 id="사례">사례</h3>
 
-<p>XSS공격 역시 OWASP Top10에 포함되어 있습니다. 대부분 사용자가 글을 쓰고 읽을 수 있는 게시판에 많이 발생하지만, 사용자의 입력 값을 웹 페이지에 보여주는 곳에서도 발생합니다. 악의적인 사용자가 C&amp;C 서버로 리다이렉션 하기 위해 리다이렉션 스크립트를 주입하여 중간 경유지로 활용하기도 하고, 사용자의 쿠키를 탈취하여 세션 하이재킹(Session Hijacking) 공격을 수행하기도 합니다.</p>
-
-<p>위의 사진은 XSS 공격중 Persistent(or Stored) XSS Attack이고, 사용자의 세션을 탈취하는 프로세스를 나타내고 있습니다. 해커가 XSS 공격에 취약한 웹사이트에 악의적인 스크립트를 삽입하고, 그 스크립트가 있는 게시글을 열람한 사용자는 악성스크립트로 인해 본인의 쿠키가 해커에게 전송되게 됩니다. 세션ID가 포함된 쿠키를 탈취한 해커는 탈취한 사용자의 계정으로 로그인 하게 됩니다.</p>
-
-<p>크로스 사이트 스크립팅(사이트 간 스크립팅 )은 SQL injection과 함께 웹 상에서 가장 기초적인 취약점 공격 방법의 일종으로, 악의적인 사용자가 공격하려는 사이트에 스크립트를 넣는 기법을 말한다.  주로 다른 웹사이트와 정보를 교환하는 식으로 작동하므로 사이트 간 스크립팅이라고 명칭한다.
-이 취약점은 웹 애플리케이션이 사용자로부터 입력 받은 값을 제대로 검사하지 않고 사용할 경우 나타나며, 공격에 성공하면 사이트에 접속한 사용자는 삽입된 코드를 실행하게 된다. 보통 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다.
-크로스 사이트 스크립팅은 자바스크립트를 사용하여 공격하는 경우가 많다. 공격 방법이 단순하고 가장 기초적이지만, 많은 웹사이트들이 XSS에 대한 방어 조치를 해두지 않아 공격을 받는 경우가 많다. 여러 사용자가 접근 가능한 게시판 등에 코드를 삽입하는 경우도 많으며, 경우에 따라서는 메일과 같은 매체, 심지어는 닉네임에 코드를 심기도 한다.
-출처: <a href="https://lucete1230-cyberpolice.tistory.com/23">https://lucete1230-cyberpolice.tistory.com/23</a> [I-Tstory:티스토리]</p>
+<ul>
+<li>대부분 사용자가 글을 읽고 쓸수 있는 게시판에서 많이 발생합니다.</li>
+<li>사용자의 입력 값을 웹 페이지에 보여주는 곳에서도 발생합니다.</li>
+<li>악의적인 사용자가 C&amp;C 서버로 리다이렉션 하기 위해 리다이렉션 스크립트를 주입하여 중간 경유지로 활용 합니다.</li>
+<li>사용자의 쿠키를 탈취하여 세션 하이재킹(Session Hijacking) 공격을 수행하기도 합니다.</li>
+<li>의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취한다.</li>
+</ul>
 
 
           </div>
