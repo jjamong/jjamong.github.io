@@ -10,7 +10,7 @@ $(function () {
     // Where to grab the headings to build the table of contents.
     contentSelector: '.content-main',
     // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h2, h3',
+    headingSelector: 'h2, h3, h4',
     collapseDepth: 6,
     orderedList: false,
     // Headings offset between the headings and the top of the document (this is meant for minor adjustments).
