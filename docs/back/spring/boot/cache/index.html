@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>cache(캐시) | 짜몽 개발 연구소</title>
+<title>Cache(캐시) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="cache(캐시)">
+<meta name="description" content="Cache(캐시)는 데이터 결과를 미리 저장해두고 요청이 들어오면 원본 데이터가 아닌&lt;br&gt; 미리 저장해 놓은 데이터 결과를 보여주는 기법을 말합니다. 캐시를 사용해서 데이터를 저장해 놓고 이후에 데이터 요청이 있을 경우 원본 데이터를 불러오는 것보다 미리 저장해 놓은 데이터를 불러와 성능적으로 더 빠르게 결과를 출력합니다. 캐시는 결과가 바뀌지 않는 매번 동일한 결과를 출력하는 곳에 사용할 경우에 효율이 올라가며 반대로 매번 다른 결과가 출력되거나, 값이 빈번하게 수정되는 경우엔 오히려 성능적으로 떨어질 수 있습니다.">
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.bee8f9358a53cb43345bd510c82e4c21dfe5a4fc0fd77beef475de55877fa715.css" integrity="sha256-vuj5NYpTy0M0W9UQyC5MId/lpPwP13vu9HXeVYd/pxU=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.b8e7af6b8e42f7148eca0bbf15fc6b47bb10b6384128b6c2a85e759a5732d2a1.css" integrity="sha256-uOeva45C9xSOygu/FfxrR7sQtjhBKLbCqF51mlcy0qE=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -151,7 +151,7 @@
         <div class="sub-menu">
           <ul>
             
-            <li class="Maria"><a href="https://jjamong.github.io/docs/db/maria/">Maria</a></li>
+            <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
             
           </ul>
         </div>
@@ -305,7 +305,7 @@
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/back/spring/boot/cache/">cache(캐시)</a>
+                    <a href="/docs/back/spring/boot/cache/">Cache(캐시)</a>
                   </li>
                   
                 
@@ -371,7 +371,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">cache(캐시)</h1>
+            <h1 class="title">Cache(캐시)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -390,7 +390,60 @@
             
 
 
-<h2 id="시작하기">시작하기</h2>
+<h2 id="이해하기">이해하기</h2>
+
+<blockquote>
+<p>Cache(캐시)는 데이터 결과를 미리 저장해두고 요청이 들어오면 원본 데이터가 아닌<br>
+미리 저장해 놓은 데이터 결과를 보여주는 기법을 말합니다.</p>
+</blockquote>
+
+<p><br></p>
+
+<p>캐시를 사용해서 데이터를 저장해 놓고 이후에 데이터 요청이 있을 경우<br>
+원본 데이터를 불러오는 것보다 미리 저장해 놓은 데이터를 불러와 성능적으로 더 빠르게
+결과를 출력합니다.</p>
+
+<p>캐시는 결과가 바뀌지 않는 매번 동일한 결과를 출력하는 곳에 사용할 경우에 효율이 올라가며</p>
+
+<p>반대로 매번 다른 결과가 출력되거나, 값이 빈번하게 수정되는 경우엔 오히려<br>
+성능적으로 떨어질 수 있습니다.</p>
+
+<p><br></p>
+
+<table>
+<thead>
+<tr>
+<th>Local Cache</th>
+<th>Global Cache</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>서버 내부에 캐시를 저장한다.</td>
+<td>여러 서버에서 캐시 서버에 접근하여 참조 할 수 있다.</td>
+</tr>
+
+<tr>
+<td>다른 서버의 캐시를 참조하기 어렵다.</td>
+<td>별도의 캐시 서버를 이용하기 때문에 서버 간 데이터 공유가 쉽다.</td>
+</tr>
+
+<tr>
+<td>서버 내에서 작동하기 때문에 속도가 빠르다.</td>
+<td>네트워크 트래픽을 사용해야 해서 로컬 캐시보다는 느리다.</td>
+</tr>
+
+<tr>
+<td>로컬 서버 장비의 Resource를 이용한다. (Memory, Disk)</td>
+<td>데이터를 분산하여 저장 할 수 있다.</td>
+</tr>
+</tbody>
+</table>
+
+<p><br><br></p>
+
+<h2 id="local-cache-로컬-캐시">Local Cache (로컬 캐시)</h2>
 
 <p><code>스프링 부트 환경</code>에서 설정합니다.</p>
 
@@ -470,6 +523,22 @@ public ResponseEntity index() {return new ResponseEntity(HttpStatus.OK);}
 @Cacheable(key = &quot;T(com.jjamong.cacheutil).createKey(#root.targetClass, #root.methodName, #root.args)&quot; , value = &quot;jjamong_cache&quot;)
 public ResponseEntity index() {return new ResponseEntity(HttpStatus.OK);}
 </code></pre>
+
+<h2 id="global-cache-글로벌-캐시">Global Cache (글로벌 캐시)</h2>
+
+<p>Multi Server 환경에서 Session, Cache 데이터를 Server 마다 나누어 관리하게 되면<br>
+참조하는데 어려움이 많습니다.</p>
+
+<p>그래서, 외부 서버에서 따로 관리하고 각 서버들이 참조하는 식으로 구성합니다.</p>
+
+<h3 id="redis-remote-dictionary-system-레디스">Redis (REmote DIctionary System / 레디스)</h3>
+
+<p>Redis는 In-Memory 기반의 키-값 형식의 비정형 데이터 구조를 가졌습니다.</p>
+
+<p>고성능 key-value 저장소로서 List, Hash, Set, Sorted Set 등 여러 형식의 자료구조를 지원하며<br>
+메모리에 위치해있기 때문에 디스크보다 훨씬 빠릅니다.</p>
+
+<p>이러한 이유들로 RDBMS의 캐시 및 세션 솔루션으로서 주로 사용되고 있습니다.</p>
 
 
           </div>

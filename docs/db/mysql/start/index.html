@@ -10,7 +10,7 @@
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="MYSQL 가이드">
+<meta name="description" content="MYSQL">
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.e43e97837f98d486645a1d115f8aaac70caac3b7f5df8e04ea893c8c9e6f2e86.css" integrity="sha256-5D6Xg3&#43;Y1IZkWh0RX4qqxwyqw7f1344E6ok8jJ5vLoY=">
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.b8e7af6b8e42f7148eca0bbf15fc6b47bb10b6384128b6c2a85e759a5732d2a1.css" integrity="sha256-uOeva45C9xSOygu/FfxrR7sQtjhBKLbCqF51mlcy0qE=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -110,6 +110,7 @@
 <div class="container top-menu">
   <div class="docs-top-menu tabs">
     <ul>
+      
       <li class="tabs-li">
         
         <a class="tabs-a">Front</a>
@@ -118,24 +119,32 @@
             
             <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
             
-            <li class="NodeJS"><a href="https://jjamong.github.io/docs/front/nodejs/">NodeJS</a></li>
+            <li class="Nodejs"><a href="https://jjamong.github.io/docs/front/nodejs/">Nodejs</a></li>
             
-            <li class="Yarn"><a href="https://jjamong.github.io/docs/front/yarn/">Yarn</a></li>
+            <li class="JavaScript"><a href="https://jjamong.github.io/docs/front/javascript/">JavaScript</a></li>
+            
+            <li class="Css"><a href="https://jjamong.github.io/docs/front/css/">Css</a></li>
             
           </ul>
         </div>
       </li>
+      
+      
       <li class="tabs-li">
         
         <a class="tabs-a">Back</a>
         <div class="sub-menu">
           <ul>
             
+            <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+            
             <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
             
           </ul>
         </div>
       </li>
+
+      
       <li class="tabs-li">
         
         <a class="tabs-a">DB</a>
@@ -147,6 +156,7 @@
           </ul>
         </div>
       </li>
+
       <li class="tabs-li">
         
         <a class="tabs-a">APP</a>
@@ -154,10 +164,6 @@
           <ul>
             
             <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
-            
-            <li class="Android"><a href="https://jjamong.github.io/docs/app/android/">Android</a></li>
-            
-            <li class="IOS"><a href="https://jjamong.github.io/docs/app/ios/">IOS</a></li>
             
           </ul>
         </div>
@@ -183,9 +189,13 @@
         <div class="sub-menu">
           <ul>
             
+            <li class="Term"><a href="https://jjamong.github.io/docs/etc/term/">Term</a></li>
+            
             <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
             
             <li class="GIT"><a href="https://jjamong.github.io/docs/etc/git/">GIT</a></li>
+            
+            <li class="DevOps"><a href="https://jjamong.github.io/docs/etc/devops/">DevOps</a></li>
             
             <li class="ETC"><a href="https://jjamong.github.io/docs/etc/etc/">ETC</a></li>
             
@@ -197,7 +207,12 @@
 </div>
     <div class="container is-fluid">
       <div class="columns verticals">
+
         
+
+        
+        
+          
 
 
 
@@ -235,8 +250,26 @@
               <ul>
                 
                   
+                  <li  class="active"  class="subsections">
+                    <a href="/docs/db/mysql/start/">Mysql</a>
+                  </li>
+                  
+                
+                  
                   <li  class="subsections">
-                    <a href="/docs/db/mysql/start">Mysql</a>
+                    <a href="/docs/db/mysql/isolationlevel/">Isolation Level(격리 수준)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/db/mysql/query/">쿼리</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/db/mysql/procedure/">Procedure(프로시저)</a>
                   </li>
                   
                 
@@ -250,6 +283,10 @@
     </div>
   </div>
 </div>
+
+        
+        
+
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
@@ -292,27 +329,41 @@ select * from information_schema.processlist;
 
 <h2 id="임시-테이블">임시 테이블</h2>
 
-<pre><code>WITH TBL AS
+<h3 id="with">WITH</h3>
+
+<pre><code>```
+WITH TBL AS
 (
-	SELECT '철수' AS NAME, 20 AS AGE
-	UNION ALL
-	SELECT NAME, AGE
-	  FROM TB1
+    SELECT '철수' AS NAME, 20 AS AGE
+    UNION ALL
+    SELECT NAME, AGE
+    FROM TB1
 )
 
 SELECT NAME, AGE FROM TBL;
+```
 </code></pre>
 
-<h2 id="업데이트">업데이트</h2>
+<h3 id="temporary-table">Temporary Table</h3>
 
-<h3 id="다중-테이블">다중 테이블</h3>
+<p>MYSQL은 temporary table 을 session 이 끝나거나 connection 이 종료되었을 때 자동으로 삭제합니다.<br>
+접속한 세션 안에서만 생성하고 사용할  수 있다는 의미입니다.</p>
 
-<p>a,b 두개의 테이블에 같은 컬럼(seq)이 있고, a의 컬럼에 b컬럼을 동일하게 데이터를 업데이트 하고
-싶을 때 사용된다.</p>
+<p>temporary table 은 오직 접근 가능한 client 만 접근할 수 있습니다. 다른 client들은 오직 특정 client 만 table 을 볼 수 있기 때문에 특별한 오류 없이 같은 이름의 temporary table을 생성할 수 있습니다.<br>
+같은 session 에 두개의 temporary tables 는 같은 이름의 table 이 공유될 수 없습니다.</p>
 
-<pre><code>UPDATE 테이블1 AS a, 테이블2 AS b
-SET a.column = b.column,
-WHERE a.seq = b.seq
+<h4 id="create-temporary-table">CREATE TEMPORARY TABLE</h4>
+
+<pre><code>CREATE TEMPORARY TABLE table_name( 
+	SEQ INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY
+	,SEQ1 INT
+	,SEQ2 INT
+);
+</code></pre>
+
+<h4 id="drop-temporary-table">DROP TEMPORARY TABLE</h4>
+
+<pre><code>DROP TEMPORARY TABLE TABLE
 </code></pre>
 
 
@@ -339,6 +390,8 @@ WHERE a.seq = b.seq
     
 <script src="/js/burger-menu.js"></script>
 <script src="/js/jquery-3.3.1.min.js"></script>
+
+
 
 <script src="/js/common.js"></script>
 

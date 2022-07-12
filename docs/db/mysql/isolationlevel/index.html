@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>Isolation Level(격리 수준) | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="Isolation Level(격리 수준)">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.b8e7af6b8e42f7148eca0bbf15fc6b47bb10b6384128b6c2a85e759a5732d2a1.css" integrity="sha256-uOeva45C9xSOygu/FfxrR7sQtjhBKLbCqF51mlcy0qE=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<script data-ad-client="ca-pub-3588286886332636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="Nodejs"><a href="https://jjamong.github.io/docs/front/nodejs/">Nodejs</a></li>
+            
+            <li class="JavaScript"><a href="https://jjamong.github.io/docs/front/javascript/">JavaScript</a></li>
+            
+            <li class="Css"><a href="https://jjamong.github.io/docs/front/css/">Css</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Back</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+            
+            <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">DB</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      <li class="tabs-li">
+        
+        <a class="tabs-a">APP</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+            <li class="OS"><a href="https://jjamong.github.io/docs/infra/os/">OS</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Term"><a href="https://jjamong.github.io/docs/etc/term/">Term</a></li>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="GIT"><a href="https://jjamong.github.io/docs/etc/git/">GIT</a></li>
+            
+            <li class="DevOps"><a href="https://jjamong.github.io/docs/etc/devops/">DevOps</a></li>
+            
+            <li class="ETC"><a href="https://jjamong.github.io/docs/etc/etc/">ETC</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+
+        
+
+        
+        
+          
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Mysql
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>Mysql</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/db/mysql/start/">Mysql</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="active"  class="subsections">
+                    <a href="/docs/db/mysql/isolationlevel/">Isolation Level(격리 수준)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/db/mysql/query/">쿼리</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/db/mysql/procedure/">Procedure(프로시저)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        
+
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">Isolation Level(격리 수준)</h1>
+
+            <div class="content-ads">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3588286886332636"
+                  data-ad-slot="4509829062"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            
+            
+
+
+<h2 id="이해하기">이해하기</h2>
+
+<blockquote>
+<p>여러 트랜젝션이 처리될 때 특정 트랜젝션이 다른 트랜젝션에서 조회, 변경 하는 수준을 설정하는 것을 말합니다.</p>
+</blockquote>
+
+<p><br></p>
+
+<p>MySQL에서 전체 데이터를 scan(스캔) 하는 쿼리를 질의하게 되면 서비스에 큰 영향이 발생할 수 있습니다.</p>
+
+<p>InnoDB 스토리지 엔진의 Isolation Level(격리 수준)이 기본으로 <code>REPEATABLE-READ</code> 이기 때문에 발생하는데,<br>
+세션 변수 일부를 변경하여 문제를 해결할 수 있습니다.</p>
+
+<h3 id="격리-수준">격리 수준</h3>
+
+<h4 id="read-uncommitted">READ UNCOMMITTED</h4>
+
+<p>트랜잭션에서 변경하는 내용이 commit과 rollback여부에 관계 없이 다른 트랜잭션에게 노출됩니다.</p>
+
+<p>발생 가능한 문제점 - DIRTY READ, NON REPEATABLE READ, PHANTOM READ</p>
+
+<h4 id="read-committed">READ COMMITTED</h4>
+
+<p>트랜잭션에서 변경한 레코드는 commit이 완료된 데이터만 조회할 수 있게 만듭니다. commit 전에 조회를 시도한다면 UNDO영역에 백업된 레코드를 조회할 수 있습니다.</p>
+
+<p>발생 가능한 문제점 - NON REPEATABLE READ, PHANTOM READ</p>
+
+<h4 id="repeatable-read">REPEATABLE READ</h4>
+
+<p>REPEATABLE READ는 InnoDB 엔진에서 사용하는 기본 격리 수준입니다. 따로 격리 수준을 설정해주지 않았다면 REPEATABLE READ 격리 수준으로 트랜잭션이 실행됩니다. REPEATABLE READ란 하나의 트랜잭션 내부에서 같은 SELECT문은 항상 같은 결과를 보여주는 것입니다. MySQL InnoDB에서는 트랜잭션별로 식별자를 주고 트랜잭션에서 변경하는 데이터를 UNDO영역에 백업합니다. 이 백업된 데이터와 트랜잭션 식별자로 동일 트랜잭션에서 동일 결과값을 보여줄 수 있도록 보장합니다.</p>
+
+<p>발생 가능한 문제점 - PHANTOM READ (InnoDB는 발생하지 않음)</p>
+
+<h4 id="serializable">SERIALIZABLE</h4>
+
+<p>격리수준중 가장 높은 격리 수준입니다. 레코드를 조회할 때 Shared Lock을 획득해야만 조회할 수 있고, 데이터를 변경할 때에는 Exclusive Lock을 획득해야만 변경할 수 있습니다. 즉 한 트랜잭션에서 사용하는 데이터는 다른 트랜잭션에서 접근할 수 없게 만듭니다. 데이터 정합성을 지키는 면은 가장 우수하지만 동시 처리 성능이 떨어집니다.</p>
+
+<h3 id="격리-수준-변경">격리 수준 변경</h3>
+
+<pre><code>set session transaction isolation level red uncommitted;
+</code></pre>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>
