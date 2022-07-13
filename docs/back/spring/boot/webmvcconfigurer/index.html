@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Gradle 설정 | 짜몽 개발 연구소</title>
+<title>WebMvcConfigurer | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="자바 스프링 부트(JAVA Spring Boot) Gradle 설정">
+<meta name="description" content="WebMvcConfigurer">
 
 
 
@@ -286,7 +286,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/boot/webmvcconfigurer/">WebMvcConfigurer</a>
                   </li>
                   
@@ -361,7 +361,7 @@
                   
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/back/spring/boot/gradle/">Gradle</a>
                   </li>
                   
@@ -383,7 +383,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Gradle 설정</h1>
+            <h1 class="title">WebMvcConfigurer</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -402,26 +402,66 @@
             
 
 
-<p><a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/">https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/</a></p>
+<h3 id="cors-cross-origin-resource-sharing">CORS(Cross-Origin Resource Sharing)</h3>
 
-<p><a href="https://willbesoon.tistory.com/93">https://willbesoon.tistory.com/93</a></p>
+<h4 id="cors-오류-발생">CORS 오류 발생</h4>
 
-<h2 id="저장소">저장소</h2>
+<pre><code>// src/main/java/com/jjamong/web/controller/IndexController.java
 
-<p>mavenCentral은 Maven Repository Server에서 라이브러리를 가져옵니다.</p>
+@RequestMapping(value = &quot;/&quot;, method = RequestMethod.GET)
+public ResponseEntity index() {
 
-<pre><code>repositories {
-    mavenCentral()
-}
-
-</code></pre>
-
-<p>mavenCentral은 Maven Repository Server에서 라이브러리를 가져옵니다.</p>
-
-<pre><code>repositories {
-    maven { url '다른 저장소 url'}
+    HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
+    
+    return new ResponseEntity(data, HttpStatus.OK);
 }
 </code></pre>
+
+<pre><code>// index.html
+
+&lt;script src=&quot;./jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $.ajax({     
+        method: &quot;GET&quot;,
+        url: &quot;http://localhost:8080&quot;,    
+    })
+    .done(function(json) {
+        console.log(json)
+    })
+
+&lt;/script&gt;
+</code></pre>
+
+<p>index.html 파일을 열고 network를 확인해 보면 아래와 같이 CORS 오류가 발생합니다.</p>
+
+<p><img src="/docs/back/spring/boot/webmvcconfigurer/01.png" alt="01" /></p>
+
+<h4 id="cors-허용-설정">CORS 허용 설정</h4>
+
+<pre><code>package com.jjamong.web.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MvcConfig implements WebMvcConfigurer {
+    
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping(&quot;/**&quot;)
+                .allowedOrigins(&quot;*&quot;)
+                .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;, &quot;OPTIONS&quot;)
+                .allowedHeaders(&quot;headers&quot;)
+                .maxAge(3000);
+    }
+}
+</code></pre>
+
+<p>모든 요청에 대해서 허용하는 설정을 하고 index.html파일을 새로고침하면<br>
+아래와 같이 CORS 오류가 해결된 것을 확인할 수 있습니다.</p>
+
+<p><img src="/docs/back/spring/boot/webmvcconfigurer/02.png" alt="02" /></p>
 
 
           </div>
