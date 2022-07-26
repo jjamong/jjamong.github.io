@@ -413,9 +413,14 @@
 
 <h2 id="시작하기">시작하기</h2>
 
-<h3 id="index-페이지">index 페이지</h3>
+<h3 id="lucy-xss-servlet-filter">lucy-xss-servlet-filter</h3>
 
-<h4 id="controller">Controller</h4>
+<p>XSS(Cross Site Scripting) 방지를 위해 널리 쓰이는 lucy-xss-servlet-filter는 Servlet Filter 단에서<br>
+<code>&lt;</code> 등의 특수 문자를 <code>&amp;lt;</code> 등으로 변환해주며, 여러 가지 관련 설정을 편리하게 지정할 수 있습니다.</p>
+
+<h4 id="index-페이지">index 페이지</h4>
+
+<h5 id="controller">Controller</h5>
 
 <pre><code>// src/main/java/com/jjamong/xss/controller/IndexController.java
 
@@ -445,7 +450,7 @@ public class IndexController {
 }
 </code></pre>
 
-<h4 id="jsp">jsp</h4>
+<h5 id="jsp">jsp</h5>
 
 <pre><code>// src/main/webapp/WEB-INF/jsp/index.jsp
 
@@ -456,7 +461,7 @@ public class IndexController {
 &lt;/form&gt;
 </code></pre>
 
-<h3 id="실행">실행</h3>
+<h4 id="실행">실행</h4>
 
 <p><img src="/docs/back/spring/boot/webmvcconfigurer/xss/01.png" alt="01" /></p>
 
@@ -467,14 +472,14 @@ public class IndexController {
 &gt;&gt;&gt; text2 : &lt;script&gt;alert(1)&lt;/script&gt;
 </code></pre>
 
-<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
+<h4 id="lucy-의존성-모듈-설정">lucy 의존성 모듈 설정</h4>
 
 <pre><code>// build.gradle
 
 implementation 'com.navercorp.lucy:lucy-xss-servlet:2.0.0'
 </code></pre>
 
-<h3 id="xss-필터-적용">XSS 필터 적용</h3>
+<h4 id="xss-필터-적용">XSS 필터 적용</h4>
 
 <pre><code>// src/main/java/com/jjamong/xss/config/WebMvcConfig.java
 
@@ -502,7 +507,7 @@ public class WebMvcConfig extends WebMvcAutoConfiguration {
 }
 </code></pre>
 
-<h3 id="xss-필터-룰-적용">XSS 필터 룰 적용</h3>
+<h4 id="xss-필터-룰-적용">XSS 필터 룰 적용</h4>
 
 <pre><code>// src/main/resources/lucy-xss-servlet-filter-rule.xml
 
@@ -524,13 +529,140 @@ public class WebMvcConfig extends WebMvcAutoConfiguration {
 &lt;/config&gt;
 </code></pre>
 
-<h3 id="실행-1">실행</h3>
+<h4 id="실행-1">실행</h4>
 
 <p>다시 insert 버튼을 선택 하면 아래와 같이
 <br>스크립트 코드가 변환되어서 전송된 것을 확인 할 수 있습니다.</p>
 
 <pre><code>&gt;&gt;&gt; text1 : alert(1)
 &gt;&gt;&gt; text2 : &amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;
+</code></pre>
+
+<h3 id="jackson">Jackson</h3>
+
+<p>lucy-xss-servlet-filter는 JSON에 대한 XSS는 처리해 주지 않는다는 한계가 있습니다.</p>
+
+<p>form-data 에 대해서만 적용 되고 Request Raw Body에 대해서는 처리해 주지 않습니다.<br>
+그래서 JSON 형태에 값에 대해선 직접 처리를 해야 합니다.</p>
+
+<p>Jackson의 com.fasterxml.jackson.core.io.CharacterEscapes를 상속하는 클래스를 직접 만들어서 처리해야 할 특수문자를 지정하고,<br>
+ObjectMapper에 만든 클래스를 설정하고<br>
+ObjectMapper를 MessageConverter에 등록해서 Response가 클라이언트에 나가기 전에 XSS 방지 처리 해줍니다.</p>
+
+<h4 id="lucy-의존성-모듈-설정-1">lucy 의존성 모듈 설정</h4>
+
+<pre><code>// build.gradle
+
+implementation 'org.apache.commons:commons-text:1.8'
+</code></pre>
+
+<h4 id="htmlcharacterescapes">HtmlCharacterEscapes</h4>
+
+<pre><code>package com.jjamong.xss.util;
+
+import com.fasterxml.jackson.core.SerializableString;
+import com.fasterxml.jackson.core.io.CharacterEscapes;
+import com.fasterxml.jackson.core.io.SerializedString;
+import org.apache.commons.text.StringEscapeUtils;
+
+public class HtmlCharacterEscapes extends CharacterEscapes {
+    private final int[] asciiEscapes;
+
+    public HtmlCharacterEscapes() {
+        this.asciiEscapes = CharacterEscapes.standardAsciiEscapesForJSON();
+        this.asciiEscapes['&lt;'] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes['&gt;'] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes['\&quot;'] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes['('] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes[')'] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes['#'] = CharacterEscapes.ESCAPE_CUSTOM;
+        this.asciiEscapes['\''] = CharacterEscapes.ESCAPE_CUSTOM;
+    }
+
+    @Override
+    public int[] getEscapeCodesForAscii() {
+        return asciiEscapes;
+    }
+
+    @Override
+    public SerializableString getEscapeSequence(int ch) {
+        return new SerializedString(StringEscapeUtils.escapeHtml4(Character.toString((char) ch)));
+    }
+
+    public String unitChange(String text) {
+        HtmlCharacterEscapes()
+        return 
+    }
+}
+</code></pre>
+
+<h4 id="webmvcconfig-설정">WebMvcConfig 설정</h4>
+
+<pre><code>package com.jjamong.xss.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jjamong.xss.util.HtmlCharacterEscapes;
+
+@Configuration
+public class WebMvcConfig {
+
+    private final ObjectMapper objectMapper;
+
+    @Autowired
+    public WebMvcConfig(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter jsonEscapeConverter() {
+        ObjectMapper copy = objectMapper.copy();
+        copy.getFactory().setCharacterEscapes(new HtmlCharacterEscapes());
+        return new MappingJackson2HttpMessageConverter(copy);
+    }
+}
+
+</code></pre>
+
+<h4 id="index-페이지-1">index 페이지</h4>
+
+<pre><code>package com.jjamong.xss.controller;
+
+import java.util.HashMap;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jjamong.xss.data.Search;
+
+@Controller
+public class IndexController {
+
+    @RequestMapping(&quot;/&quot;) 
+    public ResponseEntity index(@ModelAttribute Search search) {
+
+        HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
+
+        data.put(&quot;test1&quot;, &quot;안녕&quot;);
+        data.put(&quot;test2&quot;, &quot;&lt;div&gt;안녕&lt;/div&gt;&quot;);
+        data.put(&quot;test3&quot;, &quot;&lt;script&gt;alert()&lt;/script&gt;&quot;);
+        data.put(&quot;test4&quot;, search.getTest());
+        
+        return new ResponseEntity(data, HttpStatus.OK);
+    }
+}
+</code></pre>
+
+<h4 id="실행-2">실행</h4>
+
+<pre><code>{&quot;test4&quot;:&quot;&amp;lt;div&amp;gt;alert()&amp;lt;/div&amp;gt;&quot;,&quot;test2&quot;:&quot;&amp;lt;div&amp;gt;안녕&amp;lt;/div&amp;gt;&quot;,&quot;test3&quot;:&quot;&amp;lt;script&amp;gt;alert()&amp;lt;/script&amp;gt;&quot;,&quot;test1&quot;:&quot;안녕&quot;}
 </code></pre>
 
 
