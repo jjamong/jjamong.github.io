@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>VSCode(Visual Studio Code) | 짜몽 개발 연구소</title>
+<title>Xshell | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="VSCode 가이드">
+<meta name="description" content="Xshell">
 
 
 
@@ -268,13 +268,13 @@
                   
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/etc/etc/vscode/">VSCode</a>
                   </li>
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/etc/etc/xshell/">Xshell</a>
                   </li>
                   
@@ -295,7 +295,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">VSCode(Visual Studio Code)</h1>
+            <h1 class="title">Xshell</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -314,62 +314,30 @@
             
 
 
-<p>url : <code>https://code.visualstudio.com/</code></p>
+<h2 id="script">Script</h2>
 
-<h2 id="설정">설정</h2>
+<p>xshell은 로그인 스크립트를 사용할 수 있습니다.<br>
+아래와 같이 로그인 스크립트 설정에서 연결 시 실행할 스크립트 파일을 연결합니다.</p>
 
-<h3 id="기본터미널-git-bash로-설정">기본터미널 git bash로 설정</h3>
+<p>파일을 연결하면, Xshell로 서버 접속 후 연결된 스크립트 파일을 실행합니다.</p>
 
-<p><code>ctrl + ,</code> 또는 <code>파일 &gt; 기본 설정 &gt; 설정</code> 설정으로 들어가서</p>
+<p><img src="/docs/etc/etc/xshell/setting.png" alt="setting" /></p>
 
-<pre><code>terminal.integrated.shell.windows
+<pre><code>// login1.vbs
+
+Sub Main
+	xsh.Screen.Send &quot;su root&quot;
+	xsh.Screen.Send(VbCr) 
+	xsh.Session.Sleep 500
+	
+	xsh.Screen.Send &quot;1234&quot;
+	xsh.Screen.Send(VbCr) 
+	xsh.Session.Sleep 500
+End Sub
 </code></pre>
 
-<p>을 입력하고 setting.json을 키고</p>
-
-<pre><code>&quot;terminal.integrated.shell.windows&quot;: &quot;D:\\program\\Git\\bin\\bash.exe&quot;,
-</code></pre>
-
-<p>이와 같이 git bash.exe 경로로 변경하고 재실행 합니다.</p>
-
-<p><img src="/docs/etc/etc/vscode/gitbash.png" alt="gitbash" /></p>
-
-<h3 id="jdk-설정">JDK 설정</h3>
-
-<h2 id="플러그인">플러그인</h2>
-
-<h3 id="한글">한글</h3>
-
-<p><code>korea</code>를 검색하여 설치하고 재실행 하면 됩니다.</p>
-
-<ul>
-<li>- 한글 언어 지원</li>
-</ul>
-
-<p><img src="/docs/etc/etc/vscode/korea.png" alt="korea" /></p>
-
-<h3 id="java">JAVA</h3>
-
-<p><code>Java Extension Pack</code>를 검색하고 설치합니다.</p>
-
-<ul>
-<li>- JAVA 언어 지원</li>
-<li>- 디버그</li>
-<li>- 테스트 실행</li>
-<li>- Maven 관리</li>
-</ul>
-
-<p><img src="/docs/etc/etc/vscode/Java_Extension_Pack.png" alt="Java_Extension_Pack" /></p>
-
-<h3 id="spring-boot">Spring Boot</h3>
-
-<p><code>Spring Boot Extension Pack</code>를 검색하고 설치합니다.</p>
-
-<ul>
-<li>- Spring 프레임워크 관련</li>
-</ul>
-
-<p><img src="/docs/etc/etc/vscode/Spring_Boot_Extension_Pack.png" alt="Spring_Boot_Extension_Pack" /></p>
+<p>위와 같이 파일을 작성하고 접속하면,
+서버 접속 시 자동으로 root로 계정으로 변환할 수 있습니다.</p>
 
 
           </div>
