@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Windows | 짜몽 개발 연구소</title>
+<title>Batch Script(배치 스크립트) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Windows 가이드">
+<meta name="description" content="Batch Script(배치 스크립트) 가이드">
 
 
 
@@ -263,9 +263,18 @@
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/infra/os/windows/batchscript/">batchscript</a>
+                    <a href="/docs/infra/os/windows/batchscript/">Batch Script(배치 스크립트)</a>
                   </li>
                   
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#"><strong>Linux(리눅스)</strong></a>
+              <ul>
                 
               </ul>
               
@@ -284,7 +293,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Windows</h1>
+            <h1 class="title">Batch Script(배치 스크립트)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -303,19 +312,151 @@
             
 
 
-<h2 id="환경-변수-설정">환경 변수 설정</h2>
+<p>Windows 운영체제는 CMD(명령프롬프트)를 통해 프로그램을 할 수 있습니다.<br>
+파일을 생성, 삭제, 읽기, 변경 등이 가능하고 tellnet, ipconfig 등 여러 명렁어를 다룰 수 있습니다.</p>
 
-<p><img src="/docs/infra/os/windows/windows/01.png" alt="시스템환경 변수" /></p>
+<p>Batch Script(배치 스크립트)는 cmd 명령어를 스크립트로 작성하여 실행할 수 있도록 지원하는 기능이고,<br>
+보통 자동 프로그래밍(서버 재시작, 파일 자동 이동)등에 사용됩니다.</p>
 
-<p><img src="/docs/infra/os/windows/windows/02.png" alt="시스템 속성" /></p>
+<h2 id="시작하기">시작하기</h2>
 
-<p><img src="/docs/infra/os/windows/windows/03.png" alt="환경변수" /></p>
+<p>아래와 같은 bat 확장명으로 파일 생성 및 코드 작성을 하고 파일을 실행합니다.</p>
 
-<h3 id="java">JAVA</h3>
+<pre><code>// test.bat
 
-<p>변수 이름 : <code>JAVA_HOME</code></p>
+echo &quot;test&quot;
+</code></pre>
 
-<p>변수 값 : 자바 jdk 설치 경로 (ex : D:\program\Java\jdk1.8.0_261)</p>
+<h3 id="윈도우에서-linux서버로-접속하여-파일-가져오기-scp-활용">윈도우에서 linux서버로 접속하여 파일 가져오기(scp 활용)</h3>
+
+<pre><code>@echo off
+
+:: 변수
+set date=%1
+set logsDir=C:\workspace\logs
+set bash=C:\programs\Git\git-bash.exe
+set gzip=C:\workspace\logs\gzip.sh
+
+:: 폴더
+cd C:\workspace\logs
+if not exist %logsDir%\%date%\ ( md %date% )
+
+:: 운영1 - pc
+winscp /command &quot;option batch abort&quot; &quot;option confirm off&quot; &quot;option transfer binary&quot; &quot;open test:1234@1.2.3.4&quot; &quot;get /server/logs/catalina.out.%date%.gz %logsDir%\%date%\catalina.out.%date%.gz&quot; &quot;close&quot; &quot;exit&quot;
+if exist %logsDir%\%date%\catalina.out.%date% ( del %logsDir%\%date%\catalina.out.%date% )
+if exist %logsDir%\%date%\1_pc_catalina.out.%date% ( del %logsDir%\%date%\1_pc_catalina.out.%date% )
+
+%bash% -C %gzip% %logsDir%\%date%\catalina.out.%date%.gz
+
+ren %logsDir%\%date%\catalina.out.%date% 1_pc_catalina.out.%date%
+
+:: 운영1 - m
+winscp /command &quot;option batch abort&quot; &quot;option confirm off&quot; &quot;option transfer binary&quot; &quot;open test:1234@1.2.3.4&quot; &quot;get /server/logs/catalina.out.%date%.gz %logsDir%\%date%\catalina.out.%date%.gz&quot; &quot;close&quot; &quot;exit&quot;
+if exist %logsDir%\%date%\catalina.out.%date% ( del %logsDir%\%date%\catalina.out.%date% )
+if not exist %logsDir%\%date%\1_m_catalina.out.%date% ( del %logsDir%\%date%\1_m_catalina.out.%date% )
+
+%bash% -C %gzip% %logsDir%\%date%\catalina.out.%date%.gz
+
+ren %logsDir%\%date%\catalina.out.%date% 1_m_catalina.out.%date%
+
+:: 운영1 - adm
+winscp /command &quot;option batch abort&quot; &quot;option confirm off&quot; &quot;option transfer binary&quot; &quot;open test:1234@1.2.3.4&quot; &quot;get /server/logs/catalina.out.%date%.gz %logsDir%\%date%\catalina.out.%date%.gz&quot; &quot;close&quot; &quot;exit&quot;
+if exist %logsDir%\%date%\catalina.out.%date% ( del %logsDir%\%date%\catalina.out.%date% )
+if exist %logsDir%\%date%\1_adm_catalina.out.%date% ( del %logsDir%\%date%\1_adm_catalina.out.%date% )
+
+%bash% -C %gzip% %logsDir%\%date%\catalina.out.%date%.gz
+
+ren %logsDir%\%date%\catalina.out.%date% 1_adm_catalina.out.%date%
+
+
+:: 운영2 - pc
+winscp /command &quot;option batch abort&quot; &quot;option confirm off&quot; &quot;option transfer binary&quot; &quot;open test:1234@1.2.3.4&quot; &quot;get /server/logs/catalina.out.%date%.gz %logsDir%\%date%\catalina.out.%date%.gz&quot; &quot;close&quot; &quot;exit&quot;
+if exist %logsDir%\%date%\catalina.out.%date% ( del %logsDir%\%date%\catalina.out.%date% )
+if exist %logsDir%\%date%\2_pc_catalina.out.%date% ( del %logsDir%\%date%\2_pc_catalina.out.%date% )
+
+%bash% -C %gzip% %logsDir%\%date%\catalina.out.%date%.gz
+
+ren %logsDir%\%date%\catalina.out.%date% 2_pc_catalina.out.%date%
+
+
+:: 운영2 - m
+winscp /command &quot;option batch abort&quot; &quot;option confirm off&quot; &quot;option transfer binary&quot; &quot;open test:1234@1.2.3.4&quot; &quot;get /server/logs/catalina.out.%date%.gz %logsDir%\%date%\catalina.out.%date%.gz&quot; &quot;close&quot; &quot;exit&quot;
+if exist %logsDir%\%date%\catalina.out.%date% ( del %logsDir%\%date%\catalina.out.%date% )
+if exist %logsDir%\%date%\2_m_catalina.out.%date% ( del %logsDir%\%date%\2_m_catalina.out.%date% )
+
+%bash% -C %gzip% %logsDir%\%date%\catalina.out.%date%.gz
+
+ren %logsDir%\%date%\catalina.out.%date% 2_m_catalina.out.%date%
+
+echo &quot;end&quot;
+</code></pre>
+
+<h2 id="기본-명령어">기본 명령어</h2>
+
+<h3 id="echo-출력">echo (출력)</h3>
+
+<p>일반적으로 배치 파일 첫줄에 <code>@echo off</code>를 설정합니다.<br>
+기본값은 on으로 되어 있음며 배치파일 실행 시 명령줄이 화면에 출력되지 않게 합니다.</p>
+
+<pre><code>// test.bat
+
+@echo off
+
+echo test
+echo.
+echo test2
+
+
+// 결과
+c:\workspace&gt;test.bat
+test
+
+test2
+
+c:\workspace&gt;
+</code></pre>
+
+<h3 id="set-변수">set 변수</h3>
+
+<p>매개변수는 <code>%1</code>, <code>%2</code> 등으로 받을 수 있습니다.<br>
+변수는 <code>set 변수명=값</code> 이와 같이 설정 할 수 있고, <code>%변수명%</code> 이와 같이 사용 할 수 있습니다.</p>
+
+<pre><code>// test.bat
+
+@echo off
+set var1=%1
+set var2=test
+
+echo %var1%
+echo %var2%
+
+// 결과
+C:\workspace&gt;test.bat var1
+var1
+test
+</code></pre>
+
+<h3 id="if-문">if 문</h3>
+
+<pre><code>// 파일 존재 여부
+if exist C:\workspace\test.bat (
+    echo &quot;file exist&quot;
+)
+
+// 파일 미존재 여부
+if not exist C:\workspace\test.bat (
+    echo &quot;file not exist&quot;
+)
+</code></pre>
+
+<h3 id="ren-파일명-변경">ren (파일명 변경)</h3>
+
+<p><code>ren 기존파일명 변경할파일명</code></p>
+
+<pre><code>// 
+
+ren C:\workspace\test.bat C:\workspace\test2.bat
+</code></pre>
 
 
           </div>
