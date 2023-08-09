@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>프론트 매터 | 짜몽 개발 연구소</title>
+<title>MSSQL | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="MSSQL">
 
 
 
@@ -224,16 +224,7 @@
 
   
   
-
-  
-  
     
-  
-
-  
-  
-
-  
   
 
   
@@ -253,52 +244,19 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Hugo
+          Mssql
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#"><strong>HUGO</strong></a>
+              <a href="#"><strong>Mssql</strong></a>
               <ul>
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/etc/hugo/">Hugo</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/etc/hugo/directory_structure/">디텍토리 구조</a>
-                  </li>
-                  
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/etc/hugo/content_format/">컨텐츠 포맷</a>
-                  </li>
-                  
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/etc/hugo/front_matter/">프론트 메터</a>
-                  </li>
-                  
-                
-              </ul>
-              
-            </li>
-            
-            <li >
-              
-              <a href="#"><strong>템플릿(Tempates)</strong></a>
-              <ul>
-                
-                  
-                  <li  class="subsections">
-                    <a href="/docs/etc/hugo/tempates/introduction/">소개</a>
+                    <a href="/docs/db/mssql/start/">Mssql</a>
                   </li>
                   
                 
@@ -312,13 +270,14 @@
     </div>
   </div>
 </div>
+
         
         
 
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">프론트 매터</h1>
+            <h1 class="title">MSSQL</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -337,38 +296,15 @@
             
 
 
-<h2 id="slug">slug</h2>
+<h2 id="시작하기">시작하기</h2>
 
-<p>아래와 같이 정의될 때, URL의 파일명을 대체 할 수 있다.</p>
+<h3 id="top">TOP</h3>
 
-<p>content/posts/old-post.md</p>
+<p>데이터 조회 시 특정 개수만 가져올때 사용합니니다.<br></p>
 
-<pre><code>---
-title: New Post
-slug: &quot;new-post&quot;
----
-</code></pre>
+<p>&ndash; MYSQL의 limit과 동일한 기능입니다.</p>
 
-<p>URL의 파일명 부분이 slug로 대체된다.</p>
-
-<pre><code>example.com/posts/new-post/
-</code></pre>
-
-<h2 id="url">url</h2>
-
-<p>원하는 URL로 설정 할  수 있다.</p>
-
-<p>content/posts/old-url.md</p>
-
-<pre><code>---
-title: Old URL
-url: /blog/new-url/
----
-</code></pre>
-
-<p>URL 이 설정한 url로 변경된다.</p>
-
-<pre><code>https://example.com/blog/new-url/
+<pre><code>SELECT TOP 10 * FROM table
 </code></pre>
 
 
@@ -376,6 +312,20 @@ url: /blog/new-url/
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -392,6 +342,9 @@ url: /blog/new-url/
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>
