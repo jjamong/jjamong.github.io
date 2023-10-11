@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>tomcat7-maven-plugin | 짜몽 개발 연구소</title>
+<title>Generic(제네릭) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="tomcat7-maven-plugin">
+<meta name="description" content="Generic(제네릭)">
 
 
 
@@ -261,7 +261,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/java/java/generic/">Generic(제네릭)</a>
                   </li>
                   
@@ -303,7 +303,7 @@
               <ul>
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/back/java/build/tomcat7/">tomcat7-maven-plugin</a>
                   </li>
                   
@@ -325,7 +325,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">tomcat7-maven-plugin</h1>
+            <h1 class="title">Generic(제네릭)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -342,27 +342,15 @@
             </div>
             
             
-<p>maven을 통해 톰캣을 빌드 할 수 있습니다.
-<br>일반적인 tomcat을 연동해서 활용하는 것보다 빠른 장점이 있습니다.</p>
 
-<pre><code>// pom.xml
 
-&lt;plugin&gt;
-    &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
-    &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;2.2&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;port&gt;8080&lt;/port&gt;
-        &lt;path&gt;/&lt;/path&gt;
-        &lt;systemProperties&gt;
-            &lt;JAVA_OPTS&gt;-Xms1024m -Xmx1024m --XX:MaxPermSize=512m&lt;/JAVA_OPTS&gt;
-        &lt;/systemProperties&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
-</code></pre>
+<h2 id="이해하기">이해하기</h2>
 
-<pre><code>mvn tomcat7:run
-</code></pre>
+<p>제네릭(Generic)은 클래스, 인터페이스, 메서드의 타입을 파라미터로 사용할수 있는 형태입니다.</p>
+
+<p><br>&ndash; 제네릭 타입은 클래스 이름 뒤에 &ldquo;&lt;&gt;&rdquo; 부호가 붙고, 사이에 타입 파라미터가 위치합니다. <code>&lt;T&gt;</code>
+<br>&ndash; 타입 파라미터는 일반적으로 대문자 알파벳 한 글자로 표현합니다. (일반적으로 T 이나, A,B등 어떤것으로 해도 상관 없음)
+<br>&ndash; 제네릭을 통해 타입을 지정하게 됨으로써 타입 변환을 줄이게 되어 프로그램 성능에 유리합니다.</p>
 
 
           </div>
