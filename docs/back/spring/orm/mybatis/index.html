@@ -531,7 +531,7 @@ public class IndexController {
     private IndexService indexService;
 
     @GetMapping(&quot;/&quot;)
-    public ResponseEntity AllUsers() {
+    public ResponseEntity index() {
 
         List&lt;HashMap&lt;String, Object&gt;&gt; list = indexService.gets();
 

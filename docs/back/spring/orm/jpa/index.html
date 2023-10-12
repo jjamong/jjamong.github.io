@@ -459,6 +459,133 @@ spring:
         password:
 </code></pre>
 
+<h3 id="controller">controller</h3>
+
+<pre><code>package com.jjamong.hormone.user.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jjamong.hormone.common.response.ResponseCommon;
+import com.jjamong.hormone.user.request.RequestUser;
+import com.jjamong.hormone.user.response.ResponseUser;
+import com.jjamong.hormone.user.service.JoinService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping(value = &quot;/api/user&quot;)
+public class UserController {
+
+        private final JoinService joinService;
+
+        @RequestMapping(value = &quot;/checkId&quot;, method = { RequestMethod.POST })
+        public ResponseEntity&lt;ResponseCommon&lt;Object&gt;&gt; checkId(@RequestBody RequestUser user) {
+
+                ResponseUser responseUser = joinService.checkUserId(user.getUserId());
+
+                return new ResponseEntity(responseUser, HttpStatus.OK);
+        }
+
+}
+</code></pre>
+
+<h3 id="service">service</h3>
+
+<pre><code>package com.jjamong.hormone.user.service;
+
+import com.jjamong.hormone.user.response.ResponseUser;
+
+public interface JoinService {
+
+   ResponseUser checkUserId(String userId);
+
+}
+</code></pre>
+
+<h3 id="serviceimpl">serviceImpl</h3>
+
+<pre><code>package com.jjamong.hormone.user.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.jjamong.hormone.user.repository.JoinRepository;
+import com.jjamong.hormone.user.response.ResponseUser;
+import com.jjamong.hormone.user.service.JoinService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class JoinServiceImpl implements JoinService {
+
+   final JoinRepository loginRepository;
+
+   @Override
+   public ResponseUser checkUserId(String userId) {
+      return loginRepository.findByUserId(userId);
+   }
+
+}
+</code></pre>
+
+<h3 id="repository">repository</h3>
+
+<pre><code>package com.jjamong.hormone.user.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.jjamong.hormone.user.entity.UserEntity;
+import com.jjamong.hormone.user.response.ResponseUser;
+
+@Repository
+public interface JoinRepository extends JpaRepository&lt;UserEntity, Long&gt; {
+   ResponseUser findByUserId(String userId);
+
+}
+</code></pre>
+
+<h3 id="entity">entity</h3>
+
+<pre><code>package com.jjamong.hormone.user.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+@Builder
+@Data
+@Table(name = &quot;user&quot;)
+@Entity(name = &quot;user&quot;)
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userSeq;
+
+    @NonNull
+    @Column(unique = true)
+    private String userId;
+
+}
+</code></pre>
+
 
           </div>
           
