@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring | 짜몽 개발 연구소</title>
+<title>Exception(익셉션) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="Exception(익셉션) 가이드">
 
 
 
@@ -360,7 +360,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/boot/exception/">Exception(익셉션)</a>
                   </li>
                   
@@ -415,7 +415,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring</h1>
+            <h1 class="title">Exception(익셉션)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -432,15 +432,199 @@
             </div>
             
             
-<script>
-    location.href = "boot/start"
-</script>
+
+
+<p>@ControllerAdvice는 전역으로 exception handling을 할 수 있습니다.</p>
+
+<h2 id="controlleradvice-시작하기">@ControllerAdvice 시작하기</h2>
+
+<h3 id="globalexceptionhandler">GlobalExceptionHandler</h3>
+
+<pre><code>package com.jjamong.hormone.common.util.handler;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.jjamong.hormone.common.response.ResponseError;
+import com.jjamong.hormone.common.util.CustomException;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestControllerAdvice
+@Slf4j
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(CustomException.class)
+    protected ResponseEntity&lt;ResponseError&gt; handleCustomException(final CustomException e) {
+        return ResponseEntity
+                .status(e.getErrorCode().getStatus().value())
+                .body(new ResponseError(e.getErrorCode()));
+    }
+
+}
+</code></pre>
+
+<h3 id="responseerror">ResponseError</h3>
+
+<pre><code>package com.jjamong.hormone.common.response;
+
+import org.springframework.http.ResponseEntity;
+
+import com.jjamong.hormone.common.util.CustomException;
+import com.jjamong.hormone.common.vo.ErrorCode;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@Builder
+@RequiredArgsConstructor
+public class ResponseError {
+
+    private final String error;
+    private final int code;
+    private final String msg;
+
+    public ResponseError(ErrorCode errorCode) {
+        this.error = errorCode.getError();
+        this.code = errorCode.getCode();
+        this.msg = errorCode.getMsg();
+    }
+
+    public static ResponseEntity&lt;ResponseError&gt; error(CustomException e) {
+        return ResponseEntity
+                .status(e.getErrorCode().getStatus())
+                .body(ResponseError.builder()
+                        .code(e.getErrorCode().getCode())
+                        .msg(e.getErrorCode().getMsg())
+                        .build());
+    }
+}
+</code></pre>
+
+<h3 id="errorcode">ErrorCode</h3>
+
+<pre><code>package com.jjamong.hormone.common.vo;
+
+import org.springframework.http.HttpStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public enum ErrorCode {
+    BAD_REQUEST(HttpStatus.OK, &quot;API오류&quot;, 101, &quot;잘못된 요청입니다.&quot;),
+    API_NOT_FOUND(HttpStatus.OK, &quot;API오류&quot;, 102, &quot;API 정보를 찾을 수 없습니다.&quot;),
+    METHOD_NOT_ALLOWED(HttpStatus.OK, &quot;API오류&quot;, 103, &quot;허용되지 않은 메서드입니다.&quot;),
+    INTERNAL_SERVER_ERROR(HttpStatus.OK, &quot;API오류&quot;, 104, &quot;내부 서버 오류입니다.&quot;),
+    INPUT_ERROR(HttpStatus.OK, &quot;API오류&quot;, 105, &quot;입력 필드를 다시 확인해주세요.&quot;),
+    DUPLICATION_ERROR(HttpStatus.OK, &quot;API오류&quot;, 106, &quot;중복 필드 존재&quot;),
+    DATABASE_ERROR(HttpStatus.OK, &quot;API오류&quot;, 107, &quot;데이터베이스 오류&quot;),
+    AUTH_ERROR(HttpStatus.OK, &quot;API오류&quot;, 108, &quot;권한이 없는 사용자입니다.&quot;),
+    API_NOT_ALLOWED(HttpStatus.OK, &quot;API오류&quot;, 109, &quot;접근할 수 없습니다.&quot;),
+
+    // TOKEN ERROR
+    INVALID_TOKEN(HttpStatus.OK, &quot;토큰오류&quot;, 201, &quot;유효하지 않은 토큰입니다.&quot;),
+    EXPRIATION_TOKEN(HttpStatus.OK, &quot;토큰오류&quot;, 202, &quot;인증 정보가 만료되었습니다.&quot;),
+    INVALID_REFRESH_TOKEN(HttpStatus.OK, &quot;토큰오류&quot;, 203, &quot;REFRESH TOKEN이 유효하지 않습니다.&quot;),
+    INVALID_USER_TOKEN(HttpStatus.OK, &quot;토큰오류&quot;, 204, &quot;토큰의 유저 정보가 일치하지 않습니다.&quot;),
+    FORBIDDEN_ERROR(HttpStatus.FORBIDDEN, &quot;토큰오류&quot;, 403, &quot;권한접근 에러&quot;),
+
+    // AUTH ERROR
+    IDANDPW_NOT_FOUND(HttpStatus.OK, &quot;회원오류&quot;, 301, &quot;아이디나 또는 비밀번호를 다시 확인해주세요.&quot;),
+    USER_NOT_FOUND(HttpStatus.OK, &quot;회원오류&quot;, 302, &quot;일치하는 회원이 없습니다.&quot;),
+    NO_INPUT_PWIDERROR(HttpStatus.OK, &quot;회원오류&quot;, 304, &quot;아이디 또는 비밀번호를 입력해주세요.&quot;),
+    UNAPPROVED_LOGIN(HttpStatus.OK, &quot;회원오류&quot;, 311, &quot;관리자 승인을 기다리고 있는 아이디입니다.&quot;),
+
+    // IMAGE ERROR
+    IMAGE_SERVER_ERROR(HttpStatus.OK, &quot;이미지오류&quot;, 401, &quot;서버 오류 : 이미지가 생성되지 않았습니다.&quot;),
+    IMAGE_DELETE_ERROR(HttpStatus.OK, &quot;이미지오류&quot;, 402, &quot;서버 오류 : 이미지가 삭제되지 않았습니다.&quot;),
+    IMAGE_ERROR(HttpStatus.OK, &quot;이미지오류&quot;, 403, &quot;이미지 형식이 맞지 않습니다.&quot;),
+    IMAGE_INPUT_ERROR(HttpStatus.OK, &quot;이미지오류&quot;, 405, &quot;이미지 입력을 다시 확인해주세요.&quot;),
+    // Order Error
+    OVER_ORDER(HttpStatus.OK, &quot;주문오류&quot;, 501, &quot;소모품 신청이 불가능합니다.&quot;),
+
+    // CMS ERROR
+    INPUT_NURSE_ERROR(HttpStatus.OK, &quot;CMS오류&quot;, 601, &quot;간호사 정보를 등록해주세요.&quot;),
+
+    // FASSTO ERROR
+    FASSTO_SYSTEM_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 801, &quot;FASSTO TOKEN 오류&quot;),
+    FASSTO_BAD_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 802, &quot;Bad Request&quot;),
+    FASSTO_AUTH_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 803, &quot;Unauthorized&quot;),
+    FASSTO_UNKNOW_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 804, &quot;잘못된 경로&quot;),
+    FASSTO_DENY_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 805, &quot;접근 거부&quot;),
+    FASSTO_SERVER_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 806, &quot;서버 에러&quot;),
+    FASSTO_INPUT_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 807, &quot;단위 수량을 0개 이상 입력하세요.&quot;),
+    FASSTO_PRODUCT_ERROR(HttpStatus.OK, &quot;FASSTO오류&quot;, 808, &quot;해당 상품의 재고가 부족합니다. 관리자에게 문의해주세요.&quot;);
+
+    private final HttpStatus status;
+    private final String error;
+    private final int code;
+    private final String msg;
+
+}
+</code></pre>
+
+<h3 id="controller">controller</h3>
+
+<pre><code>package com.jjamong.hormone.user.controller;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jjamong.hormone.common.response.ResponseCommon;
+import com.jjamong.hormone.common.util.CustomException;
+import com.jjamong.hormone.common.vo.ErrorCode;
+import com.jjamong.hormone.user.request.RequestLogin;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping(value = &quot;/api/user&quot;)
+public class UserController {
+
+        @RequestMapping(value = &quot;/login&quot;, method = { RequestMethod.POST })
+        public ResponseEntity&lt;ResponseCommon&lt;Object&gt;&gt; login(@RequestBody RequestLogin requestLogin,
+                        HttpServletResponse rep) {
+
+                if (true) {
+                        throw new CustomException(ErrorCode.USER_NOT_FOUND);
+                }
+
+                return null;
+        }
+
+}
+</code></pre>
 
 
           </div>
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -457,6 +641,9 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>

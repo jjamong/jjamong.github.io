@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jjamong.github.io/docs/back/spring/boot/exception/</loc>
+    <lastmod>2023-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/back/spring/orm/jpa/</loc>
+    <lastmod>2023-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/back/java/java/generic/</loc>
     <lastmod>2023-10-11T00:00:00+00:00</lastmod>
   </url>
@@ -130,11 +140,6 @@
   <url>
     <loc>https://jjamong.github.io/docs/back/spring/spring/pattern/</loc>
     <lastmod>2022-04-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jjamong.github.io/docs/back/spring/orm/jpa/</loc>
-    <lastmod>2022-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -550,7 +555,7 @@
   
   <url>
     <loc>https://jjamong.github.io/</loc>
-    <lastmod>2023-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
