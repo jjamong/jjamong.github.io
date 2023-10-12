@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring | 짜몽 개발 연구소</title>
+<title>mybatis(마이바티스) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="mybatis 스프링 마이바티스 가이드">
 
 
 
@@ -387,7 +387,7 @@
               <ul>
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/orm/mybatis/">mybtis(마이바티스)</a>
                   </li>
                   
@@ -415,7 +415,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring</h1>
+            <h1 class="title">mybatis(마이바티스)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -432,15 +432,283 @@
             </div>
             
             
-<script>
-    location.href = "boot/start"
-</script>
+
+
+<h2 id="시작하기">시작하기</h2>
+
+<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
+
+<p><code>mybatis-spring-boot-starter</code> mybatis 모듈<br>
+<code>mysql:mysql-connector-java</code> mysql 커넥션 모듈</p>
+
+<pre><code>// build.gradle
+
+implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+implementation 'mysql:mysql-connector-java'
+</code></pre>
+
+<h3 id="application-yml">application.yml</h3>
+
+<pre><code>// src/main/resources/application.yml
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/mysql
+        username: root
+        password:
+</code></pre>
+
+<h3 id="mybatis-config">mybatis config</h3>
+
+<p><code>classpath:/com/jjamong/mybatis/dao/*.xml</code> mapper 위치</p>
+
+<pre><code>package com.jjamong.mybatis.config;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
+
+@Configuration
+@MapperScan(value = &quot;com.jjamong.mybatis.dao&quot;, sqlSessionFactoryRef = &quot;SqlSessionFactory&quot;)
+public class MybatisConfig {
+
+    @Value(&quot;classpath:/com/jjamong/mybatis/dao/*.xml&quot;)
+    String mPath;
+
+    @Bean(name = &quot;dataSource&quot;)
+    @ConfigurationProperties(prefix = &quot;spring.datasource&quot;)
+    public DataSource DataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+
+    @Bean(name = &quot;SqlSessionFactory&quot;)
+    public SqlSessionFactory SqlSessionFactory(@Qualifier(&quot;dataSource&quot;) DataSource DataSource, ApplicationContext applicationContext) throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean =  new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(DataSource);
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(mPath));
+        return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean(name = &quot;SessionTemplate&quot;)
+    public SqlSessionTemplate SqlSessionTemplate(@Qualifier(&quot;SqlSessionFactory&quot;) SqlSessionFactory firstSqlSessionFactory) {
+        return new SqlSessionTemplate(firstSqlSessionFactory);
+    }
+
+}
+</code></pre>
+
+<h3 id="controller">controller</h3>
+
+<pre><code>package com.jjamong.mybatis.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import com.jjamong.mybatis.service.IndexService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class IndexController {
+
+    @Autowired
+    private IndexService indexService;
+
+    @GetMapping(&quot;/&quot;)
+    public ResponseEntity AllUsers() {
+
+        List&lt;HashMap&lt;String, Object&gt;&gt; list = indexService.gets();
+
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+}
+</code></pre>
+
+<h3 id="service">service</h3>
+
+<pre><code>package com.jjamong.mybatis.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.jjamong.mybatis.dao.IndexMapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class IndexService {
+    
+    @Autowired
+    private IndexMapper indexMapper;
+
+    public List&lt;HashMap&lt;String, Object&gt;&gt; gets() {
+
+        List&lt;HashMap&lt;String, Object&gt;&gt; res = new ArrayList&lt;HashMap&lt;String, Object&gt;&gt;();
+
+        res = indexMapper.gets();
+
+        return res;
+    } 
+}
+</code></pre>
+
+<h3 id="dao">dao</h3>
+
+<pre><code>package com.jjamong.mybatis.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface IndexMapper {
+    
+    public List&lt;HashMap&lt;String, Object&gt;&gt; gets();
+}
+</code></pre>
+
+<h3 id="mapper">mapper</h3>
+
+<pre><code>// resources/com/jjamong/mybatis/dao/IndexMapper
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.jjamong.mybatis.dao.IndexMapper&quot;&gt;
+
+    &lt;select id=&quot;gets&quot; resultType=&quot;hashMap&quot;&gt;
+        show databases 
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<h2 id="이해하기">이해하기</h2>
+
+<h3 id="과-의-차이">#과 $의 차이</h3>
+
+<h4 id="방식">#{} 방식</h4>
+
+<blockquote>
+<p>성능과 보안적으로 이점이 있어 일반적으로는 #{} 방식을 사용합니다.</p>
+</blockquote>
+
+<p><br></p>
+
+<p>#{} 방식은 PreparedStatement를 사용하는데<br>
+PreparedStatement는 쿼리가 메모리에 올라가 실행되기 때문에 매번 컴파일 되지 않아(캐싱) 성능이 향상됩니다.</p>
+
+<p>#{} 방식은 매개변수가 ?로 변환되며 보안적으로도 이점이 있고<br>
+들어오는 데이터를 문자열로 인식하기 때문에 자동으로 따옴표가 붙습니다.&rsquo;</p>
+
+<p><b>보통 일반적으로 #{} 방식을 사용합니다.</b></p>
+
+<h5 id="preparedstatement">PreparedStatement</h5>
+
+<pre><code>// PreparedStatement
+
+String sql = &quot;SELECT * FROM USER WHERE id = ?&quot;
+PreparedStatement pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, &quot;userId&quot;);
+ResultSet rst = pstmt.executeQuerey();
+</code></pre>
+
+<h5 id="사용-예">사용 예</h5>
+
+<pre><code>// 코드
+SELECT * FROM USER
+WHERE id = #{id}
+</code></pre>
+
+<pre><code>// 결과
+SELECT * FROM USER
+WHERE id = ?
+</code></pre>
+
+<h4 id="방식-1">${} 방식</h4>
+
+<blockquote>
+<p>매개 변수에 자동 따옴표가 붙지 않아야 하는 곳에서만 사용합니다.</p>
+</blockquote>
+
+<p><br></p>
+
+<p>${} 방식은 Statement를 사용하는데,<br>
+Statement는 매번 컴파일을 하기 때문에 성능적으로 떯어집니다.</p>
+
+<p>${} 방식은 매개변수를 값 그대로 전달하기 떄문에 보안적(SQL Injection)으로 취약하고
+문자열에 자동으로 따옴표가 붙지 않습니다.</p>
+
+<p>문자열을 유동적으로 사용할 수 있어 테이블, 컬럼명, 예약어 사용에 이점이 있습니다.</p>
+
+<p><b>매개변수로 테이블, 컬럼명, 예약어 등을 사용하는 특정 상황에서만 ${} 방식을 사용합니다.</b></p>
+
+<h4 id="statement">Statement</h4>
+
+<pre><code>// Statement
+
+String userId = &quot;userId&quot;
+String sql = &quot;SELECT * FROM user WHERE id = &quot; + userId
+Statement stmt = conn.credateStatement();
+ResultSet rst = stmt.executeQuerey(sql);
+</code></pre>
+
+<h5 id="사용-예-1">사용 예</h5>
+
+<pre><code>// 코드
+SELECT * FROM USER
+WHERE id = &quot;${id}&quot;
+
+SELECT * FROM USER
+ORDER BY USER_ID ${sortOrder}
+</code></pre>
+
+<pre><code>// 결과
+SELECT * FROM USER
+WHERE id = ?
+
+SELECT * FROM USER
+ORDER BY USER_ID DESC
+</code></pre>
+
+<p>#{sortOrder}를 사용하게된다면 ORDER BY USER_ID &lsquo;DESC&rsquo; 형태로 실행이 되어 에러가 납니다.</p>
 
 
           </div>
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -457,6 +725,9 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>

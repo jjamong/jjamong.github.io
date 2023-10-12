@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Spring | 짜몽 개발 연구소</title>
+<title>JPA(Java Persistence API) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="JPA(Java Persistence API) 가이드">
 
 
 
@@ -393,7 +393,7 @@
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/back/spring/orm/jpa/">JPA(Java Persistence API)</a>
                   </li>
                   
@@ -415,7 +415,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">Spring</h1>
+            <h1 class="title">JPA(Java Persistence API)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -432,15 +432,52 @@
             </div>
             
             
-<script>
-    location.href = "boot/start"
-</script>
+
+
+<h2 id="시작하기">시작하기</h2>
+
+<h3 id="의존성-모듈-설정">의존성 모듈 설정</h3>
+
+<p><code>spring-boot-starter-data-jpa</code> JPA 모듈<br>
+<code>mysql:mysql-connector-java</code> mysql 커넥션 모듈</p>
+
+<pre><code>// build.gradle
+
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+implementation 'mysql:mysql-connector-java'
+</code></pre>
+
+<h3 id="application-yml">application.yml</h3>
+
+<pre><code>// src/main/resources/application.yml
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/mysql
+        username: root
+        password:
+</code></pre>
 
 
           </div>
           
         </div>
         
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
       </div>
     </div>
     
@@ -457,6 +494,9 @@
 <script src="/js/jquery.scrollbar.min.js"></script>
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
 
 
 <script>

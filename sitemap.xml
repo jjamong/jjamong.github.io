@@ -73,11 +73,6 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/back/java/mybatis/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jjamong.github.io/docs/back/spring/spring/restapi/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url>
@@ -138,7 +133,12 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/back/spring/boot/mybatis/</loc>
+    <loc>https://jjamong.github.io/docs/back/spring/orm/jpa/</loc>
+    <lastmod>2022-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/back/spring/orm/mybatis/</loc>
     <lastmod>2022-04-21T00:00:00+00:00</lastmod>
   </url>
   
