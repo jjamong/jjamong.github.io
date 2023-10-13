@@ -441,7 +441,88 @@
 <pre><code>implementation 'org.springframework.boot:spring-boot-starter-security'
 </code></pre>
 
-<h3 id="security-config-설정">Security Config 설정</h3>
+<h3 id="webmvcconfigurer">WebMvcConfigurer</h3>
+
+<h4 id="websecurityconfig">WebSecurityConfig</h4>
+
+<pre><code>package com.huray.hormone.common.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig implements WebMvcConfigurer {
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable()
+                .authorizeRequests()
+                .antMatchers(&quot;/api/user/login&quot;).permitAll()
+                .antMatchers(&quot;/api/user/login2&quot;).denyAll();
+
+        return http.build();
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping(&quot;/**&quot;)
+                .allowedOrigins(&quot;*&quot;)
+                .allowedHeaders(&quot;*&quot;)
+                .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;)
+                .maxAge(3000);
+    }
+}
+</code></pre>
+
+<h4 id="controller">controller</h4>
+
+<pre><code>package com.huray.hormone.user.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.huray.hormone.common.response.ResponseCommon;
+
+import com.huray.hormone.user.request.RequestUser;
+
+@RestController
+@RequestMapping(value = &quot;/api/user&quot;)
+public class UserController {
+
+        @RequestMapping(value = &quot;/login&quot;, method = { RequestMethod.POST })
+        public ResponseEntity&lt;ResponseCommon&lt;Object&gt;&gt; login(@RequestBody RequestUser user) {
+
+                return new ResponseEntity(null, HttpStatus.OK);
+        }
+
+        @RequestMapping(value = &quot;/login2&quot;, method = { RequestMethod.POST })
+        public ResponseEntity&lt;ResponseCommon&lt;Object&gt;&gt; login2(@RequestBody RequestUser user) {
+
+                return new ResponseEntity(null, HttpStatus.OK);
+        }
+
+}
+</code></pre>
+
+<h3 id="websecurityconfigureradapter">WebSecurityConfigurerAdapter</h3>
+
+<h4 id="websecurityconfig-1">WebSecurityConfig</h4>
 
 <pre><code>// src/main/java/com/jjamong/secrity/config/WebSecurityConfig.java
 
@@ -457,7 +538,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 </code></pre>
 
-<h2 id="시작하기-1">시작하기</h2>
+<h4 id="controller-1">controller</h4>
 
 <pre><code>@RestController
 @RequestMapping(&quot;/v1/test&quot;)
@@ -482,7 +563,7 @@ public class TestController {
 <p><img src="/docs/back/spring/boot/security/success200.png" alt="success200" />
 /docs/back/spring/boot/security/</p>
 
-<h3 id="greadle-추가">greadle 추가</h3>
+<h4 id="greadle-추가">greadle 추가</h4>
 
 <pre><code>dependencies {
     ...
@@ -495,7 +576,7 @@ public class TestController {
 
 <p><img src="/docs/back/spring/boot/security/fail403.png" alt="fail403" /></p>
 
-<h3 id="security-추가">security 추가</h3>
+<h4 id="security-추가">security 추가</h4>
 
 <pre><code>// com/jjamong/backend/spring/security/WebSecurityConfig.java
 
