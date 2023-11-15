@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>JWT(Json Web Token) | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="JWT">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.f26849ac076894dc4f9080b9aa7713a044f8814e20199e31b76894b0adfaf5b7.css" integrity="sha256-8mhJrAdolNxPkIC5qncToET4gU4gGZ4xt2iUsK369bc=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<script data-ad-client="ca-pub-3588286886332636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="Nodejs"><a href="https://jjamong.github.io/docs/front/nodejs/">Nodejs</a></li>
+            
+            <li class="JavaScript"><a href="https://jjamong.github.io/docs/front/javascript/">JavaScript</a></li>
+            
+            <li class="Css"><a href="https://jjamong.github.io/docs/front/css/">Css</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Back</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+            
+            <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
+            
+            <li class="Back"><a href="https://jjamong.github.io/docs/back/back/">Back</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">DB</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Mssql"><a href="https://jjamong.github.io/docs/db/mssql/">Mssql</a></li>
+            
+            <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      <li class="tabs-li">
+        
+        <a class="tabs-a">APP</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+            <li class="OS"><a href="https://jjamong.github.io/docs/infra/os/">OS</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Term"><a href="https://jjamong.github.io/docs/etc/term/">Term</a></li>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="GIT"><a href="https://jjamong.github.io/docs/etc/git/">GIT</a></li>
+            
+            <li class="DevOps"><a href="https://jjamong.github.io/docs/etc/devops/">DevOps</a></li>
+            
+            <li class="ETC"><a href="https://jjamong.github.io/docs/etc/etc/">ETC</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+
+        
+
+        
+        
+          
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Back
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#" class="JWT"><i></i><strong>JWT</strong></a>
+              <ul>
+                
+                  
+                  <li  class="active"  class="subsections">
+                    <a href="/docs/back/back/jwt/">JWT (Json Web Token)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#" class="Redis"><i></i><strong>Redis</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/back/back/redis/">Redis (레디스)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+        
+
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">JWT(Json Web Token)</h1>
+
+            <div class="content-ads">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3588286886332636"
+                  data-ad-slot="4509829062"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            
+            
+
+
+<h2 id="이해하기">이해하기</h2>
+
+<p>JWT는 웹 표준을 따르고 있고, JSON 형식의 토큰에 대한 표준 규격입니다.
+<br>
+사용자의 인증(authentication) 또는 인가(authorization) 정보를 서버와 클라이언트 간에 안전하게 주고 받기 위해서 사용됩니다.</p>
+
+<h4 id="claim">Claim</h4>
+
+<p>JSON 자체를 토큰으로 사용하는 것이 Claim 기반의 토큰 방식입니다.</p>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>

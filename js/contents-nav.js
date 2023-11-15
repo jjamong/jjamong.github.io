@@ -17,8 +17,7 @@ $(window).on('load', function () {
 $(document).ready(function () {
   // initialize navgoco sidebar
   if ($(".sidebar-menu").length > 0) {
-
-    $('.sidebar-menu').children().addClass('open');
+    //$('.sidebar-menu').children().addClass('open');
     $(".sidebar-menu").navgoco({
       caretHtml: '',
       accordion: false,
