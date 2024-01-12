@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>프로젝트 시작하기 | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="리액트 네이티브(React Native)에 프로젝트 시작하기">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.f26849ac076894dc4f9080b9aa7713a044f8814e20199e31b76894b0adfaf5b7.css" integrity="sha256-8mhJrAdolNxPkIC5qncToET4gU4gGZ4xt2iUsK369bc=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<script data-ad-client="ca-pub-3588286886332636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+  <section class="gen-wrapper">
+    <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+    
+    
+
+
+
+<div class="container top-menu">
+  <div class="docs-top-menu tabs">
+    <ul>
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Front</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+            
+            <li class="Nodejs"><a href="https://jjamong.github.io/docs/front/nodejs/">Nodejs</a></li>
+            
+            <li class="JavaScript"><a href="https://jjamong.github.io/docs/front/javascript/">JavaScript</a></li>
+            
+            <li class="Css"><a href="https://jjamong.github.io/docs/front/css/">Css</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Back</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+            
+            <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
+            
+            <li class="Back"><a href="https://jjamong.github.io/docs/back/back/">Back</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      
+      <li class="tabs-li">
+        
+        <a class="tabs-a">DB</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Mssql"><a href="https://jjamong.github.io/docs/db/mssql/">Mssql</a></li>
+            
+            <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
+            
+          </ul>
+        </div>
+      </li>
+
+      <li class="tabs-li">
+        
+        <a class="tabs-a">APP</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">Infra</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="AWS"><a href="https://jjamong.github.io/docs/infra/aws/">AWS</a></li>
+            
+            <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+            
+            <li class="OS"><a href="https://jjamong.github.io/docs/infra/os/">OS</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="tabs-li">
+        
+        <a class="tabs-a">ETC</a>
+        <div class="sub-menu">
+          <ul>
+            
+            <li class="Term"><a href="https://jjamong.github.io/docs/etc/term/">Term</a></li>
+            
+            <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+            
+            <li class="GIT"><a href="https://jjamong.github.io/docs/etc/git/">GIT</a></li>
+            
+            <li class="DevOps"><a href="https://jjamong.github.io/docs/etc/devops/">DevOps</a></li>
+            
+            <li class="ETC"><a href="https://jjamong.github.io/docs/etc/etc/">ETC</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
+
+        
+
+        
+        
+          
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Reactnative
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#"><strong>React Native</strong></a>
+              <ul>
+                
+                  
+                  <li class="subsections">
+                    <a href="#">프로젝트 셋팅</a>
+                    <ul>
+                      
+                        
+                        <li  class="active" >
+                          <a href="/docs/app/reactnative/project/">프로젝트 시작하기</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">리액트 네이티브</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/start/">리액트 네이티브 시작</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/make/">아이콘/스플래쉬(icon/splash)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/webview/">웹뷰(webView)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/notification/">알림(notification)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/firebase/">파이어베이스(firebase)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/advert/">광고(advert)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/moduleresolver/">절대 경로 설정</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/styledcomponents/">스타일 설정</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/datepicker/">날짜 선택기(date picker)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/firebasemessag/">firebase Messag</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/plugin/asyncstorage/">async-storage</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/plugin/navigation/">navigation</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/plugin/geolocation/">geolocation</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">기타</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/app/reactnative/etc/sample/">공부 샘플</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        
+
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">프로젝트 시작하기</h1>
+
+            <div class="content-ads">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3588286886332636"
+                  data-ad-slot="4509829062"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            
+            
+
+
+<h2 id="1-환경-셋팅">1. 환경 셋팅</h2>
+
+<h4 id="1-1-자바-17">1.1 자바 17</h4>
+
+<p>MacOS에서는 zsh, bash shell에 각각 JAVA_HOME 적용 및 확인</p>
+
+<pre><code>$ java -version
+java version &quot;17.0.9&quot; 2023-10-17 LTS
+</code></pre>
+
+<h4 id="1-2-ruby-3-0-0-macos">1.2 Ruby 3.0.0 <code>MacOS</code></h4>
+
+<pre><code>$ ruby -versions
+ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin22]
+
+$ rbenv versions
+  system
+* 3.0.0 (set by /Users/ios/.rbenv/version)
+</code></pre>
+
+<h4 id="1-3-yarn">1.3 yarn</h4>
+
+<p><code>MacOS</code> 이슈 : npm으로 react native 설치 후 init시 버전 이슈로 최신 버전으로 생성이 안됨.</p>
+
+<pre><code>$ sudo npm i -g yarn
+</code></pre>
+
+<h4 id="1-4-react-native-cli">1.4 React Native CLI</h4>
+
+<p>리액트 네이티브 설치</p>
+
+<pre><code>$ yarn global add react-native-cli
+</code></pre>
+
+<p><br></p>
+
+<h2 id="2-프로젝트-셋팅">2. 프로젝트 셋팅</h2>
+
+<h4 id="2-1-프로젝트-생성">2.1 프로젝트 생성</h4>
+
+<pre><code>$ sudo npx react-native init JJAMONG_APP --version 0.73.0
+Do you want to install CocoaPods now? - n
+</code></pre>
+
+<h4 id="2-2-폴더-권한-변경-macos">2.2 폴더 권한 변경 <code>MacOS</code></h4>
+
+<p>프로젝트를 sudo로 생성했기에 모든 폴더 권한 허용으로 변경
+<br>JJAMONG_APP 폴더 &gt; 정보 가져오기 &gt; 자물쇠해제 &gt; everyone, staff 읽기 및 쓰기로 권한 변경 &gt; &hellip; 선택 &gt; 하위 항목에 적용</p>
+
+<h4 id="2-3-코코아포드-설치-ios">2.3 코코아포드 설치 <code>IOS</code></h4>
+
+<pre><code>$ cd ios
+$ pod install
+</code></pre>
+
+<p>pod install이 오류 발생 할 경우 아래의 명령어로 해결 됨. 최초 이후 발생 안함.
+<br>(<a href="https://velog.io/@cullen/React-Native-초기-설정-오류Pod-install">https://velog.io/@cullen/React-Native-초기-설정-오류Pod-install</a>)</p>
+
+<pre><code>sudo xcode-select --switch /Applications/Xcode.app
+</code></pre>
+
+<h4 id="2-4-no-bundle-url-present-jsbundle-ios">2.4 No bundle URL present. ~ .jsbundle ~ <code>IOS</code></h4>
+
+<p>Xcode로 불러온 다음 실행 시 No bundle URL present. ~ .jsbundle ~ 에러가 발생할 경우 아래 명령어 입력</p>
+
+<pre><code>$ yarn react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'
+</code></pre>
+
+<p>이후 생성되는 main.jsbundle파일이 xcode에 자동 추가 되지 않아 프로젝트 상단에 드롭다운
+<br>(<a href="https://velog.io/@haerim95/React-Native-Error-Log-No-bundle-URL-present-이슈">https://velog.io/@haerim95/React-Native-Error-Log-No-bundle-URL-present-이슈</a>)</p>
+
+<h4 id="2-5-run-react-native-start-or-that-your-bundle-index-android-bundle-aos">2.5 ~ (run &lsquo;react-native start&rsquo;) or that your bundle &lsquo;index.android.bundle&rsquo; ~ <code>AOS</code></h4>
+
+<p>/JJAMONG_APP/android/app/src/main 경로에 assets 폴더 추가
+<br>추가 이후 아래 명령어 입력
+<br>(<a href="https://borntodevelop.tistory.com/entry/React-Native-Error-Unable-to-load-script-Make-sure-youre-either-running-a-Metro-server-run-react-native-start-or-that-your-bundle-indexandroidbundle-is-packaged-correctly-for-release">https://borntodevelop.tistory.com/entry/React-Native-Error-Unable-to-load-script-Make-sure-youre-either-running-a-Metro-server-run-react-native-start-or-that-your-bundle-indexandroidbundle-is-packaged-correctly-for-release</a>)</p>
+
+<pre><code>yarn react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
+</code></pre>
+
+<h4 id="2-6-패키지명-변경-폴더변경">2.6 패키지명 변경, 폴더변경</h4>
+
+<h5 id="aos">AOS</h5>
+
+<p>com.jjamong_app &gt; com.jjamong.app 로 변경
+<br>com/jjamong_app 폴더 아래의 파일들 com/jjamong/app 폴더 아래로 추가</p>
+
+<h5 id="ios">IOS</h5>
+
+<p>Xcode JJAMONG_APP ROOT 선택 &gt; Siging &amp; Capabilites &gt; All &gt; Team &gt; DA Information. Co. Ltd 선택
+<br>Xcode JJAMONG_APP ROOT 선택 &gt; Siging &amp; Capabilites &gt; All &gt; Bundle Identifier &gt; com.jjamong.app 입력</p>
+
+<h4 id="2-7-앱-이름-변경">2.7 앱 이름 변경</h4>
+
+<h5 id="aos-1">AOS</h5>
+
+<pre><code>/JJAMONG_APP/android/app/src/main/res/values/string.xml
+
+&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;자라다&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<h5 id="ios-1">IOS</h5>
+
+<pre><code>/JJAMONG_APP/ios/JJAMONG_APP/info.plist
+
+Information Property List &gt; Bundle display name &gt; 자라다 입력
+</code></pre>
+
+<h4 id="2-8-앱-아이콘-변경">2.8 앱 아이콘 변경</h4>
+
+<p>앱 아이콘 이미지는 앱 제작 및 리사이징 사이트 등을 통해 aos, ios에 맞게 이미지를 준비합니다.</p>
+
+<h5 id="aos-2">AOS</h5>
+
+<p>/JJAMONG_APP/android/app/src/main/res 아래 폴더(hdpi, mdpi, xhdpi, xxhdpi, xxxhdpi)에 아이콘 이미지 변경</p>
+
+<h5 id="ios-2">IOS</h5>
+
+<p>Xcode에서 JJAMONG_APP &gt; JJAMONG_APP &gt; Images 선택
+<br>AppIcon안에 이미지 사이즈에 맞게 드롭다운</p>
+
+<h4 id="2-9-스플래시-빈-화면으로-변경-ios">2.9 스플래시 빈 화면으로 변경 <code>IOS</code></h4>
+
+<p><br>Xcode에서 JJAMONG_APP &gt; JJAMONG_APP &gt; LaunchScreen 선택
+화면에 출력되는 텍스트들 제거 후 저장</p>
+
+<h4 id="2-10-푸시를-위한-config-파일-추가">2.10 푸시를 위한 config 파일 추가</h4>
+
+<h5 id="aos-3">AOS</h5>
+
+<p>google-services.json 파일 /JJAMONG_APP/android/app/ 경로에 추가</p>
+
+<h5 id="ios-3">IOS</h5>
+
+<p>GoogleService-Info.plist 파일 /JJAMONG_APP/ios/JJAMONG_APP/ 경로에 추가 후
+<br>Xcode JJAMONG_APP &gt; JJAMONG_APP 경로에 드롭다운</p>
+
+<h5 id="2-10-xcode-푸시-설정-ios">2.10 Xcode 푸시 설정 <code>IOS</code></h5>
+
+<p>Xcode JJAMONG_APP ROOT 선택 &gt; Siging &amp; Capabilites &gt; + Capability 선택 &gt; Push Notifications 선택</p>
+
+<p>Xcode JJAMONG_APP ROOT 선택 &gt; Siging &amp; Capabilites &gt; + Capability 선택 &gt; Background Modes 선택
+<br>Remote notifications 체크</p>
+
+<p><br></p>
+
+<h2 id="3-플러그인-셋팅">3. 플러그인 셋팅</h2>
+
+<h3 id="3-1-웹뷰">3.1 웹뷰</h3>
+
+<h4 id="3-1-1-플러그인-설치">3.1.1 플러그인 설치</h4>
+
+<pre><code>$ sudo yarn add react-native-webview@13.6.3
+</code></pre>
+
+<p><code>ios</code>일 경우 pod install</p>
+
+<h4 id="3-1-2-코드-추가-aos">3.1.2 코드 추가 <code>AOS</code></h4>
+
+<p>AOS에서 webview의 alert이 실행되면 alert창 title에 기본적으로 web url이 출력됩니다.
+<br>아래 코드를 추가하면 webview의 alert 기본 타이틀을 빈값으로 설정합니다.</p>
+
+<h5 id="rncwebchromeclient-jjamong-app-node-modules-react-native-webview-android-src-main-java-com-reactnativecommunity-webview">RNCWebChromeClient (/JJAMONG_APP/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview)</h5>
+
+<pre><code>// /JJAMONG_APP/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview
+
+@Override
+public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
+  new AlertDialog.Builder(this.mWebView.getThemedReactContext())
+      .setTitle(&quot;&quot;)
+      .setMessage(message)
+      .setPositiveButton(&quot;확인&quot;, new AlertDialog.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+          result.confirm();
+        }
+      }).setCancelable(false).create().show();
+  return true;
+}
+
+@Override
+public boolean onJsConfirm(WebView view, String url, String message, final android.webkit.JsResult result) {
+  new AlertDialog.Builder(this.mWebView.getThemedReactContext())
+      .setTitle(&quot;&quot;)
+      .setMessage(message)
+      .setPositiveButton(&quot;확인&quot;, new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int which) {
+          result.confirm();
+        }
+      })
+      .setNegativeButton(&quot;취소&quot;, new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int which) {
+          result.cancel();
+        }
+      })
+      .create()
+      .show();
+
+  return true;
+}
+</code></pre>
+
+<h3 id="3-2-푸쉬">3.2 푸쉬</h3>
+
+<h4 id="3-2-1-플러그인-설치">3.2.1 플러그인 설치</h4>
+
+<pre><code>$ sudo yarn add @react-native-firebase/app@18.7.3
+$ sudo yarn add @react-native-firebase/messaging@18.7.3
+</code></pre>
+
+<h4 id="3-2-2-코드-추가-ios">3.2.2 코드 추가 <code>IOS</code></h4>
+
+<h4 id="podfile">podfile</h4>
+
+<p><code>podfile(/JJAMONG_APP/ios/podfile)</code></p>
+
+<p>아래 내용 코드 config = use_native_modules! 부분 아래 추가</p>
+
+<pre><code>pod 'Firebase', :modular_headers =&gt; true
+pod 'FirebaseCoreInternal', :modular_headers =&gt; true
+pod 'FirebaseCore', :modular_headers =&gt; true
+pod 'FirebaseMessaging', :modular_headers =&gt; true
+pod 'GoogleUtilities', :modular_headers =&gt; true
+</code></pre>
+
+<p>코드 추가 후 pod install</p>
+
+<h4 id="appdelegate-m">AppDelegate.m</h4>
+
+<p><code>AppDelegate.m (/JJAMONG_APP/ios/JJAMONG_APP/AppDelegate.m)</code></p>
+
+<p>아래 코드 최상단에 추가</p>
+
+<pre><code>#import &lt;Firebase.h&gt;
+</code></pre>
+
+<p>didFinishLaunchingWithOptions 안에 추가</p>
+
+<pre><code>if ([FIRApp defaultApp] == nil) {
+  [FIRApp configure];
+}
+</code></pre>
+
+<p>(<a href="https://velog.io/@ordidxzero/rn-random-chat-connect-firebase">https://velog.io/@ordidxzero/rn-random-chat-connect-firebase</a>)</p>
+
+<h4 id="3-2-3-코드-추가-aos">3.2.3 코드 추가 <code>AOS</code></h4>
+
+<h4 id="build-gradle">build.gradle</h4>
+
+<p><code>build.gradle (/JJAMONG_APP/android/build.gradle)</code></p>
+
+<p>dependencies {} 영역에 아래 코드 추가</p>
+
+<pre><code>classpath(&quot;com.google.gms:google-services:4.3.14&quot;)
+</code></pre>
+
+<h4 id="build-gradle-1">build.gradle</h4>
+
+<p><code>build.gradle (/JJAMONG_APP/android/app/build.gradle)</code></p>
+
+<p>apply plugin: &ldquo;com.android.application&rdquo; 아래 코드 추가</p>
+
+<pre><code>apply plugin: &quot;com.google.gms.google-services&quot;
+</code></pre>
+
+<p>dependencies {} 영역에 아래 코드 추가</p>
+
+<pre><code>// Import the Firebase BoM
+implementation platform('com.google.firebase:firebase-bom:31.1.0')
+implementation 'com.google.firebase:firebase-messaging'
+</code></pre>
+
+<h4 id="mainactivity-kt">MainActivity.kt</h4>
+
+<p><code>MainActivity.kt (/JJAMONG_APP/android/app/src/main/java/com/dainformation/zarada)</code></p>
+
+<p>아래 코드 추가</p>
+
+<pre><code>override fun onCreate(savedInstanceState: Bundle?) {
+  super.onCreate(savedInstanceState)
+  askNotificationPermission()
+}
+
+// Declare the launcher at the top of your Activity/Fragment:
+private val requestPermissionLauncher = registerForActivityResult(
+    ActivityResultContracts.RequestPermission()
+) { isGranted: Boolean -&gt;
+  if (isGranted) {
+  // FCM SDK (and your app) can post notifications.
+  } else {
+  // TODO: Inform user that that your app will not show notifications.
+  }
+}
+
+private fun askNotificationPermission() {
+  // This is only necessary for API level &gt;= 33 (TIRAMISU)
+  if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.TIRAMISU) {
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+        PackageManager.PERMISSION_GRANTED
+    ) {
+      // FCM SDK (and your app) can post notifications.
+    } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+      // TODO: display an educational UI explaining to the user the features that will be enabled
+      //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+      //       &quot;OK&quot; and &quot;No thanks&quot; buttons. If the user selects &quot;OK,&quot; directly request the permission.
+      //       If the user selects &quot;No thanks,&quot; allow the user to continue without notifications.
+    } else {
+      // Directly ask for the permission
+      requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+    }
+  }
+}
+</code></pre>
+
+<h3 id="3-3-모달">3.3 모달</h3>
+
+<h4 id="3-3-1-플러그인-설치">3.3.1 플러그인 설치</h4>
+
+<pre><code>$ sudo yarn add react-native-modal@13.0.1
+</code></pre>
+
+<h2 id="4-app-tsx-코드-추가">4. App.tsx 코드 추가</h2>
+
+<pre><code>import React, { useEffect, useState, useRef } from &quot;react&quot;;
+import { Alert, View, BackHandler, SafeAreaView, StyleSheet } from &quot;react-native&quot;;
+import { WebView } from 'react-native-webview'
+import messaging from '@react-native-firebase/messaging';
+import Modal from &quot;react-native-modal&quot;;
+
+// 백그라운드 푸시
+messaging().setBackgroundMessageHandler(async remoteMessage =&gt; {
+    console.log('[Background Remote Message]', remoteMessage)
+})
+
+// IOS푸시 허용
+async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+    if (enabled) {
+        console.log('Authorization status:', authStatus);
+    }
+}
+requestUserPermission()
+
+const App = () =&gt; {
+    const webview = useRef();
+    //const source = {uri: 'http://192.168.0.1:8080'}; // 로컬
+    const source = {uri: 'https://jjamong.github.io'}; // 스테이징
+    const [backState, setBackState] = useState({url: '', canGoBack: false})
+
+    const [modalVisible, setModalVisible] = useState(false)
+    const [modalSource, setModalSource] = useState({uri: ''})
+    
+    // FCM토큰 가져오기
+    const getFcmToken = async () =&gt; {
+        try {
+            const fcmToken = await messaging().getToken();
+            console.log('[FCM Token] ', fcmToken);
+        } catch (error) {
+            console.log('[FCM Token] error', error);
+        }
+    }
+
+    useEffect(() =&gt; {
+        getFcmToken()
+
+        // 포그라운드 푸시
+        messaging().onMessage(async remoteMessage =&gt; {
+            console.log('[Remote Message] ', JSON.stringify(remoteMessage));
+            let message = JSON.stringify(remoteMessage)
+            Alert.alert(&quot;&quot;, remoteMessage.notification?.body)
+        })
+    }, [])
+
+    useEffect(() =&gt; {
+        // 종료 창
+        function close() {
+            Alert.alert(&quot;&quot;, &quot;확인을 누르면 종료합니다.&quot;, [
+                {text: &quot;취소&quot;, onPress: () =&gt; {}, style: &quot;cancel&quot;},
+                {text: &quot;확인&quot;, onPress: () =&gt; BackHandler.exitApp()},
+            ])
+        }
+
+        // 뒤로가기
+        const backAction = (): boolean =&gt; {
+            if (backState.canGoBack) {
+                if (backState.url == source.uri + &quot;/resources/index.html#/login&quot;) {
+                    close();
+                } else {
+                    // 뒤로 갈 수 있는 상태라면 이전 웹페이지로 이동한다
+                    webview.current.goBack()
+                }
+            } else {
+                close();
+            }
+            return true;
+        }
+        
+        BackHandler.addEventListener('hardwareBackPress', backAction)
+        return (): void =&gt; {
+            BackHandler.removeEventListener('hardwareBackPress', backAction)
+        };
+    }, [backState.url, backState.canGoBack])
+
+    // WebView 메시지
+    const webViewMessage = (response): void =&gt; {
+        response = JSON.parse(response);
+        let key = response.key;
+        let data = response.data;
+        
+        // 나이스인증 열기
+        if (key === 'niceidOpen') {
+            setModalVisible(true)
+            setModalSource({uri: source.uri + '/checkplus_main'})
+        // 나이스인증 닫기
+        } else if (key === 'niceidClose') {
+            setModalVisible(false)
+            webview.current.postMessage(JSON.stringify(response))
+        // 주소찾기 열기
+        } else if (key === 'addrSearchOpen') {
+            setModalVisible(true)
+            setModalSource({uri: source.uri + '/resources/daum.jsp'})
+        // 주소찾기 닫기
+        } else if (key === 'addrSearchClose') {
+            setModalVisible(false)
+            webview.current.postMessage(JSON.stringify(response))
+        }
+    }
+
+    return (
+		&lt;&gt; 
+            {/* 기본 웹뷰 */}
+            &lt;SafeAreaView style={{ flex: 1 }}&gt;
+                &lt;WebView
+                    ref={webview}
+                    source={source}
+                    setSupportMultipleWindows={false}
+                    onNavigationStateChange={(navState) =&gt; {
+                        setBackState({ url: navState.url, canGoBack: navState.canGoBack })
+                    }}
+                    onMessage={event =&gt; {
+                        webViewMessage(event.nativeEvent.data)
+                    }}
+                /&gt;
+            &lt;/SafeAreaView&gt;
+            
+            &lt;Modal isVisible={modalVisible} transparent={true} animationType=&quot;slide&quot; onRequestClose={() =&gt; setModalVisible(false)} 
+                style={{ position:'absolute', margin: 0, height:'100%', width:'100%', zIndex:1, alignSelf:'center'}}&gt;
+                &lt;SafeAreaView style={{ flex: 1 }}&gt;
+                    &lt;WebView
+                        source={modalSource}
+                        onMessage={event =&gt; {
+                            webViewMessage(event.nativeEvent.data)
+                        }}
+                    /&gt;
+                &lt;/SafeAreaView&gt;
+            &lt;/Modal&gt;
+		&lt;/&gt;
+    );
+};
+
+export default App;
+</code></pre>
+
+<h5 id="app-tsx-반영-ios">app.tsx 반영 <code>IOS</code></h5>
+
+<p>react native 코드 추가 후 아래 명령어를 입력해야 xcode에 반영 됨
+<br>yarn react-native bundle &ndash;entry-file=&lsquo;index.js&rsquo; &ndash;bundle-output=&lsquo;./ios/main.jsbundle&rsquo; &ndash;dev=false &ndash;platform=&lsquo;ios&rsquo;</p>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+    
+  </section>
+</body>
+
+</html>
