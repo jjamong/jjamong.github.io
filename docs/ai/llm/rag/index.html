@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>짜몽 개발 연구소</title>
+<title>RAG(Retrieva Augmented Generation) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="">
+<meta name="description" content="RAG(Retrieva Augmented Generation)">
 
 
 
@@ -66,7 +66,7 @@
 </head>
 
 <body class="has-navbar-fixed-top">
-  <section class="wrap">
+  <section class="gen-wrapper">
     <header>
   <nav class="navbar is-fixed-top is-transparent">
     <div class="container is-fluid">
@@ -102,6 +102,7 @@
   </nav>
 
 </header>
+    
     
 
 
@@ -228,112 +229,291 @@
     </ul>
   </div>
 </div>
-    <div class="container main">
-      <div class="content-main content-list">
-        <ul class="ul"><li>
-            <span class="list-date">2021-10-21</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/maria/">Maria</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/maria/">
-                
-                
-                Maria
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-09-01</span>
-            <div class="list-title"><a href="/docs/infra/aws/route53/hosting/">호스팅 영역</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/route53/hosting/">
-                
-                
-                AWS 호스팅 영역 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-08-31</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/resilientip/">탄력적 IP</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/resilientip/">
-                
-                
-                탄력적 IP 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-08-30</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/php/">PHP (Hypertext Preprocessor)</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/php/">
-                
-                
-                AWS PHP 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-08-30</span>
-            <div class="list-title"><a href="/docs/infra/aws/ec2/apache/">아파치 Apache</a></div>
-              <p class="list-desc">
-                <a href="/docs/infra/aws/ec2/apache/">
-                
-                
-                AWS Apache 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-08-02</span>
-            <div class="list-title"><a href="/docs/front/react/nextjs/_app/">커스텀 App (_app.js)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/nextjs/_app/">
-                
-                
-                리액트 > Next.js > 커스텀 App (_app.js) 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-08-02</span>
-            <div class="list-title"><a href="/docs/front/react/nextjs/_document/">커스텀 Document (_document.js)</a></div>
-              <p class="list-desc">
-                <a href="/docs/front/react/nextjs/_document/">
-                
-                
-                리액트 > Next.js > 커스텀 Document (_document.js) 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-07-03</span>
-            <div class="list-title"><a href="/docs/etc/git/devsetting/">개발 환경 구성</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/git/devsetting/">
-                
-                
-                프로젝트 개발 환경 구성해 보며 GIT에 대한 설정과 개발 환경 셋팅 가이드
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-06-24</span>
-            <div class="list-title"><a href="/docs/etc/term/xss/">XSS(Cross Site Scripting / 사이트 간 스크립팅)</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/term/xss/">
-                
-                
-                XSS(Cross Site Scripting)
-                </a>
-              </p>
-          </li><li>
-            <span class="list-date">2021-06-16</span>
-            <div class="list-title"><a href="/docs/etc/git/cherrypick/">Cherry Pick (체리 픽)</a></div>
-              <p class="list-desc">
-                <a href="/docs/etc/git/cherrypick/">
-                
-                
-                GIT Cherry Pick (체리 픽) 가이드
-                </a>
-              </p>
-          </li></ul>
-        
-    </div>
+    <div class="container is-fluid">
+      <div class="columns verticals">
 
+        
+
+        
+        
+          
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+  <p class="sidebar-title is-hidden-tablet">Menu</p>
+  <div class="switch is-hidden-tablet">
+    <span class="slider round"></span>
+  </div>
+  <div class="custom-side">
+    <div class="sidebar-main sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-title dis-hidden-mobile">
+          Llm
+        </p>
+        <div class="slider-menu-wrap">
+          <ul class="sidebar-menu nav scrollbar-outer">
+            
+            <li >
+              
+              <a href="#" class="LLM"><i></i><strong>LLM</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/model/">LLM(Large Language Model)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/prompt/">prompt(프롬프트)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/embedding/">embedding(임베딩)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/vectordb/">vectordb(벡터 DB)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#" class="RAG"><i></i><strong>RAG</strong></a>
+              <ul>
+                
+                  
+                  <li  class="active"  class="subsections">
+                    <a href="/docs/ai/llm/rag/">RAG(Retrieva Augmented Generation)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        
+
+        <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+          <div class="content-main content">
+            
+            <h1 class="title">RAG(Retrieva Augmented Generation)</h1>
+
+            <div class="content-ads">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3588286886332636"
+                  data-ad-slot="4509829062"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            
+            
+
+
+<h2 id="이해하기">이해하기</h2>
+
+<h2 id="시작하기">시작하기</h2>
+
+<pre><code>%%time
+
+import os
+
+from langchain_community.document_loaders import PyMuPDFLoader, Docx2txtLoader, TextLoader, UnstructuredExcelLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain.vectorstores import Chroma
+
+# 임베딩 설정
+embeddings = HuggingFaceEmbeddings(
+    model_name=&quot;BAAI/bge-m3&quot;,
+    model_kwargs={'device': 'cpu'},  # 또는 'cuda'로 변경하여 GPU를 사용할 수 있음
+    encode_kwargs={'normalize_embeddings': True}  # 임베딩 정규화
+)
+
+# Chroma 클라이언트 초기화
+collection_name = 'chromaTest'
+db = Chroma(
+    persist_directory='./chroma',
+    collection_name=collection_name
+)
+# Chroma 데이터베이스 컬렉션 삭제
+db.delete_collection()
+
+# PDF
+files = [file for file in os.listdir('./dataset')]
+for file in files:
+    file_path = os.path.join('./dataset', file)
+    print('&gt;&gt;&gt; file_path', file_path)
+
+    try:
+        ''''''
+        if file.endswith('.pdf') :
+            # print('&gt;&gt;&gt; pdf', file)
+            loader = PyMuPDFLoader(file_path)
+
+            
+        if file.endswith('.docx') or file.endswith('.doc') :
+            # print('&gt;&gt;&gt; docx', file)
+            loader = Docx2txtLoader(file_path)
+
+            
+        if file.endswith('.txt') :
+            # print('&gt;&gt;&gt; docx', file)
+            loader = TextLoader(file_path)
+
+            
+        if file.endswith('.xlsx') or file.endswith('.xls') :
+            # print('&gt;&gt;&gt; docx', file)
+            loader = UnstructuredExcelLoader(file_path, mode=&quot;elements&quot;)
+
+        pages = loader.load()
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+        texts = text_splitter.split_documents(pages)
+
+        # 텍스트와 임베딩 확인
+        print(f&quot;텍스트 수 : {len(texts)}&quot;)
+        if len(texts) &gt; 0 :
+            ''''''
+            # 컬렉션 이름
+            # collection_name = 'test_' + str(len(texts))
+
+            # Chroma 데이터베이스 생성
+            db.from_documents(
+                texts,
+                embeddings,
+                persist_directory='./chroma',
+            )
+
+    except Exception as e:
+        print(f&quot;Error {file} : {e}&quot;)
+
+</code></pre>
+
+<pre><code>import os
+from dotenv import load_dotenv
+
+from langchain.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+load_dotenv()
+
+# 임베딩 설정
+embeddings = HuggingFaceEmbeddings(
+    model_name=&quot;BAAI/bge-m3&quot;,
+    model_kwargs={'device': 'cpu'},  # 또는 'cuda'로 변경하여 GPU를 사용할 수 있음
+    encode_kwargs={'normalize_embeddings': True}  # 임베딩 정규화
+)
+
+# 컬렉션 이름
+collection_name = 'langchain'
+
+# Chroma 클라이언트 초기화
+db = Chroma(
+    persist_directory='./chroma',
+    embedding_function=embeddings,
+    collection_name=collection_name
+)
+
+# similarity_search 검색 (가장 유사한 벡터 검색)
+query = &quot;이상미의 직업은?&quot;
+result1 = db.similarity_search(query, k=3)
+# result = db.get()
+print('&gt;&gt;&gt; result1', result1)
+
+# 검색 결과를 저장할 데이터프레임 생성
+results_list = []
+for doc in result1:
+    results_list = {
+        'filename': doc.metadata.get('source', 'unknown'),
+        'page': doc.metadata.get('page', 'unknown'),
+        'text': doc.page_content
+    }
+    print('&gt;&gt;&gt; filename : ', results_list['filename'])
+    print('&gt;&gt;&gt; page : ', results_list['page'])
+    print('&gt;&gt;&gt; text : ', results_list['text'])
+
+# as_retriever 검색
+# 벡터 저장소를 기반으로 벡터스토어리트리버를 생성합니다.
+retriever = db.as_retriever(search_type=&quot;mmr&quot;, search_kwargs={&quot;k&quot;: 3, &quot;fetch_k&quot;: 10})
+
+# 검색
+query = &quot;이상미의 직업은?&quot;
+result2 = retriever.get_relevant_documents(query)
+print('&gt;&gt;&gt; result2', result2)
+
+# 결과 출력
+for idx, doc in enumerate(result2):
+    # print(f&quot;Result {idx + 1}:&quot;)
+    print(f&quot;  filename: {doc.metadata.get('source', 'unknown')}&quot;)
+    print(f&quot;  Page: {doc.metadata.get('page', 'unknown')}&quot;)
+    print(f&quot;  Text: {doc.page_content}&quot;)
+    print()
+
+</code></pre>
+
+
+          </div>
+          
+        </div>
+        
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+      </div>
+    </div>
     
 <script src="/js/burger-menu.js"></script>
 <script src="/js/jquery-3.3.1.min.js"></script>
@@ -349,6 +529,9 @@
 <script src="/js/sticky-sidebar.min.js"></script>
 <script src="/js/contents-nav.js"></script>
 
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
 
 <script>
   $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
@@ -362,6 +545,8 @@
 <footer class="footer">
   
 </footer>
+    
   </section>
 </body>
+
 </html>

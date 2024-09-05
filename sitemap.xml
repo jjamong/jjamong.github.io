@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://jjamong.github.io/docs/ai/llm/rag/</loc>
+    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/ai/llm/vectordb/</loc>
     <lastmod>2024-09-05T00:00:00+00:00</lastmod>
   </url>
@@ -726,11 +731,6 @@
   
   <url>
     <loc>https://jjamong.github.io/docs/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjamong.github.io/docs/ai/llm/rag/rag/</loc>
     <priority>0</priority>
   </url>
   
