@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>LLM(Large Language Model) | 짜몽 개발 연구소</title>
+<title>메모리 - 대화내용 기억 | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="LLM(Large Language Model)">
+<meta name="description" content="메모리 - 대화내용 기억">
 
 
 
@@ -277,13 +277,13 @@
               <ul>
                 
                   
-                  <li  class="active"  class="subsections">
+                  <li  class="subsections">
                     <a href="/docs/ai/llm/llm/">LLM(Large Language Model)</a>
                   </li>
                   
                 
                   
-                  <li  class="subsections">
+                  <li  class="active"  class="subsections">
                     <a href="/docs/ai/llm/memory/">메모리 - 대화내용 기억</a>
                   </li>
                   
@@ -359,7 +359,7 @@
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">LLM(Large Language Model)</h1>
+            <h1 class="title">메모리 - 대화내용 기억</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -378,78 +378,174 @@
             
 
 
-<h2 id="이해하기">이해하기</h2>
-
-<p>대규모 언어 모델(LLM)은 텍스트를 인식하고 생성하는 등의 작업을 수행할 수 있는 일종의 인공 지능(AI) 프로그램입니다.</p>
-
-<p>LLM은 머신 러닝, 특히 트랜스포머 모델이라고 하는 일종의 신경망을 기반으로 합니다.</p>
-
-<h3 id="llm-모델-경험">LLM 모델 경험</h3>
-
-<p>llm모델을 PC에 설치해서 사용해 본 결과,
-8B(마라미터 약 80억개) 답변은 적당히 상식선에 답변이였으나,
-컴퓨터 성능의 이슈로 간단한 인사말 답변도 1분이 넘었고, RAG등이나 프롬프트를 추가하면 10분도 훨씬 넘게 되었습니다.</p>
-
-<p>2B인 SLLM 제미니도 로컬 설치해서 사용했을 경우엔 답변 속도 자체는 조금 빨라졌으나(일상답변 10몇초, 프롬프트 추가 3분 이상) 답변이 적절치 않거나, 상식을 넘은 할루시네이션 등이 많이 발생해 사용 불가할 정도로 판단하게 되었습니다.</p>
-
-<p>제미니 API를 등록해서 사용해본 결과 속도는 로컬 2B보다 훨씬 빠른 수준에
-답변은 8B이상의 수준으로 답변을 해주는 것 같습니다.</p>
-
 <h2 id="시작하기">시작하기</h2>
 
-<h3 id="gemini-구글">Gemini (구글)</h3>
+<h3 id="conversationbuffermemory">ConversationBufferMemory</h3>
 
-<p>API 키 등록 : <a href="https://aistudio.google.com/app/apikey">https://aistudio.google.com/app/apikey</a></p>
-
-<pre><code>import google.generativeai as genai
-
-# llm 설정
-genai.configure(
-    api_key=GOOGLE_API_KEY
-)
-model = genai.GenerativeModel('gemini-pro')
-
-response = model.generate_content(&quot;한국에 대해서 말해줘&quot;)
-print(response.text)
-##############################################
-**대한민국**
-
-**지리:**
-
-* 동아시아 한반도 남부에 위치
-* 북쪽으로 조선민주주의인민공화국(북한)과 국경을 맞닿음
-* 동쪽으로 동해, 서쪽으로...
-</code></pre>
-
-<h4 id="chatgooglegenerativeai">ChatGoogleGenerativeAI</h4>
+<p>이 메모리는 메시지를 저장한 다음 변수에 메시지를 추출할 수 있게 해줍니다.</p>
 
 <pre><code>from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
 
 # llm 설정
 llm = ChatGoogleGenerativeAI(
     model=&quot;gemini-pro&quot;,
-    google_api_key=GOOGLE_API_KEY
+    google_api_key=&quot;AIzaSyDGuiujLz0sb927K6p8NoRzUxFEdVmHnDc&quot;,
 )
 
-response = model.generate_content(&quot;한국에 대해서 말해줘&quot;)
-print(response.text)
+memory = ConversationBufferMemory()
+conversation = ConversationChain(
+    llm=llm, 
+    memory = memory
+)
+
+memory.save_context(
+    {&quot;input&quot;: &quot;너의 이름은 뭐야?&quot;}, 
+    {&quot;output&quot;: &quot;에이전트 B 입니다.&quot;}
+)
+
+conversation.predict(input=&quot;안녕, 난 에이전트 A 라고 해.&quot;)
+
+conversation.predict(input=&quot;너의 이름이 뭐지?&quot;)
+
+conversation.predict(input=&quot;내 이름이 뭐였지?&quot;)
+
+print(memory.buffer)
+# memory.load_memory_variables({})
+
+##########################################
+# Human: 너의 이름은 뭐야?
+# AI: 에이전트 B 입니다.
+# Human: 안녕, 난 에이전트 A 라고 해.
+# AI: 반갑습니다, 에이전트 A님. 저는 에이전트 B입니다. 오늘 저와 대화를 나누어 주셔서 감사합니다.
+# Human: 너의 이름이 뭐지?
+# AI: 저는 에이전트 B입니다.
+# Human: 내 이름이 뭐였지?
+# AI: 에이전트 A입니다.
 </code></pre>
 
-<h3 id="lama-메타">Lama (메타)</h3>
+<h3 id="conversationtokenbuffermemory">ConversationTokenBufferMemory</h3>
 
-<p><a href="https://ollama.com/download">https://ollama.com/download</a>
-<a href="https://ollama.com/library/llama3.1">https://ollama.com/library/llama3.1</a></p>
+<p>ConversationTokenBufferMemory 는 최근 대화의 히스토리를 버퍼를 메모리에 보관하고, 대화의 개수가 아닌 토큰 길이 를 사용하여 대화내용을 플러시(flush)할 시기를 결정합니다.</p>
 
-<p>Ollama 설치, llama3.1 모델 설치</p>
+<pre><code>from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationTokenBufferMemory
 
-<pre><code>from langchain_community.chat_models import ChatOllama
+# llm 설정
+llm = ChatGoogleGenerativeAI(
+    model=&quot;gemini-pro&quot;,
+    google_api_key=&quot;AIzaSyDGuiujLz0sb927K6p8NoRzUxFEdVmHnDc&quot;,
+)
 
-llm = ChatOllama(model='llama3.1:latest')
-result = llm.invoke('안녕')
+memory = ConversationTokenBufferMemory(llm=llm, max_token_limit=200)
+conversation = ConversationChain(
+    llm=llm, 
+    memory = memory
+)
 
-print(result)
-##############################################
-content='안녕하세요! 어떻게 지내세요?' response_metadata={'model': 'llama3.1:latest', 'created_at': '2024-09-05T01:40:56.8496289Z', 'message': {'role': 'assistant', 'content': ''}, 'done_reason': 'stop', 'done': True, 'total_duration': 35636020800, 'load_duration': 18777458800, 'prompt_eval_count': 13, 'prompt_eval_duration': 11959563000, 'eval_count': 9, 'eval_duration': 4826815000} id='run-92e77a59-fe88-42a3-a9bb-0044e1305deb-0'
+memory.save_context(
+    {&quot;input&quot;: &quot;너의 이름은 뭐야?&quot;}, 
+    {&quot;output&quot;: &quot;에이전트 B 입니다.&quot;}
+)
+
+conversation.predict(input=&quot;안녕, 난 에이전트 A 라고 해.&quot;)
+
+conversation.predict(input=&quot;너의 이름이 뭐지?&quot;)
+
+conversation.predict(input=&quot;내 이름이 뭐였지?&quot;)
+
+print(memory.buffer)
+# memory.load_memory_variables({})
+
+##########################################
+# Human: 너의 이름은 뭐야?
+# AI: 에이전트 B 입니다.
+# Human: 안녕, 난 에이전트 A 라고 해.
+# AI: 안녕하세요, 에이전트 A. 저는 에이전트 B입니다. 만나서 반갑습니다.
+# Human: 너의 이름이 뭐지?
+# AI: 에이전트 B입니다.
+# Human: 내 이름이 뭐였지?
+# AI: 에이전트 A입니다.
+
+
+##########################################
+max_token_limit=80 으로 했을 경우
+
+# AI: 반갑습니다, 에이전트 A. 어떻게 도와드릴까요?
+# Human: 너의 이름이 뭐지?
+# AI: 에이전트 B입니다.
+# Human: 내 이름이 뭐였지?
+# AI: 죄송합니다. 귀하의 이름이 무엇인지 모릅니다.
+</code></pre>
+
+<h3 id="conversationsummarybuffermemory">ConversationSummaryBufferMemory</h3>
+
+<p>ConversationSummaryBufferMemory 는 두 가지 아이디어를 결합한 것입니다.</p>
+
+<p>최근 대화내용의 버퍼를 메모리에 유지하되, 이전 대화내용을 완전히 플러시(flush)하지 않고 요약으로 컴파일하여 두 가지를 모두 사용합니다.</p>
+
+<pre><code>from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationSummaryBufferMemory
+
+# llm 설정
+llm = ChatGoogleGenerativeAI(
+    model=&quot;gemini-pro&quot;,
+    google_api_key=&quot;AIzaSyDGuiujLz0sb927K6p8NoRzUxFEdVmHnDc&quot;,
+)
+
+memory = ConversationSummaryBufferMemory(llm=llm, max_token_limit=2000)
+conversation = ConversationChain(
+    llm=llm, 
+    memory = memory
+)
+
+memory.save_context(
+    {&quot;input&quot;: &quot;너의 이름은 뭐야?&quot;}, 
+    {&quot;output&quot;: &quot;에이전트 B 입니다.&quot;}
+)
+
+schedule = &quot;내일 아침 8시에 에이전트 C와 미팅이 있습니다. \
+1시에는 에이전트 Z와 식사가 있습니다. \
+3시에는 에이전트 D와 행사가 있습니다.&quot;
+memory.save_context({&quot;input&quot;: &quot;내일 일정에 대해 알려줘.&quot;}, 
+                    {&quot;output&quot;: f&quot;{schedule}&quot;})
+
+conversation.predict(input=&quot;내일 3시 행사 다음 5시에 에이전트 E와 미팅 일정 추가해줘&quot;)
+
+conversation.predict(input=&quot;내일 5시에 누구랑 미팅이었지?&quot;)
+print(memory.buffer)
+print('&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;')
+
+conversation.predict(input=&quot;내일 3시 행사 참석 인원은 1000명 정도야. 인원정보도 추가해줘&quot;)
+
+conversation.predict(input=&quot;내일 5시에 누구랑 미팅이고, 3시에 참석 인원이 몇명이었지?&quot;)
+print(memory.buffer)
+
+##########################################
+# Human: 너의 이름은 뭐야?
+# AI: 에이전트 B 입니다.
+# Human: 내일 일정에 대해 알려줘.
+# AI: 내일 아침 8시에 에이전트 C와 미팅이 있습니다. 1시에는 에이전트 Z와 식사가 있습니다. 3시에는 # 에이전트 D와 행사가 있습니다.
+# Human: 내일 3시 행사 다음 5시에 에이전트 E와 미팅 일정 추가해줘
+# AI: 일정에 추가했습니다.
+# Human: 내일 5시에 누구랑 미팅이었지?
+# AI: 에이전트 E
+# &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+# Human: 너의 이름은 뭐야?
+# AI: 에이전트 B 입니다.
+# Human: 내일 일정에 대해 알려줘.
+# AI: 내일 아침 8시에 에이전트 C와 미팅이 있습니다. 1시에는 에이전트 Z와 식사가 있습니다. 3시에는 # 에이전트 D와 행사가 있습니다.
+# Human: 내일 3시 행사 다음 5시에 에이전트 E와 미팅 일정 추가해줘
+# AI: 일정에 추가했습니다.
+# Human: 내일 5시에 누구랑 미팅이었지?
+# AI: 에이전트 E
+# Human: 내일 3시 행사 참석 인원은 1000명 정도야. 인원정보도 추가해줘
+# AI: 일정에 인원정보를 추가했습니다.
+# Human: 내일 5시에 누구랑 미팅이고, 3시에 참석 인원이 몇명이었지?
+# AI: 내일 5시에 에이전트 E와 미팅이며, 3시 행사 참석 인원은 1000명입니다.
 </code></pre>
 
 
