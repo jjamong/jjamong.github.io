@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>DevOps | 짜몽 개발 연구소</title>
+<title>LLM(Large Language Model) | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="DevOps">
+<meta name="description" content="LLM(Large Language Model)">
 
 
 
@@ -246,15 +246,6 @@
 
   
   
-
-  
-  
-
-  
-  
-
-  
-  
     
   
 
@@ -275,19 +266,73 @@
     <div class="sidebar-main sidebar">
       <div class="sidebar-inner">
         <p class="sidebar-title dis-hidden-mobile">
-          Devops
+          Llm
         </p>
         <div class="slider-menu-wrap">
           <ul class="sidebar-menu nav scrollbar-outer">
             
             <li >
               
-              <a href="#" class="DevOps"><i></i><strong>DevOps</strong></a>
+              <a href="#" class="LLM"><i></i><strong>LLM</strong></a>
               <ul>
                 
                   
                   <li  class="active"  class="subsections">
-                    <a href="/docs/etc/devops/devops/">DevOps</a>
+                    <a href="/docs/ai/llm/llm/">LLM(Large Language Model)</a>
+                  </li>
+                  
+                
+                  
+                  <li class="subsections">
+                    <a href="#">Loader(로더)</a>
+                    <ul>
+                      
+                        
+                        <li >
+                          <a href="/docs/ai/llm/loader/loader/">Loader(로더)</a>
+                        </li>
+                        
+                      
+                        
+                        <li >
+                          <a href="/docs/ai/llm/loader/ocr/">OCR</a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/prompt/">prompt(프롬프트)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/embedding/">embedding(임베딩)</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/vectordb/">vectordb(벡터 DB)</a>
+                  </li>
+                  
+                
+              </ul>
+              
+            </li>
+            
+            <li >
+              
+              <a href="#" class="RAG"><i></i><strong>RAG</strong></a>
+              <ul>
+                
+                  
+                  <li  class="subsections">
+                    <a href="/docs/ai/llm/rag/">RAG(Retrieva Augmented Generation)</a>
                   </li>
                   
                 
@@ -301,13 +346,14 @@
     </div>
   </div>
 </div>
+
         
         
 
         <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
           <div class="content-main content">
             
-            <h1 class="title">DevOps</h1>
+            <h1 class="title">LLM(Large Language Model)</h1>
 
             <div class="content-ads">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -326,95 +372,79 @@
             
 
 
-<p>DevOps는 development(개발)와 operations(운영)이 합쳐진 용어로 그 뜻은
-<br>개발 방법론, 개발 문화 등 포괄적은 의미를 많이 내포하고 있는데 간단히 정리해 보자면
-<br>개발과 운영에 관련된 폭넓은 활동이라고 할 수 있습니다.</p>
+<h2 id="이해하기">이해하기</h2>
 
-<p>DevOps는 개발과 운영을 합쳐서 고객의 요구사항을 빠르고 정확하게 반영할 수 있는
-<br>품질 높은 소프트웨어를 만들고자 하는 목적을 가집니다.</p>
+<p>대규모 언어 모델(LLM)은 텍스트를 인식하고 생성하는 등의 작업을 수행할 수 있는 일종의 인공 지능(AI) 프로그램입니다. LLM은 방대한 데이터 세트를 학습하므로 &ldquo;대규모&rdquo;라는 이름이 붙었습니다.</p>
 
-<p>이런 DevOps 목적을 당성하기 위해 다양한 아키텍처, 자동화 툴 등이 사용될 수도 있습니다.</p>
+<p>LLM은 머신 러닝, 특히 트랜스포머 모델이라고 하는 일종의 신경망을 기반으로 합니다.</p>
 
-<h2 id="devops-방법">DevOps 방법</h2>
+<h3 id="llm-모델-경험">LLM 모델 경험</h3>
 
-<h5 id="scrum-스크럼">Scrum(스크럼)</h5>
+<p>llm모델을 PC에 설치해서 사용해 본 결과,
+8B(마라미터 약 80억개) 답변은 적당히 상식선에 답변이였으나,
+컴퓨터 성능의 이슈로 간단한 인사말 답변도 1분이 넘었고, RAG등이나 프롬프트를 추가하면 10분도 훨씬 넘게 되었습니다.</p>
 
-<p>Scrum은 작은 주기(Sprint)로 개발 및 검토를 하며 효율적인 협업 방법을 제공합니다.</p>
+<p>2B인 SLLM 제미니도 로컬 설치해서 사용했을 경우엔 답변 속도 자체는 조금 빨라졌으나(일상답변 10몇초, 프롬프트 추가 3분 이상) 답변이 적절치 않거나, 상식을 넘은 할루시네이션 등이 많이 발생해 사용 불가할 정도로 판단하게 되었습니다.</p>
 
-<p><br></p>
+<p>제미니 API를 등록해서 사용해본 결과 속도는 로컬 2B보다 훨씬 빠른 수준에
+답변은 8B이상의 수준으로 답변을 해주는 것 같습니다.</p>
 
-<h5 id="agile-애자일">Agile(애자일)</h5>
+<h2 id="시작하기">시작하기</h2>
 
-<h2 id="devops-툴체인">DevOps 툴체인</h2>
+<h3 id="gemini-구글">Gemini (구글)</h3>
 
-<h5 id="계획">계획</h5>
+<p>API 키 등록 : <a href="https://aistudio.google.com/app/apikey">https://aistudio.google.com/app/apikey</a></p>
 
-<p>Jira, Git</p>
+<pre><code>import google.generativeai as genai
 
-<p><br></p>
+# llm 설정
+genai.configure(
+    api_key=GOOGLE_API_KEY
+)
+model = genai.GenerativeModel('gemini-pro')
 
-<h5 id="코딩">코딩</h5>
+response = model.generate_content(&quot;한국에 대해서 말해줘&quot;)
+print(response.text)
+##############################################
+**대한민국**
 
-<p>GitHub, GitLab, Bitbucket, Stash</p>
+**지리:**
 
-<p><br></p>
+* 동아시아 한반도 남부에 위치
+* 북쪽으로 조선민주주의인민공화국(북한)과 국경을 맞닿음
+* 동쪽으로 동해, 서쪽으로...
+</code></pre>
 
-<h5 id="구축">구축</h5>
+<h4 id="chatgooglegenerativeai">ChatGoogleGenerativeAI</h4>
 
-<p>Docker, Ansible, Puppet, Chef, Gradle, Maven 또는 JFrog Artifactory</p>
+<pre><code>from langchain_google_genai import ChatGoogleGenerativeAI
 
-<p><br></p>
+# llm 설정
+llm = ChatGoogleGenerativeAI(
+    model=&quot;gemini-pro&quot;,
+    google_api_key=GOOGLE_API_KEY
+)
 
-<h5 id="테스트">테스트</h5>
+response = model.generate_content(&quot;한국에 대해서 말해줘&quot;)
+print(response.text)
+</code></pre>
 
-<p>JUnit, Codeception, Selenium, Vagrant, TestNG 또는 BlazeMeter</p>
+<h3 id="lama-메타">Lama (메타)</h3>
 
-<p><br></p>
+<p><a href="https://ollama.com/download">https://ollama.com/download</a>
+<a href="https://ollama.com/library/llama3.1">https://ollama.com/library/llama3.1</a></p>
 
-<h5 id="배포">배포</h5>
+<p>Ollama 설치, llama3.1 모델 설치</p>
 
-<p>Puppet, Chef, Ansible, Jenkins, Kubernetes, OpenShift, OpenStack, Docker 또는 Jira</p>
+<pre><code>from langchain_community.chat_models import ChatOllama
 
-<p><br></p>
+llm = ChatOllama(model='llama3.1:latest')
+result = llm.invoke('안녕')
 
-<h5 id="모니터링">모니터링</h5>
-
-<p>New Relic, Datadog, Grafana, Wireshark, Splunk, Nagios 또는 Slack</p>
-
-<p><br></p>
-
-<h2 id="devops-사례">DevOps 사례</h2>
-
-<h5 id="지속적인-개발">지속적인 개발</h5>
-
-<p><br></p>
-
-<h5 id="지속적인-테스트">지속적인 테스트.</h5>
-
-<p><br></p>
-
-<h5 id="지속적인-통합-ci">지속적인 통합(CI)</h5>
-
-<p><br></p>
-
-<h5 id="지속적인-제공">지속적인 제공</h5>
-
-<p><br></p>
-
-<h5 id="지속적인-구축-cd">지속적인 구축(CD)</h5>
-
-<p><br></p>
-
-<h5 id="지속적인-모니터링">지속적인 모니터링</h5>
-
-<p><br></p>
-
-<h5 id="코드형-인프라">코드형 인프라</h5>
-
-<!-- 
-https://www.netapp.com/ko/devops-solutions/what-is-devops/
-
--->
+print(result)
+##############################################
+content='안녕하세요! 어떻게 지내세요?' response_metadata={'model': 'llama3.1:latest', 'created_at': '2024-09-05T01:40:56.8496289Z', 'message': {'role': 'assistant', 'content': ''}, 'done_reason': 'stop', 'done': True, 'total_duration': 35636020800, 'load_duration': 18777458800, 'prompt_eval_count': 13, 'prompt_eval_duration': 11959563000, 'eval_count': 9, 'eval_duration': 4826815000} id='run-92e77a59-fe88-42a3-a9bb-0044e1305deb-0'
+</code></pre>
 
 
           </div>
