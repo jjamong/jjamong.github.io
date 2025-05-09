@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="generator" content="Hugo 0.59.1" />
+<title>그룹 생성 | 짜몽 개발 연구소</title>
+
+
+<link rel="canonical" href="http://jjamong.github.io">
+<meta name="title" content="짜몽 개발 연구소">
+<meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
+<meta name="description" content="">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-icon-36x36" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-icon-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-icon-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-icon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-icon-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-icon-192x192.png" sizes="192x192">
+
+<link type="text/css" rel="stylesheet" href="/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/tocbot.css" />
+<link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://jjamong.github.io/styles.aad394c66d4d8e1cd1b4059a2c3f3d440d457f2e99fb1fed4dd378b15b7ad507.css" integrity="sha256-qtOUxm1NjhzRtAWaLD89RA1Ffy6Z&#43;x/tTdN4sVt61Qc=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<link type="text/css" rel="stylesheet" href="/css/monokai-sublime.css" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149836281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149836281-1');
+</script>
+
+<script data-ad-client="ca-pub-3588286886332636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+</head>
+
+<body class="has-navbar-fixed-top">
+    <section class="gen-wrapper">
+        <header>
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="container is-fluid">
+      <div class="navbar-brand">
+        <div class="logo-area">
+          <a class="navbar-item logo" href="/" >
+          <a href="/" ><h1 class="logo-text">짜몽 개발 연구소</h1></a>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          
+          <span class="navbar-item">
+            <a href="/" >PORTFOLIO</a>
+          </span>
+          
+          <span class="navbar-item">
+            <a href="/docs" class="is-active">DOCS</a>
+          </span>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</header>
+        
+        
+
+
+
+<div class="container top-menu">
+    <div class="docs-top-menu tabs">
+        <ul>
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">Front</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="React"><a href="https://jjamong.github.io/docs/front/react/">React</a></li>
+                        
+                        <li class="Nodejs"><a href="https://jjamong.github.io/docs/front/nodejs/">Nodejs</a></li>
+                        
+                        <li class="JavaScript"><a href="https://jjamong.github.io/docs/front/javascript/">JavaScript</a></li>
+                        
+                        <li class="HTML_CSS"><a href="https://jjamong.github.io/docs/front/htmlcss/">HTML_CSS</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">Back</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="Spring"><a href="https://jjamong.github.io/docs/back/spring/">Spring</a></li>
+                        
+                        <li class="Java"><a href="https://jjamong.github.io/docs/back/java/">Java</a></li>
+                        
+                        <li class="Back"><a href="https://jjamong.github.io/docs/back/back/">Back</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">DB</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="Mssql"><a href="https://jjamong.github.io/docs/db/mssql/">Mssql</a></li>
+                        
+                        <li class="Mysql"><a href="https://jjamong.github.io/docs/db/mysql/">Mysql</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">APP</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="ReactNative"><a href="https://jjamong.github.io/docs/app/reactnative/">ReactNative</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">AI</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="LLM"><a href="https://jjamong.github.io/docs/ai/llm/">LLM</a></li>
+                        
+                        <li class="Python"><a href="https://jjamong.github.io/docs/ai/python/">Python</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">Cloud</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                            <li class="MS"><a href="https://jjamong.github.io/docs/cloud/ms/">MS</a></li>
+                        
+                            <li class="AWS"><a href="https://jjamong.github.io/docs/cloud/aws/">AWS</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">Infra</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="deploy"><a href="https://jjamong.github.io/docs/infra/deploy/">deploy</a></li>
+                        
+                        <li class="OS"><a href="https://jjamong.github.io/docs/infra/os/">OS</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+
+            
+            <li class="tabs-li">
+                
+                <a class="tabs-a">ETC</a>
+                <div class="sub-menu">
+                    <ul>
+                        
+                        <li class="Term"><a href="https://jjamong.github.io/docs/etc/term/">Term</a></li>
+                        
+                        <li class="Hugo"><a href="https://jjamong.github.io/docs/etc/hugo/">Hugo</a></li>
+                        
+                        <li class="GIT"><a href="https://jjamong.github.io/docs/etc/git/">GIT</a></li>
+                        
+                        <li class="DevOps"><a href="https://jjamong.github.io/docs/etc/devops/">DevOps</a></li>
+                        
+                        <li class="ETC"><a href="https://jjamong.github.io/docs/etc/etc/">ETC</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+        <div class="container is-fluid">
+            <div class="columns verticals">
+
+                
+
+                
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sidebar-container column is-one-fifth">
+    <p class="sidebar-title is-hidden-tablet">Menu</p>
+    <div class="switch is-hidden-tablet">
+        <span class="slider round"></span>
+    </div>
+    <div class="custom-side">
+        <div class="sidebar-main sidebar">
+            <div class="sidebar-inner">
+                <p class="sidebar-title dis-hidden-mobile">
+                    Aws
+                </p>
+                <div class="slider-menu-wrap">
+                    <ul class="sidebar-menu nav scrollbar-outer">
+                        
+                        <li >
+                            
+                            <a href="#" class="AWS EC2"><i></i><strong>AWS EC2</strong></a>
+                            <ul>
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/architecture/">서버 아키텍처</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/instancecreate/">인스턴스 생성/접속</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/securitygroup/">보안그룹</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/resilientip/">탄력적 IP</a>
+                                </li>
+                                
+                                
+                                
+                                <li class="subsections">
+                                    <a href="#">Auto Scaling(오토 스케일링)</a>
+                                    <ul>
+                                        
+                                        
+                                        <li >
+                                            <a href="/docs/infra/aws/ec2/autoscaling/configuration/">서버 구성</a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <li >
+                                            <a href="/docs/infra/aws/ec2/autoscaling/groupcreate/">그룹 생성</a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <li >
+                                            <a href="/docs/infra/aws/ec2/autoscaling/test/">stress 명령어 테스트</a>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                <li class="subsections">
+                                    <a href="#">Elastic Load Balancing(ELB 로드 밸런싱)</a>
+                                    <ul>
+                                        
+                                        
+                                        <li >
+                                            <a href="/docs/infra/aws/ec2/elb/elbcreate/">ELB 생성</a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <li >
+                                            <a href="/docs/infra/aws/ec2/elb/test/">ELB 테스트</a>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                            </ul>
+                            
+                        </li>
+                        
+                        <li >
+                            
+                            <a href="#" class="AWS Route 53"><i></i><strong>AWS Route 53</strong></a>
+                            <ul>
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/route53/dns/">DNS, 도메인</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/route53/domainrigster/">도메인 등록</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/route53/hosting/">호스팅 영역</a>
+                                </li>
+                                
+                                
+                            </ul>
+                            
+                        </li>
+                        
+                        <li >
+                            
+                            <a href="#" class="서버&amp;DB"><i></i><strong>서버&amp;DB</strong></a>
+                            <ul>
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/apache/">아파치 apache</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/php/">PHP</a>
+                                </li>
+                                
+                                
+                                
+                                <li  class="subsections">
+                                    <a href="/docs/infra/aws/ec2/maria/">Maria</a>
+                                </li>
+                                
+                                
+                            </ul>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+                
+
+                <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
+                    <div class="content-main content">
+                        
+                        <h1 class="title">그룹 생성</h1>
+
+                        <div class="content-ads">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3588286886332636"
+                                data-ad-slot="4509829062" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+
+                        
+
+
+<h2 id="1-ami-생성">1. AMI 생성</h2>
+
+<p><code>위치</code> : 서비스의 [인스턴스] &gt; [인스턴스]</p>
+
+<p>인스턴스 중지 상태에서, 이미지 -&gt; 이미지 생성을 선택한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/01.png" alt="01" /></p>
+
+<hr />
+
+<p>이미지 이름을 입력하고 이미지 생성 버튼을 선택한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/02.png" alt="02" /></p>
+
+<hr />
+
+<p>이미지 생성 성공 화면이며, 보유 중인 이미지를 선택하면 이미지 목록으로 이동한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/03.png" alt="03" /></p>
+
+<hr />
+
+<p><code>위치</code> : 서비스의 [이미지] &gt; [AMI]</p>
+
+<p>그림과 같이 상태가 available로 표기 되면 생성이 완료된 것이다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/04.png" alt="04" /></p>
+
+<hr />
+
+<h2 id="2-시작-템플릿-생성">2. 시작 템플릿 생성</h2>
+
+<p><code>위치</code> : 서비스의 [인스턴스] &gt; [시작 템플릿]</p>
+
+<ul>
+<li>시작 템플릿 이름 : ec2-launch-template</li>
+<li>AMI ID : Search for AMI를 선택하여 생성한 AMI를 선택한다.</li>
+<li>키 페어 이름 : 생성한 키 페어를 선택한다.</li>
+<li>시작 템플릿 보안 그룹 : 생성한 보안 그룹을 선택한다.</li>
+</ul>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/05.png" alt="05" /></p>
+
+<hr />
+
+<p>필수값을 다 입력하였으면, 시작 템플릿 생성을 선택한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/06.png" alt="06" /></p>
+
+<hr />
+
+<p>시작 템플릿 성공. 보유 중인 시작 템플릿 목록으로 이동한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/07.png" alt="07" /></p>
+
+<hr />
+
+<h2 id="3-autu-scaling-그룹-생성">3. Autu Scaling 그룹 생성</h2>
+
+<p><code>위치</code> : 서비스의 [AUTO SCALING] &gt; [Autu Scaling 그룹]</p>
+
+<p>시작 템플릿을 설정하면 아래 시작 템플릿 목록이 보이며
+목록에 노출된 템플릿을 선택하고 다음단계를 선택한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/08.png" alt="08" /></p>
+
+<h3 id="3-1-auto-scaling-그룹-세부-정보-구성">3.1. Auto Scaling 그룹 세부 정보 구성</h3>
+
+<p>Auto Scaling 그룹의 설정을 지정하는 화면이다.
+그룹 명, 관리할 인스턴스 최초 수를 지정 할 수 있다.</p>
+
+<p>서브넷은 인스턴스들을 어떤 네트워크 망에 띄울 것인지를 정하는 것인데,
+그림과 같이 2a, 2c를 기본값으로 모두 지정한다. 이는 생성하는 인스턴스들 중 절반은 서울 리전 a 가용 영역에, 다른 절반은 서울 리전 c 가용 영역에 생성한다는 의미다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/09.png" alt="09" /></p>
+
+<h3 id="3-2-조정-정책-구성">3.2. 조정 정책 구성</h3>
+
+<p>Auto Scaling 그룹 내 인스턴스 수를 자동으로 조절하기 위한 조정 정책을 설정하는 화면이다.</p>
+
+<p>최소 1대에서 최대 2대의 인스턴스를 실행하게 해서 평균 CPU 사용률이 80%를 기준으로 설정한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/10.png" alt="10" /></p>
+
+<h3 id="3-3-알림-구성">3.3. 알림 구성</h3>
+
+<p>Auto Scaling 그룹 내 인스턴스 변화가 있을 경우 알림 설정한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/11.png" alt="11" /></p>
+
+<h3 id="3-4-태그-구성">3.4. 태그 구성</h3>
+
+<p>Auto Scaling 그룹 내 인스턴스 태그를 설정한다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/12.png" alt="12" /></p>
+
+<h3 id="3-5-검토">3.5. 검토</h3>
+
+<p>Auto Scaling 그룹 설정값들을 검토하는 화면이다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/13.png" alt="13" /></p>
+
+<h3 id="3-6-완료">3.6. 완료</h3>
+
+<p>생성이 완료되면 그림과 같이 리스트 목록에 출력된다.</p>
+
+<p><img src="/docs/infra/aws/ec2/autoscaling/groupcreate/14.png" alt="14" /></p>
+
+
+                    </div>
+                    
+                </div>
+                
+<div class="toc-container column is-one-fifth is-hidden-touch">
+  <div class="toc-main">
+    <p class="subtitle is-6">
+      Contents
+    </p>
+    <div class="scrollbar-outer">
+      <nav class="toc-menu"></nav>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+            </div>
+        </div>
+        
+<script src="/js/burger-menu.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+<script src="/js/common.js"></script>
+
+<script src="/js/anchor-4.2.0.min.js"></script>
+<script src="/js/anchors.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/js/jquery.scrollbar.min.js"></script>
+<script src="/js/sticky-sidebar.min.js"></script>
+<script src="/js/contents-nav.js"></script>
+
+<script src="/js/tocbot.min.js"></script>
+<script src="/js/toc.js"></script>
+
+
+<script>
+  $(".sidebar-menu").find("li.active").parents('li').toggleClass("open");
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+        <div class="btn-top"></div>
+<footer class="footer">
+  
+</footer>
+        
+    </section>
+</body>
+
+</html>
