@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jjamong.github.io/docs/ai/llm/embedding/</loc>
+    <lastmod>2025-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jjamong.github.io/docs/ai/llm/vectordb/</loc>
+    <lastmod>2025-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jjamong.github.io/docs/cloud/ms/azure/start/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
   </url>
@@ -38,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://jjamong.github.io/docs/ai/llm/embedding/</loc>
-    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jjamong.github.io/docs/ai/llm/rag/</loc>
-    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jjamong.github.io/docs/ai/llm/vectordb/</loc>
     <lastmod>2024-09-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -655,7 +655,7 @@
   
   <url>
     <loc>https://jjamong.github.io/</loc>
-    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
