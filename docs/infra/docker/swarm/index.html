@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Docker 시작하기 | 짜몽 개발 연구소</title>
+<title>Swarm 시작하기 | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Docker 시작하기">
+<meta name="description" content="Swarm 시작하기">
 
 
 
@@ -317,7 +317,7 @@
                 <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
                     <div class="content-main content">
                         
-                        <h1 class="title">Docker 시작하기</h1>
+                        <h1 class="title">Swarm 시작하기</h1>
 
                         <div class="content-ads">
                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -334,211 +334,84 @@
 
 <h2 id="이해하기">이해하기</h2>
 
-<h3 id="docker-도커-란">Docker(도커)란?</h3>
+<h3 id="swarm-스웜">Swarm(스웜)?</h3>
 
-<p>도커(Docker)는 애플리케이션을 어디서나 동일하게 실행할 수 있도록 ‘컨테이너’라는 표준화된 실행 환경을 만들어주는 기술이에요.</p>
+<p>Docker Swarm(도커 스웜)은 Docker가 제공하는 오케스트레이션(Orchestration) 도구야.
+쉽게 말해서:</p>
 
-<h4 id="설치">설치</h4>
+<p>👉 여러 개의 Docker 컨테이너를 묶어서 클러스터처럼 운영하게 해주는 기술</p>
 
-<p>windows <br>
-docker desktop 설치 <a href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a></p>
+<p>Kubernetes(K8s)처럼 컨테이너를 여러 서버에 분산해서 돌리고, 장애가 나면 자동으로 다른 노드에 재배치하는 등의 기능을 제공해.</p>
 
-<h3 id="wsl이란-windows-subsystem-for-linux">WSL이란? (Windows Subsystem for Linux)</h3>
+<p>Docker가 만든 “간단한 쿠버네티스”
+(쿠버네티스보다 가볍고 단순하지만 기능은 더 적음)</p>
 
-<p>WSL = 윈도우 안에서 리눅스를 실행할 수 있게 해주는 기능이에요.<br>
-예전에는 리눅스 개발하려면, 듀얼 부팅, 가상머신(VMware, VirtualBox)
-같은 무거운 방법이 필요했는데<br></p>
+<p>🧩 Docker Swarm이 할 수 있는 일</p>
 
-<p>✨ WSL은 Windows 안에서 리눅스 환경을 아주 가볍게 바로 실행할 수 있는 기술입니다.</p>
+<p>Docker Swarm은 다음을 자동으로 해줘:</p>
 
-<pre><code>wsl -l -v
+<p>✔ 컨테이너 클러스터 구성</p>
 
-  NAME              STATE           VERSION
-* docker-desktop    Running         2
+<p>여러 서버(Node)를 하나의 클러스터(Swarm)로 묶음</p>
+
+<p>✔ 서비스(컨테이너) 자동 배포</p>
+
+<p>docker stack deploy로 여러 개의 컨테이너를 여러 노드에 배포</p>
+
+<p>✔ 로드밸런싱</p>
+
+<p>서비스 replicas=3 → 3개의 컨테이너로 자동 분산 처리</p>
+
+<p>✔ 장애 복구</p>
+
+<p>노드가 죽으면 자동으로 다른 노드에 컨테이너 재생성</p>
+
+<p>✔ 롤링 업데이트</p>
+
+<p>버전업 시 하나씩 교체하며 배포</p>
+
+<h3 id="stack">Stack</h3>
+
+<p>스웜에서 사용하는 Compose 기반 “전체 애플리케이션 단위”
+스웜 전용 compose 파일을 stack이라고 부르고
+Service(서비스) — Swarm에서 실행되는 컨테이너 그룹(복제 포함)
+Swarm = 하나의 파일(docker-stack.yml)</p>
+
+<h3 id="서비스">서비스</h3>
+
+<p>서비스(Service) Swarm에서 실행되는 컨테이너 그룹(복제 포함)</p>
+
+<h2 id="시작하기">시작하기</h2>
+
+<h3 id="스웜-초기화-swarm-클러스터에-가입">스웜 초기화 (Swarm 클러스터에 가입)</h3>
+
+<pre><code>$ docker swarm init
 </code></pre>
 
-<table>
-<thead>
-<tr>
-<th>용어</th>
-<th>설명</th>
-</tr>
-</thead>
+<h3 id="스웜-종료-swarm-클러스터에서-탈출">스웜 종료 (Swarm 클러스터에서 탈출)</h3>
 
-<tbody>
-<tr>
-<td><strong>WSL</strong></td>
-<td>Windows에서 리눅스를 실행 가능한 기능</td>
-</tr>
-
-<tr>
-<td><strong>WSL2</strong></td>
-<td>최신, 더 빠르고 정확한 리눅스 커널 기반 버전</td>
-</tr>
-</tbody>
-</table>
-
-<p>왜 Docker가 WSL2를 필요로 할까?</p>
-
-<p>도커는 원래 Linux 기술(컨테이너, cgroup, namespace) 기반이에요.
-Windows는 리눅스가 아니라서 바로 실행할 수 없음.</p>
-
-<h3 id="docker-image-도커-이미지-란">Docker Image(도커 이미지) 란?</h3>
-
-<p>앱을 실행하기 위한 ‘설계도 + 재료 세트’</p>
-
-<p>도커 이미지 안에는 다음이 들어 있어요: <br>
-&ndash; 운영체제의 기본 틀 (예: 리눅스 최소 버전) <br>
-&ndash; 실행 언어/런타임 (Python, Node.js 등) <br>
-&ndash; 라이브러리, 패키지 <br>
-&ndash; 앱 소스코드 <br>
-&ndash; 환경 설정 <br></p>
-
-<h3 id="container-컨테이너-란">Container(컨테이너)란?</h3>
-
-<p>컨테이너 = Docker 이미지가 실제로 실행되고 있는 독립된 공간(환경)
-즉,<br>
-👉 이미지는 설계도,<br>
-👉 컨테이너는 그 설계도로 만든 실제 실행 중인 애플리케이션.<br></p>
-
-<p>이미지로부터 실제 실행된 인스턴스(프로세스)
-하나의 이미지로 컨테이너 여러 개 만들 수 있음
-상태를 가짐 (로그, 파일, 실행 상태)</p>
-
-<h3 id="docker-compose-도커-컴포즈-가-뭐야">Docker Compose(도커 컴포즈)가 뭐야?</h3>
-
-<p>Docker Compose = 여러 개의 컨테이너를 한 번에 관리하는 도구</p>
-
-<p>한 프로젝트 안에는 보통:</p>
-
-<p>Spring Boot backend 컨테이너</p>
-
-<p>PostgreSQL DB 컨테이너</p>
-
-<p>Redis 컨테이너</p>
-
-<p>프론트엔드(React/Next.js) 컨테이너</p>
-
-<p>Nginx 컨테이너</p>
-
-<p>이 여러 개가 동시에 연결되어 돌아가야 하죠?</p>
-
-<p>✨ 이걸 docker run으로 일일이 실행하려면 너무 복잡해요.</p>
-
-<p>그래서 나온 게 docker-compose.yml!</p>
-
-<p>여러 컨테이너를 로컬에서 한 번에 띄우는 도구
-어떤 이미지를 쓸지
-환경변수
-볼륨
-포트
-컨테이너 간 관계
-로컬 개발용
-오케스트레이션 기능 없음
-컨테이너 죽으면 자동 재시작 안 함</p>
-
-<h2 id="image-이미지">Image(이미지)</h2>
-
-<p>docker desktop 실행</p>
-
-<h3 id="이미지-확인">이미지 확인</h3>
-
-<pre><code>$ docker images
-
-IMAGE                   ID             DISK USAGE   CONTENT SIZE   EXTRA
-spring-backend:latest   ef859d384cda        416MB          115MB
+<pre><code>docker swarm leave --force
 </code></pre>
 
-<h3 id="이미지-빌드">이미지 빌드</h3>
+<h3 id="스웜-확인">스웜 확인</h3>
 
-<p>sptring boot 프로젝트 준비 후 root 경로에 Dockerfile 생성<br>
-(확장명 없이 파일명은 반드시 Dockerfile)</p>
-
-<pre><code># Dockerfile
-
-# 1단계: Build
-FROM eclipse-temurin:17-jdk AS builder
-WORKDIR /app
-
-COPY . .
-RUN ./gradlew bootJar
-
-# 2단계: Runtime
-FROM eclipse-temurin:17-jre
-WORKDIR /app
-
-COPY --from=builder /app/build/libs/*.jar app.jar
-
-ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]
+<pre><code>docker swarm ls
 </code></pre>
 
-<p>이미지 빌드</p>
+<h3 id="스웜-노드-확인">스웜 노드 확인</h3>
 
-<pre><code>$ docker build -t spring-backend ./springbackend
+<pre><code>$ docker node ls
 </code></pre>
 
-<h3 id="이미지-삭제">이미지 삭제</h3>
+<h3 id="스택-배포">스택 배포</h3>
 
-<pre><code>$ docker rmi spring-backend:latest
-</code></pre>
+<pre><code># docker-stack.yml
 
-<h3 id="이미지-다운로드">이미지 다운로드</h3>
-
-<pre><code>$ docker pull postgres:15
-</code></pre>
-
-<h2 id="container-컨테이너">Container(컨테이너)</h2>
-
-<h3 id="컨테이너-확인">컨테이너 확인</h3>
-
-<pre><code>$ docker ps
-$ docker ps -a (종료된 것도 포함)
-
-CONTAINER ID   IMAGE            COMMAND               CREATED          STATUS          PORTS                                         NAMES
-08a3470db291   spring-backend   &quot;java -jar app.jar&quot;   49 seconds ago   Up 49 seconds   0.0.0.0:8080-&gt;8080/tcp, [::]:8080-&gt;8080/tcp   bold_hopper
-</code></pre>
-
-<h3 id="컨테이너-실행">컨테이너 실행</h3>
-
-<pre><code>$ docker run -d --name spring-backend -p 8080:8080 spring-backend:latest
-</code></pre>
-
-<pre><code>$ docker run --name my-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres:15
-</code></pre>
-
-<h3 id="컨테이너-로그-확인">컨테이너 로그 확인</h3>
-
-<pre><code>$ docker logs -f 08a3470db291
-</code></pre>
-
-<h3 id="컨테이너-삭제">컨테이너 삭제</h3>
-
-<pre><code>$ docker rm 08a3470db291
-</code></pre>
-
-<h2 id="docker-compose-도커-컴포즈">Docker Compose(도커 컴포즈)</h2>
-
-<h3 id="프로젝트-기본-구조">프로젝트 기본 구조</h3>
-
-<pre><code>project-root/
- ├─ docker-compose.yml
- ├─ spring/
- │   ├─ src/
- │   ├─ build.gradle
- │   └─ ...
- └─ (기타 파일)
-
-</code></pre>
-
-<h3 id="컴포즈-실행">컴포즈 실행</h3>
-
-<pre><code># docker-compose.yml
 version: &quot;3.9&quot;
 
 services:
   db:
     image: postgres:15
-    container_name: postgres-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
@@ -547,26 +420,66 @@ services:
       - &quot;5432:5432&quot;
     volumes:
       - pgdata:/var/lib/postgresql/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
 
   spring:
-    image: spring-backend:latest # 이미 빌드된 이미지 사용
-    container_name: spring-backend
+    image: spring-backend:latest # build 대신 이미지 필요
     ports:
       - &quot;8080:8080&quot;
     depends_on:
       - db
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+      placement:
+        max_replicas_per_node: 2 # 노드가 1개이기 때문에 2개가 동일 노드에 실행됨
 
 volumes:
   pgdata:
 
 </code></pre>
 
-<pre><code>$ docker compose up
+<pre><code>docker stack deploy -c docker-stack.yml dockerStack
 </code></pre>
 
-<h3 id="컴포즈-종료">컴포즈 종료</h3>
+<h3 id="스택-확인">스택 확인</h3>
 
-<pre><code>$ docker compose down
+<pre><code>$ docker stack ls
+</code></pre>
+
+<h3 id="스택-삭제">스택 삭제</h3>
+
+<pre><code>$ docker stack rm dockerStack
+</code></pre>
+
+<h2 id="service-서비스">Service(서비스)</h2>
+
+<h3 id="서비스-확인">서비스 확인</h3>
+
+<pre><code>$ docker service ls
+</code></pre>
+
+<h3 id="서비스-업데이트-스택배포시-이름이-같아-반영이-안될경우">서비스 업데이트 (스택배포시 이름이 같아 반영이 안될경우)</h3>
+
+<pre><code>$ docker service update --force dockerStack_spring
+</code></pre>
+
+<h3 id="서비스-스케일-0으로-초기화">서비스 스케일 0으로 초기화</h3>
+
+<pre><code>$ docker service scale myapp_spring=0
+$ docker service scale myapp_db=0
+</code></pre>
+
+<h1 id="서비스-삭제">서비스 삭제</h1>
+
+<pre><code>$ docker service rm myapp_spring
+$ docker service rm myapp_db
 </code></pre>
 
 
