@@ -302,6 +302,12 @@
                 
                   
                   <li  class="subsections">
+                    <a href="/docs/infra/docker/db">db</a>
+                  </li>
+                  
+                
+                  
+                  <li  class="subsections">
                     <a href="/docs/infra/docker/swarm">swarm(스웜)</a>
                   </li>
                   
@@ -404,6 +410,23 @@ Swarm = 하나의 파일(docker-stack.yml)</p>
 <pre><code>docker swarm ls
 </code></pre>
 
+<h3 id="네트워크-생성">네트워크 생성</h3>
+
+<pre><code>$ docker network create -d overlay net-spring
+$ docker network create -d overlay net-db
+</code></pre>
+
+<h3 id="네트워크-확인">네트워크 확인</h3>
+
+<pre><code>docker network ls
+docker network inspect net-db
+</code></pre>
+
+<h3 id="네트워크-삭제">네트워크 삭제</h3>
+
+<pre><code>$ docker network rm net-db
+</code></pre>
+
 <h3 id="스웜-노드-확인">스웜 노드 확인</h3>
 
 <pre><code>$ docker node ls
@@ -451,7 +474,7 @@ volumes:
 
 </code></pre>
 
-<pre><code>docker stack deploy -c docker-stack.yml dockerStack
+<pre><code>docker stack deploy -c docker-compose-swarm.yml dockerStack
 </code></pre>
 
 <h3 id="스택-확인">스택 확인</h3>

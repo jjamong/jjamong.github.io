@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="generator" content="Hugo 0.59.1" />
-<title>Docker 시작하기 | 짜몽 개발 연구소</title>
+<title>Docker DB | 짜몽 개발 연구소</title>
 
 
 <link rel="canonical" href="http://jjamong.github.io">
 <meta name="title" content="짜몽 개발 연구소">
 <meta name="keywords" content="웹, 서버, 프론트엔드, 백엔드, DB 등 IT 개발 블로그/Docs">
-<meta name="description" content="Docker 시작하기">
+<meta name="description" content="Docker DB">
 
 
 
@@ -329,7 +329,7 @@
                 <div class="content-container column is-three-fifths-desktop is-two-thirds-tablet">
                     <div class="content-main content">
                         
-                        <h1 class="title">Docker 시작하기</h1>
+                        <h1 class="title">Docker DB</h1>
 
                         <div class="content-ads">
                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -344,241 +344,115 @@
                         
 
 
-<h2 id="이해하기">이해하기</h2>
+<h2 id="이중화">이중화</h2>
 
-<h3 id="docker-도커-란">Docker(도커)란?</h3>
+<h3 id="docker-compose-yml">docker-compose.yml</h3>
 
-<p>도커(Docker)는 애플리케이션을 어디서나 동일하게 실행할 수 있도록 ‘컨테이너’라는 표준화된 실행 환경을 만들어주는 기술이에요.</p>
-
-<h4 id="설치">설치</h4>
-
-<p>windows <br>
-docker desktop 설치 <a href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a></p>
-
-<h3 id="wsl이란-windows-subsystem-for-linux">WSL이란? (Windows Subsystem for Linux)</h3>
-
-<p>WSL = 윈도우 안에서 리눅스를 실행할 수 있게 해주는 기능이에요.<br>
-예전에는 리눅스 개발하려면, 듀얼 부팅, 가상머신(VMware, VirtualBox)
-같은 무거운 방법이 필요했는데<br></p>
-
-<p>✨ WSL은 Windows 안에서 리눅스 환경을 아주 가볍게 바로 실행할 수 있는 기술입니다.</p>
-
-<pre><code>wsl -l -v
-
-  NAME              STATE           VERSION
-* docker-desktop    Running         2
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>용어</th>
-<th>설명</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><strong>WSL</strong></td>
-<td>Windows에서 리눅스를 실행 가능한 기능</td>
-</tr>
-
-<tr>
-<td><strong>WSL2</strong></td>
-<td>최신, 더 빠르고 정확한 리눅스 커널 기반 버전</td>
-</tr>
-</tbody>
-</table>
-
-<p>왜 Docker가 WSL2를 필요로 할까?</p>
-
-<p>도커는 원래 Linux 기술(컨테이너, cgroup, namespace) 기반이에요.
-Windows는 리눅스가 아니라서 바로 실행할 수 없음.</p>
-
-<h3 id="docker-image-도커-이미지-란">Docker Image(도커 이미지) 란?</h3>
-
-<p>앱을 실행하기 위한 ‘설계도 + 재료 세트’</p>
-
-<p>도커 이미지 안에는 다음이 들어 있어요: <br>
-&ndash; 운영체제의 기본 틀 (예: 리눅스 최소 버전) <br>
-&ndash; 실행 언어/런타임 (Python, Node.js 등) <br>
-&ndash; 라이브러리, 패키지 <br>
-&ndash; 앱 소스코드 <br>
-&ndash; 환경 설정 <br></p>
-
-<h3 id="container-컨테이너-란">Container(컨테이너)란?</h3>
-
-<p>컨테이너 = Docker 이미지가 실제로 실행되고 있는 독립된 공간(환경)
-즉,<br>
-👉 이미지는 설계도,<br>
-👉 컨테이너는 그 설계도로 만든 실제 실행 중인 애플리케이션.<br></p>
-
-<p>이미지로부터 실제 실행된 인스턴스(프로세스)
-하나의 이미지로 컨테이너 여러 개 만들 수 있음
-상태를 가짐 (로그, 파일, 실행 상태)</p>
-
-<h3 id="docker-compose-도커-컴포즈-가-뭐야">Docker Compose(도커 컴포즈)가 뭐야?</h3>
-
-<p>Docker Compose = 여러 개의 컨테이너를 한 번에 관리하는 도구</p>
-
-<p>한 프로젝트 안에는 보통:</p>
-
-<p>Spring Boot backend 컨테이너</p>
-
-<p>PostgreSQL DB 컨테이너</p>
-
-<p>Redis 컨테이너</p>
-
-<p>프론트엔드(React/Next.js) 컨테이너</p>
-
-<p>Nginx 컨테이너</p>
-
-<p>이 여러 개가 동시에 연결되어 돌아가야 하죠?</p>
-
-<p>✨ 이걸 docker run으로 일일이 실행하려면 너무 복잡해요.</p>
-
-<p>그래서 나온 게 docker-compose.yml!</p>
-
-<p>여러 컨테이너를 로컬에서 한 번에 띄우는 도구
-어떤 이미지를 쓸지
-환경변수
-볼륨
-포트
-컨테이너 간 관계
-로컬 개발용
-오케스트레이션 기능 없음
-컨테이너 죽으면 자동 재시작 안 함</p>
-
-<h2 id="image-이미지">Image(이미지)</h2>
-
-<p>docker desktop 실행</p>
-
-<h3 id="이미지-확인">이미지 확인</h3>
-
-<pre><code>$ docker images
-
-IMAGE                   ID             DISK USAGE   CONTENT SIZE   EXTRA
-spring-backend:latest   ef859d384cda        416MB          115MB
-</code></pre>
-
-<h3 id="이미지-빌드">이미지 빌드</h3>
-
-<p>sptring boot 프로젝트 준비 후 root 경로에 Dockerfile 생성<br>
-(확장명 없이 파일명은 반드시 Dockerfile)</p>
-
-<pre><code># Dockerfile
-
-# 1단계: Build
-FROM eclipse-temurin:17-jdk AS builder
-WORKDIR /app
-
-COPY . .
-RUN ./gradlew bootJar
-
-# 2단계: Runtime
-FROM eclipse-temurin:17-jre
-WORKDIR /app
-
-COPY --from=builder /app/build/libs/*.jar app.jar
-
-ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]
-</code></pre>
-
-<p>이미지 빌드</p>
-
-<pre><code>$ docker build -t spring-backend ./springbackend
-</code></pre>
-
-<h3 id="이미지-삭제">이미지 삭제</h3>
-
-<pre><code>$ docker rmi spring-backend:latest
-</code></pre>
-
-<h3 id="이미지-다운로드">이미지 다운로드</h3>
-
-<pre><code>$ docker pull postgres:15
-</code></pre>
-
-<h2 id="container-컨테이너">Container(컨테이너)</h2>
-
-<h3 id="컨테이너-확인">컨테이너 확인</h3>
-
-<pre><code>$ docker ps
-$ docker ps -a (종료된 것도 포함)
-
-CONTAINER ID   IMAGE            COMMAND               CREATED          STATUS          PORTS                                         NAMES
-08a3470db291   spring-backend   &quot;java -jar app.jar&quot;   49 seconds ago   Up 49 seconds   0.0.0.0:8080-&gt;8080/tcp, [::]:8080-&gt;8080/tcp   bold_hopper
-</code></pre>
-
-<h3 id="컨테이너-실행">컨테이너 실행</h3>
-
-<pre><code>$ docker run -d --name spring-backend -p 8080:8080 spring-backend:latest
-</code></pre>
-
-<pre><code>$ docker run --name my-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres:15
-</code></pre>
-
-<h3 id="컨테이너-로그-확인">컨테이너 로그 확인</h3>
-
-<pre><code>$ docker logs -f 08a3470db291
-</code></pre>
-
-<h3 id="컨테이너-삭제">컨테이너 삭제</h3>
-
-<pre><code>$ docker rm 08a3470db291
-</code></pre>
-
-<h2 id="docker-compose-도커-컴포즈">Docker Compose(도커 컴포즈)</h2>
-
-<h3 id="프로젝트-기본-구조">프로젝트 기본 구조</h3>
-
-<pre><code>project-root/
- ├─ docker-compose.yml
- ├─ spring/
- │   ├─ src/
- │   ├─ build.gradle
- │   └─ ...
- └─ (기타 파일)
-
-</code></pre>
-
-<h3 id="컴포즈-실행">컴포즈 실행</h3>
-
-<pre><code># docker-compose.yml
-version: &quot;3.9&quot;
+<pre><code># /docker-compose.yml
 
 services:
-  db:
+  primary:
     image: postgres:15
-    container_name: postgres-db
+    container_name: pg-primary
     environment:
+      POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: postgres
+      POSTGRES_DB: mydb
     ports:
       - &quot;5432:5432&quot;
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - primary_data:/var/lib/postgresql/data
+      - ./primary/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    command: &gt;
+      postgres -c wal_level=replica
+              -c max_wal_senders=10
+              -c max_replication_slots=10
+              -c hot_standby=on
+              -c listen_addresses='*'
+              -c hba_file=/etc/postgresql/pg_hba.conf
 
-  spring:
-    image: spring-backend:latest # 이미 빌드된 이미지 사용
-    container_name: spring-backend
-    ports:
-      - &quot;8080:8080&quot;
+  replica:
+    image: postgres:15
+    container_name: pg-replica
     depends_on:
-      - db
+      - primary
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+    ports:
+      - &quot;5433:5432&quot;
+    entrypoint: [ &quot;/bin/bash&quot;, &quot;/replica/replica.sh&quot; ]
+    volumes:
+      - replica_data:/var/lib/postgresql/data
+      - ./replica:/replica
 
 volumes:
-  pgdata:
+  primary_data:
+  replica_data:
 
+networks:
+  pgnet:
 </code></pre>
 
-<pre><code>$ docker compose up
+<h3 id="primary">primary</h3>
+
+<pre><code># /primary/pg_hba.conf
+
+# Local connections (required)
+local   all             all                                     trust
+
+# Allow replication from Docker network
+host    replication     postgres        0.0.0.0/0                trust
+
+# Allow all remote connections (for testing)
+host    all             all             0.0.0.0/0                trust
 </code></pre>
 
-<h3 id="컴포즈-종료">컴포즈 종료</h3>
+<h3 id="replica">replica</h3>
 
-<pre><code>$ docker compose down
+<pre><code># replica.sh
+
+#!/bin/bash
+set -e
+
+echo &quot;Waiting for primary...&quot;
+sleep 5
+
+echo &quot;Cleaning old data...&quot;
+rm -rf /var/lib/postgresql/data/*
+
+echo &quot;Cloning primary...&quot;
+PGPASSWORD=password pg_basebackup -h pg-primary -D /var/lib/postgresql/data -U postgres -Fp -Xs -P
+
+echo &quot;Configuring replica...&quot;
+cat &lt;&lt;EOF &gt; /var/lib/postgresql/data/postgresql.auto.conf
+primary_conninfo = 'host=pg-primary port=5432 user=postgres password=password'
+hot_standby = on
+EOF
+
+touch /var/lib/postgresql/data/standby.signal
+
+echo &quot;Starting PostgreSQL replica...&quot;
+exec docker-entrypoint.sh postgres
+</code></pre>
+
+<h3 id="실행-종료">실행 &amp; 종료</h3>
+
+<pre><code>$ docker-compose up -d
+$ docker-compose down -v
+</code></pre>
+
+<h3 id="로그-확인">로그 확인</h3>
+
+<pre><code>$ docker logs pg-primary
+$ docker logs pg-replica
+</code></pre>
+
+<h3 id="복제-확인">복제 확인</h3>
+
+<pre><code>$ docker exec -it pg-primary psql -U postgres -c &quot;CREATE TABLE test_rep (id SERIAL PRIMARY KEY, msg TEXT);&quot;
+$ docker exec -it pg-primary psql -U postgres -c &quot;SELECT * FROM pg_stat_replication;&quot;
+$ docker exec -it pg-replica psql -U postgres -c &quot;SELECT * FROM pg_stat_replication;&quot;
 </code></pre>
 
 
